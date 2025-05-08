@@ -48,5 +48,5 @@ if historical_df is not None and forecast_df is not None:
 
 # 4️⃣ RMSE Table
 if rmse_df is not None:
-    st.subheader("📊 Model Performance (RMSE and % Error)")
-    st.dataframe(rmse_df)
+    st.subheader("📊 Model Performance (Root Mean Square %age Error)")
+    st.dataframe(rmse_df[['Model', 'Percentage Error']])
