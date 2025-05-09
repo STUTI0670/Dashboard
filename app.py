@@ -9,13 +9,16 @@ st.title("📊 Food Category Forecast Dashboard")
 
 # 1️⃣ Category Dropdown
 base_path = "Data/Production"
-categories = [f.replace("prod_", "").replace("_", " ").title() 
-              for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+category_folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+display_to_folder = {
+    f.replace("prod_", "").replace("_", " ").title(): f
+    for f in category_folders
+}
 
-selected_category = st.selectbox("Select Food Category", categories)
+selected_category = st.selectbox("Select Food Category", list(display_to_folder.keys()))
 
 # Convert selection to matching folder
-folder_name = f"prod_{selected_category.lower().replace(' ', '_')}"
+folder_name = display_to_folder[selected_category]
 folder_path = os.path.join(base_path, folder_name)
 
 # File readers
