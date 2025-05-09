@@ -50,3 +50,18 @@ if historical_df is not None and forecast_df is not None:
 if rmse_df is not None:
     st.subheader("📊 Model Performance (Root Mean Square %age Error)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
+
+#LOGEST Growth Rate
+from growth_analysis import plot_logest_growth_from_csv
+
+st.subheader("📈 Decade-wise Logest Growth Rate")
+
+category = st.selectbox("Select Category", os.listdir("Data/Production"))
+csv_path = f"Data/Production/{category}/historical_data.csv"
+
+if os.path.exists(csv_path):
+    fig = plot_logest_growth_from_csv(csv_path, category.replace("prod_", "").capitalize())
+    st.pyplot(fig)
+else:
+    st.warning("Historical data file not found.")
+
