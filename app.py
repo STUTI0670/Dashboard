@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import os
 from growth_analysis import plot_logest_growth_from_csv
 
@@ -66,3 +67,24 @@ if rmse_df is not None:
     st.subheader("📊 Model Performance (Percentage Error Only)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
 
+st.subheader("🗺️ India Map - Area/Production/Yield (Coming Soon)")
+
+# Create empty India map as placeholder
+fig = go.Figure(go.Choroplethmapbox(
+    geojson="https://raw.githubusercontent.com/plotly/datasets/master/india_states.geojson",
+    locations=[],  # No data yet
+    z=[],           # No values
+    colorscale="Viridis",
+    marker_opacity=0.5,
+    marker_line_width=0
+))
+
+fig.update_layout(
+    mapbox_style="carto-positron",
+    mapbox_zoom=3.5,
+    mapbox_center={"lat": 22.9734, "lon": 78.6569},  # Center of India
+    margin={"r":0, "t":0, "l":0, "b":0},
+    height=500
+)
+
+st.plotly_chart(fig, use_container_width=True)
