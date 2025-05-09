@@ -67,7 +67,7 @@ if rmse_df is not None:
     st.subheader("📊 Model Performance (Percentage Error Only)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
 
-st.subheader("🗺️ India Map - Area/Production/Yield (Coming Soon)")
+st.subheader("🗺️ Placeholder for Interactive Heatmap")
 
 # Create empty India map as placeholder
 fig = go.Figure(go.Choroplethmapbox(
