@@ -59,7 +59,7 @@ st.subheader("📈 Decade-wise Logest Growth Rate")
 csv_path = f"Data/Production/prod_{selected_category}/historical_data.csv"
 
 if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, category.replace("prod_", "").capitalize())
+    fig = plot_logest_growth_from_csv(csv_path, selected_category.replace("prod_", "").capitalize())
     st.pyplot(fig)
 else:
     st.warning("Historical data file not found.")
