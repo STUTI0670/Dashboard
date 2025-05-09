@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
+from growth_analysis import plot_logest_growth_from_csv
 
 st.set_page_config(layout="wide")
 st.title("📊 Food Category Forecast Dashboard")
@@ -13,10 +14,11 @@ categories = [f.replace("prod_", "").replace("_", " ").title()
 
 selected_category = st.selectbox("Select Food Category", categories)
 
-# 2️⃣ Load CSVs
+# Convert selection to matching folder
 folder_name = f"prod_{selected_category.lower().replace(' ', '_')}"
 folder_path = os.path.join(base_path, folder_name)
 
+# File readers
 def safe_read(file):
     path = os.path.join(folder_path, file)
     return pd.read_csv(path) if os.path.exists(path) else None
@@ -26,7 +28,17 @@ forecast_df = safe_read("forecast_data.csv")
 rmse_df = safe_read("model_rmse.csv")
 wg_df = safe_read("wg_report.csv")
 
-# 3️⃣ Visualization: Historical + Forecast + WG Report
+# 2️⃣ LOGEST Growth Rate First
+st.subheader("📈 Decade-wise Logest Growth Rate")
+csv_path = os.path.join(folder_path, "historical_data.csv")
+
+if os.path.exists(csv_path):
+    fig = plot_logest_growth_from_csv(csv_path, selected_category)
+    st.pyplot(fig)
+else:
+    st.warning("Historical data file not found for growth rate chart.")
+
+# 3️⃣ Forecast + WG Visualization
 if historical_df is not None and forecast_df is not None:
     st.subheader("📈 Historical and Predicted Trends")
 
@@ -46,21 +58,8 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
 
-# 4️⃣ RMSE Table
+# 4️⃣ RMSE Table (Percentage Error Only)
 if rmse_df is not None:
-    st.subheader("📊 Model Performance (Root Mean Square %age Error)")
+    st.subheader("📊 Model Performance (Percentage Error Only)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
-
-#LOGEST Growth Rate
-from growth_analysis import plot_logest_growth_from_csv
-
-st.subheader("📈 Decade-wise Logest Growth Rate")
-
-csv_path = f"Data/Production/prod_{selected_category}/historical_data.csv"
-
-if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, selected_category.replace("prod_", "").capitalize())
-    st.pyplot(fig)
-else:
-    st.warning("Historical data file not found.")
 
