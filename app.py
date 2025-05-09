@@ -56,8 +56,7 @@ from growth_analysis import plot_logest_growth_from_csv
 
 st.subheader("📈 Decade-wise Logest Growth Rate")
 
-category = st.selectbox("Select Category", os.listdir("Data/Production"))
-csv_path = f"Data/Production/{category}/historical_data.csv"
+csv_path = f"Data/Production/prod_{selected_category}/historical_data.csv"
 
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category.replace("prod_", "").capitalize())
