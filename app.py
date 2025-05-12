@@ -5,10 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 
-# -------------------- Streamlit Page Config --------------------
 st.set_page_config(layout="wide", page_title="India Food Dashboard", page_icon="🌾")
 
-# -------------------- Custom CSS Styling --------------------
+# Inject custom CSS for big toggle buttons
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
@@ -20,37 +19,34 @@ st.markdown("""
     .toggle-container {
         display: flex;
         justify-content: center;
-        gap: 2rem;
-        margin: 2rem 0 1.5rem;
+        gap: 3rem;
+        margin: 3rem 0;
     }
 
     .toggle-button {
-        font-size: 2.2rem;
-        padding: 1.2rem 3rem;
-        border-radius: 20px;
-        border: 3px solid #333;
+        font-size: 2.8rem;
+        padding: 1.5rem 3.5rem;
+        border-radius: 25px;
+        border: 3px solid #222;
         background-color: white;
+        color: #222;
         cursor: pointer;
-        color: #000;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease-in-out;
         font-weight: 800;
-        margin: 1rem 2rem;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
         text-transform: uppercase;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
     }
 
     .toggle-button:hover {
-        transform: scale(1.5);
-        background-color: #f0f0f0;
+        background-color: #eee;
+        transform: scale(1.08);
     }
 
     .toggle-button.selected {
-        background-color: black !important;
+        background-color: #111 !important;
         color: white !important;
-        border: 3px solid #333 !important;
-        font-size: 1.6rem;
-        transform: scale(2);
+        transform: scale(1.2);
+        border-color: #444;
     }
 
     .sidebar-title {
@@ -66,33 +62,39 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# -------------------- Session State --------------------
+# Session state
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
-# -------------------- Toggle Buttons --------------------
-st.markdown('<div class="toggle-container">', unsafe_allow_html=True)
+# Toggle Buttons
+prod_selected = st.session_state.selected_type == "Production"
+yield_selected = st.session_state.selected_type == "Yield"
 
-col1, col2 = st.columns([1, 1])
-with col1:
-    if st.button("Production", key="prod"):
-        st.session_state.selected_type = "Production"
-with col2:
-    if st.button("Yield", key="yield"):
-        st.session_state.selected_type = "Yield"
+toggle_html = f"""
+<div class="toggle-container">
+    <form action="" method="post">
+        <button type="submit" name="selection" value="Production" class="toggle-button {'selected' if prod_selected else ''}">Production</button>
+        <button type="submit" name="selection" value="Yield" class="toggle-button {'selected' if yield_selected else ''}">Yield</button>
+    </form>
+</div>
+"""
 
-st.markdown('</div>', unsafe_allow_html=True)
+selection = st.experimental_get_query_params().get("selection", [None])[0]
+if selection:
+    st.session_state.selected_type = selection
 
-selected_type = st.session_state.selected_type
+st.markdown(toggle_html, unsafe_allow_html=True)
 
-if not selected_type:
+if not st.session_state.selected_type:
     st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b> or <b>Yield</b> to continue.</h4>", unsafe_allow_html=True)
     st.stop()
 
-# -------------------- Header --------------------
+selected_type = st.session_state.selected_type
+
+# Header
 st.markdown(f"<h1 style='text-align:center;'>🌾 India Food Data Dashboard</h1>", unsafe_allow_html=True)
 
-# -------------------- Folder Setup --------------------
+# Folder Setup
 base_path = f"Data/{selected_type}"
 prefix = "prod_" if selected_type == "Production" else "yield_"
 
@@ -102,7 +104,7 @@ categories = [
     if os.path.isdir(os.path.join(base_path, f))
 ]
 
-# -------------------- Sidebar --------------------
+# Sidebar
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     selected_category = st.radio("Select Category", categories, label_visibility="collapsed")
@@ -114,25 +116,23 @@ def safe_read(file_name):
     path = os.path.join(folder_path, file_name)
     return pd.read_csv(path) if os.path.exists(path) else None
 
-# -------------------- Load Files --------------------
 historical_df = safe_read("historical_data.csv")
 forecast_df = safe_read("forecast_data.csv")
 rmse_df = safe_read("model_rmse.csv")
 wg_df = safe_read("wg_report.csv")
 
-# -------------------- LOGEST Graph --------------------
+# LOGEST Graph
 st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, selected_category)
     st.pyplot(fig)
 
-# -------------------- Forecast Chart --------------------
+# Forecast Chart
 if historical_df is not None and forecast_df is not None:
     st.subheader("🔮 Historical and Predicted Forecasts")
     fig = px.line()
     fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"], mode="lines+markers", name="Historical", line=dict(color="black"))
-
     for col in forecast_df.columns[1:]:
         fig.add_scatter(x=forecast_df["Year"], y=forecast_df[col], mode="lines+markers", name=col)
 
@@ -143,12 +143,12 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
 
-# -------------------- RMSE Table --------------------
+# RMSE Table
 if rmse_df is not None:
     st.subheader("📊 Model Performance (% Error)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
 
-# -------------------- Placeholder India Map --------------------
+# India Map Placeholder
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
 fig = go.Figure(go.Choroplethmapbox(
     geojson="https://raw.githubusercontent.com/plotly/datasets/master/india_states.geojson",
