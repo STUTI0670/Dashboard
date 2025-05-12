@@ -1,71 +1,63 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import os
+import plotly.express as px
 from growth_analysis import plot_logest_growth_from_csv
 
 st.set_page_config(layout="wide")
-st.title("📊 Food Category Forecast Dashboard")
+st.title("🌾 India Food Data Dashboard")
 
-# 1️⃣ Category Dropdown
-base_path = "Data/Production"
-category_folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
-display_to_folder = {
-    f.replace("prod_", "").replace("_", " ").title(): f
-    for f in category_folders
-}
+# Step 1: Choose between Production or Yield
+data_type = st.radio("Choose Data Type", ["Production", "Yield"], horizontal=True)
 
-selected_category = st.selectbox("Select Food Category", list(display_to_folder.keys()))
+# Step 2: Get categories based on selection
+base_path = f"Data/{data_type}"
+categories = [f.replace("prod_", "").replace("_", " ").title()
+              for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
 
-# Convert selection to matching folder
-folder_name = display_to_folder[selected_category]
+# Step 3: Sidebar Ribbon for category selection
+with st.sidebar:
+    st.markdown(f"### {data_type} Categories")
+    selected_category = st.radio("Select Category", categories)
+
+folder_name = f"prod_{selected_category.lower().replace(' ', '_')}"
 folder_path = os.path.join(base_path, folder_name)
 
-# File readers
-def safe_read(file):
-    path = os.path.join(folder_path, file)
-    return pd.read_csv(path) if os.path.exists(path) else None
+# Step 4: Load Data
+def safe_read(file): return pd.read_csv(os.path.join(folder_path, file)) if os.path.exists(os.path.join(folder_path, file)) else None
 
 historical_df = safe_read("historical_data.csv")
 forecast_df = safe_read("forecast_data.csv")
 rmse_df = safe_read("model_rmse.csv")
 wg_df = safe_read("wg_report.csv")
 
-# 2️⃣ LOGEST Growth Rate First
-st.subheader("📈 Decade-wise Logest Growth Rate")
+# Step 5: LOGEST Growth Chart
+st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
-
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, selected_category)
     st.pyplot(fig)
-else:
-    st.warning("Historical data file not found for growth rate chart.")
 
-# 3️⃣ Forecast + WG Visualization
+# Step 6: Forecast Chart
 if historical_df is not None and forecast_df is not None:
-    st.subheader("📈 Historical and Predicted Trends")
+    st.subheader("🔮 Historical and Predicted Forecasts")
 
     fig = px.line()
-    fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"],
-                    mode="lines+markers", name="Historical", line=dict(color="black"))
+    fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"], mode="lines+markers", name="Historical", line=dict(color="black"))
 
     for col in forecast_df.columns[1:]:
-        fig.add_scatter(x=forecast_df["Year"], y=forecast_df[col],
-                        mode="lines+markers", name=col)
+        fig.add_scatter(x=forecast_df["Year"], y=forecast_df[col], mode="lines+markers", name=col)
 
     if wg_df is not None:
-        fig.add_scatter(x=wg_df["Year"], y=wg_df["Value"],
-                        mode="markers+text", name="WG Report",
-                        marker=dict(color="red", size=10),
-                        text=wg_df["Scenario"], textposition="top right")
+        fig.add_scatter(x=wg_df["Year"], y=wg_df["Value"], mode="markers+text", name="WG Report", marker=dict(color="red", size=10), text=wg_df["Scenario"], textposition="top right")
 
     st.plotly_chart(fig, use_container_width=True)
 
-# 4️⃣ RMSE Table (Percentage Error Only)
+# Step 7: RMSE Table
 if rmse_df is not None:
-    st.subheader("📊 Model Performance (Percentage Error Only)")
+    st.subheader("📊 Model Performance (% Error)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
+
 
 st.subheader("🗺️ Placeholder for Interactive Heatmap")
 
