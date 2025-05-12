@@ -25,9 +25,9 @@ st.markdown("""
     }
 
     .toggle-button {
-        font-size: 1.2rem;
-        padding: 0.7rem 2.2rem;
-        border-radius: 15px;
+        font-size: 1.6rem;
+        padding: 1rem 2.5rem;
+        border-radius: 18px;
         border: 2px solid #333;
         background-color: white;
         color: #000;
@@ -37,15 +37,15 @@ st.markdown("""
     }
 
     .toggle-button:hover {
-        transform: scale(1.05);
+        transform: scale(1.5);
         background-color: #f0f0f0;
     }
 
     .toggle-button.selected {
         background-color: black !important;
         color: white !important;
-        font-size: 1.4rem;
-        transform: scale(1.1);
+        font-size: 1.6rem;
+        transform: scale(2);
     }
 
     .sidebar-title {
