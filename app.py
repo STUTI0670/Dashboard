@@ -25,15 +25,19 @@ st.markdown("""
     }
 
     .toggle-button {
-        font-size: 1.6rem;
-        padding: 1rem 2.5rem;
-        border-radius: 18px;
-        border: 2px solid #333;
+        font-size: 2.2rem;
+        padding: 1.2rem 3rem;
+        border-radius: 20px;
+        border: 3px solid #333;
         background-color: white;
+        cursor: pointer;
         color: #000;
         cursor: pointer;
         transition: all 0.3s ease;
-        font-weight: 600;
+        font-weight: 800;
+        margin: 1rem 2rem;
+        text-transform: uppercase;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
     }
 
     .toggle-button:hover {
@@ -44,6 +48,7 @@ st.markdown("""
     .toggle-button.selected {
         background-color: black !important;
         color: white !important;
+        border: 3px solid #333 !important;
         font-size: 1.6rem;
         transform: scale(2);
     }
