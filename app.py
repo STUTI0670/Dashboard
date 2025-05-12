@@ -5,70 +5,67 @@ import plotly.express as px
 import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 
-# ---------- PAGE CONFIG ----------
+# -------------------- Streamlit Page Config --------------------
 st.set_page_config(layout="wide", page_title="India Food Dashboard", page_icon="🌾")
 
-# ---------- CUSTOM STYLING ----------
+# -------------------- Custom CSS Styling --------------------
 st.markdown("""
-<style>
-/* Global font and layout */
-html, body, [class*="css"] {
-    font-family: 'Poppins', sans-serif;
-}
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
-/* Top button container */
-.toggle-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-}
+    html, body, [class*="css"] {
+        font-family: 'Poppins', sans-serif;
+    }
 
-/* Header-style button */
-.toggle-btn {
-    padding: 0.7rem 2.2rem;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 1.2rem;
-    background-color: #2b2b2b;
-    color: white;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-}
+    .toggle-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0 1.5rem;
+    }
 
-.toggle-btn:hover {
-    background-color: #444;
-    transform: scale(1.05);
-}
+    .toggle-button {
+        font-size: 1.2rem;
+        padding: 0.7rem 2.2rem;
+        border-radius: 15px;
+        border: 2px solid #333;
+        background-color: white;
+        color: #000;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
 
-.toggle-btn.selected {
-    background-color: #14b8a6;
-    color: white;
-    font-size: 1.5rem;
-    transform: scale(1.1);
-}
+    .toggle-button:hover {
+        transform: scale(1.05);
+        background-color: #f0f0f0;
+    }
 
-/* Sidebar header styling */
-.sidebar-title {
-    background-color: #fff;
-    padding: 1rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #111;
-}
-</style>
+    .toggle-button.selected {
+        background-color: black !important;
+        color: white !important;
+        font-size: 1.4rem;
+        transform: scale(1.1);
+    }
+
+    .sidebar-title {
+        background-color: white;
+        padding: 1rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #111;
+    }
+    </style>
 """, unsafe_allow_html=True)
 
-# ---------- SESSION STATE ----------
+# -------------------- Session State --------------------
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
-# ---------- TOGGLE BUTTON UI ----------
+# -------------------- Toggle Buttons --------------------
 st.markdown('<div class="toggle-container">', unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 1])
@@ -81,49 +78,53 @@ with col2:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ---------- CHECK IF SELECTED ----------
 selected_type = st.session_state.selected_type
+
 if not selected_type:
     st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b> or <b>Yield</b> to continue.</h4>", unsafe_allow_html=True)
     st.stop()
 
-# ---------- HEADER ----------
+# -------------------- Header --------------------
 st.markdown(f"<h1 style='text-align:center;'>🌾 India Food Data Dashboard</h1>", unsafe_allow_html=True)
 
-# ---------- CATEGORY SELECTION ----------
+# -------------------- Folder Setup --------------------
 base_path = f"Data/{selected_type}"
-categories = [f.replace("prod_", "").replace("_", " ").title()
-              for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+prefix = "prod_" if selected_type == "Production" else "yield_"
 
-# ---------- SIDEBAR ----------
+categories = [
+    f.replace(prefix, "").replace("_", " ").title()
+    for f in os.listdir(base_path)
+    if os.path.isdir(os.path.join(base_path, f))
+]
+
+# -------------------- Sidebar --------------------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     selected_category = st.radio("Select Category", categories, label_visibility="collapsed")
 
-# ---------- FOLDER SETUP ----------
-folder_name = f"prod_{selected_category.lower().replace(' ', '_')}"
+folder_name = f"{prefix}{selected_category.lower().replace(' ', '_')}"
 folder_path = os.path.join(base_path, folder_name)
 
-def safe_read(file): 
-    path = os.path.join(folder_path, file)
+def safe_read(file_name):
+    path = os.path.join(folder_path, file_name)
     return pd.read_csv(path) if os.path.exists(path) else None
 
+# -------------------- Load Files --------------------
 historical_df = safe_read("historical_data.csv")
 forecast_df = safe_read("forecast_data.csv")
 rmse_df = safe_read("model_rmse.csv")
 wg_df = safe_read("wg_report.csv")
 
-# ---------- LOGEST GROWTH ----------
+# -------------------- LOGEST Graph --------------------
 st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, selected_category)
     st.pyplot(fig)
 
-# ---------- FORECAST CHART ----------
+# -------------------- Forecast Chart --------------------
 if historical_df is not None and forecast_df is not None:
     st.subheader("🔮 Historical and Predicted Forecasts")
-
     fig = px.line()
     fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"], mode="lines+markers", name="Historical", line=dict(color="black"))
 
@@ -137,24 +138,23 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
 
-# ---------- RMSE TABLE ----------
+# -------------------- RMSE Table --------------------
 if rmse_df is not None:
     st.subheader("📊 Model Performance (% Error)")
     st.dataframe(rmse_df[['Model', 'Percentage Error']])
 
-# ---------- MAP PLACEHOLDER ----------
+# -------------------- Placeholder India Map --------------------
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
 fig = go.Figure(go.Choroplethmapbox(
     geojson="https://raw.githubusercontent.com/plotly/datasets/master/india_states.geojson",
-    locations=[], z=[], colorscale="Viridis",
-    marker_opacity=0.5, marker_line_width=0
+    locations=[], z=[],
+    colorscale="Viridis", marker_opacity=0.5, marker_line_width=0
 ))
-
 fig.update_layout(
     mapbox_style="carto-positron",
     mapbox_zoom=3.5,
     mapbox_center={"lat": 22.9734, "lon": 78.6569},
-    margin={"r":0,"t":0,"l":0,"b":0},
+    margin={"r":0, "t":0, "l":0, "b":0},
     height=500
 )
 st.plotly_chart(fig, use_container_width=True)
