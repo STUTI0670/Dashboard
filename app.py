@@ -99,7 +99,7 @@ with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     selected_category = st.radio("Select Category", categories, label_visibility="collapsed")
 
-folder_name = f"{prefix}{selected_category.}"
+folder_name = f"{prefix}{selected_category}"
 folder_path = os.path.join(base_path, folder_name)
 
 def safe_read(filename):
