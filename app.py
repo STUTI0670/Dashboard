@@ -66,27 +66,38 @@ if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
 # ---------- TOGGLE BUTTONS ----------
+# ---------- TOGGLE BUTTONS ----------
 st.markdown('<div class="toggle-container">', unsafe_allow_html=True)
-col1, col2 = st.columns([1, 1])
+col1, col2, col3 = st.columns([1, 1, 1])
 with col1:
     if st.button("Production", key="prod"):
         st.session_state.selected_type = "Production"
 with col2:
     if st.button("Yield", key="yield"):
         st.session_state.selected_type = "Yield"
+with col3:
+    if st.button("Area", key="area"):
+        st.session_state.selected_type = "Area"
 st.markdown('</div>', unsafe_allow_html=True)
 
 selected_type = st.session_state.selected_type
 if not selected_type:
-    st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b> or <b>Yield</b> to continue.</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b>, <b>Yield</b>, or <b>Area</b> to continue.</h4>", unsafe_allow_html=True)
     st.stop()
 
 # ---------- HEADER ----------
 st.markdown(f"<h1 style='text-align:center;'>🌾 India Food Data Dashboard</h1>", unsafe_allow_html=True)
 
 # ---------- FILE SETUP ----------
-base_path = f"Data/{selected_type}"
-prefix = "prod_" if selected_type == "Production" else "yield_"
+if selected_type == "Production":
+    base_path = "Data/Production"
+    prefix = "prod_"
+elif selected_type == "Yield":
+    base_path = "Data/Yield"
+    prefix = "yield_"
+elif selected_type == "Area":
+    base_path = "Data/Area"
+    prefix = "area_"
 
 categories = [
     f.replace(prefix, "").replace("_", " ").title()
