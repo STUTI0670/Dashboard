@@ -87,16 +87,36 @@ if not selected_type:
 # ---------- HEADER ----------
 st.markdown(f"<h1 style='text-align:center;'>🌾 India FoodCrop Data Dashboard</h1>", unsafe_allow_html=True)
 
-# ---------- FILE SETUP ----------
-if selected_type == "Production":
-    base_path = "Data/Production"
-    prefix = "prod_"
-elif selected_type == "Yield":
-    base_path = "Data/Yield"
-    prefix = "yield_"
-elif selected_type == "Area":
-    base_path = "Data/Area"
-    prefix = "area_"
+# ---------- PREFIX AND BASE PATH ----------
+prefix_map = {
+    "Production": "prod_",
+    "Yield": "yield_",
+    "Area": "area_"
+}
+prefix = prefix_map[selected_type]
+base_path = f"Data/{selected_type}"
+
+# ---------- CATEGORY MAPPINGS ----------
+folder_name_map = {
+    # Agriculture
+    "Foodgrains": "foodgrains",
+    "Cereals": "cereals",
+    "Coarse Cereals": "coarse cereals",
+    "Pulses": "pulses",
+    "Oilseeds": "oilseeds",
+    "Vegetables": "vegetables",
+    "Fruits": "fruits",
+    "Maize": "maize",
+    "Wheat": "wheat",
+    "Rice": "rice",
+    "Sugar and Products": "sugar and products",
+
+    # Allied Sectors
+    "Eggs": "eggs",
+    "Milk": "milk",
+    "Meat": "meat",
+    "Marine and Inland Fish": "marine and inland fish"
+}
 
 # ---------- SIDEBAR: Hierarchical Category Selection ----------
 with st.sidebar:
@@ -105,26 +125,19 @@ with st.sidebar:
     main_sector = st.selectbox("Select Main Sector", ["Agriculture", "Allied Sectors"])
 
     sub_sector_options = {
-        "Agriculture": ["Foodgrains", "Oilseeds", "Horticulture", "Commercial Crops", "Spices", "Processed Products"],
-        "Allied Sectors": ["Animal Husbandry", "Fisheries"]
+        "Agriculture": ["Foodgrains", "Cereals", "Coarse Cereals", "Pulses", "Oilseeds", "Vegetables", "Fruits", "Maize", "Wheat", "Rice", "Sugar and Products"],
+        "Allied Sectors": ["Eggs", "Milk", "Meat", "Marine and Inland Fish"]
     }
-    sub_sector = st.selectbox("Select Sub-Sector", sub_sector_options[main_sector])
 
-    category_options = {
-        "Foodgrains": ["Foodgrains", "Cereals", "Pulses (Non-cereals)"],
-        "Oilseeds": ["Oilseeds"],
-        "Horticulture": ["Vegetables", "Fruits", "Tree Nuts"],
-        "Commercial Crops": ["Sugar Crops", "Starchy/Tuber Crops", "Beverage Crops"],
-        "Spices": ["Spices"],
-        "Processed Products": ["Edible Oils"],
-        "Animal Husbandry": ["Milk", "Meat", "Egg", "Animal Fat"],
-        "Fisheries": ["Fish"]
-    }
-    selected_category = st.selectbox("Select Category", category_options[sub_sector])
+    selected_category = st.selectbox("Select Category", sub_sector_options[main_sector])
 
-# ---------- Folder and Data Loader ----------
-folder_name = f"{prefix}{selected_category.lower().replace(' ', '_').replace('(', '').replace(')', '').replace('-', '').replace('/', '_')}"
-folder_path = os.path.join(base_path, folder_name)
+# ---------- FINAL FOLDER PATH ----------
+if selected_category in folder_name_map:
+    folder_name = f"{prefix}{folder_name_map[selected_category]}"
+    folder_path = os.path.join(base_path, folder_name)
+else:
+    st.error("Selected category folder not mapped.")
+    st.stop()
 
 def safe_read(filename):
     full_path = os.path.join(folder_path, filename)
