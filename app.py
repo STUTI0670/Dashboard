@@ -133,12 +133,18 @@ with st.sidebar:
     sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
 
     # Filter subcategories based on availability
+    def normalize(name):
+        return name.lower().replace(" ", "").replace("_", "")
+
     subcat_display_to_folder = {}
+    norm_available = {normalize(f): f for f in available_folders}
+
     for subcat_list in category_hierarchy[sector][sub_sector].values():
         for subcat in subcat_list:
-            folder = subcat.lower().replace(" ", "_")
-            if folder in available_folders:
-                subcat_display_to_folder[subcat] = folder
+            norm_subcat = normalize(subcat)
+            if norm_subcat in norm_available:
+                subcat_display_to_folder[subcat] = norm_available[norm_subcat]
+
 
 
     if not subcat_display_to_folder:
