@@ -131,7 +131,7 @@ if os.path.exists(csv_path):
 
 # ---------- FORECAST GRAPH ----------
 if historical_df is not None and forecast_df is not None:
-    st.subheader("🔮 Historical and Predicted Forecasts")
+    st.subheader("📊 Historical and Predicted Forecasts")
     fig = px.line()
     fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"], mode="lines+markers", name="Historical", line=dict(color="black"))
 
