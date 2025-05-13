@@ -175,19 +175,86 @@ if os.path.exists(csv_path):
 
 # ---------- FORECAST GRAPH ----------
 if historical_df is not None and forecast_df is not None:
-    st.subheader("📊 Historical and Predicted Forecasts")
+    # Hardcoded unit mapping
+    unit_lookup = {
+        "Yield": {
+            "Oilseeds": "Kg./hectare",
+            "Pulses": "Kg./hectare",
+            "Rice": "Kg./hectare",
+            "Wheat": "Kg./hectare",
+            "Coarse Cereals": "Kg./hectare",
+            "Maize": "Kg./hectare",
+            "Fruits": "MT/hectare",
+            "Vegetables": "MT/hectare"
+        },
+        "Production": {
+            "Milk": "Million Tonne",
+            "Meat": "Million Tonne",
+            "Eggs": "Million Numbers",
+            "Sugar and Products": "Lakh Tonne",
+            "Fruits": "'000 MT",
+            "Vegetables": "'000 MT",
+            "Foodgrains": "'000 Tonne",
+            "Cereals": "'000 Tonne",
+            "Pulses": "'000 Tonne",
+            "Rice": "'000 Tonne",
+            "Wheat": "'000 Tonne",
+            "Coarse Cereals": "'000 Tonne",
+            "Maize": "'000 Tonne"
+        },
+        "Area": {
+            "Foodgrains": "Lakh hectare",
+            "Cereals": "'000 hectare",
+            "Fruits": "'000 hectare",
+            "Oilseeds": "'000 hectare",
+            "Pulses": "'000 hectare",
+            "Rice": "'000 hectare",
+            "Vegetables": "'000 hectare",
+            "Wheat": "'000 hectare",
+            "Coarse Cereals": "'000 hectare",
+            "Maize": "'000 hectare"
+        }
+    }
+
+    unit = unit_lookup.get(selected_type, {}).get(category, "")
+
+    st.subheader(f"📊 Historical and Predicted Forecasts ({unit})" if unit else "📊 Historical and Predicted Forecasts")
+
     fig = px.line()
-    fig.add_scatter(x=historical_df["Year"], y=historical_df["Total"], mode="lines+markers", name="Historical", line=dict(color="black"))
+    fig.add_scatter(
+        x=historical_df["Year"],
+        y=historical_df["Total"],
+        mode="lines+markers",
+        name=f"Historical ({unit})" if unit else "Historical",
+        line=dict(color="black")
+    )
 
     for col in forecast_df.columns[1:]:
-        fig.add_scatter(x=forecast_df["Year"], y=forecast_df[col], mode="lines+markers", name=col)
+        fig.add_scatter(
+            x=forecast_df["Year"],
+            y=forecast_df[col],
+            mode="lines+markers",
+            name=f"{col} ({unit})" if unit else col
+        )
 
     if wg_df is not None:
-        fig.add_scatter(x=wg_df["Year"], y=wg_df["Value"], mode="markers+text", name="WG Report",
-                        marker=dict(color="red", size=10),
-                        text=wg_df["Scenario"], textposition="top right")
+        fig.add_scatter(
+            x=wg_df["Year"],
+            y=wg_df["Value"],
+            mode="markers+text",
+            name=f"WG Report ({unit})" if unit else "WG Report",
+            marker=dict(color="red", size=10),
+            text=wg_df["Scenario"],
+            textposition="top right"
+        )
+
+    fig.update_layout(
+        yaxis_title=f"Value ({unit})" if unit else "Value",
+        xaxis_title="Year"
+    )
 
     st.plotly_chart(fig, use_container_width=True)
+
 
 # ---------- PLACEHOLDER MAP ----------
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
