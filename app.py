@@ -104,17 +104,29 @@ categories = [
     if os.path.isdir(os.path.join(base_path, f))
 ]
 
-# ---------- SIDEBAR ----------
+# ---------- SIDEBAR: Hierarchical Category Selection ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
-    selected_category = st.radio("Select Category", categories, label_visibility="collapsed")
 
-folder_name = f"{prefix}{selected_category.lower()}"
-folder_path = os.path.join(base_path, folder_name)
+    main_sector = st.selectbox("Select Main Sector", ["Agriculture", "Allied Sectors"])
 
-def safe_read(filename):
-    full_path = os.path.join(folder_path, filename)
-    return pd.read_csv(full_path) if os.path.exists(full_path) else None
+    sub_sector_options = {
+        "Agriculture": ["Foodgrains", "Oilseeds", "Horticulture", "Commercial Crops", "Spices", "Processed Products"],
+        "Allied Sectors": ["Animal Husbandry", "Fisheries"]
+    }
+    sub_sector = st.selectbox("Select Sub-Sector", sub_sector_options[main_sector])
+
+    category_options = {
+        "Foodgrains": ["Cereals", "Pulses (Non-cereals)"],
+        "Oilseeds": ["Oilseeds"],
+        "Horticulture": ["Vegetables", "Fruits", "Tree Nuts"],
+        "Commercial Crops": ["Sugar Crops", "Starchy/Tuber Crops", "Beverage Crops"],
+        "Spices": ["Spices"],
+        "Processed Products": ["Edible Oils"],
+        "Animal Husbandry": ["Milk", "Meat", "Egg", "Animal Fat"],
+        "Fisheries": ["Fish"]
+    }
+    selected_category = st.selectbox("Select Category", category_options[sub_sector])
 
 # ---------- LOAD DATA ----------
 historical_df = safe_read("historical_data.csv")
