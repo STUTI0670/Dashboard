@@ -98,12 +98,6 @@ elif selected_type == "Area":
     base_path = "Data/Area"
     prefix = "area_"
 
-categories = [
-    f.replace(prefix, "").replace("_", " ").title()
-    for f in os.listdir(base_path)
-    if os.path.isdir(os.path.join(base_path, f))
-]
-
 # ---------- SIDEBAR: Hierarchical Category Selection ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
@@ -117,7 +111,7 @@ with st.sidebar:
     sub_sector = st.selectbox("Select Sub-Sector", sub_sector_options[main_sector])
 
     category_options = {
-        "Foodgrains": ["Cereals", "Pulses (Non-cereals)"],
+        "Foodgrains": ["Foodgrains", "Cereals", "Pulses (Non-cereals)"],
         "Oilseeds": ["Oilseeds"],
         "Horticulture": ["Vegetables", "Fruits", "Tree Nuts"],
         "Commercial Crops": ["Sugar Crops", "Starchy/Tuber Crops", "Beverage Crops"],
@@ -128,10 +122,17 @@ with st.sidebar:
     }
     selected_category = st.selectbox("Select Category", category_options[sub_sector])
 
+# ---------- Folder and Data Loader ----------
+folder_name = f"{prefix}{selected_category.lower().replace(' ', '_').replace('(', '').replace(')', '').replace('-', '').replace('/', '_')}"
+folder_path = os.path.join(base_path, folder_name)
+
+def safe_read(filename):
+    full_path = os.path.join(folder_path, filename)
+    return pd.read_csv(full_path) if os.path.exists(full_path) else None
+
 # ---------- LOAD DATA ----------
 historical_df = safe_read("historical_data.csv")
 forecast_df = safe_read("forecast_data.csv")
-rmse_df = safe_read("model_rmse.csv")
 wg_df = safe_read("wg_report.csv")
 
 # ---------- LOGEST GRAPH ----------
@@ -157,7 +158,6 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
 
-
 # ---------- PLACEHOLDER MAP ----------
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
 fig = go.Figure(go.Choroplethmapbox(
@@ -169,7 +169,7 @@ fig.update_layout(
     mapbox_style="carto-positron",
     mapbox_zoom=3.5,
     mapbox_center={"lat": 22.9734, "lon": 78.6569},
-    margin={"r":0, "t":0, "l":0, "b":0},
+    margin={"r": 0, "t": 0, "l": 0, "b": 0},
     height=500
 )
 st.plotly_chart(fig, use_container_width=True)
