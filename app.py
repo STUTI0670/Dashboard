@@ -133,11 +133,13 @@ with st.sidebar:
     sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
 
     # Filter subcategories based on availability
-    subcat_display_to_folder = {
-        subcat: folder for subcat_list in category_hierarchy[sector][sub_sector].values()
-        for subcat in subcat_list
-        if folder := subcat.lower().replace(" ", "_") in available_folders
-    }
+    subcat_display_to_folder = {}
+    for subcat_list in category_hierarchy[sector][sub_sector].values():
+        for subcat in subcat_list:
+            folder = subcat.lower().replace(" ", "_")
+            if folder in available_folders:
+                subcat_display_to_folder[subcat] = folder
+
 
     if not subcat_display_to_folder:
         st.error("No data available for selected sub-sector.")
