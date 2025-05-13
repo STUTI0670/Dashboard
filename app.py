@@ -99,9 +99,9 @@ available_folders = [f.replace(prefix, "") for f in os.listdir(base_path) if f.s
 category_hierarchy = {
     "Agriculture": {
         "Foodgrains": {
-            "Cereals": ["Rice", "Wheat"],
+            "Cereals": ["Rice", "Wheat", "Cereals"],
             "Foodgrains": ["Foodgrains"],
-            "Coarse Cereals": ["Maize"],
+            "Coarse Cereals": ["Maize", "Coarse Cereals"],
             "Pulses": ["Pulses"]
         },
         "Horticulture": {
