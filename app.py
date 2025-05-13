@@ -66,7 +66,6 @@ if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
 # ---------- TOGGLE BUTTONS ----------
-# ---------- TOGGLE BUTTONS ----------
 st.markdown('<div class="toggle-container">', unsafe_allow_html=True)
 col1, col2, col3 = st.columns([1, 1, 1])
 with col1:
@@ -146,10 +145,6 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
 
-# ---------- RMSE TABLE ----------
-if rmse_df is not None:
-    st.subheader("📊 Model Performance (% Error)")
-    st.dataframe(rmse_df[['Model', 'Percentage Error']])
 
 # ---------- PLACEHOLDER MAP ----------
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
