@@ -218,44 +218,50 @@ if historical_df is not None and forecast_df is not None:
 
     unit = unit_lookup.get(selected_type, {}).get(category, "")
 
-    st.subheader(f"📊 Historical and Predicted Forecasts ({unit})" if unit else "📊 Historical and Predicted Forecasts")
+    # Title with emoji and unit
+    st.subheader(f"📊 Historical and Predicted Forecasts{' (' + unit + ')' if unit else ''}")
 
-    fig = px.line()
-    fig.add_scatter(
+    fig = go.Figure()
+
+    # Historical
+    fig.add_trace(go.Scatter(
         x=historical_df["Year"],
         y=historical_df["Total"],
         mode="lines+markers",
-        name=f"Historical ({unit})" if unit else "Historical",
+        name=f"Historical{' (' + unit + ')' if unit else ''}",
         line=dict(color="black")
-    )
+    ))
 
+    # Forecast Models
     for col in forecast_df.columns[1:]:
-        fig.add_scatter(
+        fig.add_trace(go.Scatter(
             x=forecast_df["Year"],
             y=forecast_df[col],
             mode="lines+markers",
-            name=f"{col} ({unit})" if unit else col
-        )
+            name=f"{col}{' (' + unit + ')' if unit else ''}"
+        ))
 
+    # WG Report
     if wg_df is not None:
-        fig.add_scatter(
+        fig.add_trace(go.Scatter(
             x=wg_df["Year"],
             y=wg_df["Value"],
             mode="markers+text",
-            name=f"WG Report ({unit})" if unit else "WG Report",
+            name=f"WG Report{' (' + unit + ')' if unit else ''}",
             marker=dict(color="red", size=10),
             text=wg_df["Scenario"],
             textposition="top right"
-        )
+        ))
 
+    # Axis titles
     fig.update_layout(
-        yaxis_title=f"Value ({unit})" if unit else "Value",
-        xaxis_title="Year"
+        yaxis_title=f"Value{' (' + unit + ')' if unit else ''}",
+        xaxis_title="Year",
+        legend_title="Forecast Models"
     )
 
     st.plotly_chart(fig, use_container_width=True)
-
-
+    
 # ---------- PLACEHOLDER MAP ----------
 st.subheader("🗺️ Interactive India Map (Coming Soon)")
 fig = go.Figure(go.Choroplethmapbox(
