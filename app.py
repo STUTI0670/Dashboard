@@ -8,7 +8,7 @@ from growth_analysis import plot_logest_growth_from_csv
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
-# ---------- CUSTOM CSS --------------
+# ---------- CSS ----------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
@@ -87,58 +87,68 @@ if not selected_type:
 # ---------- HEADER ----------
 st.markdown(f"<h1 style='text-align:center;'>🌾 India FoodCrop Data Dashboard</h1>", unsafe_allow_html=True)
 
-# ---------- PREFIX AND BASE PATH ----------
-prefix_map = {
-    "Production": "prod_",
-    "Yield": "yield_",
-    "Area": "area_"
-}
+# ---------- PATH & PREFIX ----------
+prefix_map = {"Production": "prod_", "Yield": "yield_", "Area": "area_"}
 prefix = prefix_map[selected_type]
 base_path = f"Data/{selected_type}"
 
-# ---------- CATEGORY MAPPINGS ----------
-folder_name_map = {
-    # Agriculture
-    "Foodgrains": "foodgrains",
-    "Cereals": "cereals",
-    "Coarse Cereals": "coarse cereals",
-    "Pulses": "pulses",
-    "Oilseeds": "oilseeds",
-    "Vegetables": "vegetables",
-    "Fruits": "fruits",
-    "Maize": "maize",
-    "Wheat": "wheat",
-    "Rice": "rice",
-    "Sugar and Products": "sugar and products",
+# ---------- AVAILABLE FOLDERS ----------
+available_folders = [f.replace(prefix, "") for f in os.listdir(base_path) if f.startswith(prefix)]
 
-    # Allied Sectors
-    "Eggs": "eggs",
-    "Milk": "milk",
-    "Meat": "meat",
-    "Marine and Inland Fish": "marine and inland fish"
+# ---------- CATEGORY HIERARCHY ----------
+category_hierarchy = {
+    "Agriculture": {
+        "Foodgrains": {
+            "Cereals": ["Rice", "Wheat"],
+            "Foodgrains": ["Foodgrains"],
+            "Coarse Cereals": ["Maize"],
+            "Pulses": ["Pulses"]
+        },
+        "Horticulture": {
+            "Fruits": ["Fruits"],
+            "Vegetables": ["Vegetables"]
+        },
+        "Oilseeds": {
+            "Oilseeds": ["Oilseeds"]
+        },
+        "Commercial Crops": {
+            "Sugar and Products": ["Sugar and Products"]
+        }
+    },
+    "Allied Sectors": {
+        "Animal Products": {
+            "Eggs": ["Eggs"],
+            "Milk": ["Milk"],
+            "Meat": ["Meat"],
+            "Marine and Inland Fish": ["Marine and Inland Fish"]
+        }
+    }
 }
 
-# ---------- SIDEBAR: Hierarchical Category Selection ----------
+# ---------- SIDEBAR ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
 
-    main_sector = st.selectbox("Select Main Sector", ["Agriculture", "Allied Sectors"])
+    sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
+    sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
 
-    sub_sector_options = {
-        "Agriculture": ["Foodgrains", "Cereals", "Coarse Cereals", "Pulses", "Oilseeds", "Vegetables", "Fruits", "Maize", "Wheat", "Rice", "Sugar and Products"],
-        "Allied Sectors": ["Eggs", "Milk", "Meat", "Marine and Inland Fish"]
+    # Filter subcategories based on availability
+    subcat_display_to_folder = {
+        subcat: folder for subcat_list in category_hierarchy[sector][sub_sector].values()
+        for subcat in subcat_list
+        if folder := subcat.lower().replace(" ", "_") in available_folders
     }
 
-    selected_category = st.selectbox("Select Category", sub_sector_options[main_sector])
+    if not subcat_display_to_folder:
+        st.error("No data available for selected sub-sector.")
+        st.stop()
 
-# ---------- FINAL FOLDER PATH ----------
-if selected_category in folder_name_map:
-    folder_name = f"{prefix}{folder_name_map[selected_category]}"
+    category = st.selectbox("Category", list(subcat_display_to_folder.keys()))
+    folder_key = subcat_display_to_folder[category]
+    folder_name = f"{prefix}{folder_key}"
     folder_path = os.path.join(base_path, folder_name)
-else:
-    st.error("Selected category folder not mapped.")
-    st.stop()
 
+# ---------- SAFE READ ----------
 def safe_read(filename):
     full_path = os.path.join(folder_path, filename)
     return pd.read_csv(full_path) if os.path.exists(full_path) else None
@@ -152,7 +162,7 @@ wg_df = safe_read("wg_report.csv")
 st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, selected_category)
+    fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
 
 # ---------- FORECAST GRAPH ----------
@@ -186,3 +196,4 @@ fig.update_layout(
     height=500
 )
 st.plotly_chart(fig, use_container_width=True)
+
