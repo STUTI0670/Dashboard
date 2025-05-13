@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 
 # Page setup
-st.set_page_config(layout="wide", page_title="India Food Dashboard", page_icon="🌾")
+st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
 # ---------- CUSTOM CSS --------------
 st.markdown("""
@@ -85,7 +85,7 @@ if not selected_type:
     st.stop()
 
 # ---------- HEADER ----------
-st.markdown(f"<h1 style='text-align:center;'>🌾 India Food Data Dashboard</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align:center;'>🌾 India FoodCrop Data Dashboard</h1>", unsafe_allow_html=True)
 
 # ---------- FILE SETUP ----------
 if selected_type == "Production":
