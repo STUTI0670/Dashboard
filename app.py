@@ -266,7 +266,6 @@ if historical_df is not None and forecast_df is not None:
     st.plotly_chart(fig, use_container_width=True)
     
 # ---------- WORLD MAP ----------
-# ---------- WORLD MAP ----------
 with st.sidebar:
     st.markdown("### 🌍 World View Map")
 
