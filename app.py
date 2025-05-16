@@ -4,6 +4,8 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
+from world_map import show_world_timelapse_map
+
 
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
