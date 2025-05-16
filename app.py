@@ -176,144 +176,72 @@ if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
 
-# ---------- FORECAST GRAPH ----------
+# ---------- FORECAST TIMELINE ANIMATION (Unified with Historical) ----------
 if historical_df is not None and forecast_df is not None:
     # Hardcoded unit mapping
     unit_lookup = {
         "Yield": {
-            "Oilseeds": "Kg./hectare",
-            "Pulses": "Kg./hectare",
-            "Rice": "Kg./hectare",
-            "Wheat": "Kg./hectare",
-            "Coarse Cereals": "Kg./hectare",
-            "Maize": "Kg./hectare",
-            "Fruits": "MT/hectare",
-            "Vegetables": "MT/hectare"
+            "Oilseeds": "Kg./hectare", "Pulses": "Kg./hectare", "Rice": "Kg./hectare", "Wheat": "Kg./hectare",
+            "Coarse Cereals": "Kg./hectare", "Maize": "Kg./hectare", "Fruits": "MT/hectare", "Vegetables": "MT/hectare"
         },
         "Production": {
-            "Milk": "Million Tonne",
-            "Meat": "Million Tonne",
-            "Eggs": "Million Numbers",
-            "Sugar and Products": "Lakh Tonne",
-            "Fruits": "'000 MT",
-            "Vegetables": "'000 MT",
-            "Foodgrains": "'000 Tonne",
-            "Cereals": "'000 Tonne",
-            "Pulses": "'000 Tonne",
-            "Rice": "'000 Tonne",
-            "Wheat": "'000 Tonne",
-            "Coarse Cereals": "'000 Tonne",
-            "Maize": "'000 Tonne"
+            "Milk": "Million Tonne", "Meat": "Million Tonne", "Eggs": "Million Numbers",
+            "Sugar and Products": "Lakh Tonne", "Fruits": "'000 MT", "Vegetables": "'000 MT",
+            "Foodgrains": "'000 Tonne", "Cereals": "'000 Tonne", "Pulses": "'000 Tonne", "Rice": "'000 Tonne",
+            "Wheat": "'000 Tonne", "Coarse Cereals": "'000 Tonne", "Maize": "'000 Tonne"
         },
         "Area": {
-            "Foodgrains": "Lakh hectare",
-            "Cereals": "'000 hectare",
-            "Fruits": "'000 hectare",
-            "Oilseeds": "'000 hectare",
-            "Pulses": "'000 hectare",
-            "Rice": "'000 hectare",
-            "Vegetables": "'000 hectare",
-            "Wheat": "'000 hectare",
-            "Coarse Cereals": "'000 hectare",
-            "Maize": "'000 hectare"
+            "Foodgrains": "Lakh hectare", "Cereals": "'000 hectare", "Fruits": "'000 hectare",
+            "Oilseeds": "'000 hectare", "Pulses": "'000 hectare", "Rice": "'000 hectare", "Vegetables": "'000 hectare",
+            "Wheat": "'000 hectare", "Coarse Cereals": "'000 hectare", "Maize": "'000 hectare"
         }
     }
 
     unit = unit_lookup.get(selected_type, {}).get(category, "")
 
-    # Title with emoji and unit
-    st.subheader(f"📊 Historical and Predicted Forecasts{' (' + unit + ')' if unit else ''}")
-
-    fig = go.Figure()
-
-    # Historical Data
-    fig.add_trace(go.Scatter(
-        x=historical_df["Year"],
-        y=historical_df["Total"],
-        mode="lines+markers",
-        name=f"Historical{' (' + unit + ')' if unit else ''}",
-        line=dict(color="black")
-    ))
-
-    # Forecast Model Traces
-    for col in forecast_df.columns[1:]:
-        fig.add_trace(go.Scatter(
-            x=forecast_df["Year"],
-            y=forecast_df[col],
-            mode="lines+markers",
-            name=f"{col}{' (' + unit + ')' if unit else ''}"
-        ))
-
-    # WG Report
-    if wg_df is not None:
-        fig.add_trace(go.Scatter(
-            x=wg_df["Year"],
-            y=wg_df["Value"],
-            mode="markers+text",
-            name=f"WG Report{' (' + unit + ')' if unit else ''}",
-            marker=dict(color="red", size=10),
-            text=wg_df["Scenario"],
-            textposition="top right"
-        ))
-
-    # Add annotation for forecast scale
-    if unit:
-        fig.add_annotation(
-            text=f"Forecast Scale: Values in {unit}",
-            xref="paper", yref="paper",
-            x=0.5, y=1.15, showarrow=False,
-            font=dict(size=14, color="gray"),
-            align="center"
-        )
-
-    # Layout
-    fig.update_layout(
-        yaxis_title=f"Value{' (' + unit + ')' if unit else ''}",
-        xaxis_title="Year",
-        legend_title="Forecast Models",
-        margin=dict(t=90)
-    )
-
-    # Axis titles
-    fig.update_layout(
-        yaxis_title=f"Value{' (' + unit + ')' if unit else ''}",
-        xaxis_title="Year",
-        legend_title="Forecast Models"
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-# ---------- FORECAST TIMELINE ANIMATION ----------
-if forecast_df is not None:
-    # Prepare long format for animation
-    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
-
-    # Build cumulative forecast timeline per model
+    # Melt forecast data for each FrameYear cumulatively
     years = sorted(forecast_df["Year"].unique())
-    timeline_frames = []
-
+    forecast_frames = []
     for year in years:
-        df_year = forecast_df[forecast_df["Year"] <= year].copy()
-        df_melted = df_year.melt(id_vars="Year", var_name="Model", value_name="Value")
-        df_melted["FrameYear"] = year
-        timeline_frames.append(df_melted)
+        df_till = forecast_df[forecast_df["Year"] <= year].copy()
+        melted = df_till.melt(id_vars="Year", var_name="Model", value_name="Value")
+        melted["FrameYear"] = year
+        forecast_frames.append(melted)
 
-    cumulative_df = pd.concat(timeline_frames)
+    cumulative_forecast = pd.concat(forecast_frames)
 
-    # Calculate global y-range
-    y_min = cumulative_df["Value"].min() * 0.95
-    y_max = cumulative_df["Value"].max() * 1.05
+    # Historical data replicated across all FrameYears
+    historical_melted = historical_df.rename(columns={"Total": "Value"})
+    historical_melted["Model"] = "Historical"
 
-    # Animated Forecast Plot
+    historical_frames = []
+    for year in years:
+        hist_copy = historical_melted.copy()
+        hist_copy["FrameYear"] = year
+        historical_frames.append(hist_copy)
+
+    cumulative_historical = pd.concat(historical_frames)
+
+    # Combine both
+    timeline_df = pd.concat([cumulative_historical, cumulative_forecast])
+
+    # Global axis range
+    y_min = timeline_df["Value"].min() * 0.95
+    y_max = timeline_df["Value"].max() * 1.05
+    x_min = timeline_df["Year"].min()
+    x_max = timeline_df["Year"].max()
+
+    # Animated Timeline Chart
     fig_timeline = px.line(
-        cumulative_df,
+        timeline_df,
         x="Year",
         y="Value",
         color="Model",
         animation_frame="FrameYear",
         title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
         markers=True,
-        range_y=[y_min, y_max]  # 🔥 this locks the y-axis scale!
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max]
     )
 
     fig_timeline.update_layout(
