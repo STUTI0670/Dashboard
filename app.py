@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
+import glob
 
 
 # Page setup
@@ -264,18 +265,23 @@ if historical_df is not None and forecast_df is not None:
 
     st.plotly_chart(fig, use_container_width=True)
     
-# ---------- PLACEHOLDER MAP ----------
-st.subheader("🗺️ Interactive India Map (Coming Soon)")
-fig = go.Figure(go.Choroplethmapbox(
-    geojson="https://raw.githubusercontent.com/plotly/datasets/master/india_states.geojson",
-    locations=[], z=[], colorscale="Viridis",
-    marker_opacity=0.5, marker_line_width=0
-))
-fig.update_layout(
-    mapbox_style="carto-positron",
-    mapbox_zoom=3.5,
-    mapbox_center={"lat": 22.9734, "lon": 78.6569},
-    margin={"r": 0, "t": 0, "l": 0, "b": 0},
-    height=500
-)
-st.plotly_chart(fig, use_container_width=True)
+# ---------- WORLD MAP ----------
+with st.sidebar:
+    st.markdown("### 🌍 World View Map")
+    world_type = st.selectbox("Select Type", ["Production", "Yield", "Area"])
+
+    base_world_path = f"Data/world data/{world_type}"
+    file_list = glob.glob(f"{base_world_path}/*.csv")
+
+    available_categories = {
+        f.split("/")[-1].replace(f"{world_type.lower()}_", "").replace("_country.csv", "").replace("_", " ").title(): f
+        for f in file_list
+    }
+
+    if available_categories:
+        selected_category = st.selectbox("Select Category", list(available_categories.keys()))
+        selected_file = available_categories[selected_category]
+        df_world = pd.read_csv(selected_file)
+        show_world_timelapse_map(df_world, metric_title=f"{selected_category} {world_type}")
+    else:
+        st.warning("No data files found for selected type.")
