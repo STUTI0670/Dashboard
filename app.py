@@ -177,6 +177,48 @@ if os.path.exists(csv_path):
     st.pyplot(fig)
 
 # ---------- FORECAST TIMELINE ANIMATION (Corrected and Final Version) ----------
+unit_lookup = {
+    "Yield": {
+        "Oilseeds": "Kg./hectare",
+        "Pulses": "Kg./hectare",
+        "Rice": "Kg./hectare",
+        "Wheat": "Kg./hectare",
+        "Coarse Cereals": "Kg./hectare",
+        "Maize": "Kg./hectare",
+        "Fruits": "MT/hectare",
+        "Vegetables": "MT/hectare"
+    },
+    "Production": {
+        "Milk": "Million Tonne",
+        "Meat": "Million Tonne",
+        "Eggs": "Million Numbers",
+        "Sugar and Products": "Lakh Tonne",
+        "Fruits": "'000 MT",
+        "Vegetables": "'000 MT",
+        "Foodgrains": "'000 Tonne",
+        "Cereals": "'000 Tonne",
+        "Pulses": "'000 Tonne",
+        "Rice": "'000 Tonne",
+        "Wheat": "'000 Tonne",
+        "Coarse Cereals": "'000 Tonne",
+        "Maize": "'000 Tonne"
+    },
+    "Area": {
+        "Foodgrains": "Lakh hectare",
+        "Cereals": "'000 hectare",
+        "Fruits": "'000 hectare",
+        "Oilseeds": "'000 hectare",
+        "Pulses": "'000 hectare",
+        "Rice": "'000 hectare",
+        "Vegetables": "'000 hectare",
+        "Wheat": "'000 hectare",
+        "Coarse Cereals": "'000 hectare",
+        "Maize": "'000 hectare"
+    }
+}
+
+unit = unit_lookup.get(selected_type, {}).get(category, "")
+
 if historical_df is not None and forecast_df is not None:
     # Combine historical and forecast data
     historical_df = historical_df.rename(columns={"Total": "Value"})
