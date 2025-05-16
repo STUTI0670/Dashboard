@@ -268,13 +268,7 @@ if historical_df is not None and forecast_df is not None:
 # ---------- WORLD MAP ----------
 with st.sidebar:
     st.markdown("### 🌍 World View Map")
-
-    base_world_path = os.path.join("world data", selected_type)
-    st.write("📁 World Path:", base_world_path)  # DEBUG LINE
-
-    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
-    st.write("🗂️ Files Found:", file_list)       # DEBUG LINE
-
+    
     available_categories = {
         os.path.basename(f)
         .replace("prod_", "")
