@@ -266,22 +266,22 @@ if historical_df is not None and forecast_df is not None:
     st.plotly_chart(fig, use_container_width=True)
     
 # ---------- WORLD MAP ----------
+# ---------- WORLD MAP ----------
 with st.sidebar:
     st.markdown("### 🌍 World View Map")
-    world_type = st.selectbox("Select Type", ["Production", "Yield", "Area"])
 
-    base_world_path = os.path.join("Data", "world data", world_type)
+    base_world_path = os.path.join("Data", "world data", selected_type)
     file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
 
     available_categories = {
-        f.split("/")[-1].replace(f"{world_type.lower()}_", "").replace("_country.csv", "").replace("_", " ").title(): f
+        os.path.basename(f).replace(f"{prefix}", "").replace("_country.csv", "").replace("_", " ").title(): f
         for f in file_list
     }
 
     if available_categories:
-        selected_category = st.selectbox("Select Category", list(available_categories.keys()))
-        selected_file = available_categories[selected_category]
+        selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
+        selected_file = available_categories[selected_world_category]
         df_world = pd.read_csv(selected_file)
-        show_world_timelapse_map(df_world, metric_title=f"{selected_category} {world_type}")
+        show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
     else:
         st.warning("No data files found for selected type.")
