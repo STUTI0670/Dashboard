@@ -288,37 +288,41 @@ if forecast_df is not None:
     # Prepare long format for animation
     forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
 
-    
     # Build cumulative forecast timeline per model
-years = sorted(forecast_df["Year"].unique())
-timeline_frames = []
+    years = sorted(forecast_df["Year"].unique())
+    timeline_frames = []
 
-for year in years:
-    df_year = forecast_df[forecast_df["Year"] <= year].copy()
-    df_melted = df_year.melt(id_vars="Year", var_name="Model", value_name="Value")
-    df_melted["FrameYear"] = year
-    timeline_frames.append(df_melted)
+    for year in years:
+        df_year = forecast_df[forecast_df["Year"] <= year].copy()
+        df_melted = df_year.melt(id_vars="Year", var_name="Model", value_name="Value")
+        df_melted["FrameYear"] = year
+        timeline_frames.append(df_melted)
 
-cumulative_df = pd.concat(timeline_frames)
+    cumulative_df = pd.concat(timeline_frames)
 
-fig_timeline = px.line(
-    cumulative_df,
-    x="Year",
-    y="Value",
-    color="Model",
-    animation_frame="FrameYear",
-    title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
-    markers=True,
-)
+    # Calculate global y-range
+    y_min = cumulative_df["Value"].min() * 0.95
+    y_max = cumulative_df["Value"].max() * 1.05
 
-fig_timeline.update_layout(
-    yaxis_title=f"Forecast Value ({unit})",
-    xaxis_title="Year",
-    legend_title="Model"
-)
-st.plotly_chart(fig_timeline, use_container_width=True)
+    # Animated Forecast Plot
+    fig_timeline = px.line(
+        cumulative_df,
+        x="Year",
+        y="Value",
+        color="Model",
+        animation_frame="FrameYear",
+        title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
+        markers=True,
+        range_y=[y_min, y_max]  # 🔥 this locks the y-axis scale!
+    )
 
+    fig_timeline.update_layout(
+        yaxis_title=f"Forecast Value ({unit})",
+        xaxis_title="Year",
+        legend_title="Model"
+    )
 
+    st.plotly_chart(fig_timeline, use_container_width=True)
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
