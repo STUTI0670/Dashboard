@@ -1,0 +1,5271 @@
+﻿Country,Year,Unit,Value
+Afghanistan,1961,t,19000
+Afghanistan,1962,t,20000
+Afghanistan,1963,t,21000
+Afghanistan,1964,t,22000
+Afghanistan,1965,t,23000
+Afghanistan,1966,t,24000
+Afghanistan,1967,t,25000
+Afghanistan,1968,t,26000
+Afghanistan,1969,t,27000
+Afghanistan,1970,t,28000
+Afghanistan,1971,t,29000
+Afghanistan,1972,t,30000
+Afghanistan,1973,t,30000
+Afghanistan,1974,t,31000
+Afghanistan,1975,t,32000
+Afghanistan,1976,t,40000
+Afghanistan,1977,t,35000
+Afghanistan,1978,t,36000
+Afghanistan,1979,t,34000
+Afghanistan,1980,t,34000
+Afghanistan,1981,t,32000
+Afghanistan,1982,t,30000
+Afghanistan,1983,t,30000
+Afghanistan,1984,t,28000
+Afghanistan,1985,t,27000
+Afghanistan,1986,t,25000
+Afghanistan,1987,t,25000
+Afghanistan,1988,t,25000
+Afghanistan,1989,t,25000
+Afghanistan,1990,t,26000
+Afghanistan,1991,t,23302.33
+Afghanistan,1992,t,20000
+Afghanistan,1993,t,21774.06
+Afghanistan,1994,t,22000
+Afghanistan,1995,t,22179.28
+Afghanistan,1996,t,21914.75
+Afghanistan,1997,t,21722.57
+Afghanistan,1998,t,21506.12
+Afghanistan,1999,t,21395.77
+Afghanistan,2000,t,22000
+Afghanistan,2001,t,22000
+Afghanistan,2002,t,20000
+Afghanistan,2003,t,17000
+Afghanistan,2004,t,17000
+Afghanistan,2005,t,22000
+Afghanistan,2006,t,12000
+Afghanistan,2007,t,20000
+Afghanistan,2008,t,22000
+Afghanistan,2009,t,19000
+Afghanistan,2010,t,15000
+Afghanistan,2011,t,15000
+Afghanistan,2012,t,15000
+Afghanistan,2013,t,13000
+Afghanistan,2014,t,3764.28
+Afghanistan,2015,t,6248
+Afghanistan,2016,t,7518.42
+Afghanistan,2017,t,4850.97
+Afghanistan,2018,t,2304.5
+Afghanistan,2019,t,2714
+Afghanistan,2020,t,1895
+Afghanistan,2021,t,1550
+Afghanistan,2022,t,1913
+Afghanistan,2023,t,1824.12
+Angola,1961,t,65000
+Angola,1962,t,70000
+Angola,1963,t,70000
+Angola,1964,t,75000
+Angola,1965,t,60000
+Angola,1966,t,70000
+Angola,1967,t,75000
+Angola,1968,t,77000
+Angola,1969,t,78000
+Angola,1970,t,78000
+Angola,1971,t,78000
+Angola,1972,t,78000
+Angola,1973,t,78000
+Angola,1974,t,80000
+Angola,1975,t,75000
+Angola,1976,t,80000
+Angola,1977,t,50000
+Angola,1978,t,50000
+Angola,1979,t,40000
+Angola,1980,t,57000
+Angola,1981,t,50000
+Angola,1982,t,50000
+Angola,1983,t,50000
+Angola,1984,t,50000
+Angola,1985,t,50000
+Angola,1986,t,54000
+Angola,1987,t,60000
+Angola,1988,t,60000
+Angola,1989,t,63000
+Angola,1990,t,63000
+Angola,1991,t,66500
+Angola,1992,t,75000
+Angola,1993,t,40000
+Angola,1994,t,60000
+Angola,1995,t,61000
+Angola,1996,t,101982
+Angola,1997,t,61880
+Angola,1998,t,88950
+Angola,1999,t,101736
+Angola,2000,t,105252
+Angola,2001,t,148016
+Angola,2002,t,161069
+Angola,2003,t,83090
+Angola,2004,t,123400
+Angola,2005,t,137864
+Angola,2006,t,144390
+Angola,2007,t,77089
+Angola,2008,t,27153
+Angola,2009,t,27974
+Angola,2010,t,40723
+Angola,2011,t,61226
+Angola,2012,t,18379
+Angola,2013,t,38603
+Angola,2014,t,43056
+Angola,2015,t,43746
+Angola,2016,t,49166
+Angola,2017,t,54430
+Angola,2018,t,52718.38
+Angola,2019,t,51905.92
+Angola,2020,t,55000
+Angola,2021,t,35000
+Angola,2022,t,35000
+Angola,2023,t,30000
+Argentina,1961,t,260600
+Argentina,1962,t,215000
+Argentina,1963,t,154500
+Argentina,1964,t,189000
+Argentina,1965,t,113000
+Argentina,1966,t,186400
+Argentina,1967,t,224000
+Argentina,1968,t,228700
+Argentina,1969,t,195500
+Argentina,1970,t,125200
+Argentina,1971,t,183000
+Argentina,1972,t,105000
+Argentina,1973,t,227000
+Argentina,1974,t,228500
+Argentina,1975,t,200000
+Argentina,1976,t,293700
+Argentina,1977,t,340000
+Argentina,1978,t,330000
+Argentina,1979,t,310000
+Argentina,1980,t,188000
+Argentina,1981,t,238000
+Argentina,1982,t,154000
+Argentina,1983,t,178600
+Argentina,1984,t,136000
+Argentina,1985,t,158000
+Argentina,1986,t,107000
+Argentina,1987,t,76900
+Argentina,1988,t,80000
+Argentina,1989,t,29800
+Argentina,1990,t,65300
+Argentina,1991,t,136000
+Argentina,1992,t,117000
+Argentina,1993,t,59300
+Argentina,1994,t,52500
+Argentina,1995,t,65450
+Argentina,1996,t,46819
+Argentina,1997,t,44224
+Argentina,1998,t,46185
+Argentina,1999,t,45660
+Argentina,2000,t,47920
+Argentina,2001,t,31210
+Argentina,2002,t,28070
+Argentina,2003,t,21850
+Argentina,2004,t,11375
+Argentina,2005,t,16277
+Argentina,2006,t,15518
+Argentina,2007,t,14484
+Argentina,2008,t,14824
+Argentina,2009,t,5880
+Argentina,2010,t,9115
+Argentina,2011,t,7990
+Argentina,2012,t,17414
+Argentina,2013,t,11192
+Argentina,2014,t,2670
+Argentina,2015,t,4640
+Argentina,2016,t,6867
+Argentina,2017,t,5328
+Argentina,2018,t,2254
+Argentina,2019,t,4140
+Argentina,2020,t,5441
+Argentina,2021,t,9508
+Argentina,2022,t,9480
+Argentina,2023,t,9746
+Australia,1961,t,21827
+Australia,1962,t,36985
+Australia,1963,t,37856
+Australia,1964,t,26290
+Australia,1965,t,24140
+Australia,1966,t,21745
+Australia,1967,t,31542
+Australia,1968,t,21228
+Australia,1969,t,19078
+Australia,1970,t,34454
+Australia,1971,t,57000
+Australia,1972,t,26000
+Australia,1973,t,26000
+Australia,1974,t,35000
+Australia,1975,t,21571
+Australia,1976,t,27432
+Australia,1977,t,18599
+Australia,1978,t,33087
+Australia,1979,t,36393
+Australia,1980,t,14333
+Australia,1981,t,27247
+Australia,1982,t,38597
+Australia,1983,t,29367
+Australia,1984,t,43355
+Australia,1985,t,26093
+Australia,1986,t,32000
+Australia,1987,t,38885
+Australia,1988,t,50229
+Australia,1989,t,20546
+Australia,1990,t,39289
+Australia,1991,t,21263
+Australia,1992,t,42994
+Australia,1993,t,14237
+Australia,1994,t,36988
+Australia,1995,t,43550
+Australia,1996,t,29832
+Australia,1997,t,30000
+Australia,1998,t,31000
+Australia,1999,t,43000
+Australia,2000,t,56783
+Australia,2001,t,26947
+Australia,2002,t,25308
+Australia,2003,t,34212
+Australia,2004,t,43483
+Australia,2005,t,25008
+Australia,2006,t,35000
+Australia,2007,t,36000
+Australia,2008,t,37000
+Australia,2009,t,38000
+Australia,2010,t,36064.98
+Australia,2011,t,35890.71
+Australia,2012,t,35728.46
+Australia,2013,t,35805.14
+Australia,2014,t,36421.01
+Australia,2015,t,36442.67
+Australia,2016,t,36400.38
+Australia,2017,t,36802.25
+Australia,2018,t,36870
+Australia,2019,t,36885.71
+Australia,2020,t,36848.29
+Australia,2021,t,36456.36
+Australia,2022,t,36540.15
+Australia,2023,t,36623.94
+Austria,1961,t,899
+Austria,1962,t,907
+Austria,1963,t,1184
+Austria,1964,t,1584
+Austria,1965,t,2231
+Austria,1966,t,5866
+Austria,1967,t,5489
+Austria,1968,t,5590
+Austria,1969,t,2284
+Austria,1970,t,2572
+Austria,1971,t,2826
+Austria,1972,t,2788
+Austria,1973,t,3297
+Austria,1974,t,3023
+Austria,1975,t,0
+Austria,1976,t,0
+Austria,1977,t,0
+Austria,1978,t,0
+Austria,1979,t,0
+Austria,1980,t,0
+Austria,1981,t,0
+Austria,1982,t,0
+Austria,1983,t,0
+Austria,1984,t,0
+Austria,1985,t,0
+Austria,1986,t,0
+Austria,1987,t,0
+Austria,1988,t,0
+Austria,1989,t,0
+Austria,1990,t,0
+Austria,1991,t,0
+Austria,1992,t,0
+Austria,1993,t,0
+Austria,1994,t,0
+Austria,1995,t,0
+Austria,1996,t,1366.92
+Austria,1997,t,1895.17
+Austria,1998,t,2328.94
+Austria,1999,t,2600
+Austria,2000,t,4100
+Austria,2001,t,3300
+Austria,2002,t,5300
+Austria,2003,t,5735
+Austria,2004,t,8441
+Austria,2005,t,8733
+Austria,2006,t,7470
+Austria,2007,t,8150
+Austria,2008,t,8620
+Austria,2009,t,20000
+Austria,2010,t,7000
+Austria,2011,t,7940
+Austria,2012,t,7500
+Austria,2013,t,9286.07
+Austria,2014,t,10035.95
+Austria,2015,t,10096.54
+Austria,2016,t,10379.07
+Austria,2017,t,10608.22
+Austria,2018,t,
+Austria,2019,t,
+Austria,2020,t,
+Azerbaijan,1992,t,138
+Azerbaijan,1993,t,23
+Azerbaijan,1994,t,30
+Azerbaijan,1995,t,22
+Azerbaijan,1996,t,3
+Azerbaijan,1997,t,0.2
+Azerbaijan,1998,t,3
+Azerbaijan,1999,t,0.4
+Azerbaijan,2000,t,0.56
+Azerbaijan,2001,t,0
+Azerbaijan,2002,t,0
+Azerbaijan,2003,t,0
+Azerbaijan,2004,t,23
+Azerbaijan,2005,t,5
+Azerbaijan,2006,t,50
+Azerbaijan,2007,t,72.6
+Azerbaijan,2008,t,48
+Azerbaijan,2009,t,8
+Azerbaijan,2010,t,59
+Azerbaijan,2011,t,233
+Azerbaijan,2012,t,143
+Azerbaijan,2013,t,56
+Azerbaijan,2014,t,77
+Azerbaijan,2015,t,105
+Azerbaijan,2016,t,420.7
+Azerbaijan,2017,t,851.4
+Azerbaijan,2018,t,2791.5
+Azerbaijan,2019,t,5467.8
+Azerbaijan,2020,t,4117
+Azerbaijan,2021,t,2607.2
+Azerbaijan,2022,t,2938.4
+Azerbaijan,2023,t,10933.9
+Bahamas,1961,t,
+Bahamas,1962,t,
+Bahamas,1963,t,
+Bahamas,1964,t,
+Bahamas,1965,t,
+Bahamas,1966,t,
+Bahamas,1967,t,
+Bahamas,1968,t,
+Bahamas,1969,t,
+Bahamas,1970,t,
+Bahamas,1971,t,
+Bahamas,1972,t,
+Bahamas,1973,t,
+Bahamas,1974,t,
+Bahamas,1975,t,
+Bahamas,1976,t,
+Bahamas,1977,t,
+Bahamas,1978,t,
+Bahamas,1979,t,
+Bahamas,1980,t,
+Bahamas,1981,t,
+Bahamas,1982,t,
+Bahamas,1983,t,
+Bahamas,1984,t,
+Bahamas,1985,t,
+Bahamas,1986,t,
+Bahamas,1987,t,
+Bahamas,1988,t,
+Bahamas,1989,t,
+Bahamas,1990,t,
+Bahamas,1991,t,
+Bahamas,1992,t,
+Bahamas,1993,t,
+Bahamas,1994,t,
+Bahamas,1995,t,
+Bahamas,1996,t,
+Bahamas,1997,t,
+Bahamas,1998,t,
+Bahamas,1999,t,
+Bahamas,2000,t,
+Bahamas,2001,t,
+Bahamas,2002,t,
+Bahamas,2003,t,
+Bahamas,2004,t,
+Bahamas,2005,t,
+Bahamas,2006,t,
+Bahamas,2007,t,
+Bahamas,2008,t,
+Bahamas,2009,t,
+Bahamas,2010,t,
+Bahamas,2011,t,
+Bahamas,2012,t,
+Bahamas,2013,t,
+Bahamas,2014,t,
+Bahamas,2015,t,
+Bahamas,2016,t,
+Bahamas,2017,t,
+Bahamas,2018,t,
+Bahamas,2019,t,
+Bahamas,2020,t,
+Bahamas,2021,t,
+Bahamas,2022,t,
+Bahamas,2023,t,
+Bangladesh,1961,t,39600
+Bangladesh,1962,t,39600
+Bangladesh,1963,t,36600
+Bangladesh,1964,t,36600
+Bangladesh,1965,t,50800
+Bangladesh,1966,t,49786
+Bangladesh,1967,t,46738
+Bangladesh,1968,t,65816
+Bangladesh,1969,t,64794
+Bangladesh,1970,t,62401
+Bangladesh,1971,t,51214
+Bangladesh,1972,t,50802
+Bangladesh,1973,t,48443
+Bangladesh,1974,t,46410
+Bangladesh,1975,t,43939
+Bangladesh,1976,t,41741
+Bangladesh,1977,t,44243
+Bangladesh,1978,t,38483
+Bangladesh,1979,t,40040
+Bangladesh,1980,t,39542
+Bangladesh,1981,t,39020
+Bangladesh,1982,t,35040
+Bangladesh,1983,t,123000
+Bangladesh,1984,t,103000
+Bangladesh,1985,t,95000
+Bangladesh,1986,t,96136
+Bangladesh,1987,t,76387
+Bangladesh,1988,t,69779
+Bangladesh,1989,t,63735
+Bangladesh,1990,t,62915
+Bangladesh,1991,t,66110
+Bangladesh,1992,t,65410
+Bangladesh,1993,t,63000
+Bangladesh,1994,t,61000
+Bangladesh,1995,t,51000
+Bangladesh,1996,t,59745
+Bangladesh,1997,t,58295
+Bangladesh,1998,t,55030
+Bangladesh,1999,t,55000
+Bangladesh,2000,t,19500
+Bangladesh,2001,t,18000
+Bangladesh,2002,t,21200
+Bangladesh,2003,t,27200
+Bangladesh,2004,t,26050
+Bangladesh,2005,t,17150
+Bangladesh,2006,t,14150
+Bangladesh,2007,t,20150
+Bangladesh,2008,t,13350
+Bangladesh,2009,t,12440
+Bangladesh,2010,t,11990
+Bangladesh,2011,t,10288
+Bangladesh,2012,t,10395
+Bangladesh,2013,t,20065
+Bangladesh,2014,t,7140
+Bangladesh,2015,t,12510
+Bangladesh,2016,t,15250
+Bangladesh,2017,t,10380
+Bangladesh,2018,t,12713.33
+Bangladesh,2019,t,12781.11
+Bangladesh,2020,t,11958.15
+Bangladesh,2021,t,12484.2
+Bangladesh,2022,t,12407.82
+Bangladesh,2023,t,12283.39
+Belarus,1992,t,
+Belarus,1993,t,14174.21
+Belarus,1994,t,14214.52
+Belarus,1995,t,14254.84
+Belarus,1996,t,14295.16
+Belarus,1997,t,14335.48
+Belarus,1998,t,14375.8
+Belarus,1999,t,14416.12
+Belarus,2000,t,14456.44
+Belarus,2001,t,14496.76
+Belarus,2002,t,14537.08
+Belarus,2003,t,14685.2
+Belarus,2004,t,14901.45
+Belarus,2005,t,15117.71
+Belarus,2006,t,15333.97
+Belarus,2007,t,15550.22
+Belarus,2008,t,15766.48
+Belarus,2009,t,15982.73
+Belarus,2010,t,16198.99
+Belarus,2011,t,15690.18
+Belarus,2012,t,16009.86
+Belarus,2013,t,20469
+Belarus,2014,t,10008
+Belarus,2015,t,9894
+Belarus,2016,t,27964
+Belarus,2017,t,18365
+Belarus,2018,t,19890
+Belarus,2019,t,18016
+Belarus,2020,t,15637
+Belarus,2021,t,14000
+Belarus,2022,t,16183.91
+Belarus,2023,t,16704.87
+Benin,1961,t,7010
+Benin,1962,t,6235
+Benin,1963,t,7420
+Benin,1964,t,6260
+Benin,1965,t,5526
+Benin,1966,t,5980
+Benin,1967,t,6939
+Benin,1968,t,7325
+Benin,1969,t,6290
+Benin,1970,t,4782
+Benin,1971,t,7479
+Benin,1972,t,5700
+Benin,1973,t,18200
+Benin,1974,t,15300
+Benin,1975,t,5000
+Benin,1976,t,4100
+Benin,1977,t,5200
+Benin,1978,t,3325
+Benin,1979,t,6425
+Benin,1980,t,6525
+Benin,1981,t,6628
+Benin,1982,t,8216
+Benin,1983,t,5857
+Benin,1984,t,10788
+Benin,1985,t,8749
+Benin,1986,t,17526
+Benin,1987,t,20900
+Benin,1988,t,23042
+Benin,1989,t,22692
+Benin,1990,t,21767
+Benin,1991,t,27031
+Benin,1992,t,26153
+Benin,1993,t,23546
+Benin,1994,t,24836
+Benin,1995,t,22059
+Benin,1996,t,24281
+Benin,1997,t,26830
+Benin,1998,t,29427
+Benin,1999,t,29519
+Benin,2000,t,36352
+Benin,2001,t,34969
+Benin,2002,t,40751
+Benin,2003,t,35457
+Benin,2004,t,36817
+Benin,2005,t,37707
+Benin,2006,t,34995
+Benin,2007,t,35303
+Benin,2008,t,36283
+Benin,2009,t,27432
+Benin,2010,t,26926
+Benin,2011,t,24690
+Benin,2012,t,29580.65
+Benin,2013,t,23495.42
+Benin,2014,t,23668.29
+Benin,2015,t,21640.16
+Benin,2016,t,25182.16
+Benin,2017,t,24716.7
+Benin,2018,t,26142.8
+Benin,2019,t,26250
+Benin,2020,t,27293.54
+Benin,2021,t,23455.56
+Benin,2022,t,23990.04
+Benin,2023,t,34229.06
+Bhutan,1961,t,3208
+Bhutan,1962,t,3278
+Bhutan,1963,t,3358
+Bhutan,1964,t,3433
+Bhutan,1965,t,3513
+Bhutan,1966,t,3600
+Bhutan,1967,t,3700
+Bhutan,1968,t,3800
+Bhutan,1969,t,3800
+Bhutan,1970,t,3900
+Bhutan,1971,t,4000
+Bhutan,1972,t,4100
+Bhutan,1973,t,4200
+Bhutan,1974,t,4300
+Bhutan,1975,t,4400
+Bhutan,1976,t,4600
+Bhutan,1977,t,4800
+Bhutan,1978,t,5000
+Bhutan,1979,t,5500
+Bhutan,1980,t,5900
+Bhutan,1981,t,6650
+Bhutan,1982,t,6500
+Bhutan,1983,t,7100
+Bhutan,1984,t,9080
+Bhutan,1985,t,7000
+Bhutan,1986,t,7000
+Bhutan,1987,t,6900
+Bhutan,1988,t,6500
+Bhutan,1989,t,6500
+Bhutan,1990,t,8338
+Bhutan,1991,t,6028.9
+Bhutan,1992,t,6499.11
+Bhutan,1993,t,7000
+Bhutan,1994,t,6483.47
+Bhutan,1995,t,6205.59
+Bhutan,1996,t,5377.92
+Bhutan,1997,t,4943.68
+Bhutan,1998,t,4511.01
+Bhutan,1999,t,4294.55
+Bhutan,2000,t,3800
+Bhutan,2001,t,4000
+Bhutan,2002,t,2527
+Bhutan,2003,t,2896
+Bhutan,2004,t,2369
+Bhutan,2005,t,6753
+Bhutan,2006,t,8923
+Bhutan,2007,t,8724
+Bhutan,2008,t,5172
+Bhutan,2009,t,4219
+Bhutan,2010,t,4066
+Bhutan,2011,t,7064
+Bhutan,2012,t,3965
+Bhutan,2013,t,3800
+Bhutan,2014,t,3881
+Bhutan,2015,t,1811
+Bhutan,2016,t,1714
+Bhutan,2017,t,1739
+Bhutan,2018,t,1070.81
+Bhutan,2019,t,1240.45
+Bhutan,2020,t,1613.11
+Bhutan,2021,t,1122.11
+Bhutan,2022,t,602
+Bhutan,2023,t,530.26
+Botswana,1961,t,145
+Botswana,1962,t,150
+Botswana,1963,t,150
+Botswana,1964,t,290
+Botswana,1965,t,674
+Botswana,1966,t,505
+Botswana,1967,t,6400
+Botswana,1968,t,7545
+Botswana,1969,t,6804
+Botswana,1970,t,1270
+Botswana,1971,t,6000
+Botswana,1972,t,400
+Botswana,1973,t,1400
+Botswana,1974,t,4000
+Botswana,1975,t,4000
+Botswana,1976,t,3500
+Botswana,1977,t,3000
+Botswana,1978,t,2500
+Botswana,1979,t,1000
+Botswana,1980,t,3000
+Botswana,1981,t,1880
+Botswana,1982,t,450
+Botswana,1983,t,435
+Botswana,1984,t,715
+Botswana,1985,t,1850
+Botswana,1986,t,1300
+Botswana,1987,t,365
+Botswana,1988,t,3700
+Botswana,1989,t,1980
+Botswana,1990,t,1650
+Botswana,1991,t,1300
+Botswana,1992,t,500
+Botswana,1993,t,1624
+Botswana,1994,t,3591
+Botswana,1995,t,1950
+Botswana,1996,t,2508
+Botswana,1997,t,1357
+Botswana,1998,t,507
+Botswana,1999,t,860
+Botswana,2000,t,472
+Botswana,2001,t,54
+Botswana,2002,t,91
+Botswana,2003,t,60
+Botswana,2004,t,95
+Botswana,2005,t,120
+Botswana,2006,t,500
+Botswana,2007,t,656
+Botswana,2008,t,1636
+Botswana,2009,t,2767
+Botswana,2010,t,3406
+Botswana,2011,t,2511
+Botswana,2012,t,1959
+Botswana,2013,t,1391
+Botswana,2014,t,3398
+Botswana,2015,t,555
+Botswana,2016,t,1675.4
+Botswana,2017,t,1099
+Botswana,2018,t,2462.18
+Botswana,2019,t,902.16
+Botswana,2020,t,7369.15
+Botswana,2021,t,1773.23
+Botswana,2022,t,1463.26
+Botswana,2023,t,965.48
+Bulgaria,1961,t,1505
+Bulgaria,1962,t,888
+Bulgaria,1963,t,3470
+Bulgaria,1964,t,2301
+Bulgaria,1965,t,957
+Bulgaria,1966,t,1985
+Bulgaria,1967,t,1200
+Bulgaria,1968,t,1417
+Bulgaria,1969,t,1943
+Bulgaria,1970,t,1534
+Bulgaria,1971,t,1086
+Bulgaria,1972,t,611
+Bulgaria,1973,t,1196
+Bulgaria,1974,t,408
+Bulgaria,1975,t,355
+Bulgaria,1976,t,651
+Bulgaria,1977,t,1435
+Bulgaria,1978,t,384
+Bulgaria,1979,t,1020
+Bulgaria,1980,t,0
+Bulgaria,1981,t,0
+Bulgaria,1982,t,0
+Bulgaria,1983,t,0
+Bulgaria,1984,t,0
+Bulgaria,1985,t,0
+Bulgaria,1986,t,0
+Bulgaria,1987,t,0
+Bulgaria,1988,t,
+Bulgaria,1989,t,
+Bulgaria,1990,t,2500
+Bulgaria,1991,t,2000
+Bulgaria,1992,t,3489.81
+Bulgaria,1993,t,3663.17
+Bulgaria,1994,t,3760.21
+Bulgaria,1995,t,4000
+Bulgaria,1996,t,6000
+Bulgaria,1997,t,4000
+Bulgaria,1998,t,5000
+Bulgaria,1999,t,4000
+Bulgaria,2000,t,4500
+Bulgaria,2001,t,5653.47
+Bulgaria,2002,t,5000
+Bulgaria,2003,t,4339
+Bulgaria,2004,t,9840
+Bulgaria,2005,t,4190
+Bulgaria,2006,t,3588
+Bulgaria,2007,t,2508
+Bulgaria,2008,t,4822
+Bulgaria,2009,t,4262
+Bulgaria,2010,t,5597
+Bulgaria,2011,t,4386
+Bulgaria,2012,t,6466
+Bulgaria,2013,t,4231
+Bulgaria,2014,t,5454
+Bulgaria,2015,t,6783
+Bulgaria,2016,t,3725
+Bulgaria,2017,t,4432
+Bulgaria,2018,t,
+Burkina Faso,1961,t,194940
+Burkina Faso,1962,t,261473
+Burkina Faso,1963,t,315765
+Burkina Faso,1964,t,378000
+Burkina Faso,1965,t,315000
+Burkina Faso,1966,t,310000
+Burkina Faso,1967,t,254000
+Burkina Faso,1968,t,367717
+Burkina Faso,1969,t,381564
+Burkina Faso,1970,t,399212
+Burkina Faso,1971,t,297690
+Burkina Faso,1972,t,265646
+Burkina Faso,1973,t,252525
+Burkina Faso,1974,t,334336
+Burkina Faso,1975,t,385696
+Burkina Faso,1976,t,347312
+Burkina Faso,1977,t,354673
+Burkina Faso,1978,t,377882
+Burkina Faso,1979,t,377734
+Burkina Faso,1980,t,350718
+Burkina Faso,1981,t,442771
+Burkina Faso,1982,t,441367
+Burkina Faso,1983,t,391344
+Burkina Faso,1984,t,371958
+Burkina Faso,1985,t,586589
+Burkina Faso,1986,t,679514
+Burkina Faso,1987,t,631832
+Burkina Faso,1988,t,816650
+Burkina Faso,1989,t,649326
+Burkina Faso,1990,t,449000
+Burkina Faso,1991,t,848500
+Burkina Faso,1992,t,783500
+Burkina Faso,1993,t,899197
+Burkina Faso,1994,t,831422
+Burkina Faso,1995,t,733704
+Burkina Faso,1996,t,811497
+Burkina Faso,1997,t,603932
+Burkina Faso,1998,t,972768
+Burkina Faso,1999,t,945001
+Burkina Faso,2000,t,725613
+Burkina Faso,2001,t,1009044
+Burkina Faso,2002,t,994661
+Burkina Faso,2003,t,1184283
+Burkina Faso,2004,t,937630
+Burkina Faso,2005,t,1196253
+Burkina Faso,2006,t,1175040
+Burkina Faso,2007,t,966016
+Burkina Faso,2008,t,1255189
+Burkina Faso,2009,t,970927
+Burkina Faso,2010,t,1147894
+Burkina Faso,2011,t,828741
+Burkina Faso,2012,t,1078374
+Burkina Faso,2013,t,1078570
+Burkina Faso,2014,t,972539
+Burkina Faso,2015,t,946184
+Burkina Faso,2016,t,905071
+Burkina Faso,2017,t,828234
+Burkina Faso,2018,t,1189078.56
+Burkina Faso,2019,t,970175.88
+Burkina Faso,2020,t,957253
+Burkina Faso,2021,t,705344
+Burkina Faso,2022,t,907744.77
+Burkina Faso,2023,t,861038.55
+Burundi,1961,t,8000
+Burundi,1962,t,8000
+Burundi,1963,t,8100
+Burundi,1964,t,8200
+Burundi,1965,t,8000
+Burundi,1966,t,8100
+Burundi,1967,t,8300
+Burundi,1968,t,8500
+Burundi,1969,t,8400
+Burundi,1970,t,8800
+Burundi,1971,t,8994
+Burundi,1972,t,8095
+Burundi,1973,t,9192
+Burundi,1974,t,7354
+Burundi,1975,t,9284
+Burundi,1976,t,9600
+Burundi,1977,t,10000
+Burundi,1978,t,11000
+Burundi,1979,t,9400
+Burundi,1980,t,9000
+Burundi,1981,t,11000
+Burundi,1982,t,10000
+Burundi,1983,t,11000
+Burundi,1984,t,10000
+Burundi,1985,t,12000
+Burundi,1986,t,12000
+Burundi,1987,t,12300
+Burundi,1988,t,12600
+Burundi,1989,t,12900
+Burundi,1990,t,13100
+Burundi,1991,t,13400
+Burundi,1992,t,13700
+Burundi,1993,t,13400
+Burundi,1994,t,11075
+Burundi,1995,t,14429
+Burundi,1996,t,11292
+Burundi,1997,t,16717
+Burundi,1998,t,10500
+Burundi,1999,t,10105
+Burundi,2000,t,8675
+Burundi,2001,t,10000
+Burundi,2002,t,10706
+Burundi,2003,t,10597
+Burundi,2004,t,10597
+Burundi,2005,t,7754
+Burundi,2006,t,10756
+Burundi,2007,t,10741
+Burundi,2008,t,10742
+Burundi,2009,t,10846
+Burundi,2010,t,10846
+Burundi,2011,t,10777
+Burundi,2012,t,10682.65
+Burundi,2013,t,10645.46
+Burundi,2014,t,10608.85
+Burundi,2015,t,10595.58
+Burundi,2016,t,10565.09
+Burundi,2017,t,10540.96
+Burundi,2018,t,10486.88
+Burundi,2019,t,10158
+Burundi,2020,t,6285
+Burundi,2021,t,11994
+Burundi,2022,t,9481
+Burundi,2023,t,11000
+Cameroon,1961,t,85000
+Cameroon,1962,t,83000
+Cameroon,1963,t,87000
+Cameroon,1964,t,87000
+Cameroon,1965,t,83000
+Cameroon,1966,t,97000
+Cameroon,1967,t,75000
+Cameroon,1968,t,68000
+Cameroon,1969,t,94000
+Cameroon,1970,t,78000
+Cameroon,1971,t,85000
+Cameroon,1972,t,80000
+Cameroon,1973,t,77000
+Cameroon,1974,t,84000
+Cameroon,1975,t,103000
+Cameroon,1976,t,80000
+Cameroon,1977,t,82000
+Cameroon,1978,t,102000
+Cameroon,1979,t,104000
+Cameroon,1980,t,100000
+Cameroon,1981,t,89000
+Cameroon,1982,t,95000
+Cameroon,1983,t,61000
+Cameroon,1984,t,17810
+Cameroon,1985,t,59295
+Cameroon,1986,t,73312
+Cameroon,1987,t,26150
+Cameroon,1988,t,60000
+Cameroon,1989,t,65000
+Cameroon,1990,t,63000
+Cameroon,1991,t,63000
+Cameroon,1992,t,55000
+Cameroon,1993,t,60000
+Cameroon,1994,t,50000
+Cameroon,1995,t,66000
+Cameroon,1996,t,70736
+Cameroon,1997,t,70000
+Cameroon,1998,t,65000
+Cameroon,1999,t,60000
+Cameroon,2000,t,51700
+Cameroon,2001,t,50000
+Cameroon,2002,t,50300
+Cameroon,2003,t,53000
+Cameroon,2004,t,60000
+Cameroon,2005,t,64347
+Cameroon,2006,t,65364
+Cameroon,2007,t,70250
+Cameroon,2008,t,75478
+Cameroon,2009,t,59600
+Cameroon,2010,t,89036
+Cameroon,2011,t,95000
+Cameroon,2012,t,96814
+Cameroon,2013,t,95170
+Cameroon,2014,t,94524.36
+Cameroon,2015,t,95809.68
+Cameroon,2016,t,96692.4
+Cameroon,2017,t,97518.85
+Cameroon,2018,t,100000
+Cameroon,2019,t,100000
+Cameroon,2020,t,100000
+Cameroon,2021,t,100000
+Cameroon,2022,t,100000
+Cameroon,2023,t,100000
+Central African Republic,1961,t,5000
+Central African Republic,1962,t,11000
+Central African Republic,1963,t,11000
+Central African Republic,1964,t,11000
+Central African Republic,1965,t,11000
+Central African Republic,1966,t,9000
+Central African Republic,1967,t,9000
+Central African Republic,1968,t,7000
+Central African Republic,1969,t,9000
+Central African Republic,1970,t,9000
+Central African Republic,1971,t,10000
+Central African Republic,1972,t,10000
+Central African Republic,1973,t,11000
+Central African Republic,1974,t,9000
+Central African Republic,1975,t,9000
+Central African Republic,1976,t,9000
+Central African Republic,1977,t,9000
+Central African Republic,1978,t,9000
+Central African Republic,1979,t,10000
+Central African Republic,1980,t,10000
+Central African Republic,1981,t,12000
+Central African Republic,1982,t,12000
+Central African Republic,1983,t,11000
+Central African Republic,1984,t,11000
+Central African Republic,1985,t,12000
+Central African Republic,1986,t,13058
+Central African Republic,1987,t,10000
+Central African Republic,1988,t,10000
+Central African Republic,1989,t,10000
+Central African Republic,1990,t,10000
+Central African Republic,1991,t,8000
+Central African Republic,1992,t,6400
+Central African Republic,1993,t,8000
+Central African Republic,1994,t,9000
+Central African Republic,1995,t,10000
+Central African Republic,1996,t,10000
+Central African Republic,1997,t,11000
+Central African Republic,1998,t,12000
+Central African Republic,1999,t,9000
+Central African Republic,2000,t,8360
+Central African Republic,2001,t,10060
+Central African Republic,2002,t,10580
+Central African Republic,2003,t,10620
+Central African Republic,2004,t,10000
+Central African Republic,2005,t,10237.93
+Central African Republic,2006,t,11000
+Central African Republic,2007,t,10000
+Central African Republic,2008,t,10000
+Central African Republic,2009,t,10000
+Central African Republic,2010,t,10000
+Central African Republic,2011,t,10000
+Central African Republic,2012,t,10000
+Central African Republic,2013,t,10000
+Central African Republic,2014,t,10000
+Central African Republic,2015,t,10000
+Central African Republic,2016,t,10000
+Central African Republic,2017,t,10000
+Central African Republic,2018,t,10000
+Central African Republic,2019,t,10000
+Central African Republic,2020,t,10000
+Central African Republic,2021,t,10000
+Central African Republic,2022,t,10000
+Central African Republic,2023,t,10000
+Chad,1961,t,317000
+Chad,1962,t,289000
+Chad,1963,t,398000
+Chad,1964,t,315000
+Chad,1965,t,273000
+Chad,1966,t,280000
+Chad,1967,t,287000
+Chad,1968,t,293000
+Chad,1969,t,289000
+Chad,1970,t,271000
+Chad,1971,t,260000
+Chad,1972,t,184000
+Chad,1973,t,178000
+Chad,1974,t,235000
+Chad,1975,t,232000
+Chad,1976,t,225000
+Chad,1977,t,255000
+Chad,1978,t,258000
+Chad,1979,t,231000
+Chad,1980,t,200000
+Chad,1981,t,114000
+Chad,1982,t,124000
+Chad,1983,t,148000
+Chad,1984,t,110768
+Chad,1985,t,252245
+Chad,1986,t,253021
+Chad,1987,t,217094
+Chad,1988,t,355676
+Chad,1989,t,179337
+Chad,1990,t,167590
+Chad,1991,t,226010
+Chad,1992,t,293433
+Chad,1993,t,212094
+Chad,1994,t,319698
+Chad,1995,t,227715
+Chad,1996,t,257631
+Chad,1997,t,248383
+Chad,1998,t,357321
+Chad,1999,t,361095
+Chad,2000,t,258828
+Chad,2001,t,397608
+Chad,2002,t,357425
+Chad,2003,t,516341
+Chad,2004,t,297529
+Chad,2005,t,578303
+Chad,2006,t,589754
+Chad,2007,t,495486
+Chad,2008,t,523162
+Chad,2009,t,319981
+Chad,2010,t,759940
+Chad,2011,t,328942
+Chad,2012,t,847053
+Chad,2013,t,555583
+Chad,2014,t,694751
+Chad,2015,t,592124
+Chad,2016,t,725677
+Chad,2017,t,660175
+Chad,2018,t,756616.07
+Chad,2019,t,717621
+Chad,2020,t,686584.39
+Chad,2021,t,621367.26
+Chad,2022,t,694196
+Chad,2023,t,634079
+China,1961,t,7205330
+China,1962,t,5307194
+China,1963,t,6603853
+China,1964,t,7005808
+China,1965,t,6205520
+China,1966,t,9005797
+China,1967,t,9007032
+China,1968,t,8506176
+China,1969,t,8506345
+China,1970,t,9756277
+China,1971,t,9506046
+China,1972,t,7005997
+China,1973,t,7004733
+China,1974,t,7505870
+China,1975,t,6505215
+China,1976,t,5553452
+China,1977,t,6152830
+China,1978,t,6553596
+China,1979,t,6153433
+China,1980,t,5448072
+China,1981,t,5768098
+China,1982,t,6582676
+China,1983,t,7541408
+China,1984,t,7026337
+China,1985,t,5978159
+China,1986,t,4541386
+China,1987,t,4539115
+China,1988,t,4412771
+China,1989,t,3753835
+China,1990,t,4575644
+China,1991,t,3424581
+China,1992,t,3317569
+China,1993,t,3999685
+China,1994,t,3696506
+China,1995,t,3019500
+China,1996,t,3572601
+China,1997,t,2312751
+China,1998,t,3113387
+China,1999,t,2318644
+China,2000,t,2125740
+China,2001,t,1966779
+China,2002,t,2176772
+China,2003,t,1941933
+China,2004,t,1812872
+China,2005,t,1785797
+China,2006,t,1820689
+China,2007,t,1507608
+China,2008,t,1286605
+China,2009,t,1225579
+China,2010,t,1573508.2
+China,2011,t,1567775.96
+China,2012,t,1796042.04
+China,2013,t,1746527.14
+China,2014,t,2344714.51
+China,2015,t,1966479.04
+China,2016,t,1394596.9
+China,2017,t,2548400.15
+China,2018,t,2342286.91
+China,2019,t,2300497.99
+China,2020,t,2807495.01
+China,2021,t,2886893.3
+China,2022,t,2618595.43
+China,2023,t,2700494.58
+"China, mainland",1961,t,7200000
+"China, mainland",1962,t,5300000
+"China, mainland",1963,t,6600000
+"China, mainland",1964,t,7000000
+"China, mainland",1965,t,6200000
+"China, mainland",1966,t,9000000
+"China, mainland",1967,t,9000000
+"China, mainland",1968,t,8500000
+"China, mainland",1969,t,8500000
+"China, mainland",1970,t,9750000
+"China, mainland",1971,t,9500000
+"China, mainland",1972,t,7000000
+"China, mainland",1973,t,7000000
+"China, mainland",1974,t,7500000
+"China, mainland",1975,t,6500000
+"China, mainland",1976,t,5550000
+"China, mainland",1977,t,6150000
+"China, mainland",1978,t,6550000
+"China, mainland",1979,t,6150000
+"China, mainland",1980,t,5445000
+"China, mainland",1981,t,5765000
+"China, mainland",1982,t,6580000
+"China, mainland",1983,t,7540000
+"China, mainland",1984,t,7025000
+"China, mainland",1985,t,5977000
+"China, mainland",1986,t,4540000
+"China, mainland",1987,t,4538000
+"China, mainland",1988,t,4412000
+"China, mainland",1989,t,3753000
+"China, mainland",1990,t,4575000
+"China, mainland",1991,t,3424000
+"China, mainland",1992,t,3317000
+"China, mainland",1993,t,3999000
+"China, mainland",1994,t,3696000
+"China, mainland",1995,t,3019000
+"China, mainland",1996,t,3572000
+"China, mainland",1997,t,2312000
+"China, mainland",1998,t,3112700
+"China, mainland",1999,t,2318000
+"China, mainland",2000,t,2125100
+"China, mainland",2001,t,1966000
+"China, mainland",2002,t,2176000
+"China, mainland",2003,t,1941000
+"China, mainland",2004,t,1812000
+"China, mainland",2005,t,1785000
+"China, mainland",2006,t,1820000
+"China, mainland",2007,t,1507000
+"China, mainland",2008,t,1286000
+"China, mainland",2009,t,1225100
+"China, mainland",2010,t,1573000
+"China, mainland",2011,t,1567200
+"China, mainland",2012,t,1795500
+"China, mainland",2013,t,1746000
+"China, mainland",2014,t,2344200
+"China, mainland",2015,t,1966000
+"China, mainland",2016,t,1394090
+"China, mainland",2017,t,2547900
+"China, mainland",2018,t,2341800
+"China, mainland",2019,t,2300000
+"China, mainland",2020,t,2807000
+"China, mainland",2021,t,2886400
+"China, mainland",2022,t,2618100
+"China, mainland",2023,t,2700000
+"China, Taiwan Province of",1961,t,5330
+"China, Taiwan Province of",1962,t,7194
+"China, Taiwan Province of",1963,t,3853
+"China, Taiwan Province of",1964,t,5808
+"China, Taiwan Province of",1965,t,5520
+"China, Taiwan Province of",1966,t,5797
+"China, Taiwan Province of",1967,t,7032
+"China, Taiwan Province of",1968,t,6176
+"China, Taiwan Province of",1969,t,6345
+"China, Taiwan Province of",1970,t,6277
+"China, Taiwan Province of",1971,t,6046
+"China, Taiwan Province of",1972,t,5997
+"China, Taiwan Province of",1973,t,4733
+"China, Taiwan Province of",1974,t,5870
+"China, Taiwan Province of",1975,t,5215
+"China, Taiwan Province of",1976,t,3452
+"China, Taiwan Province of",1977,t,2830
+"China, Taiwan Province of",1978,t,3596
+"China, Taiwan Province of",1979,t,3433
+"China, Taiwan Province of",1980,t,3072
+"China, Taiwan Province of",1981,t,3098
+"China, Taiwan Province of",1982,t,2676
+"China, Taiwan Province of",1983,t,1408
+"China, Taiwan Province of",1984,t,1337
+"China, Taiwan Province of",1985,t,1159
+"China, Taiwan Province of",1986,t,1386
+"China, Taiwan Province of",1987,t,1115
+"China, Taiwan Province of",1988,t,771
+"China, Taiwan Province of",1989,t,835
+"China, Taiwan Province of",1990,t,644
+"China, Taiwan Province of",1991,t,581
+"China, Taiwan Province of",1992,t,569
+"China, Taiwan Province of",1993,t,685
+"China, Taiwan Province of",1994,t,506
+"China, Taiwan Province of",1995,t,500
+"China, Taiwan Province of",1996,t,601
+"China, Taiwan Province of",1997,t,751
+"China, Taiwan Province of",1998,t,687
+"China, Taiwan Province of",1999,t,644
+"China, Taiwan Province of",2000,t,640
+"China, Taiwan Province of",2001,t,779
+"China, Taiwan Province of",2002,t,772
+"China, Taiwan Province of",2003,t,933
+"China, Taiwan Province of",2004,t,872
+"China, Taiwan Province of",2005,t,797
+"China, Taiwan Province of",2006,t,689
+"China, Taiwan Province of",2007,t,608
+"China, Taiwan Province of",2008,t,605
+"China, Taiwan Province of",2009,t,479
+"China, Taiwan Province of",2010,t,508.2
+"China, Taiwan Province of",2011,t,575.96
+"China, Taiwan Province of",2012,t,542.04
+"China, Taiwan Province of",2013,t,527.14
+"China, Taiwan Province of",2014,t,514.51
+"China, Taiwan Province of",2015,t,479.04
+"China, Taiwan Province of",2016,t,506.9
+"China, Taiwan Province of",2017,t,500.15
+"China, Taiwan Province of",2018,t,486.91
+"China, Taiwan Province of",2019,t,497.99
+"China, Taiwan Province of",2020,t,495.01
+"China, Taiwan Province of",2021,t,493.3
+"China, Taiwan Province of",2022,t,495.43
+"China, Taiwan Province of",2023,t,494.58
+Congo,1961,t,
+Congo,1962,t,
+Congo,1963,t,
+Congo,1964,t,
+Congo,1965,t,
+Congo,1966,t,
+Congo,1967,t,
+Congo,1968,t,
+Congo,1969,t,
+Congo,1970,t,
+Congo,1971,t,
+Congo,1972,t,
+Congo,1973,t,
+Congo,1974,t,
+Congo,1975,t,
+Congo,1976,t,
+Congo,1977,t,
+Congo,1978,t,
+Congo,1979,t,
+Congo,1980,t,
+Congo,1981,t,
+Congo,1982,t,
+Congo,1983,t,
+Congo,1984,t,
+Congo,1985,t,
+Congo,1986,t,
+Congo,1987,t,
+Congo,1988,t,
+Congo,1989,t,
+Congo,1990,t,
+Congo,1991,t,
+Congo,1992,t,
+Congo,1993,t,
+Congo,1994,t,
+Congo,1995,t,
+Congo,1996,t,
+Congo,1997,t,
+Congo,1998,t,
+Congo,1999,t,
+Congo,2000,t,
+Congo,2001,t,8000
+Congo,2002,t,8910.62
+Congo,2003,t,9861.98
+Congo,2004,t,9394.79
+Congo,2005,t,9500
+Congo,2006,t,9000
+Congo,2007,t,8500
+Congo,2008,t,9500
+Congo,2009,t,10000
+Congo,2010,t,10500
+Congo,2011,t,11000
+Congo,2012,t,12000
+Congo,2013,t,13500
+Congo,2014,t,14729.13
+Congo,2015,t,13196.96
+Congo,2016,t,13343.15
+Congo,2017,t,13903.78
+Congo,2018,t,13481.29
+Congo,2019,t,13323.99
+Congo,2020,t,13569.69
+Congo,2021,t,14186.14
+Congo,2022,t,13693.27
+Congo,2023,t,13816.37
+Côte d'Ivoire,1961,t,27000
+Côte d'Ivoire,1962,t,36000
+Côte d'Ivoire,1963,t,34000
+Côte d'Ivoire,1964,t,37000
+Côte d'Ivoire,1965,t,33500
+Côte d'Ivoire,1966,t,36000
+Côte d'Ivoire,1967,t,37000
+Côte d'Ivoire,1968,t,35000
+Côte d'Ivoire,1969,t,33200
+Côte d'Ivoire,1970,t,30000
+Côte d'Ivoire,1971,t,29000
+Côte d'Ivoire,1972,t,24000
+Côte d'Ivoire,1973,t,29000
+Côte d'Ivoire,1974,t,30000
+Côte d'Ivoire,1975,t,45300
+Côte d'Ivoire,1976,t,40400
+Côte d'Ivoire,1977,t,41500
+Côte d'Ivoire,1978,t,44600
+Côte d'Ivoire,1979,t,45800
+Côte d'Ivoire,1980,t,33500
+Côte d'Ivoire,1981,t,32000
+Côte d'Ivoire,1982,t,29700
+Côte d'Ivoire,1983,t,26000
+Côte d'Ivoire,1984,t,33139
+Côte d'Ivoire,1985,t,33470
+Côte d'Ivoire,1986,t,33805
+Côte d'Ivoire,1987,t,34143
+Côte d'Ivoire,1988,t,34484
+Côte d'Ivoire,1989,t,34829
+Côte d'Ivoire,1990,t,35177
+Côte d'Ivoire,1991,t,35520
+Côte d'Ivoire,1992,t,35884
+Côte d'Ivoire,1993,t,36243
+Côte d'Ivoire,1994,t,36606
+Côte d'Ivoire,1995,t,36972
+Côte d'Ivoire,1996,t,37341
+Côte d'Ivoire,1997,t,36052
+Côte d'Ivoire,1998,t,36825
+Côte d'Ivoire,1999,t,37615
+Côte d'Ivoire,2000,t,38422
+Côte d'Ivoire,2001,t,39246
+Côte d'Ivoire,2002,t,40071
+Côte d'Ivoire,2003,t,32730
+Côte d'Ivoire,2004,t,33810
+Côte d'Ivoire,2005,t,34926
+Côte d'Ivoire,2006,t,38308
+Côte d'Ivoire,2007,t,37941
+Côte d'Ivoire,2008,t,40795
+Côte d'Ivoire,2009,t,45567
+Côte d'Ivoire,2010,t,48826
+Côte d'Ivoire,2011,t,48828
+Côte d'Ivoire,2012,t,49316
+Côte d'Ivoire,2013,t,49760
+Côte d'Ivoire,2014,t,52275
+Côte d'Ivoire,2015,t,55200
+Côte d'Ivoire,2016,t,58300
+Côte d'Ivoire,2017,t,61600
+Côte d'Ivoire,2018,t,63847
+Côte d'Ivoire,2019,t,66248
+Côte d'Ivoire,2020,t,69465
+Côte d'Ivoire,2021,t,67441
+Côte d'Ivoire,2022,t,70124
+Côte d'Ivoire,2023,t,62000
+Croatia,1992,t,730
+Croatia,1993,t,339
+Croatia,1994,t,419
+Croatia,1995,t,202
+Croatia,1996,t,401
+Croatia,1997,t,184
+Croatia,1998,t,250
+Croatia,1999,t,180
+Croatia,2000,t,288.84
+Croatia,2001,t,180
+Croatia,2002,t,288.31
+Croatia,2003,t,293.13
+Croatia,2004,t,296.75
+Croatia,2005,t,301.2
+Croatia,2006,t,300
+Croatia,2007,t,410
+Croatia,2008,t,260
+Croatia,2009,t,380
+Croatia,2010,t,400
+Croatia,2011,t,430
+Croatia,2012,t,448
+Croatia,2013,t,359
+Croatia,2014,t,88
+Croatia,2015,t,339
+Croatia,2016,t,359
+Croatia,2017,t,171
+Croatia,2018,t,
+Czechia,1993,t,4000
+Czechia,1994,t,6000
+Czechia,1995,t,5000
+Czechia,1996,t,5000
+Czechia,1997,t,4034.76
+Czechia,1998,t,4000
+Czechia,1999,t,4000
+Czechia,2000,t,2400
+Czechia,2001,t,2400
+Czechia,2002,t,2000
+Czechia,2003,t,3000
+Czechia,2004,t,2000
+Czechia,2005,t,1800
+Czechia,2006,t,1816.64
+Czechia,2007,t,1799.63
+Czechia,2008,t,1568.25
+Czechia,2009,t,1376.7
+Czechia,2010,t,1328.22
+Czechia,2011,t,1279.75
+Czechia,2012,t,1231.27
+Czechia,2013,t,1182.8
+Czechia,2014,t,1045.41
+Czechia,2015,t,961.96
+Czechia,2016,t,1063.39
+Czechia,2017,t,1023.59
+Czechia,2018,t,
+Czechoslovakia,1961,t,2381
+Czechoslovakia,1962,t,3973
+Czechoslovakia,1963,t,4297
+Czechoslovakia,1964,t,1793
+Czechoslovakia,1965,t,2403
+Czechoslovakia,1966,t,1483
+Czechoslovakia,1967,t,2606
+Czechoslovakia,1968,t,1100
+Czechoslovakia,1969,t,1115
+Czechoslovakia,1970,t,1155
+Czechoslovakia,1971,t,576
+Czechoslovakia,1972,t,300
+Czechoslovakia,1973,t,450
+Czechoslovakia,1974,t,351
+Czechoslovakia,1975,t,460
+Czechoslovakia,1976,t,280
+Czechoslovakia,1977,t,300
+Czechoslovakia,1978,t,400
+Czechoslovakia,1979,t,750
+Czechoslovakia,1980,t,700
+Czechoslovakia,1981,t,750
+Czechoslovakia,1982,t,1100
+Czechoslovakia,1983,t,850
+Czechoslovakia,1984,t,520
+Czechoslovakia,1985,t,700
+Czechoslovakia,1986,t,3089
+Czechoslovakia,1987,t,2523
+Czechoslovakia,1988,t,2500
+Czechoslovakia,1989,t,3000
+Czechoslovakia,1990,t,4900
+Czechoslovakia,1991,t,6500
+Czechoslovakia,1992,t,3400
+Democratic People's Republic of Korea,1961,t,132000
+Democratic People's Republic of Korea,1962,t,115000
+Democratic People's Republic of Korea,1963,t,128000
+Democratic People's Republic of Korea,1964,t,115000
+Democratic People's Republic of Korea,1965,t,100000
+Democratic People's Republic of Korea,1966,t,110000
+Democratic People's Republic of Korea,1967,t,100000
+Democratic People's Republic of Korea,1968,t,98000
+Democratic People's Republic of Korea,1969,t,90000
+Democratic People's Republic of Korea,1970,t,95000
+Democratic People's Republic of Korea,1971,t,84000
+Democratic People's Republic of Korea,1972,t,85000
+Democratic People's Republic of Korea,1973,t,76000
+Democratic People's Republic of Korea,1974,t,77000
+Democratic People's Republic of Korea,1975,t,70000
+Democratic People's Republic of Korea,1976,t,73000
+Democratic People's Republic of Korea,1977,t,67000
+Democratic People's Republic of Korea,1978,t,70000
+Democratic People's Republic of Korea,1979,t,69000
+Democratic People's Republic of Korea,1980,t,64000
+Democratic People's Republic of Korea,1981,t,64000
+Democratic People's Republic of Korea,1982,t,61000
+Democratic People's Republic of Korea,1983,t,62000
+Democratic People's Republic of Korea,1984,t,60000
+Democratic People's Republic of Korea,1985,t,61000
+Democratic People's Republic of Korea,1986,t,62000
+Democratic People's Republic of Korea,1987,t,60000
+Democratic People's Republic of Korea,1988,t,60000
+Democratic People's Republic of Korea,1989,t,60000
+Democratic People's Republic of Korea,1990,t,50802
+Democratic People's Republic of Korea,1991,t,47709.59
+Democratic People's Republic of Korea,1992,t,50000
+Democratic People's Republic of Korea,1993,t,40000
+Democratic People's Republic of Korea,1994,t,35000
+Democratic People's Republic of Korea,1995,t,28000
+Democratic People's Republic of Korea,1996,t,28000
+Democratic People's Republic of Korea,1997,t,29000
+Democratic People's Republic of Korea,1998,t,30000
+Democratic People's Republic of Korea,1999,t,35000
+Democratic People's Republic of Korea,2000,t,42000
+Democratic People's Republic of Korea,2001,t,50000
+Democratic People's Republic of Korea,2002,t,65000
+Democratic People's Republic of Korea,2003,t,90000
+Democratic People's Republic of Korea,2004,t,54000
+Democratic People's Republic of Korea,2005,t,60000
+Democratic People's Republic of Korea,2006,t,64000
+Democratic People's Republic of Korea,2007,t,61000
+Democratic People's Republic of Korea,2008,t,62000
+Democratic People's Republic of Korea,2009,t,62000
+Democratic People's Republic of Korea,2010,t,65132.7
+Democratic People's Republic of Korea,2011,t,70000
+Democratic People's Republic of Korea,2012,t,72356.08
+Democratic People's Republic of Korea,2013,t,73148.94
+Democratic People's Republic of Korea,2014,t,73928.11
+Democratic People's Republic of Korea,2015,t,72349.37
+Democratic People's Republic of Korea,2016,t,73633.87
+Democratic People's Republic of Korea,2017,t,74676.81
+Democratic People's Republic of Korea,2018,t,75382.17
+Democratic People's Republic of Korea,2019,t,76954.88
+Democratic People's Republic of Korea,2020,t,75671.28
+Democratic People's Republic of Korea,2021,t,76002.77
+Democratic People's Republic of Korea,2022,t,76209.64
+Democratic People's Republic of Korea,2023,t,75961.23
+Democratic Republic of the Congo,1961,t,19000
+Democratic Republic of the Congo,1962,t,17000
+Democratic Republic of the Congo,1963,t,17000
+Democratic Republic of the Congo,1964,t,18000
+Democratic Republic of the Congo,1965,t,13790
+Democratic Republic of the Congo,1966,t,15440
+Democratic Republic of the Congo,1967,t,8755
+Democratic Republic of the Congo,1968,t,10000
+Democratic Republic of the Congo,1969,t,11000
+Democratic Republic of the Congo,1970,t,22700
+Democratic Republic of the Congo,1971,t,22100
+Democratic Republic of the Congo,1972,t,23500
+Democratic Republic of the Congo,1973,t,24200
+Democratic Republic of the Congo,1974,t,25300
+Democratic Republic of the Congo,1975,t,25000
+Democratic Republic of the Congo,1976,t,25700
+Democratic Republic of the Congo,1977,t,25900
+Democratic Republic of the Congo,1978,t,25800
+Democratic Republic of the Congo,1979,t,24400
+Democratic Republic of the Congo,1980,t,25100
+Democratic Republic of the Congo,1981,t,22300
+Democratic Republic of the Congo,1982,t,26500
+Democratic Republic of the Congo,1983,t,27300
+Democratic Republic of the Congo,1984,t,28100
+Democratic Republic of the Congo,1985,t,28700
+Democratic Republic of the Congo,1986,t,31200
+Democratic Republic of the Congo,1987,t,30000
+Democratic Republic of the Congo,1988,t,30400
+Democratic Republic of the Congo,1989,t,30900
+Democratic Republic of the Congo,1990,t,34239
+Democratic Republic of the Congo,1991,t,30000
+Democratic Republic of the Congo,1992,t,30930
+Democratic Republic of the Congo,1993,t,31900
+Democratic Republic of the Congo,1994,t,32880
+Democratic Republic of the Congo,1995,t,80260
+Democratic Republic of the Congo,1996,t,82470
+Democratic Republic of the Congo,1997,t,26920
+Democratic Republic of the Congo,1998,t,27640
+Democratic Republic of the Congo,1999,t,28393
+Democratic Republic of the Congo,2000,t,34310
+Democratic Republic of the Congo,2001,t,35231
+Democratic Republic of the Congo,2002,t,36150
+Democratic Republic of the Congo,2003,t,36420
+Democratic Republic of the Congo,2004,t,36690
+Democratic Republic of the Congo,2005,t,36970
+Democratic Republic of the Congo,2006,t,37250
+Democratic Republic of the Congo,2007,t,37530
+Democratic Republic of the Congo,2008,t,37810
+Democratic Republic of the Congo,2009,t,38092
+Democratic Republic of the Congo,2010,t,38385
+Democratic Republic of the Congo,2011,t,38606
+Democratic Republic of the Congo,2012,t,45583
+Democratic Republic of the Congo,2013,t,46034
+Democratic Republic of the Congo,2014,t,46080
+Democratic Republic of the Congo,2015,t,43776.45
+Democratic Republic of the Congo,2016,t,45296.82
+Democratic Republic of the Congo,2017,t,42943.27
+Democratic Republic of the Congo,2018,t,41227.61
+Democratic Republic of the Congo,2019,t,39564
+Democratic Republic of the Congo,2020,t,39953
+Democratic Republic of the Congo,2021,t,39471
+Democratic Republic of the Congo,2022,t,40248
+Democratic Republic of the Congo,2023,t,40643
+Eritrea,1993,t,19100
+Eritrea,1994,t,57570
+Eritrea,1995,t,12790
+Eritrea,1996,t,12412
+Eritrea,1997,t,7488
+Eritrea,1998,t,51805
+Eritrea,1999,t,23231
+Eritrea,2000,t,7254
+Eritrea,2001,t,30267
+Eritrea,2002,t,5796
+Eritrea,2003,t,16935
+Eritrea,2004,t,11971
+Eritrea,2005,t,40571
+Eritrea,2006,t,33092
+Eritrea,2007,t,63254
+Eritrea,2008,t,12239
+Eritrea,2009,t,17217
+Eritrea,2010,t,20000
+Eritrea,2011,t,20000
+Eritrea,2012,t,20000
+Eritrea,2013,t,20000
+Eritrea,2014,t,20000
+Eritrea,2015,t,25000
+Eritrea,2016,t,25000
+Eritrea,2017,t,25000
+Eritrea,2018,t,25000
+Eritrea,2019,t,25000
+Eritrea,2020,t,25000
+Eritrea,2021,t,25000
+Eritrea,2022,t,25000
+Eritrea,2023,t,25000
+Estonia,1994,t,
+Estonia,1995,t,
+Estonia,1996,t,
+Estonia,1997,t,
+Estonia,1998,t,
+Estonia,1999,t,
+Estonia,2000,t,
+Estonia,2001,t,
+Estonia,2002,t,
+Estonia,2003,t,
+Estonia,2004,t,
+Estonia,2005,t,
+Estonia,2006,t,
+Estonia,2007,t,
+Estonia,2008,t,
+Estonia,2009,t,
+Estonia,2010,t,
+Estonia,2011,t,
+Estonia,2012,t,
+Estonia,2013,t,
+Estonia,2014,t,
+Estonia,2015,t,
+Estonia,2016,t,
+Estonia,2017,t,
+Estonia,2018,t,
+Ethiopia,1993,t,135251
+Ethiopia,1994,t,176658
+Ethiopia,1995,t,154084
+Ethiopia,1996,t,243657
+Ethiopia,1997,t,296200
+Ethiopia,1998,t,259559
+Ethiopia,1999,t,382345
+Ethiopia,2000,t,320090
+Ethiopia,2001,t,316166
+Ethiopia,2002,t,306180
+Ethiopia,2003,t,305101
+Ethiopia,2004,t,332890
+Ethiopia,2005,t,397390
+Ethiopia,2006,t,500171
+Ethiopia,2007,t,397002
+Ethiopia,2008,t,484409
+Ethiopia,2009,t,524191
+Ethiopia,2010,t,634826
+Ethiopia,2011,t,651851
+Ethiopia,2012,t,742297
+Ethiopia,2013,t,848956
+Ethiopia,2014,t,915315
+Ethiopia,2015,t,1036443.88
+Ethiopia,2016,t,1017059
+Ethiopia,2017,t,1030823.15
+Ethiopia,2018,t,1035629.57
+Ethiopia,2019,t,1125957.87
+Ethiopia,2020,t,1218581.54
+Ethiopia,2021,t,942197
+Ethiopia,2022,t,942000
+Ethiopia,2023,t,1100000
+Ethiopia PDR,1961,t,140000
+Ethiopia PDR,1962,t,140000
+Ethiopia PDR,1963,t,140000
+Ethiopia PDR,1964,t,145100
+Ethiopia PDR,1965,t,146600
+Ethiopia PDR,1966,t,146600
+Ethiopia PDR,1967,t,148100
+Ethiopia PDR,1968,t,150900
+Ethiopia PDR,1969,t,152400
+Ethiopia PDR,1970,t,153900
+Ethiopia PDR,1971,t,155400
+Ethiopia PDR,1972,t,158400
+Ethiopia PDR,1973,t,120000
+Ethiopia PDR,1974,t,121200
+Ethiopia PDR,1975,t,156680
+Ethiopia PDR,1976,t,378800
+Ethiopia PDR,1977,t,172380
+Ethiopia PDR,1978,t,207150
+Ethiopia PDR,1979,t,198700
+Ethiopia PDR,1980,t,214611
+Ethiopia PDR,1981,t,204393
+Ethiopia PDR,1982,t,197180
+Ethiopia PDR,1983,t,240071
+Ethiopia PDR,1984,t,199357
+Ethiopia PDR,1985,t,187384
+Ethiopia PDR,1986,t,189892
+Ethiopia PDR,1987,t,120328
+Ethiopia PDR,1988,t,165854
+Ethiopia PDR,1989,t,112190
+Ethiopia PDR,1990,t,152455
+Ethiopia PDR,1991,t,221860
+Ethiopia PDR,1992,t,128344
+France,1961,t,4645
+France,1962,t,2310
+France,1963,t,4005
+France,1964,t,4124
+France,1965,t,2604
+France,1966,t,2306
+France,1967,t,2195
+France,1968,t,1282
+France,1969,t,828
+France,1970,t,1490
+France,1971,t,1390
+France,1972,t,1130
+France,1973,t,1680
+France,1974,t,1680
+France,1975,t,1550
+France,1976,t,1600
+France,1977,t,2790
+France,1978,t,3080
+France,1979,t,3200
+France,1980,t,3310
+France,1981,t,3200
+France,1982,t,5000
+France,1983,t,6000
+France,1984,t,0
+France,1985,t,0
+France,1986,t,0
+France,1987,t,0
+France,1988,t,0
+France,1989,t,0
+France,1990,t,0
+France,1991,t,0
+France,1992,t,0
+France,1993,t,0
+France,1994,t,0
+France,1995,t,0
+France,1996,t,0
+France,1997,t,0
+France,1998,t,0
+France,1999,t,0
+France,2000,t,0
+France,2001,t,9000
+France,2002,t,16000
+France,2003,t,26000
+France,2004,t,20000
+France,2005,t,24000
+France,2006,t,38000
+France,2007,t,44133.16
+France,2008,t,36000
+France,2009,t,37000
+France,2010,t,37500
+France,2011,t,38000
+France,2012,t,40000
+France,2013,t,40000
+France,2014,t,37000
+France,2015,t,40000
+France,2016,t,41806.99
+France,2017,t,40603.59
+France,2018,t,
+Gambia,1961,t,47500
+Gambia,1962,t,52500
+Gambia,1963,t,37300
+Gambia,1964,t,37100
+Gambia,1965,t,35400
+Gambia,1966,t,31600
+Gambia,1967,t,34200
+Gambia,1968,t,36300
+Gambia,1969,t,32900
+Gambia,1970,t,38000
+Gambia,1971,t,38000
+Gambia,1972,t,37100
+Gambia,1973,t,38000
+Gambia,1974,t,18500
+Gambia,1975,t,12900
+Gambia,1976,t,11100
+Gambia,1977,t,10800
+Gambia,1978,t,19900
+Gambia,1979,t,8700
+Gambia,1980,t,15300
+Gambia,1981,t,29200
+Gambia,1982,t,33700
+Gambia,1983,t,26100
+Gambia,1984,t,38500
+Gambia,1985,t,54590
+Gambia,1986,t,51100
+Gambia,1987,t,49620
+Gambia,1988,t,48000
+Gambia,1989,t,50687
+Gambia,1990,t,46890
+Gambia,1991,t,57860
+Gambia,1992,t,46264
+Gambia,1993,t,52177
+Gambia,1994,t,52847
+Gambia,1995,t,54022
+Gambia,1996,t,61492
+Gambia,1997,t,66082
+Gambia,1998,t,64666
+Gambia,1999,t,80900
+Gambia,2000,t,94600
+Gambia,2001,t,104972
+Gambia,2002,t,84618
+Gambia,2003,t,120342
+Gambia,2004,t,132494
+Gambia,2005,t,127563
+Gambia,2006,t,125680
+Gambia,2007,t,89186
+Gambia,2008,t,125624
+Gambia,2009,t,144868
+Gambia,2010,t,158018
+Gambia,2011,t,87234
+Gambia,2012,t,116089
+Gambia,2013,t,93799
+Gambia,2014,t,76816
+Gambia,2015,t,93808
+Gambia,2016,t,72461
+Gambia,2017,t,52009
+Gambia,2018,t,36804.47
+Gambia,2019,t,40043.9
+Gambia,2020,t,42888
+Gambia,2021,t,39648
+Gambia,2022,t,37421
+Gambia,2023,t,42000
+Ghana,1961,t,80000
+Ghana,1962,t,65000
+Ghana,1963,t,68075
+Ghana,1964,t,69599
+Ghana,1965,t,56899
+Ghana,1966,t,79300
+Ghana,1967,t,92765
+Ghana,1968,t,72952
+Ghana,1969,t,87800
+Ghana,1970,t,141200
+Ghana,1971,t,130100
+Ghana,1972,t,98600
+Ghana,1973,t,108700
+Ghana,1974,t,154400
+Ghana,1975,t,121900
+Ghana,1976,t,144000
+Ghana,1977,t,125000
+Ghana,1978,t,93000
+Ghana,1979,t,149000
+Ghana,1980,t,82000
+Ghana,1981,t,119000
+Ghana,1982,t,120000
+Ghana,1983,t,114000
+Ghana,1984,t,139000
+Ghana,1985,t,112000
+Ghana,1986,t,110000
+Ghana,1987,t,173100
+Ghana,1988,t,139000
+Ghana,1989,t,180000
+Ghana,1990,t,74500
+Ghana,1991,t,112400
+Ghana,1992,t,133300
+Ghana,1993,t,198100
+Ghana,1994,t,167826
+Ghana,1995,t,200800
+Ghana,1996,t,193300
+Ghana,1997,t,143500
+Ghana,1998,t,172000
+Ghana,1999,t,159750
+Ghana,2000,t,169400
+Ghana,2001,t,134370
+Ghana,2002,t,159120
+Ghana,2003,t,175740
+Ghana,2004,t,143798
+Ghana,2005,t,185000
+Ghana,2006,t,165000
+Ghana,2007,t,113040
+Ghana,2008,t,193840
+Ghana,2009,t,245550
+Ghana,2010,t,218952
+Ghana,2011,t,183922
+Ghana,2012,t,179684
+Ghana,2013,t,155131
+Ghana,2014,t,155000
+Ghana,2015,t,157369.21
+Ghana,2016,t,159017.27
+Ghana,2017,t,163483.97
+Ghana,2018,t,181564.3
+Ghana,2019,t,230000
+Ghana,2020,t,236000
+Ghana,2021,t,188000
+Ghana,2022,t,196308
+Ghana,2023,t,244000
+Greece,1961,t,1946
+Greece,1962,t,791
+Greece,1963,t,1103
+Greece,1964,t,900
+Greece,1965,t,679
+Greece,1966,t,752
+Greece,1967,t,1650
+Greece,1968,t,745
+Greece,1969,t,622
+Greece,1970,t,900
+Greece,1971,t,1054
+Greece,1972,t,1460
+Greece,1973,t,967
+Greece,1974,t,1108
+Greece,1975,t,1421
+Greece,1976,t,1807
+Greece,1977,t,1392
+Greece,1978,t,1845
+Greece,1979,t,3193
+Greece,1980,t,3095
+Greece,1981,t,2213
+Greece,1982,t,590
+Greece,1983,t,636
+Greece,1984,t,247
+Greece,1985,t,200
+Greece,1986,t,200
+Greece,1987,t,126
+Greece,1988,t,160
+Greece,1989,t,0
+Greece,1990,t,0
+Greece,1991,t,0
+Greece,1992,t,0
+Greece,1993,t,0
+Greece,1994,t,0
+Greece,1995,t,0
+Greece,1996,t,0
+Greece,1997,t,0
+Greece,1998,t,0
+Greece,1999,t,0
+Greece,2000,t,0
+Greece,2001,t,0
+Greece,2002,t,0
+Greece,2003,t,0
+Greece,2004,t,0
+Greece,2005,t,0
+Greece,2006,t,0.78
+Greece,2007,t,1.59
+Greece,2008,t,2.52
+Greece,2009,t,16.18
+Greece,2010,t,108.99
+Greece,2011,t,115.98
+Greece,2012,t,117.36
+Greece,2013,t,118.62
+Greece,2014,t,120
+Greece,2015,t,120
+Greece,2016,t,119.98
+Greece,2017,t,119.99
+Greece,2018,t,
+Guinea,1961,t,50000
+Guinea,1962,t,55000
+Guinea,1963,t,45000
+Guinea,1964,t,50000
+Guinea,1965,t,50000
+Guinea,1966,t,50000
+Guinea,1967,t,52000
+Guinea,1968,t,50000
+Guinea,1969,t,50000
+Guinea,1970,t,48000
+Guinea,1971,t,52000
+Guinea,1972,t,52000
+Guinea,1973,t,50000
+Guinea,1974,t,48000
+Guinea,1975,t,48000
+Guinea,1976,t,50000
+Guinea,1977,t,48000
+Guinea,1978,t,45000
+Guinea,1979,t,50000
+Guinea,1980,t,50000
+Guinea,1981,t,48000
+Guinea,1982,t,45000
+Guinea,1983,t,50000
+Guinea,1984,t,57000
+Guinea,1985,t,68000
+Guinea,1986,t,78000
+Guinea,1987,t,88000
+Guinea,1988,t,96200
+Guinea,1989,t,97960
+Guinea,1990,t,99760
+Guinea,1991,t,101590
+Guinea,1992,t,103450
+Guinea,1993,t,105345
+Guinea,1994,t,107275
+Guinea,1995,t,109245
+Guinea,1996,t,111245
+Guinea,1997,t,113285
+Guinea,1998,t,115360
+Guinea,1999,t,117480
+Guinea,2000,t,119630
+Guinea,2001,t,118537
+Guinea,2002,t,146495
+Guinea,2003,t,181048
+Guinea,2004,t,223749
+Guinea,2005,t,260000
+Guinea,2006,t,290000
+Guinea,2007,t,323000
+Guinea,2008,t,320000
+Guinea,2009,t,221565
+Guinea,2010,t,234038
+Guinea,2011,t,160507
+Guinea,2012,t,210880
+Guinea,2013,t,214147
+Guinea,2014,t,220889
+Guinea,2015,t,224587
+Guinea,2016,t,238177
+Guinea,2017,t,241714
+Guinea,2018,t,214747
+Guinea,2019,t,210303
+Guinea,2020,t,213420
+Guinea,2021,t,216579
+Guinea,2022,t,219783.98
+Guinea,2023,t,220000
+Guinea-Bissau,1961,t,6000
+Guinea-Bissau,1962,t,6000
+Guinea-Bissau,1963,t,6000
+Guinea-Bissau,1964,t,6000
+Guinea-Bissau,1965,t,6500
+Guinea-Bissau,1966,t,7500
+Guinea-Bissau,1967,t,7700
+Guinea-Bissau,1968,t,6500
+Guinea-Bissau,1969,t,6000
+Guinea-Bissau,1970,t,6000
+Guinea-Bissau,1971,t,5000
+Guinea-Bissau,1972,t,5500
+Guinea-Bissau,1973,t,7000
+Guinea-Bissau,1974,t,6000
+Guinea-Bissau,1975,t,6500
+Guinea-Bissau,1976,t,7000
+Guinea-Bissau,1977,t,8000
+Guinea-Bissau,1978,t,6000
+Guinea-Bissau,1979,t,10000
+Guinea-Bissau,1980,t,13000
+Guinea-Bissau,1981,t,14000
+Guinea-Bissau,1982,t,16250
+Guinea-Bissau,1983,t,17750
+Guinea-Bissau,1984,t,16000
+Guinea-Bissau,1985,t,18000
+Guinea-Bissau,1986,t,18273
+Guinea-Bissau,1987,t,20000
+Guinea-Bissau,1988,t,25503
+Guinea-Bissau,1989,t,16678
+Guinea-Bissau,1990,t,17435
+Guinea-Bissau,1991,t,28262
+Guinea-Bissau,1992,t,22980
+Guinea-Bissau,1993,t,26418
+Guinea-Bissau,1994,t,28634
+Guinea-Bissau,1995,t,34698
+Guinea-Bissau,1996,t,21185
+Guinea-Bissau,1997,t,10350
+Guinea-Bissau,1998,t,21500
+Guinea-Bissau,1999,t,21100
+Guinea-Bissau,2000,t,21096
+Guinea-Bissau,2001,t,28604
+Guinea-Bissau,2002,t,24243
+Guinea-Bissau,2003,t,22669
+Guinea-Bissau,2004,t,31473
+Guinea-Bissau,2005,t,47209
+Guinea-Bissau,2006,t,49569
+Guinea-Bissau,2007,t,26169
+Guinea-Bissau,2008,t,31388
+Guinea-Bissau,2009,t,12281
+Guinea-Bissau,2010,t,15004
+Guinea-Bissau,2011,t,13971
+Guinea-Bissau,2012,t,16954
+Guinea-Bissau,2013,t,18058
+Guinea-Bissau,2014,t,10000
+Guinea-Bissau,2015,t,14000
+Guinea-Bissau,2016,t,14000
+Guinea-Bissau,2017,t,17000
+Guinea-Bissau,2018,t,18000
+Guinea-Bissau,2019,t,19585
+Guinea-Bissau,2020,t,23917
+Guinea-Bissau,2021,t,25263
+Guinea-Bissau,2022,t,28804
+Guinea-Bissau,2023,t,27000
+Hungary,1961,t,1248
+Hungary,1962,t,3087
+Hungary,1963,t,7297
+Hungary,1964,t,4728
+Hungary,1965,t,7671
+Hungary,1966,t,9522
+Hungary,1967,t,4998
+Hungary,1968,t,4324
+Hungary,1969,t,5310
+Hungary,1970,t,6199
+Hungary,1971,t,3105
+Hungary,1972,t,3993
+Hungary,1973,t,5395
+Hungary,1974,t,5604
+Hungary,1975,t,10581
+Hungary,1976,t,6652
+Hungary,1977,t,6243
+Hungary,1978,t,6635
+Hungary,1979,t,10636
+Hungary,1980,t,5475
+Hungary,1981,t,8217
+Hungary,1982,t,7813
+Hungary,1983,t,4834
+Hungary,1984,t,3637
+Hungary,1985,t,10420
+Hungary,1986,t,10365
+Hungary,1987,t,8158
+Hungary,1988,t,5941
+Hungary,1989,t,13177
+Hungary,1990,t,10086
+Hungary,1991,t,15833
+Hungary,1992,t,11663
+Hungary,1993,t,11984
+Hungary,1994,t,12277
+Hungary,1995,t,10000
+Hungary,1996,t,11574
+Hungary,1997,t,10781
+Hungary,1998,t,15585
+Hungary,1999,t,12159
+Hungary,2000,t,8156
+Hungary,2001,t,7618
+Hungary,2002,t,9833
+Hungary,2003,t,10544
+Hungary,2004,t,19968
+Hungary,2005,t,15387
+Hungary,2006,t,12019
+Hungary,2007,t,7644
+Hungary,2008,t,9925
+Hungary,2009,t,6863
+Hungary,2010,t,17964
+Hungary,2011,t,10766
+Hungary,2012,t,9540
+Hungary,2013,t,5080
+Hungary,2014,t,7050
+Hungary,2015,t,4684
+Hungary,2016,t,3651
+Hungary,2017,t,3230
+Hungary,2018,t,
+India,1961,t,7725000
+India,1962,t,7855000
+India,1963,t,7921000
+India,1964,t,8506000
+India,1965,t,6634000
+India,1966,t,7587000
+India,1967,t,8976300
+India,1968,t,7253500
+India,1969,t,9176000
+India,1970,t,12171600
+India,1971,t,9197000
+India,1972,t,7404500
+India,1973,t,11557000
+India,1974,t,7020900
+India,1975,t,10456600
+India,1976,t,9649700
+India,1977,t,9666000
+India,1978,t,10660700
+India,1979,t,8094200
+India,1980,t,9336900
+India,1981,t,10136200
+India,1982,t,8583400
+India,1983,t,12232000
+India,1984,t,9770700
+India,1985,t,7399100
+India,1986,t,8383300
+India,1987,t,6865900
+India,1988,t,11352900
+India,1989,t,10721100
+India,1990,t,10423800
+India,1991,t,8128900
+India,1992,t,12280900
+India,1993,t,8488400
+India,1994,t,10299300
+India,1995,t,8661100
+India,1996,t,10940500
+India,1997,t,10376200
+India,1998,t,10234500
+India,1999,t,8689900
+India,2000,t,10077800
+India,2001,t,11235300
+India,2002,t,6493900
+India,2003,t,14638800
+India,2004,t,10841300
+India,2005,t,10509200
+India,2006,t,10346900
+India,2007,t,12673000
+India,2008,t,11371800
+India,2009,t,8776800
+India,2010,t,13293000
+India,2011,t,12660000
+India,2012,t,10750000
+India,2013,t,10910000
+India,2014,t,11420000
+India,2015,t,11630000
+India,2016,t,10280000
+India,2017,t,11556890
+India,2018,t,11633080
+India,2019,t,10235830
+India,2020,t,12488470
+India,2021,t,13208480
+India,2022,t,11849190
+India,2023,t,13507041
+Iran (Islamic Republic of),1961,t,18000
+Iran (Islamic Republic of),1962,t,18000
+Iran (Islamic Republic of),1963,t,18000
+Iran (Islamic Republic of),1964,t,18000
+Iran (Islamic Republic of),1965,t,18000
+Iran (Islamic Republic of),1966,t,9000
+Iran (Islamic Republic of),1967,t,8000
+Iran (Islamic Republic of),1968,t,19000
+Iran (Islamic Republic of),1969,t,12000
+Iran (Islamic Republic of),1970,t,12000
+Iran (Islamic Republic of),1971,t,10000
+Iran (Islamic Republic of),1972,t,12000
+Iran (Islamic Republic of),1973,t,13000
+Iran (Islamic Republic of),1974,t,5000
+Iran (Islamic Republic of),1975,t,5000
+Iran (Islamic Republic of),1976,t,10000
+Iran (Islamic Republic of),1977,t,10000
+Iran (Islamic Republic of),1978,t,10000
+Iran (Islamic Republic of),1979,t,10000
+Iran (Islamic Republic of),1980,t,10000
+Iran (Islamic Republic of),1981,t,6494
+Iran (Islamic Republic of),1982,t,25000
+Iran (Islamic Republic of),1983,t,25884
+Iran (Islamic Republic of),1984,t,18000
+Iran (Islamic Republic of),1985,t,18809
+Iran (Islamic Republic of),1986,t,20235
+Iran (Islamic Republic of),1987,t,21918
+Iran (Islamic Republic of),1988,t,18361
+Iran (Islamic Republic of),1989,t,15237
+Iran (Islamic Republic of),1990,t,13000
+Iran (Islamic Republic of),1991,t,8799
+Iran (Islamic Republic of),1992,t,10979.7
+Iran (Islamic Republic of),1993,t,18650.4
+Iran (Islamic Republic of),1994,t,5769
+Iran (Islamic Republic of),1995,t,13183.6
+Iran (Islamic Republic of),1996,t,11648.1
+Iran (Islamic Republic of),1997,t,5076.5
+Iran (Islamic Republic of),1998,t,15966.2
+Iran (Islamic Republic of),1999,t,20712.6
+Iran (Islamic Republic of),2000,t,11535.7
+Iran (Islamic Republic of),2001,t,7400.7
+Iran (Islamic Republic of),2002,t,12418.8
+Iran (Islamic Republic of),2003,t,15169.5
+Iran (Islamic Republic of),2004,t,9748.7
+Iran (Islamic Republic of),2005,t,16978.7
+Iran (Islamic Republic of),2006,t,71169.3
+Iran (Islamic Republic of),2007,t,60675.1
+Iran (Islamic Republic of),2008,t,32264.1
+Iran (Islamic Republic of),2009,t,18598.7
+Iran (Islamic Republic of),2010,t,13200
+Iran (Islamic Republic of),2011,t,5951.6
+Iran (Islamic Republic of),2012,t,34764.2
+Iran (Islamic Republic of),2013,t,8948.8
+Iran (Islamic Republic of),2014,t,10173.1
+Iran (Islamic Republic of),2015,t,14762.94
+Iran (Islamic Republic of),2016,t,11294.95
+Iran (Islamic Republic of),2017,t,12077
+Iran (Islamic Republic of),2018,t,12711.63
+Iran (Islamic Republic of),2019,t,12027.86
+Iran (Islamic Republic of),2020,t,12272.16
+Iran (Islamic Republic of),2021,t,12337.22
+Iran (Islamic Republic of),2022,t,12212.41
+Iran (Islamic Republic of),2023,t,12273.93
+Iraq,1961,t,3133
+Iraq,1962,t,2891
+Iraq,1963,t,3700
+Iraq,1964,t,5100
+Iraq,1965,t,5267
+Iraq,1966,t,6200
+Iraq,1967,t,8211
+Iraq,1968,t,5588
+Iraq,1969,t,1345
+Iraq,1970,t,2877
+Iraq,1971,t,4836
+Iraq,1972,t,4141
+Iraq,1973,t,2067
+Iraq,1974,t,991
+Iraq,1975,t,599
+Iraq,1976,t,731
+Iraq,1977,t,626
+Iraq,1978,t,398
+Iraq,1979,t,1200
+Iraq,1980,t,600
+Iraq,1981,t,800
+Iraq,1982,t,200
+Iraq,1983,t,1400
+Iraq,1984,t,2500
+Iraq,1985,t,1600
+Iraq,1986,t,700
+Iraq,1987,t,2800
+Iraq,1988,t,3700
+Iraq,1989,t,3000
+Iraq,1990,t,1000
+Iraq,1991,t,1600
+Iraq,1992,t,2116
+Iraq,1993,t,2500
+Iraq,1994,t,2650
+Iraq,1995,t,2600
+Iraq,1996,t,4000
+Iraq,1997,t,4000
+Iraq,1998,t,4000
+Iraq,1999,t,4000
+Iraq,2000,t,4000
+Iraq,2001,t,4000
+Iraq,2002,t,4000
+Iraq,2003,t,2000
+Iraq,2004,t,4000
+Iraq,2005,t,4000
+Iraq,2006,t,4000
+Iraq,2007,t,6471
+Iraq,2008,t,4470
+Iraq,2009,t,1954
+Iraq,2010,t,2266
+Iraq,2011,t,2661
+Iraq,2012,t,3368
+Iraq,2013,t,3394
+Iraq,2014,t,3259
+Iraq,2015,t,4734
+Iraq,2016,t,1729
+Iraq,2017,t,3919
+Iraq,2018,t,880
+Iraq,2019,t,1610
+Iraq,2020,t,3505
+Iraq,2021,t,3441
+Iraq,2022,t,2407
+Iraq,2023,t,2310
+Japan,1961,t,71000
+Japan,1962,t,56500
+Japan,1963,t,52500
+Japan,1964,t,41700
+Japan,1965,t,34200
+Japan,1966,t,28000
+Japan,1967,t,22100
+Japan,1968,t,20100
+Japan,1969,t,14000
+Japan,1970,t,11000
+Japan,1971,t,10000
+Japan,1972,t,4000
+Japan,1973,t,5000
+Japan,1974,t,4000
+Japan,1975,t,2500
+Japan,1976,t,900
+Japan,1977,t,1100
+Japan,1978,t,1100
+Japan,1979,t,1100
+Japan,1980,t,1240
+Japan,1981,t,957
+Japan,1982,t,833
+Japan,1983,t,232
+Japan,1984,t,653
+Japan,1985,t,558
+Japan,1986,t,145
+Japan,1987,t,535
+Japan,1988,t,1735
+Japan,1989,t,1872
+Japan,1990,t,1300
+Japan,1991,t,600
+Japan,1992,t,666.7
+Japan,1993,t,700
+Japan,1994,t,613.37
+Japan,1995,t,566.07
+Japan,1996,t,494.47
+Japan,1997,t,300
+Japan,1998,t,300
+Japan,1999,t,300
+Japan,2000,t,386.33
+Japan,2001,t,372.67
+Japan,2002,t,359.33
+Japan,2003,t,346.33
+Japan,2004,t,333.7
+Japan,2005,t,317.69
+Japan,2006,t,305.36
+Japan,2007,t,293.13
+Japan,2008,t,281.21
+Japan,2009,t,269.89
+Japan,2010,t,259.17
+Japan,2011,t,249.05
+Japan,2012,t,250
+Japan,2013,t,260
+Japan,2014,t,265.38
+Japan,2015,t,230.21
+Japan,2016,t,251.86
+Japan,2017,t,255.26
+Japan,2018,t,247.92
+Japan,2019,t,251.68
+Japan,2020,t,251.62
+Japan,2021,t,250.41
+Japan,2022,t,251.24
+Japan,2023,t,251.09
+Jordan,1961,t,
+Jordan,1962,t,
+Jordan,1963,t,
+Jordan,1964,t,
+Jordan,1965,t,
+Jordan,1966,t,
+Jordan,1967,t,
+Jordan,1968,t,
+Jordan,1969,t,
+Jordan,1970,t,
+Jordan,1971,t,
+Jordan,1972,t,
+Jordan,1973,t,
+Jordan,1974,t,
+Jordan,1975,t,
+Jordan,1976,t,
+Jordan,1977,t,
+Jordan,1978,t,
+Jordan,1979,t,
+Jordan,1980,t,
+Jordan,1981,t,
+Jordan,1982,t,
+Jordan,1983,t,
+Jordan,1984,t,
+Jordan,1985,t,
+Jordan,1986,t,
+Jordan,1987,t,
+Jordan,1988,t,
+Jordan,1989,t,
+Jordan,1990,t,
+Jordan,1991,t,
+Jordan,1992,t,
+Jordan,1993,t,
+Jordan,1994,t,412
+Jordan,1995,t,44
+Jordan,1996,t,81
+Jordan,1997,t,71
+Jordan,1998,t,90
+Jordan,1999,t,72
+Jordan,2000,t,407
+Jordan,2001,t,408
+Jordan,2002,t,65
+Jordan,2003,t,82.52
+Jordan,2004,t,30
+Jordan,2005,t,82
+Jordan,2006,t,60
+Jordan,2007,t,7
+Jordan,2008,t,0
+Jordan,2009,t,0
+Jordan,2010,t,0
+Jordan,2011,t,0
+Jordan,2012,t,0
+Jordan,2013,t,0
+Jordan,2014,t,0
+Jordan,2015,t,0
+Jordan,2016,t,0
+Jordan,2017,t,0
+Jordan,2018,t,0
+Jordan,2019,t,0
+Jordan,2020,t,0
+Jordan,2021,t,0
+Jordan,2022,t,0
+Jordan,2023,t,0
+Kazakhstan,1992,t,448000
+Kazakhstan,1993,t,231000
+Kazakhstan,1994,t,130000
+Kazakhstan,1995,t,39140
+Kazakhstan,1996,t,29700
+Kazakhstan,1997,t,63730
+Kazakhstan,1998,t,19750
+Kazakhstan,1999,t,43800
+Kazakhstan,2000,t,62280
+Kazakhstan,2001,t,65270
+Kazakhstan,2002,t,39220
+Kazakhstan,2003,t,48840
+Kazakhstan,2004,t,50740
+Kazakhstan,2005,t,27150
+Kazakhstan,2006,t,33420
+Kazakhstan,2007,t,31000
+Kazakhstan,2008,t,27380
+Kazakhstan,2009,t,31270
+Kazakhstan,2010,t,16480
+Kazakhstan,2011,t,43364.6
+Kazakhstan,2012,t,22625.8
+Kazakhstan,2013,t,54453.2
+Kazakhstan,2014,t,27251.2
+Kazakhstan,2015,t,34674
+Kazakhstan,2016,t,61161
+Kazakhstan,2017,t,37935
+Kazakhstan,2018,t,40237.07
+Kazakhstan,2019,t,42616.58
+Kazakhstan,2020,t,39852.23
+Kazakhstan,2021,t,35825.09
+Kazakhstan,2022,t,37174.3
+Kazakhstan,2023,t,35070.04
+Kenya,1961,t,130000
+Kenya,1962,t,130000
+Kenya,1963,t,130000
+Kenya,1964,t,130000
+Kenya,1965,t,130000
+Kenya,1966,t,136000
+Kenya,1967,t,141000
+Kenya,1968,t,130000
+Kenya,1969,t,120000
+Kenya,1970,t,130000
+Kenya,1971,t,130000
+Kenya,1972,t,135000
+Kenya,1973,t,135000
+Kenya,1974,t,128202
+Kenya,1975,t,127800
+Kenya,1976,t,128000
+Kenya,1977,t,129600
+Kenya,1978,t,130000
+Kenya,1979,t,110000
+Kenya,1980,t,90000
+Kenya,1981,t,52480
+Kenya,1982,t,29800
+Kenya,1983,t,29800
+Kenya,1984,t,10000
+Kenya,1985,t,60480
+Kenya,1986,t,41217
+Kenya,1987,t,66000
+Kenya,1988,t,71700
+Kenya,1989,t,71168
+Kenya,1990,t,62786
+Kenya,1991,t,52063
+Kenya,1992,t,48746
+Kenya,1993,t,58036
+Kenya,1994,t,69480
+Kenya,1995,t,54142
+Kenya,1996,t,23159
+Kenya,1997,t,38619
+Kenya,1998,t,34020
+Kenya,1999,t,59172
+Kenya,2000,t,44623
+Kenya,2001,t,44623
+Kenya,2002,t,72197
+Kenya,2003,t,63622
+Kenya,2004,t,50467
+Kenya,2005,t,53101
+Kenya,2006,t,79207
+Kenya,2007,t,119599
+Kenya,2008,t,38462
+Kenya,2009,t,54000
+Kenya,2010,t,53881
+Kenya,2011,t,73396
+Kenya,2012,t,138204
+Kenya,2013,t,138829
+Kenya,2014,t,126000
+Kenya,2015,t,99000
+Kenya,2016,t,54000
+Kenya,2017,t,54000
+Kenya,2018,t,72000
+Kenya,2019,t,135000
+Kenya,2020,t,153000
+Kenya,2021,t,59180
+Kenya,2022,t,59459
+Kenya,2023,t,86762
+Kyrgyzstan,1992,t,
+Kyrgyzstan,1993,t,
+Kyrgyzstan,1994,t,
+Kyrgyzstan,1995,t,
+Kyrgyzstan,1996,t,
+Kyrgyzstan,1997,t,
+Kyrgyzstan,1998,t,
+Kyrgyzstan,1999,t,500
+Kyrgyzstan,2000,t,500
+Kyrgyzstan,2001,t,500
+Kyrgyzstan,2002,t,200
+Kyrgyzstan,2003,t,222
+Kyrgyzstan,2004,t,254
+Kyrgyzstan,2005,t,195
+Kyrgyzstan,2006,t,115
+Kyrgyzstan,2007,t,180
+Kyrgyzstan,2008,t,121
+Kyrgyzstan,2009,t,174
+Kyrgyzstan,2010,t,62
+Kyrgyzstan,2011,t,467
+Kyrgyzstan,2012,t,71
+Kyrgyzstan,2013,t,69
+Kyrgyzstan,2014,t,63
+Kyrgyzstan,2015,t,82
+Kyrgyzstan,2016,t,81.2
+Kyrgyzstan,2017,t,92.5
+Kyrgyzstan,2018,t,86
+Kyrgyzstan,2019,t,163.6
+Kyrgyzstan,2020,t,320.2
+Kyrgyzstan,2021,t,93
+Kyrgyzstan,2022,t,90
+Kyrgyzstan,2023,t,58
+Libya,1961,t,1000
+Libya,1962,t,1500
+Libya,1963,t,1200
+Libya,1964,t,1000
+Libya,1965,t,1000
+Libya,1966,t,1200
+Libya,1967,t,1200
+Libya,1968,t,1200
+Libya,1969,t,1200
+Libya,1970,t,1200
+Libya,1971,t,122
+Libya,1972,t,822
+Libya,1973,t,1040
+Libya,1974,t,2100
+Libya,1975,t,2100
+Libya,1976,t,2300
+Libya,1977,t,2300
+Libya,1978,t,2300
+Libya,1979,t,2400
+Libya,1980,t,2400
+Libya,1981,t,3000
+Libya,1982,t,4200
+Libya,1983,t,3850
+Libya,1984,t,3500
+Libya,1985,t,4655
+Libya,1986,t,4000
+Libya,1987,t,3500
+Libya,1988,t,2600
+Libya,1989,t,2300
+Libya,1990,t,1900
+Libya,1991,t,2300
+Libya,1992,t,2350
+Libya,1993,t,3300
+Libya,1994,t,4250
+Libya,1995,t,5500
+Libya,1996,t,7200
+Libya,1997,t,7000
+Libya,1998,t,6800
+Libya,1999,t,6500
+Libya,2000,t,6000
+Libya,2001,t,5800
+Libya,2002,t,5600
+Libya,2003,t,5200
+Libya,2004,t,4865
+Libya,2005,t,5000
+Libya,2006,t,6400
+Libya,2007,t,6700
+Libya,2008,t,6200
+Libya,2009,t,6400
+Libya,2010,t,6400
+Libya,2011,t,8220
+Libya,2012,t,7252.49
+Libya,2013,t,6000
+Libya,2014,t,6000
+Libya,2015,t,6000
+Libya,2016,t,6000
+Libya,2017,t,6000
+Libya,2018,t,6000
+Libya,2019,t,6000
+Libya,2020,t,6000
+Libya,2021,t,6000
+Libya,2022,t,6000
+Libya,2023,t,6000
+Malawi,1961,t,0
+Malawi,1962,t,0
+Malawi,1963,t,0
+Malawi,1964,t,0
+Malawi,1965,t,0
+Malawi,1966,t,0
+Malawi,1967,t,0
+Malawi,1968,t,0
+Malawi,1969,t,0
+Malawi,1970,t,0
+Malawi,1971,t,0
+Malawi,1972,t,0
+Malawi,1973,t,0
+Malawi,1974,t,0
+Malawi,1975,t,0
+Malawi,1976,t,0
+Malawi,1977,t,0
+Malawi,1978,t,7000
+Malawi,1979,t,7000
+Malawi,1980,t,7000
+Malawi,1981,t,6000
+Malawi,1982,t,10000
+Malawi,1983,t,1621
+Malawi,1984,t,8316
+Malawi,1985,t,10580
+Malawi,1986,t,9526
+Malawi,1987,t,8666
+Malawi,1988,t,11841
+Malawi,1989,t,11183
+Malawi,1990,t,10113
+Malawi,1991,t,7766
+Malawi,1992,t,3418
+Malawi,1993,t,15228
+Malawi,1994,t,9713
+Malawi,1995,t,13259
+Malawi,1996,t,20262
+Malawi,1997,t,16424
+Malawi,1998,t,19638
+Malawi,1999,t,20224
+Malawi,2000,t,19508
+Malawi,2001,t,20414
+Malawi,2002,t,20900
+Malawi,2003,t,24615
+Malawi,2004,t,17349
+Malawi,2005,t,15970
+Malawi,2006,t,27037
+Malawi,2007,t,32251
+Malawi,2008,t,31869
+Malawi,2009,t,26866
+Malawi,2010,t,24495
+Malawi,2011,t,32911
+Malawi,2012,t,34543
+Malawi,2013,t,39262
+Malawi,2014,t,42202
+Malawi,2015,t,33512
+Malawi,2016,t,19510
+Malawi,2017,t,35121
+Malawi,2018,t,31315
+Malawi,2019,t,44718
+Malawi,2020,t,48931
+Malawi,2021,t,42289
+Malawi,2022,t,41071
+Malawi,2023,t,42855.5
+Maldives,1961,t,150
+Maldives,1962,t,200
+Maldives,1963,t,250
+Maldives,1964,t,300
+Maldives,1965,t,350
+Maldives,1966,t,411
+Maldives,1967,t,251
+Maldives,1968,t,150
+Maldives,1969,t,57
+Maldives,1970,t,231
+Maldives,1971,t,68
+Maldives,1972,t,23
+Maldives,1973,t,762
+Maldives,1974,t,789
+Maldives,1975,t,2044
+Maldives,1976,t,130
+Maldives,1977,t,69
+Maldives,1978,t,19
+Maldives,1979,t,30
+Maldives,1980,t,9
+Maldives,1981,t,93
+Maldives,1982,t,50
+Maldives,1983,t,20
+Maldives,1984,t,1
+Maldives,1985,t,1
+Maldives,1986,t,1
+Maldives,1987,t,3
+Maldives,1988,t,2
+Maldives,1989,t,7
+Maldives,1990,t,2
+Maldives,1991,t,1
+Maldives,1992,t,3
+Maldives,1993,t,4
+Maldives,1994,t,5
+Maldives,1995,t,8
+Maldives,1996,t,9
+Maldives,1997,t,22
+Maldives,1998,t,10
+Maldives,1999,t,5
+Maldives,2000,t,4
+Maldives,2001,t,5
+Maldives,2002,t,4
+Maldives,2003,t,50
+Maldives,2004,t,2
+Maldives,2005,t,0
+Maldives,2006,t,0
+Maldives,2007,t,0
+Maldives,2008,t,0
+Maldives,2009,t,0
+Maldives,2010,t,4.58
+Maldives,2011,t,4.79
+Maldives,2012,t,5.49
+Maldives,2013,t,5.47
+Maldives,2014,t,5.07
+Maldives,2015,t,4.94
+Maldives,2016,t,5.16
+Maldives,2017,t,4.94
+Maldives,2018,t,4.59
+Maldives,2019,t,4.51
+Maldives,2020,t,4.8
+Maldives,2021,t,5.16
+Maldives,2022,t,5.1
+Maldives,2023,t,5.04
+Mali,1961,t,476000
+Mali,1962,t,498000
+Mali,1963,t,443000
+Mali,1964,t,380000
+Mali,1965,t,414000
+Mali,1966,t,440000
+Mali,1967,t,493000
+Mali,1968,t,436000
+Mali,1969,t,525000
+Mali,1970,t,411000
+Mali,1971,t,417000
+Mali,1972,t,359000
+Mali,1973,t,380000
+Mali,1974,t,460000
+Mali,1975,t,532000
+Mali,1976,t,477000
+Mali,1977,t,432000
+Mali,1978,t,523000
+Mali,1979,t,429000
+Mali,1980,t,407000
+Mali,1981,t,546000
+Mali,1982,t,608000
+Mali,1983,t,566321
+Mali,1984,t,506521
+Mali,1985,t,871312
+Mali,1986,t,805763
+Mali,1987,t,693526
+Mali,1988,t,999901
+Mali,1989,t,841793
+Mali,1990,t,737007
+Mali,1991,t,889896
+Mali,1992,t,582296
+Mali,1993,t,708062
+Mali,1994,t,897592
+Mali,1995,t,706666
+Mali,1996,t,738856
+Mali,1997,t,641088
+Mali,1998,t,813615
+Mali,1999,t,818905
+Mali,2000,t,759114
+Mali,2001,t,792548
+Mali,2002,t,795146
+Mali,2003,t,1260498
+Mali,2004,t,974673
+Mali,2005,t,1157810
+Mali,2006,t,1128773
+Mali,2007,t,1175107
+Mali,2008,t,1413908
+Mali,2009,t,1449592
+Mali,2010,t,1373342
+Mali,2011,t,1462139
+Mali,2012,t,1680308
+Mali,2013,t,1854175
+Mali,2014,t,1715044
+Mali,2015,t,1864301
+Mali,2016,t,1806559
+Mali,2017,t,1492650
+Mali,2018,t,1840320.81
+Mali,2019,t,1878527
+Mali,2020,t,1921171
+Mali,2021,t,1487683
+Mali,2022,t,1844664
+Mali,2023,t,1942580
+Mauritania,1961,t,6500
+Mauritania,1962,t,6700
+Mauritania,1963,t,6800
+Mauritania,1964,t,6800
+Mauritania,1965,t,7500
+Mauritania,1966,t,6800
+Mauritania,1967,t,6800
+Mauritania,1968,t,7100
+Mauritania,1969,t,8300
+Mauritania,1970,t,6200
+Mauritania,1971,t,3800
+Mauritania,1972,t,2800
+Mauritania,1973,t,1900
+Mauritania,1974,t,3800
+Mauritania,1975,t,3400
+Mauritania,1976,t,2700
+Mauritania,1977,t,1600
+Mauritania,1978,t,2300
+Mauritania,1979,t,2000
+Mauritania,1980,t,3000
+Mauritania,1981,t,4000
+Mauritania,1982,t,2000
+Mauritania,1983,t,1000
+Mauritania,1984,t,3000
+Mauritania,1985,t,8000
+Mauritania,1986,t,6000
+Mauritania,1987,t,7000
+Mauritania,1988,t,6670
+Mauritania,1989,t,13920
+Mauritania,1990,t,3324
+Mauritania,1991,t,2129
+Mauritania,1992,t,1583
+Mauritania,1993,t,4045
+Mauritania,1994,t,7316
+Mauritania,1995,t,8000
+Mauritania,1996,t,7516
+Mauritania,1997,t,2728
+Mauritania,1998,t,2744
+Mauritania,1999,t,6064
+Mauritania,2000,t,3750
+Mauritania,2001,t,4587
+Mauritania,2002,t,586
+Mauritania,2003,t,5902
+Mauritania,2004,t,823
+Mauritania,2005,t,4221
+Mauritania,2006,t,4955
+Mauritania,2007,t,1601
+Mauritania,2008,t,2318
+Mauritania,2009,t,8081
+Mauritania,2010,t,3344
+Mauritania,2011,t,612
+Mauritania,2012,t,3232
+Mauritania,2013,t,3951
+Mauritania,2014,t,1824
+Mauritania,2015,t,2790.14
+Mauritania,2016,t,3000
+Mauritania,2017,t,2000
+Mauritania,2018,t,3000
+Mauritania,2019,t,3000
+Mauritania,2020,t,3000
+Mauritania,2021,t,1000
+Mauritania,2022,t,3437
+Mauritania,2023,t,3000
+Mexico,1961,t,0
+Mexico,1962,t,0
+Mexico,1963,t,0
+Mexico,1964,t,0
+Mexico,1965,t,0
+Mexico,1966,t,0
+Mexico,1967,t,0
+Mexico,1968,t,0
+Mexico,1969,t,0
+Mexico,1970,t,0
+Mexico,1971,t,0
+Mexico,1972,t,0
+Mexico,1973,t,0
+Mexico,1974,t,0
+Mexico,1975,t,0
+Mexico,1976,t,0
+Mexico,1977,t,0
+Mexico,1978,t,0
+Mexico,1979,t,0
+Mexico,1980,t,0
+Mexico,1981,t,0
+Mexico,1982,t,0
+Mexico,1983,t,0
+Mexico,1984,t,0
+Mexico,1985,t,5
+Mexico,1986,t,8
+Mexico,1987,t,11
+Mexico,1988,t,8
+Mexico,1989,t,19
+Mexico,1990,t,5
+Mexico,1991,t,12
+Mexico,1992,t,28
+Mexico,1993,t,5
+Mexico,1994,t,30
+Mexico,1995,t,0
+Mexico,1996,t,0
+Mexico,1997,t,13
+Mexico,1998,t,17
+Mexico,1999,t,20
+Mexico,2000,t,7
+Mexico,2001,t,85
+Mexico,2002,t,490
+Mexico,2003,t,800
+Mexico,2004,t,1080
+Mexico,2005,t,600
+Mexico,2006,t,600
+Mexico,2007,t,600
+Mexico,2008,t,597.63
+Mexico,2009,t,650
+Mexico,2010,t,700
+Mexico,2011,t,750
+Mexico,2012,t,800
+Mexico,2013,t,853
+Mexico,2014,t,325
+Mexico,2015,t,13.2
+Mexico,2016,t,27.36
+Mexico,2017,t,0
+Mexico,2018,t,221
+Mexico,2019,t,276.45
+Mexico,2020,t,279.02
+Mexico,2021,t,275.81
+Mexico,2022,t,94
+Mexico,2023,t,89.31
+Morocco,1961,t,2850
+Morocco,1962,t,7479
+Morocco,1963,t,5500
+Morocco,1964,t,5500
+Morocco,1965,t,8700
+Morocco,1966,t,2140
+Morocco,1967,t,3100
+Morocco,1968,t,5300
+Morocco,1969,t,2300
+Morocco,1970,t,6000
+Morocco,1971,t,5041
+Morocco,1972,t,4000
+Morocco,1973,t,3200
+Morocco,1974,t,2900
+Morocco,1975,t,2900
+Morocco,1976,t,3200
+Morocco,1977,t,3200
+Morocco,1978,t,3300
+Morocco,1979,t,3400
+Morocco,1980,t,3500
+Morocco,1981,t,3600
+Morocco,1982,t,4800
+Morocco,1983,t,4000
+Morocco,1984,t,4000
+Morocco,1985,t,4000
+Morocco,1986,t,4000
+Morocco,1987,t,5140
+Morocco,1988,t,4390
+Morocco,1989,t,5400
+Morocco,1990,t,5200
+Morocco,1991,t,5300
+Morocco,1992,t,5882.19
+Morocco,1993,t,5500
+Morocco,1994,t,8000
+Morocco,1995,t,8000
+Morocco,1996,t,7713.28
+Morocco,1997,t,8900.28
+Morocco,1998,t,7645.18
+Morocco,1999,t,7000
+Morocco,2000,t,7975
+Morocco,2001,t,8000
+Morocco,2002,t,7619.97
+Morocco,2003,t,7441.94
+Morocco,2004,t,7261.77
+Morocco,2005,t,7269.25
+Morocco,2006,t,7064.31
+Morocco,2007,t,7000
+Morocco,2008,t,6280
+Morocco,2009,t,5500
+Morocco,2010,t,6000
+Morocco,2011,t,6000
+Morocco,2012,t,5500
+Morocco,2013,t,5700
+Morocco,2014,t,5567.41
+Morocco,2015,t,4952.5
+Morocco,2016,t,5406.64
+Morocco,2017,t,5504.96
+Morocco,2018,t,5462.23
+Morocco,2019,t,5370.04
+Morocco,2020,t,5197.52
+Morocco,2021,t,5343.26
+Morocco,2022,t,5303.6
+Morocco,2023,t,5281.46
+Mozambique,1961,t,10000
+Mozambique,1962,t,10000
+Mozambique,1963,t,10000
+Mozambique,1964,t,10000
+Mozambique,1965,t,10000
+Mozambique,1966,t,10000
+Mozambique,1967,t,10000
+Mozambique,1968,t,10000
+Mozambique,1969,t,10000
+Mozambique,1970,t,10000
+Mozambique,1971,t,10000
+Mozambique,1972,t,10000
+Mozambique,1973,t,10000
+Mozambique,1974,t,10000
+Mozambique,1975,t,8000
+Mozambique,1976,t,8000
+Mozambique,1977,t,8000
+Mozambique,1978,t,7000
+Mozambique,1979,t,5000
+Mozambique,1980,t,5000
+Mozambique,1981,t,5000
+Mozambique,1982,t,5000
+Mozambique,1983,t,5000
+Mozambique,1984,t,5000
+Mozambique,1985,t,5000
+Mozambique,1986,t,5000
+Mozambique,1987,t,5000
+Mozambique,1988,t,5000
+Mozambique,1989,t,5000
+Mozambique,1990,t,6862
+Mozambique,1991,t,9758.44
+Mozambique,1992,t,7480.12
+Mozambique,1993,t,22229
+Mozambique,1994,t,29219
+Mozambique,1995,t,35000
+Mozambique,1996,t,42000
+Mozambique,1997,t,44171
+Mozambique,1998,t,53000
+Mozambique,1999,t,40000
+Mozambique,2000,t,31698
+Mozambique,2001,t,20000
+Mozambique,2002,t,12183
+Mozambique,2003,t,21609
+Mozambique,2004,t,18305
+Mozambique,2005,t,15285
+Mozambique,2006,t,22363
+Mozambique,2007,t,24815
+Mozambique,2008,t,14643
+Mozambique,2009,t,49000
+Mozambique,2010,t,48699
+Mozambique,2011,t,51602
+Mozambique,2012,t,43888
+Mozambique,2013,t,19722
+Mozambique,2014,t,29332
+Mozambique,2015,t,10916
+Mozambique,2016,t,21000
+Mozambique,2017,t,21000
+Mozambique,2018,t,33464
+Mozambique,2019,t,40545
+Mozambique,2020,t,22099
+Mozambique,2021,t,22830
+Mozambique,2022,t,23515
+Mozambique,2023,t,17099
+Myanmar,1961,t,34444
+Myanmar,1962,t,51024
+Myanmar,1963,t,54954
+Myanmar,1964,t,40739
+Myanmar,1965,t,46027
+Myanmar,1966,t,35663
+Myanmar,1967,t,43290
+Myanmar,1968,t,53348
+Myanmar,1969,t,52172
+Myanmar,1970,t,49343
+Myanmar,1971,t,38717
+Myanmar,1972,t,40227
+Myanmar,1973,t,38090
+Myanmar,1974,t,42291
+Myanmar,1975,t,39366
+Myanmar,1976,t,50064
+Myanmar,1977,t,59517
+Myanmar,1978,t,56847
+Myanmar,1979,t,75159
+Myanmar,1980,t,79631
+Myanmar,1981,t,84872
+Myanmar,1982,t,87195
+Myanmar,1983,t,281439
+Myanmar,1984,t,164812
+Myanmar,1985,t,215438
+Myanmar,1986,t,230528
+Myanmar,1987,t,138200
+Myanmar,1988,t,113085
+Myanmar,1989,t,116053
+Myanmar,1990,t,126448
+Myanmar,1991,t,117800
+Myanmar,1992,t,135100
+Myanmar,1993,t,141900
+Myanmar,1994,t,120800
+Myanmar,1995,t,147200
+Myanmar,1996,t,147600
+Myanmar,1997,t,164400
+Myanmar,1998,t,147600
+Myanmar,1999,t,166100
+Myanmar,2000,t,166200
+Myanmar,2001,t,156000
+Myanmar,2002,t,162900
+Myanmar,2003,t,173300
+Myanmar,2004,t,177700
+Myanmar,2005,t,208700
+Myanmar,2006,t,204900
+Myanmar,2007,t,187800
+Myanmar,2008,t,190000
+Myanmar,2009,t,209900
+Myanmar,2010,t,212600
+Myanmar,2011,t,219200
+Myanmar,2012,t,210500
+Myanmar,2013,t,225100
+Myanmar,2014,t,238800
+Myanmar,2015,t,240300
+Myanmar,2016,t,243374
+Myanmar,2017,t,209397
+Myanmar,2018,t,167372
+Myanmar,2019,t,151771
+Myanmar,2020,t,145938
+Myanmar,2021,t,150000
+Myanmar,2022,t,145000
+Myanmar,2023,t,172000
+Namibia,1961,t,12000
+Namibia,1962,t,13586
+Namibia,1963,t,13608
+Namibia,1964,t,15000
+Namibia,1965,t,18000
+Namibia,1966,t,20000
+Namibia,1967,t,22000
+Namibia,1968,t,24000
+Namibia,1969,t,25000
+Namibia,1970,t,25000
+Namibia,1971,t,27000
+Namibia,1972,t,27000
+Namibia,1973,t,28000
+Namibia,1974,t,28000
+Namibia,1975,t,30000
+Namibia,1976,t,30000
+Namibia,1977,t,32000
+Namibia,1978,t,32000
+Namibia,1979,t,34000
+Namibia,1980,t,34000
+Namibia,1981,t,35000
+Namibia,1982,t,37000
+Namibia,1983,t,40000
+Namibia,1984,t,42000
+Namibia,1985,t,43000
+Namibia,1986,t,45000
+Namibia,1987,t,50000
+Namibia,1988,t,55000
+Namibia,1989,t,60000
+Namibia,1990,t,58000
+Namibia,1991,t,46000
+Namibia,1992,t,15000
+Namibia,1993,t,36700
+Namibia,1994,t,59100
+Namibia,1995,t,37100
+Namibia,1996,t,56600
+Namibia,1997,t,93303
+Namibia,1998,t,95586
+Namibia,1999,t,47500
+Namibia,2000,t,77000
+Namibia,2001,t,79825
+Namibia,2002,t,45589
+Namibia,2003,t,49644
+Namibia,2004,t,83400
+Namibia,2005,t,72400
+Namibia,2006,t,105600
+Namibia,2007,t,44450
+Namibia,2008,t,35512
+Namibia,2009,t,37301
+Namibia,2010,t,45835.61
+Namibia,2011,t,42000
+Namibia,2012,t,56000
+Namibia,2013,t,25000
+Namibia,2014,t,37000
+Namibia,2015,t,42493.67
+Namibia,2016,t,19428
+Namibia,2017,t,57644
+Namibia,2018,t,83515
+Namibia,2019,t,9300
+Namibia,2020,t,90829
+Namibia,2021,t,55187
+Namibia,2022,t,44689
+Namibia,2023,t,20470
+Nepal,1961,t,63000
+Nepal,1962,t,68000
+Nepal,1963,t,64000
+Nepal,1964,t,63000
+Nepal,1965,t,120000
+Nepal,1966,t,120000
+Nepal,1967,t,113400
+Nepal,1968,t,121400
+Nepal,1969,t,124600
+Nepal,1970,t,129310
+Nepal,1971,t,129500
+Nepal,1972,t,135400
+Nepal,1973,t,141879
+Nepal,1974,t,142212
+Nepal,1975,t,142610
+Nepal,1976,t,138037
+Nepal,1977,t,129510
+Nepal,1978,t,133140
+Nepal,1979,t,119340
+Nepal,1980,t,121530
+Nepal,1981,t,121710
+Nepal,1982,t,121070
+Nepal,1983,t,114910
+Nepal,1984,t,124430
+Nepal,1985,t,137940
+Nepal,1986,t,137590
+Nepal,1987,t,150130
+Nepal,1988,t,183090
+Nepal,1989,t,224780
+Nepal,1990,t,231630
+Nepal,1991,t,228660
+Nepal,1992,t,236750
+Nepal,1993,t,274420
+Nepal,1994,t,267520
+Nepal,1995,t,252843
+Nepal,1996,t,282440
+Nepal,1997,t,282000
+Nepal,1998,t,285130
+Nepal,1999,t,291370
+Nepal,2000,t,269925
+Nepal,2001,t,282852
+Nepal,2002,t,282570
+Nepal,2003,t,282860
+Nepal,2004,t,283378
+Nepal,2005,t,289838
+Nepal,2006,t,290936
+Nepal,2007,t,284813
+Nepal,2008,t,291098
+Nepal,2009,t,292683
+Nepal,2010,t,299523
+Nepal,2011,t,302691
+Nepal,2012,t,315067
+Nepal,2013,t,305588
+Nepal,2014,t,304105
+Nepal,2015,t,308488
+Nepal,2016,t,302396.85
+Nepal,2017,t,306704
+Nepal,2018,t,313987
+Nepal,2019,t,314225
+Nepal,2020,t,320952.52
+Nepal,2021,t,326443
+Nepal,2022,t,339462
+Nepal,2023,t,310846.76
+Niger,1961,t,776000
+Niger,1962,t,934000
+Niger,1963,t,971000
+Niger,1964,t,1013400
+Niger,1965,t,789500
+Niger,1966,t,841800
+Niger,1967,t,1000100
+Niger,1968,t,732600
+Niger,1969,t,1095400
+Niger,1970,t,870900
+Niger,1971,t,958900
+Niger,1972,t,918800
+Niger,1973,t,626900
+Niger,1974,t,882600
+Niger,1975,t,581300
+Niger,1976,t,1019100
+Niger,1977,t,1130300
+Niger,1978,t,1122600
+Niger,1979,t,1255153
+Niger,1980,t,1363600
+Niger,1981,t,1313900
+Niger,1982,t,1292500
+Niger,1983,t,1311206
+Niger,1984,t,770964
+Niger,1985,t,1450348
+Niger,1986,t,1383395
+Niger,1987,t,996930
+Niger,1988,t,1766306
+Niger,1989,t,1332728
+Niger,1990,t,1765532
+Niger,1991,t,1818000
+Niger,1992,t,1881000
+Niger,1993,t,1880000
+Niger,1994,t,1487000
+Niger,1995,t,1769328
+Niger,1996,t,1758005
+Niger,1997,t,1351918
+Niger,1998,t,2391282
+Niger,1999,t,2289686
+Niger,2000,t,1678631
+Niger,2001,t,2358741
+Niger,2002,t,2567219
+Niger,2003,t,2744908
+Niger,2004,t,2037714
+Niger,2005,t,2652371
+Niger,2006,t,3008584
+Niger,2007,t,2781928
+Niger,2008,t,3489391
+Niger,2009,t,2677855
+Niger,2010,t,3837525
+Niger,2011,t,2760917
+Niger,2012,t,3862155
+Niger,2013,t,2921982
+Niger,2014,t,3321752
+Niger,2015,t,3404813
+Niger,2016,t,3886079.17
+Niger,2017,t,3790028
+Niger,2018,t,3856343.92
+Niger,2019,t,3270453
+Niger,2020,t,3508902.54
+Niger,2021,t,2146706
+Niger,2022,t,3656958.05
+Niger,2023,t,3346000
+Nigeria,1961,t,2644000
+Nigeria,1962,t,2525000
+Nigeria,1963,t,2728000
+Nigeria,1964,t,2479000
+Nigeria,1965,t,2729000
+Nigeria,1966,t,1747000
+Nigeria,1967,t,2590000
+Nigeria,1968,t,2632000
+Nigeria,1969,t,3081000
+Nigeria,1970,t,3106000
+Nigeria,1971,t,2834000
+Nigeria,1972,t,2391000
+Nigeria,1973,t,3794000
+Nigeria,1974,t,4465000
+Nigeria,1975,t,3552000
+Nigeria,1976,t,2893000
+Nigeria,1977,t,2579000
+Nigeria,1978,t,2386000
+Nigeria,1979,t,2366000
+Nigeria,1980,t,2354000
+Nigeria,1981,t,2682000
+Nigeria,1982,t,2666000
+Nigeria,1983,t,2783000
+Nigeria,1984,t,3349000
+Nigeria,1985,t,3584000
+Nigeria,1986,t,4111000
+Nigeria,1987,t,3905000
+Nigeria,1988,t,3949000
+Nigeria,1989,t,4770000
+Nigeria,1990,t,5136000
+Nigeria,1991,t,4109000
+Nigeria,1992,t,4501000
+Nigeria,1993,t,4602000
+Nigeria,1994,t,4757000
+Nigeria,1995,t,5563000
+Nigeria,1996,t,5681000
+Nigeria,1997,t,5902000
+Nigeria,1998,t,5956000
+Nigeria,1999,t,5960000
+Nigeria,2000,t,6105000
+Nigeria,2001,t,5530000
+Nigeria,2002,t,5884000
+Nigeria,2003,t,6260000
+Nigeria,2004,t,6699000
+Nigeria,2005,t,7168000
+Nigeria,2006,t,7705000
+Nigeria,2007,t,8090000
+Nigeria,2008,t,9064000
+Nigeria,2009,t,4929950
+Nigeria,2010,t,5170430
+Nigeria,2011,t,1271370
+Nigeria,2012,t,1280700
+Nigeria,2013,t,909560
+Nigeria,2014,t,1846200
+Nigeria,2015,t,1807810
+Nigeria,2016,t,1487220
+Nigeria,2017,t,1528250
+Nigeria,2018,t,1879340
+Nigeria,2019,t,1925075
+Nigeria,2020,t,1905430
+Nigeria,2021,t,1926950
+Nigeria,2022,t,1941220
+Nigeria,2023,t,1559000
+North Macedonia,1992,t,338
+North Macedonia,1993,t,1050
+North Macedonia,1994,t,10
+North Macedonia,1995,t,2
+North Macedonia,1996,t,16
+North Macedonia,1997,t,0
+North Macedonia,1998,t,
+North Macedonia,1999,t,
+North Macedonia,2000,t,
+North Macedonia,2001,t,
+North Macedonia,2002,t,
+North Macedonia,2003,t,
+North Macedonia,2004,t,
+North Macedonia,2005,t,
+North Macedonia,2006,t,
+North Macedonia,2007,t,
+North Macedonia,2008,t,30
+North Macedonia,2009,t,56.17
+North Macedonia,2010,t,30
+North Macedonia,2011,t,48.7
+North Macedonia,2012,t,30
+North Macedonia,2013,t,30
+North Macedonia,2014,t,30.45
+North Macedonia,2015,t,35.59
+North Macedonia,2016,t,32.01
+North Macedonia,2017,t,32.68
+North Macedonia,2018,t,33.43
+North Macedonia,2019,t,32.71
+North Macedonia,2020,t,32.94
+North Macedonia,2021,t,33.02
+North Macedonia,2022,t,32.89
+North Macedonia,2023,t,32.95
+Pakistan,1961,t,370000
+Pakistan,1962,t,423000
+Pakistan,1963,t,362000
+Pakistan,1964,t,446000
+Pakistan,1965,t,370000
+Pakistan,1966,t,371000
+Pakistan,1967,t,414000
+Pakistan,1968,t,330000
+Pakistan,1969,t,303000
+Pakistan,1970,t,355000
+Pakistan,1971,t,360000
+Pakistan,1972,t,304104
+Pakistan,1973,t,351553
+Pakistan,1974,t,265189
+Pakistan,1975,t,307863
+Pakistan,1976,t,310810
+Pakistan,1977,t,318300
+Pakistan,1978,t,317400
+Pakistan,1979,t,277300
+Pakistan,1980,t,214000
+Pakistan,1981,t,272400
+Pakistan,1982,t,219900
+Pakistan,1983,t,256200
+Pakistan,1984,t,283700
+Pakistan,1985,t,258400
+Pakistan,1986,t,232700
+Pakistan,1987,t,135300
+Pakistan,1988,t,200900
+Pakistan,1989,t,204200
+Pakistan,1990,t,195800
+Pakistan,1991,t,138700
+Pakistan,1992,t,203100
+Pakistan,1993,t,137500
+Pakistan,1994,t,228200
+Pakistan,1995,t,161500
+Pakistan,1996,t,145600
+Pakistan,1997,t,211300
+Pakistan,1998,t,212900
+Pakistan,1999,t,155600
+Pakistan,2000,t,199000
+Pakistan,2001,t,216400
+Pakistan,2002,t,189200
+Pakistan,2003,t,273700
+Pakistan,2004,t,193300
+Pakistan,2005,t,220800
+Pakistan,2006,t,238000
+Pakistan,2007,t,305000
+Pakistan,2008,t,296400
+Pakistan,2009,t,292900
+Pakistan,2010,t,346000
+Pakistan,2011,t,303600
+Pakistan,2012,t,310600
+Pakistan,2013,t,300885
+Pakistan,2014,t,294395
+Pakistan,2015,t,299549
+Pakistan,2016,t,304795
+Pakistan,2017,t,339088
+Pakistan,2018,t,350010
+Pakistan,2019,t,384378
+Pakistan,2020,t,266076
+Pakistan,2021,t,226317
+Pakistan,2022,t,256359
+Pakistan,2023,t,294362
+Poland,1961,t,41000
+Poland,1962,t,30000
+Poland,1963,t,30000
+Poland,1964,t,27000
+Poland,1965,t,30000
+Poland,1966,t,27000
+Poland,1967,t,27000
+Poland,1968,t,25000
+Poland,1969,t,28000
+Poland,1970,t,26000
+Poland,1971,t,23000
+Poland,1972,t,18000
+Poland,1973,t,17000
+Poland,1974,t,13000
+Poland,1975,t,8917
+Poland,1976,t,0
+Poland,1977,t,0
+Poland,1978,t,0
+Poland,1979,t,0
+Poland,1980,t,0
+Poland,1981,t,0
+Poland,1982,t,0
+Poland,1983,t,0
+Poland,1984,t,0
+Poland,1985,t,0
+Poland,1986,t,0
+Poland,1987,t,0
+Poland,1988,t,0
+Poland,1989,t,0
+Poland,1990,t,0
+Poland,1991,t,0
+Poland,1992,t,0
+Poland,1993,t,
+Poland,1994,t,
+Poland,1995,t,
+Poland,1996,t,
+Poland,1997,t,
+Poland,1998,t,
+Poland,1999,t,
+Poland,2000,t,
+Poland,2001,t,
+Poland,2002,t,
+Poland,2003,t,3199
+Poland,2004,t,6935
+Poland,2005,t,7066
+Poland,2006,t,5185
+Poland,2007,t,11692
+Poland,2008,t,9490
+Poland,2009,t,12142
+Poland,2010,t,18923
+Poland,2011,t,16072
+Poland,2012,t,33146
+Poland,2013,t,43767
+Poland,2014,t,51860
+Poland,2015,t,35772
+Poland,2016,t,40965
+Poland,2017,t,30785
+Poland,2018,t,
+Poland,2019,t,
+Portugal,1961,t,7982
+Portugal,1962,t,7422
+Portugal,1963,t,7500
+Portugal,1964,t,7610
+Portugal,1965,t,7673
+Portugal,1966,t,7455
+Portugal,1967,t,8957
+Portugal,1968,t,10000
+Portugal,1969,t,10000
+Portugal,1970,t,6000
+Portugal,1971,t,10000
+Portugal,1972,t,10000
+Portugal,1973,t,
+Portugal,1974,t,
+Portugal,1975,t,
+Portugal,1976,t,
+Portugal,1977,t,
+Portugal,1978,t,
+Portugal,1979,t,
+Portugal,1980,t,
+Portugal,1981,t,
+Portugal,1982,t,
+Portugal,1983,t,
+Portugal,1984,t,
+Portugal,1985,t,
+Portugal,1986,t,
+Portugal,1987,t,
+Portugal,1988,t,
+Portugal,1989,t,
+Portugal,1990,t,
+Portugal,1991,t,
+Portugal,1992,t,
+Portugal,1993,t,
+Portugal,1994,t,
+Portugal,1995,t,
+Portugal,1996,t,
+Portugal,1997,t,
+Portugal,1998,t,
+Portugal,1999,t,
+Portugal,2000,t,
+Portugal,2001,t,
+Portugal,2002,t,
+Portugal,2003,t,
+Portugal,2004,t,
+Portugal,2005,t,
+Portugal,2006,t,
+Portugal,2007,t,
+Portugal,2008,t,
+Portugal,2009,t,
+Portugal,2010,t,
+Portugal,2011,t,
+Portugal,2012,t,
+Portugal,2013,t,
+Portugal,2014,t,
+Portugal,2015,t,
+Portugal,2016,t,
+Portugal,2017,t,
+Portugal,2018,t,
+Republic of Korea,1961,t,68780
+Republic of Korea,1962,t,69638
+Republic of Korea,1963,t,74975
+Republic of Korea,1964,t,76260
+Republic of Korea,1965,t,62550
+Republic of Korea,1966,t,58838
+Republic of Korea,1967,t,42420
+Republic of Korea,1968,t,78846
+Republic of Korea,1969,t,61367
+Republic of Korea,1970,t,44665
+Republic of Korea,1971,t,35051
+Republic of Korea,1972,t,31504
+Republic of Korea,1973,t,30989
+Republic of Korea,1974,t,29994
+Republic of Korea,1975,t,28130
+Republic of Korea,1976,t,22569
+Republic of Korea,1977,t,17114
+Republic of Korea,1978,t,6663
+Republic of Korea,1979,t,3472
+Republic of Korea,1980,t,3606
+Republic of Korea,1981,t,4737
+Republic of Korea,1982,t,5380
+Republic of Korea,1983,t,1558
+Republic of Korea,1984,t,2465
+Republic of Korea,1985,t,4667
+Republic of Korea,1986,t,3270
+Republic of Korea,1987,t,2575
+Republic of Korea,1988,t,2421
+Republic of Korea,1989,t,3152
+Republic of Korea,1990,t,3910
+Republic of Korea,1991,t,2252
+Republic of Korea,1992,t,1721
+Republic of Korea,1993,t,2150
+Republic of Korea,1994,t,2352
+Republic of Korea,1995,t,1628
+Republic of Korea,1996,t,1091
+Republic of Korea,1997,t,1295
+Republic of Korea,1998,t,2996
+Republic of Korea,1999,t,1644
+Republic of Korea,2000,t,1771
+Republic of Korea,2001,t,1851
+Republic of Korea,2002,t,1755
+Republic of Korea,2003,t,1961
+Republic of Korea,2004,t,2644
+Republic of Korea,2005,t,2268
+Republic of Korea,2006,t,2326
+Republic of Korea,2007,t,1356
+Republic of Korea,2008,t,1249
+Republic of Korea,2009,t,1360
+Republic of Korea,2010,t,1606.53
+Republic of Korea,2011,t,1665.98
+Republic of Korea,2012,t,1683.31
+Republic of Korea,2013,t,1666.11
+Republic of Korea,2014,t,1562.97
+Republic of Korea,2015,t,1518.33
+Republic of Korea,2016,t,1437.61
+Republic of Korea,2017,t,1348.35
+Republic of Korea,2018,t,1289.46
+Republic of Korea,2019,t,1000
+Republic of Korea,2020,t,1000
+Republic of Korea,2021,t,1000
+Republic of Korea,2022,t,1000
+Republic of Korea,2023,t,1000
+Republic of Moldova,1992,t,40
+Republic of Moldova,1993,t,97
+Republic of Moldova,1994,t,63
+Republic of Moldova,1995,t,175
+Republic of Moldova,1996,t,117
+Republic of Moldova,1997,t,281
+Republic of Moldova,1998,t,8
+Republic of Moldova,1999,t,25
+Republic of Moldova,2000,t,82
+Republic of Moldova,2001,t,30
+Republic of Moldova,2002,t,50
+Republic of Moldova,2003,t,91
+Republic of Moldova,2004,t,336
+Republic of Moldova,2005,t,188
+Republic of Moldova,2006,t,45
+Republic of Moldova,2007,t,50
+Republic of Moldova,2008,t,512
+Republic of Moldova,2009,t,737
+Republic of Moldova,2010,t,283
+Republic of Moldova,2011,t,125
+Republic of Moldova,2012,t,130
+Republic of Moldova,2013,t,53
+Republic of Moldova,2014,t,10
+Republic of Moldova,2015,t,7
+Republic of Moldova,2016,t,13
+Republic of Moldova,2017,t,54
+Republic of Moldova,2018,t,12
+Republic of Moldova,2019,t,173
+Republic of Moldova,2020,t,15
+Republic of Moldova,2021,t,624
+Republic of Moldova,2022,t,83
+Republic of Moldova,2023,t,229
+Romania,1961,t,
+Romania,1962,t,
+Romania,1963,t,
+Romania,1964,t,
+Romania,1965,t,
+Romania,1966,t,
+Romania,1967,t,
+Romania,1968,t,
+Romania,1969,t,
+Romania,1970,t,
+Romania,1971,t,
+Romania,1972,t,
+Romania,1973,t,
+Romania,1974,t,
+Romania,1975,t,
+Romania,1976,t,
+Romania,1977,t,
+Romania,1978,t,
+Romania,1979,t,
+Romania,1980,t,
+Romania,1981,t,
+Romania,1982,t,
+Romania,1983,t,
+Romania,1984,t,
+Romania,1985,t,
+Romania,1986,t,
+Romania,1987,t,
+Romania,1988,t,
+Romania,1989,t,
+Romania,1990,t,
+Romania,1991,t,
+Romania,1992,t,
+Romania,1993,t,
+Romania,1994,t,
+Romania,1995,t,
+Romania,1996,t,
+Romania,1997,t,
+Romania,1998,t,
+Romania,1999,t,
+Romania,2000,t,
+Romania,2001,t,
+Romania,2002,t,
+Romania,2003,t,
+Romania,2004,t,
+Romania,2005,t,
+Romania,2006,t,
+Romania,2007,t,
+Romania,2008,t,
+Romania,2009,t,
+Romania,2010,t,
+Romania,2011,t,
+Romania,2012,t,
+Romania,2013,t,
+Romania,2014,t,
+Romania,2015,t,
+Romania,2016,t,
+Romania,2017,t,
+Romania,2018,t,
+Russian Federation,1992,t,1535140
+Russian Federation,1993,t,1127780
+Russian Federation,1994,t,481534
+Russian Federation,1995,t,487890
+Russian Federation,1996,t,441000
+Russian Federation,1997,t,1216462
+Russian Federation,1998,t,450956
+Russian Federation,1999,t,924918
+Russian Federation,2000,t,1124260
+Russian Federation,2001,t,550278
+Russian Federation,2002,t,293387
+Russian Federation,2003,t,974283
+Russian Federation,2004,t,1113488
+Russian Federation,2005,t,455144
+Russian Federation,2006,t,598835
+Russian Federation,2007,t,417371
+Russian Federation,2008,t,711010
+Russian Federation,2009,t,264705
+Russian Federation,2010,t,133607
+Russian Federation,2011,t,878341
+Russian Federation,2012,t,333574
+Russian Federation,2013,t,418844
+Russian Federation,2014,t,492829.4
+Russian Federation,2015,t,572170
+Russian Federation,2016,t,629078
+Russian Federation,2017,t,316137
+Russian Federation,2018,t,217200
+Russian Federation,2019,t,439771
+Russian Federation,2020,t,396457.5
+Russian Federation,2021,t,368295.9
+Russian Federation,2022,t,307872.76
+Russian Federation,2023,t,440000
+Rwanda,1961,t,2824
+Rwanda,1962,t,3113
+Rwanda,1963,t,2144
+Rwanda,1964,t,1203
+Rwanda,1965,t,2116
+Rwanda,1966,t,1800
+Rwanda,1967,t,1200
+Rwanda,1968,t,810
+Rwanda,1969,t,1350
+Rwanda,1970,t,2108
+Rwanda,1971,t,2900
+Rwanda,1972,t,2947
+Rwanda,1973,t,3020
+Rwanda,1974,t,1642
+Rwanda,1975,t,2728
+Rwanda,1976,t,2852
+Rwanda,1977,t,3114
+Rwanda,1978,t,2828
+Rwanda,1979,t,2176
+Rwanda,1980,t,2006
+Rwanda,1981,t,2091
+Rwanda,1982,t,1875
+Rwanda,1983,t,1132
+Rwanda,1984,t,986
+Rwanda,1985,t,600
+Rwanda,1986,t,600
+Rwanda,1987,t,494
+Rwanda,1988,t,1000
+Rwanda,1989,t,1000
+Rwanda,1990,t,1000
+Rwanda,1991,t,504.78
+Rwanda,1992,t,387.4
+Rwanda,1993,t,398.11
+Rwanda,1994,t,572.51
+Rwanda,1995,t,795.7
+Rwanda,1996,t,1347.88
+Rwanda,1997,t,2000
+Rwanda,1998,t,3000
+Rwanda,1999,t,4000
+Rwanda,2000,t,4000
+Rwanda,2001,t,3946.4
+Rwanda,2002,t,4000
+Rwanda,2003,t,4000
+Rwanda,2004,t,4000
+Rwanda,2005,t,4000
+Rwanda,2006,t,4000
+Rwanda,2007,t,4000
+Rwanda,2008,t,5000
+Rwanda,2009,t,7000
+Rwanda,2010,t,8000
+Rwanda,2011,t,9000
+Rwanda,2012,t,4000
+Rwanda,2013,t,4000
+Rwanda,2014,t,4000
+Rwanda,2015,t,4000
+Rwanda,2016,t,4000
+Rwanda,2017,t,4000
+Rwanda,2018,t,5195
+Rwanda,2019,t,4000
+Rwanda,2020,t,3469
+Rwanda,2021,t,3338
+Rwanda,2022,t,7318
+Rwanda,2023,t,1888.15
+Saudi Arabia,1961,t,72000
+Saudi Arabia,1962,t,74000
+Saudi Arabia,1963,t,75000
+Saudi Arabia,1964,t,78000
+Saudi Arabia,1965,t,80000
+Saudi Arabia,1966,t,80000
+Saudi Arabia,1967,t,83000
+Saudi Arabia,1968,t,100000
+Saudi Arabia,1969,t,110000
+Saudi Arabia,1970,t,130000
+Saudi Arabia,1971,t,133692
+Saudi Arabia,1972,t,7770
+Saudi Arabia,1973,t,9884
+Saudi Arabia,1974,t,11533
+Saudi Arabia,1975,t,10598
+Saudi Arabia,1976,t,16579
+Saudi Arabia,1977,t,12641
+Saudi Arabia,1978,t,12978
+Saudi Arabia,1979,t,14874
+Saudi Arabia,1980,t,8625
+Saudi Arabia,1981,t,7502
+Saudi Arabia,1982,t,5224
+Saudi Arabia,1983,t,7478
+Saudi Arabia,1984,t,4106
+Saudi Arabia,1985,t,4124
+Saudi Arabia,1986,t,5504
+Saudi Arabia,1987,t,6612
+Saudi Arabia,1988,t,9094
+Saudi Arabia,1989,t,10771
+Saudi Arabia,1990,t,9340
+Saudi Arabia,1991,t,9071
+Saudi Arabia,1992,t,10495
+Saudi Arabia,1993,t,11100
+Saudi Arabia,1994,t,11855
+Saudi Arabia,1995,t,13264
+Saudi Arabia,1996,t,13522
+Saudi Arabia,1997,t,13379
+Saudi Arabia,1998,t,12000
+Saudi Arabia,1999,t,7000
+Saudi Arabia,2000,t,8505
+Saudi Arabia,2001,t,11145
+Saudi Arabia,2002,t,8939
+Saudi Arabia,2003,t,8626
+Saudi Arabia,2004,t,8891
+Saudi Arabia,2005,t,7368
+Saudi Arabia,2006,t,6596
+Saudi Arabia,2007,t,6073
+Saudi Arabia,2008,t,6551
+Saudi Arabia,2009,t,7560
+Saudi Arabia,2010,t,5969
+Saudi Arabia,2011,t,5208
+Saudi Arabia,2012,t,4924
+Saudi Arabia,2013,t,4486
+Saudi Arabia,2014,t,8022
+Saudi Arabia,2015,t,7309
+Saudi Arabia,2016,t,7539
+Saudi Arabia,2017,t,8055
+Saudi Arabia,2018,t,8320
+Saudi Arabia,2019,t,12748
+Saudi Arabia,2020,t,11701
+Saudi Arabia,2021,t,12163
+Saudi Arabia,2022,t,11750
+Saudi Arabia,2023,t,10946.83
+Senegal,1961,t,334300
+Senegal,1962,t,348700
+Senegal,1963,t,392700
+Senegal,1964,t,436800
+Senegal,1965,t,454000
+Senegal,1966,t,345100
+Senegal,1967,t,533700
+Senegal,1968,t,366900
+Senegal,1969,t,517400
+Senegal,1970,t,326700
+Senegal,1971,t,474900
+Senegal,1972,t,263100
+Senegal,1973,t,416300
+Senegal,1974,t,647900
+Senegal,1975,t,506100
+Senegal,1976,t,455100
+Senegal,1977,t,342400
+Senegal,1978,t,654700
+Senegal,1979,t,424000
+Senegal,1980,t,451000
+Senegal,1981,t,790000
+Senegal,1982,t,476900
+Senegal,1983,t,287000
+Senegal,1984,t,381000
+Senegal,1985,t,768000
+Senegal,1986,t,502060
+Senegal,1987,t,690103
+Senegal,1988,t,484638
+Senegal,1989,t,638883
+Senegal,1990,t,504801
+Senegal,1991,t,670607
+Senegal,1992,t,562706
+Senegal,1993,t,752616
+Senegal,1994,t,670843
+Senegal,1995,t,794133
+Senegal,1996,t,601359
+Senegal,1997,t,426481
+Senegal,1998,t,441418
+Senegal,1999,t,675000
+Senegal,2000,t,600221
+Senegal,2001,t,556655
+Senegal,2002,t,414820
+Senegal,2003,t,628426
+Senegal,2004,t,323752
+Senegal,2005,t,608551
+Senegal,2006,t,494345
+Senegal,2007,t,318822
+Senegal,2008,t,678171
+Senegal,2009,t,810121
+Senegal,2010,t,813295
+Senegal,2011,t,480759
+Senegal,2012,t,662614
+Senegal,2013,t,515365
+Senegal,2014,t,408993
+Senegal,2015,t,749874
+Senegal,2016,t,698643
+Senegal,2017,t,875484
+Senegal,2018,t,897574.18
+Senegal,2019,t,807044.07
+Senegal,2020,t,1144854.92
+Senegal,2021,t,1039859.75
+Senegal,2022,t,1097033
+Senegal,2023,t,1353000
+Serbia,2006,t,200
+Serbia,2007,t,185.33
+Serbia,2008,t,174.7
+Serbia,2009,t,164.13
+Serbia,2010,t,153.56
+Serbia,2011,t,142.94
+Serbia,2012,t,130
+Serbia,2013,t,150
+Serbia,2014,t,100
+Serbia,2015,t,101.89
+Serbia,2016,t,117.3
+Serbia,2017,t,102.2
+Serbia,2018,t,107.13
+Serbia,2019,t,108.87
+Serbia,2020,t,106.07
+Serbia,2021,t,107.36
+Serbia,2022,t,107.43
+Serbia,2023,t,106.95
+Serbia and Montenegro,1992,t,801
+Serbia and Montenegro,1993,t,800
+Serbia and Montenegro,1994,t,600
+Serbia and Montenegro,1995,t,100
+Serbia and Montenegro,1996,t,400
+Serbia and Montenegro,1997,t,300
+Serbia and Montenegro,1998,t,200
+Serbia and Montenegro,1999,t,200
+Serbia and Montenegro,2000,t,200
+Serbia and Montenegro,2001,t,300
+Serbia and Montenegro,2002,t,500
+Serbia and Montenegro,2003,t,200
+Serbia and Montenegro,2004,t,500
+Serbia and Montenegro,2005,t,300
+Sierra Leone,1961,t,12193
+Sierra Leone,1962,t,12200
+Sierra Leone,1963,t,11888
+Sierra Leone,1964,t,11878
+Sierra Leone,1965,t,12000
+Sierra Leone,1966,t,10000
+Sierra Leone,1967,t,9000
+Sierra Leone,1968,t,8000
+Sierra Leone,1969,t,7000
+Sierra Leone,1970,t,6400
+Sierra Leone,1971,t,6500
+Sierra Leone,1972,t,6600
+Sierra Leone,1973,t,6700
+Sierra Leone,1974,t,6800
+Sierra Leone,1975,t,6900
+Sierra Leone,1976,t,8500
+Sierra Leone,1977,t,9000
+Sierra Leone,1978,t,9000
+Sierra Leone,1979,t,9000
+Sierra Leone,1980,t,14000
+Sierra Leone,1981,t,16000
+Sierra Leone,1982,t,16000
+Sierra Leone,1983,t,22000
+Sierra Leone,1984,t,23000
+Sierra Leone,1985,t,23000
+Sierra Leone,1986,t,23000
+Sierra Leone,1987,t,20300
+Sierra Leone,1988,t,21400
+Sierra Leone,1989,t,22600
+Sierra Leone,1990,t,23700
+Sierra Leone,1991,t,22600
+Sierra Leone,1992,t,22300
+Sierra Leone,1993,t,21185
+Sierra Leone,1994,t,26400
+Sierra Leone,1995,t,23800
+Sierra Leone,1996,t,20700
+Sierra Leone,1997,t,21700
+Sierra Leone,1998,t,16500
+Sierra Leone,1999,t,4725
+Sierra Leone,2000,t,3636
+Sierra Leone,2001,t,8500
+Sierra Leone,2002,t,10529
+Sierra Leone,2003,t,10000
+Sierra Leone,2004,t,15000
+Sierra Leone,2005,t,20000
+Sierra Leone,2006,t,25000
+Sierra Leone,2007,t,19000
+Sierra Leone,2008,t,25000
+Sierra Leone,2009,t,27000
+Sierra Leone,2010,t,32768.08
+Sierra Leone,2011,t,40000
+Sierra Leone,2012,t,38973.02
+Sierra Leone,2013,t,39351.38
+Sierra Leone,2014,t,40000
+Sierra Leone,2015,t,44000
+Sierra Leone,2016,t,38000
+Sierra Leone,2017,t,39000
+Sierra Leone,2018,t,38000
+Sierra Leone,2019,t,38000
+Sierra Leone,2020,t,32000
+Sierra Leone,2021,t,40000
+Sierra Leone,2022,t,39000
+Sierra Leone,2023,t,41000
+Slovakia,1993,t,763
+Slovakia,1994,t,1020
+Slovakia,1995,t,1526
+Slovakia,1996,t,1370
+Slovakia,1997,t,989
+Slovakia,1998,t,1122
+Slovakia,1999,t,1085
+Slovakia,2000,t,565
+Slovakia,2001,t,806
+Slovakia,2002,t,993
+Slovakia,2003,t,1687
+Slovakia,2004,t,2597
+Slovakia,2005,t,1559
+Slovakia,2006,t,2414
+Slovakia,2007,t,1324
+Slovakia,2008,t,1927
+Slovakia,2009,t,1928
+Slovakia,2010,t,701
+Slovakia,2011,t,927
+Slovakia,2012,t,848
+Slovakia,2013,t,719
+Slovakia,2014,t,873
+Slovakia,2015,t,1163
+Slovakia,2016,t,1056
+Slovakia,2017,t,706
+Slovakia,2018,t,
+Slovenia,1992,t,173
+Slovenia,1993,t,165
+Slovenia,1994,t,915
+Slovenia,1995,t,505
+Slovenia,1996,t,366
+Slovenia,1997,t,257
+Slovenia,1998,t,299
+Slovenia,1999,t,296
+Slovenia,2000,t,268
+Slovenia,2001,t,151
+Slovenia,2002,t,509
+Slovenia,2003,t,586
+Slovenia,2004,t,580
+Slovenia,2005,t,898
+Slovenia,2006,t,285
+Slovenia,2007,t,543
+Slovenia,2008,t,315
+Slovenia,2009,t,159
+Slovenia,2010,t,302
+Slovenia,2011,t,285
+Slovenia,2012,t,237
+Slovenia,2013,t,189
+Slovenia,2014,t,412
+Slovenia,2015,t,835
+Slovenia,2016,t,532
+Slovenia,2017,t,368
+Slovenia,2018,t,
+South Africa,1961,t,18000
+South Africa,1962,t,14000
+South Africa,1963,t,11000
+South Africa,1964,t,10000
+South Africa,1965,t,12000
+South Africa,1966,t,12000
+South Africa,1967,t,12000
+South Africa,1968,t,15000
+South Africa,1969,t,15000
+South Africa,1970,t,15000
+South Africa,1971,t,15000
+South Africa,1972,t,15000
+South Africa,1973,t,15000
+South Africa,1974,t,15000
+South Africa,1975,t,15000
+South Africa,1976,t,15000
+South Africa,1977,t,15000
+South Africa,1978,t,15000
+South Africa,1979,t,15000
+South Africa,1980,t,15000
+South Africa,1981,t,15000
+South Africa,1982,t,15000
+South Africa,1983,t,15000
+South Africa,1984,t,15000
+South Africa,1985,t,15000
+South Africa,1986,t,15000
+South Africa,1987,t,15000
+South Africa,1988,t,15000
+South Africa,1989,t,15000
+South Africa,1990,t,11301
+South Africa,1991,t,11667.66
+South Africa,1992,t,10000
+South Africa,1993,t,13000
+South Africa,1994,t,11783.52
+South Africa,1995,t,11595.02
+South Africa,1996,t,11652.45
+South Africa,1997,t,11690.04
+South Africa,1998,t,12000
+South Africa,1999,t,11000
+South Africa,2000,t,12000
+South Africa,2001,t,10783.31
+South Africa,2002,t,10523.25
+South Africa,2003,t,10268.9
+South Africa,2004,t,10137.11
+South Africa,2005,t,9451.93
+South Africa,2006,t,9112.66
+South Africa,2007,t,8706.43
+South Africa,2008,t,8322.49
+South Africa,2009,t,7980.75
+South Africa,2010,t,7646.1
+South Africa,2011,t,7000
+South Africa,2012,t,6500
+South Africa,2013,t,6700
+South Africa,2014,t,6279
+South Africa,2015,t,6243.24
+South Africa,2016,t,6407.41
+South Africa,2017,t,6309.88
+South Africa,2018,t,6320.18
+South Africa,2019,t,6345.82
+South Africa,2020,t,6325.29
+South Africa,2021,t,6330.43
+South Africa,2022,t,6333.85
+South Africa,2023,t,6329.86
+South Sudan,2012,t,60000
+South Sudan,2013,t,7000
+South Sudan,2014,t,12551
+South Sudan,2015,t,60362
+South Sudan,2016,t,54123
+South Sudan,2017,t,50079
+South Sudan,2018,t,43616
+South Sudan,2019,t,33558
+South Sudan,2020,t,35851
+South Sudan,2021,t,47851
+South Sudan,2022,t,48015
+South Sudan,2023,t,45000
+Spain,1961,t,7050
+Spain,1962,t,6964
+Spain,1963,t,15844
+Spain,1964,t,6700
+Spain,1965,t,4524
+Spain,1966,t,4300
+Spain,1967,t,4567
+Spain,1968,t,3844
+Spain,1969,t,3400
+Spain,1970,t,3100
+Spain,1971,t,600
+Spain,1972,t,600
+Spain,1973,t,700
+Spain,1974,t,1100
+Spain,1975,t,2700
+Spain,1976,t,2400
+Spain,1977,t,900
+Spain,1978,t,942
+Spain,1979,t,1451
+Spain,1980,t,1439
+Spain,1981,t,820
+Spain,1982,t,582
+Spain,1983,t,469
+Spain,1984,t,684
+Spain,1985,t,1266
+Spain,1986,t,1651
+Spain,1987,t,2785
+Spain,1988,t,1500
+Spain,1989,t,1006
+Spain,1990,t,745
+Spain,1991,t,904
+Spain,1992,t,971
+Spain,1993,t,202
+Spain,1994,t,1358
+Spain,1995,t,1625
+Spain,1996,t,340
+Spain,1997,t,397
+Spain,1998,t,400
+Spain,1999,t,400
+Spain,2000,t,972
+Spain,2001,t,816
+Spain,2002,t,3011
+Spain,2003,t,3011
+Spain,2004,t,762
+Spain,2005,t,696
+Spain,2006,t,604
+Spain,2007,t,517
+Spain,2008,t,550
+Spain,2009,t,1248
+Spain,2010,t,1070
+Spain,2011,t,688
+Spain,2012,t,646
+Spain,2013,t,625
+Spain,2014,t,653
+Spain,2015,t,600
+Spain,2016,t,1322
+Spain,2017,t,1540
+Spain,2018,t,
+Sri Lanka,1961,t,18120
+Sri Lanka,1962,t,22194
+Sri Lanka,1963,t,19000
+Sri Lanka,1964,t,16000
+Sri Lanka,1965,t,19733
+Sri Lanka,1966,t,19782
+Sri Lanka,1967,t,14772
+Sri Lanka,1968,t,13533
+Sri Lanka,1969,t,19085
+Sri Lanka,1970,t,13310
+Sri Lanka,1971,t,12340
+Sri Lanka,1972,t,14550
+Sri Lanka,1973,t,19520
+Sri Lanka,1974,t,22170
+Sri Lanka,1975,t,24510
+Sri Lanka,1976,t,23517
+Sri Lanka,1977,t,21561
+Sri Lanka,1978,t,21070
+Sri Lanka,1979,t,15900
+Sri Lanka,1980,t,15490
+Sri Lanka,1981,t,13820
+Sri Lanka,1982,t,14250
+Sri Lanka,1983,t,15930
+Sri Lanka,1984,t,12040
+Sri Lanka,1985,t,10160
+Sri Lanka,1986,t,9585
+Sri Lanka,1987,t,7759
+Sri Lanka,1988,t,8650
+Sri Lanka,1989,t,7190
+Sri Lanka,1990,t,7420
+Sri Lanka,1991,t,6760
+Sri Lanka,1992,t,5280
+Sri Lanka,1993,t,7570
+Sri Lanka,1994,t,7071
+Sri Lanka,1995,t,5135
+Sri Lanka,1996,t,4100
+Sri Lanka,1997,t,3615
+Sri Lanka,1998,t,4530
+Sri Lanka,1999,t,4920
+Sri Lanka,2000,t,4970
+Sri Lanka,2001,t,4260
+Sri Lanka,2002,t,4140
+Sri Lanka,2003,t,5400
+Sri Lanka,2004,t,4770
+Sri Lanka,2005,t,6500
+Sri Lanka,2006,t,6330
+Sri Lanka,2007,t,5500
+Sri Lanka,2008,t,6510
+Sri Lanka,2009,t,6450
+Sri Lanka,2010,t,7330
+Sri Lanka,2011,t,5430
+Sri Lanka,2012,t,6670
+Sri Lanka,2013,t,7045
+Sri Lanka,2014,t,8880
+Sri Lanka,2015,t,8959
+Sri Lanka,2016,t,8590
+Sri Lanka,2017,t,5608
+Sri Lanka,2018,t,8117
+Sri Lanka,2019,t,5542
+Sri Lanka,2020,t,6355
+Sri Lanka,2021,t,8413
+Sri Lanka,2022,t,11206
+Sri Lanka,2023,t,9741
+Sudan,2012,t,378000
+Sudan,2013,t,1090000
+Sudan,2014,t,1245000
+Sudan,2015,t,486000
+Sudan,2016,t,1449000
+Sudan,2017,t,878000
+Sudan,2018,t,2647000
+Sudan,2019,t,1133000
+Sudan,2020,t,1918000
+Sudan,2021,t,901000
+Sudan,2022,t,1904000
+Sudan,2023,t,684000
+Sudan (former),1961,t,213580
+Sudan (former),1962,t,303365
+Sudan (former),1963,t,386680
+Sudan (former),1964,t,356193
+Sudan (former),1965,t,252983
+Sudan (former),1966,t,253000
+Sudan (former),1967,t,368000
+Sudan (former),1968,t,266000
+Sudan (former),1969,t,388000
+Sudan (former),1970,t,439000
+Sudan (former),1971,t,441000
+Sudan (former),1972,t,355000
+Sudan (former),1973,t,285000
+Sudan (former),1974,t,403000
+Sudan (former),1975,t,388000
+Sudan (former),1976,t,449000
+Sudan (former),1977,t,500000
+Sudan (former),1978,t,552000
+Sudan (former),1979,t,309000
+Sudan (former),1980,t,335000
+Sudan (former),1981,t,509000
+Sudan (former),1982,t,227000
+Sudan (former),1983,t,314000
+Sudan (former),1984,t,168000
+Sudan (former),1985,t,417000
+Sudan (former),1986,t,285000
+Sudan (former),1987,t,153000
+Sudan (former),1988,t,495000
+Sudan (former),1989,t,250000
+Sudan (former),1990,t,112000
+Sudan (former),1991,t,308000
+Sudan (former),1992,t,449000
+Sudan (former),1993,t,221000
+Sudan (former),1994,t,973000
+Sudan (former),1995,t,385000
+Sudan (former),1996,t,440000
+Sudan (former),1997,t,643000
+Sudan (former),1998,t,670000
+Sudan (former),1999,t,499000
+Sudan (former),2000,t,496000
+Sudan (former),2001,t,578000
+Sudan (former),2002,t,581000
+Sudan (former),2003,t,784000
+Sudan (former),2004,t,281000
+Sudan (former),2005,t,745000
+Sudan (former),2006,t,675000
+Sudan (former),2007,t,796000
+Sudan (former),2008,t,721000
+Sudan (former),2009,t,630000
+Sudan (former),2010,t,471000
+Sudan (former),2011,t,634000
+Switzerland,1961,t,
+Switzerland,1962,t,
+Switzerland,1963,t,
+Switzerland,1964,t,
+Switzerland,1965,t,
+Switzerland,1966,t,
+Switzerland,1967,t,
+Switzerland,1968,t,
+Switzerland,1969,t,
+Switzerland,1970,t,
+Switzerland,1971,t,
+Switzerland,1972,t,
+Switzerland,1973,t,
+Switzerland,1974,t,
+Switzerland,1975,t,
+Switzerland,1976,t,
+Switzerland,1977,t,
+Switzerland,1978,t,
+Switzerland,1979,t,
+Switzerland,1980,t,
+Switzerland,1981,t,
+Switzerland,1982,t,
+Switzerland,1983,t,
+Switzerland,1984,t,
+Switzerland,1985,t,
+Switzerland,1986,t,
+Switzerland,1987,t,
+Switzerland,1988,t,
+Switzerland,1989,t,
+Switzerland,1990,t,
+Switzerland,1991,t,
+Switzerland,1992,t,
+Switzerland,1993,t,
+Switzerland,1994,t,
+Switzerland,1995,t,
+Switzerland,1996,t,
+Switzerland,1997,t,
+Switzerland,1998,t,
+Switzerland,1999,t,
+Switzerland,2000,t,
+Switzerland,2001,t,
+Switzerland,2002,t,
+Switzerland,2003,t,
+Switzerland,2004,t,
+Switzerland,2005,t,
+Switzerland,2006,t,
+Switzerland,2007,t,
+Switzerland,2008,t,
+Switzerland,2009,t,86
+Switzerland,2010,t,98
+Switzerland,2011,t,68
+Switzerland,2012,t,71
+Switzerland,2013,t,95
+Switzerland,2014,t,127
+Switzerland,2015,t,132
+Switzerland,2016,t,152
+Switzerland,2017,t,788
+Switzerland,2018,t,934
+Switzerland,2019,t,1469
+Switzerland,2020,t,801
+Switzerland,2021,t,912
+Switzerland,2022,t,866
+Switzerland,2023,t,1114
+Syrian Arab Republic,1961,t,37772
+Syrian Arab Republic,1962,t,56491
+Syrian Arab Republic,1963,t,49486
+Syrian Arab Republic,1964,t,44500
+Syrian Arab Republic,1965,t,44000
+Syrian Arab Republic,1966,t,15100
+Syrian Arab Republic,1967,t,39400
+Syrian Arab Republic,1968,t,37377
+Syrian Arab Republic,1969,t,20534
+Syrian Arab Republic,1970,t,13515
+Syrian Arab Republic,1971,t,19430
+Syrian Arab Republic,1972,t,26502
+Syrian Arab Republic,1973,t,12535
+Syrian Arab Republic,1974,t,14203
+Syrian Arab Republic,1975,t,14480
+Syrian Arab Republic,1976,t,15582
+Syrian Arab Republic,1977,t,23677
+Syrian Arab Republic,1978,t,17288
+Syrian Arab Republic,1979,t,11489
+Syrian Arab Republic,1980,t,18787
+Syrian Arab Republic,1981,t,16697
+Syrian Arab Republic,1982,t,13061
+Syrian Arab Republic,1983,t,11333
+Syrian Arab Republic,1984,t,10365
+Syrian Arab Republic,1985,t,7434
+Syrian Arab Republic,1986,t,6200
+Syrian Arab Republic,1987,t,9427
+Syrian Arab Republic,1988,t,1000
+Syrian Arab Republic,1989,t,900
+Syrian Arab Republic,1990,t,800
+Syrian Arab Republic,1991,t,554
+Syrian Arab Republic,1992,t,176
+Syrian Arab Republic,1993,t,549
+Syrian Arab Republic,1994,t,887.46
+Syrian Arab Republic,1995,t,2130
+Syrian Arab Republic,1996,t,2160
+Syrian Arab Republic,1997,t,1224
+Syrian Arab Republic,1998,t,2042
+Syrian Arab Republic,1999,t,1000
+Syrian Arab Republic,2000,t,2400
+Syrian Arab Republic,2001,t,2700
+Syrian Arab Republic,2002,t,2800
+Syrian Arab Republic,2003,t,4300
+Syrian Arab Republic,2004,t,3200
+Syrian Arab Republic,2005,t,3900
+Syrian Arab Republic,2006,t,4500
+Syrian Arab Republic,2007,t,4100
+Syrian Arab Republic,2008,t,1500
+Syrian Arab Republic,2009,t,4000
+Syrian Arab Republic,2010,t,2400
+Syrian Arab Republic,2011,t,333
+Syrian Arab Republic,2012,t,477
+Syrian Arab Republic,2013,t,733
+Syrian Arab Republic,2014,t,832
+Syrian Arab Republic,2015,t,697
+Syrian Arab Republic,2016,t,566
+Syrian Arab Republic,2017,t,708
+Syrian Arab Republic,2018,t,470
+Syrian Arab Republic,2019,t,0
+Syrian Arab Republic,2020,t,222
+Syrian Arab Republic,2021,t,62
+Syrian Arab Republic,2022,t,85
+Syrian Arab Republic,2023,t,658
+Tajikistan,1992,t,
+Tajikistan,1993,t,
+Tajikistan,1994,t,
+Tajikistan,1995,t,
+Tajikistan,1996,t,
+Tajikistan,1997,t,33
+Tajikistan,1998,t,8
+Tajikistan,1999,t,48
+Tajikistan,2000,t,45
+Tajikistan,2001,t,78
+Tajikistan,2002,t,34
+Tajikistan,2003,t,30
+Tajikistan,2004,t,7
+Tajikistan,2005,t,0
+Tajikistan,2006,t,14
+Tajikistan,2007,t,14
+Tajikistan,2008,t,37
+Tajikistan,2009,t,49
+Tajikistan,2010,t,59
+Tajikistan,2011,t,56
+Tajikistan,2012,t,43.4
+Tajikistan,2013,t,50
+Tajikistan,2014,t,54
+Tajikistan,2015,t,96.9
+Tajikistan,2016,t,82.3
+Tajikistan,2017,t,560.9
+Tajikistan,2018,t,78
+Tajikistan,2019,t,108.4
+Tajikistan,2020,t,154.74
+Tajikistan,2021,t,167.06
+Tajikistan,2022,t,185.21
+Tajikistan,2023,t,192.49
+Togo,1961,t,80000
+Togo,1962,t,73765
+Togo,1963,t,118625
+Togo,1964,t,116000
+Togo,1965,t,135635
+Togo,1966,t,178000
+Togo,1967,t,124228
+Togo,1968,t,111000
+Togo,1969,t,102000
+Togo,1970,t,123000
+Togo,1971,t,138000
+Togo,1972,t,151000
+Togo,1973,t,147000
+Togo,1974,t,101000
+Togo,1975,t,110000
+Togo,1976,t,119000
+Togo,1977,t,113000
+Togo,1978,t,38393
+Togo,1979,t,49018
+Togo,1980,t,42998
+Togo,1981,t,40482
+Togo,1982,t,52023
+Togo,1983,t,51130
+Togo,1984,t,76298
+Togo,1985,t,74013
+Togo,1986,t,81524
+Togo,1987,t,70538
+Togo,1988,t,56473
+Togo,1989,t,96920
+Togo,1990,t,57907
+Togo,1991,t,49820
+Togo,1992,t,75239
+Togo,1993,t,75240
+Togo,1994,t,57824
+Togo,1995,t,74206
+Togo,1996,t,55137
+Togo,1997,t,48749
+Togo,1998,t,40694
+Togo,1999,t,39337
+Togo,2000,t,37372
+Togo,2001,t,47136
+Togo,2002,t,51726
+Togo,2003,t,47136
+Togo,2004,t,35018
+Togo,2005,t,42159
+Togo,2006,t,43747
+Togo,2007,t,45456
+Togo,2008,t,47401
+Togo,2009,t,49146
+Togo,2010,t,51265
+Togo,2011,t,50362
+Togo,2012,t,27703
+Togo,2013,t,64441
+Togo,2014,t,17542
+Togo,2015,t,38664
+Togo,2016,t,23838
+Togo,2017,t,26044
+Togo,2018,t,26082
+Togo,2019,t,26806
+Togo,2020,t,27237
+Togo,2021,t,27636
+Togo,2022,t,27915
+Togo,2023,t,25735.32
+Türkiye,1961,t,65000
+Türkiye,1962,t,60000
+Türkiye,1963,t,60000
+Türkiye,1964,t,53000
+Türkiye,1965,t,60000
+Türkiye,1966,t,60000
+Türkiye,1967,t,55000
+Türkiye,1968,t,53000
+Türkiye,1969,t,56000
+Türkiye,1970,t,46000
+Türkiye,1971,t,61000
+Türkiye,1972,t,52000
+Türkiye,1973,t,33000
+Türkiye,1974,t,40000
+Türkiye,1975,t,40000
+Türkiye,1976,t,34000
+Türkiye,1977,t,29000
+Türkiye,1978,t,28500
+Türkiye,1979,t,25000
+Türkiye,1980,t,22000
+Türkiye,1981,t,15500
+Türkiye,1982,t,15000
+Türkiye,1983,t,14000
+Türkiye,1984,t,15000
+Türkiye,1985,t,15000
+Türkiye,1986,t,15000
+Türkiye,1987,t,15000
+Türkiye,1988,t,9000
+Türkiye,1989,t,6000
+Türkiye,1990,t,6200
+Türkiye,1991,t,5000
+Türkiye,1992,t,4100
+Türkiye,1993,t,3950
+Türkiye,1994,t,3600
+Türkiye,1995,t,6000
+Türkiye,1996,t,5750
+Türkiye,1997,t,5300
+Türkiye,1998,t,4700
+Türkiye,1999,t,4600
+Türkiye,2000,t,5300
+Türkiye,2001,t,6700
+Türkiye,2002,t,7200
+Türkiye,2003,t,7000
+Türkiye,2004,t,7000
+Türkiye,2005,t,7200
+Türkiye,2006,t,6955
+Türkiye,2007,t,7094
+Türkiye,2008,t,6995
+Türkiye,2009,t,7171
+Türkiye,2010,t,6772
+Türkiye,2011,t,6253
+Türkiye,2012,t,4759
+Türkiye,2013,t,5906
+Türkiye,2014,t,6744
+Türkiye,2015,t,6219
+Türkiye,2016,t,5327
+Türkiye,2017,t,4737
+Türkiye,2018,t,4397
+Türkiye,2019,t,4765
+Türkiye,2020,t,5711
+Türkiye,2021,t,4320
+Türkiye,2022,t,4168
+Türkiye,2023,t,4101
+Turkmenistan,1994,t,
+Turkmenistan,1995,t,
+Turkmenistan,1996,t,
+Turkmenistan,1997,t,
+Turkmenistan,1998,t,
+Turkmenistan,1999,t,
+Turkmenistan,2000,t,
+Turkmenistan,2001,t,
+Turkmenistan,2002,t,
+Turkmenistan,2003,t,
+Turkmenistan,2004,t,
+Turkmenistan,2005,t,
+Turkmenistan,2006,t,
+Turkmenistan,2007,t,
+Turkmenistan,2008,t,
+Turkmenistan,2009,t,
+Turkmenistan,2010,t,
+Turkmenistan,2011,t,
+Turkmenistan,2012,t,
+Turkmenistan,2013,t,
+Turkmenistan,2014,t,
+Turkmenistan,2015,t,
+Turkmenistan,2016,t,
+Turkmenistan,2017,t,
+Turkmenistan,2018,t,
+Turkmenistan,2019,t,
+Turkmenistan,2020,t,
+Turkmenistan,2021,t,
+Turkmenistan,2022,t,
+Turkmenistan,2023,t,
+Uganda,1961,t,420000
+Uganda,1962,t,430000
+Uganda,1963,t,430000
+Uganda,1964,t,430000
+Uganda,1965,t,511000
+Uganda,1966,t,520000
+Uganda,1967,t,575000
+Uganda,1968,t,688890
+Uganda,1969,t,836733
+Uganda,1970,t,783000
+Uganda,1971,t,650000
+Uganda,1972,t,594000
+Uganda,1973,t,643000
+Uganda,1974,t,591000
+Uganda,1975,t,682000
+Uganda,1976,t,576000
+Uganda,1977,t,578000
+Uganda,1978,t,561000
+Uganda,1979,t,481000
+Uganda,1980,t,459000
+Uganda,1981,t,480000
+Uganda,1982,t,401000
+Uganda,1983,t,545000
+Uganda,1984,t,332000
+Uganda,1985,t,479640
+Uganda,1986,t,427000
+Uganda,1987,t,518000
+Uganda,1988,t,578000
+Uganda,1989,t,609578
+Uganda,1990,t,560000
+Uganda,1991,t,576000
+Uganda,1992,t,634000
+Uganda,1993,t,610000
+Uganda,1994,t,610000
+Uganda,1995,t,632000
+Uganda,1996,t,440000
+Uganda,1997,t,502000
+Uganda,1998,t,642000
+Uganda,1999,t,606000
+Uganda,2000,t,534000
+Uganda,2001,t,584000
+Uganda,2002,t,590000
+Uganda,2003,t,640000
+Uganda,2004,t,659000
+Uganda,2005,t,672000
+Uganda,2006,t,687000
+Uganda,2007,t,732000
+Uganda,2008,t,275000
+Uganda,2009,t,250000
+Uganda,2010,t,268000
+Uganda,2011,t,256763
+Uganda,2012,t,244438
+Uganda,2013,t,227500
+Uganda,2014,t,236486
+Uganda,2015,t,236484
+Uganda,2016,t,193461
+Uganda,2017,t,185517
+Uganda,2018,t,141982
+Uganda,2019,t,72000
+Uganda,2020,t,70000
+Uganda,2021,t,70000
+Uganda,2022,t,129000
+Uganda,2023,t,70000
+Ukraine,1992,t,225802
+Ukraine,1993,t,294000
+Ukraine,1994,t,158000
+Ukraine,1995,t,267500
+Ukraine,1996,t,115000
+Ukraine,1997,t,312100
+Ukraine,1998,t,248588
+Ukraine,1999,t,196000
+Ukraine,2000,t,426100
+Ukraine,2001,t,266500
+Ukraine,2002,t,111500
+Ukraine,2003,t,340900
+Ukraine,2004,t,458800
+Ukraine,2005,t,140600
+Ukraine,2006,t,123500
+Ukraine,2007,t,84300
+Ukraine,2008,t,220700
+Ukraine,2009,t,139300
+Ukraine,2010,t,117100
+Ukraine,2011,t,278800
+Ukraine,2012,t,157400
+Ukraine,2013,t,101990
+Ukraine,2014,t,177990
+Ukraine,2015,t,213260
+Ukraine,2016,t,189670
+Ukraine,2017,t,84440
+Ukraine,2018,t,80460
+Ukraine,2019,t,169730
+Ukraine,2020,t,256050
+Ukraine,2021,t,204990
+Ukraine,2022,t,90580
+Ukraine,2023,t,203520
+United Republic of Tanzania,1961,t,145000
+United Republic of Tanzania,1962,t,135000
+United Republic of Tanzania,1963,t,142000
+United Republic of Tanzania,1964,t,102849
+United Republic of Tanzania,1965,t,116595
+United Republic of Tanzania,1966,t,133803
+United Republic of Tanzania,1967,t,121226
+United Republic of Tanzania,1968,t,122380
+United Republic of Tanzania,1969,t,135938
+United Republic of Tanzania,1970,t,154042
+United Republic of Tanzania,1971,t,128846
+United Republic of Tanzania,1972,t,128382
+United Republic of Tanzania,1973,t,105464
+United Republic of Tanzania,1974,t,114389
+United Republic of Tanzania,1975,t,185000
+United Republic of Tanzania,1976,t,225000
+United Republic of Tanzania,1977,t,254000
+United Republic of Tanzania,1978,t,376000
+United Republic of Tanzania,1979,t,460000
+United Republic of Tanzania,1980,t,340000
+United Republic of Tanzania,1981,t,280000
+United Republic of Tanzania,1982,t,390000
+United Republic of Tanzania,1983,t,320000
+United Republic of Tanzania,1984,t,305000
+United Republic of Tanzania,1985,t,410000
+United Republic of Tanzania,1986,t,293000
+United Republic of Tanzania,1987,t,291000
+United Republic of Tanzania,1988,t,219120
+United Republic of Tanzania,1989,t,300000
+United Republic of Tanzania,1990,t,200000
+United Republic of Tanzania,1991,t,200000
+United Republic of Tanzania,1992,t,262778
+United Republic of Tanzania,1993,t,210250
+United Republic of Tanzania,1994,t,295000
+United Republic of Tanzania,1995,t,222000
+United Republic of Tanzania,1996,t,269000
+United Republic of Tanzania,1997,t,347000
+United Republic of Tanzania,1998,t,235900
+United Republic of Tanzania,1999,t,194400
+United Republic of Tanzania,2000,t,219000
+United Republic of Tanzania,2001,t,206500
+United Republic of Tanzania,2002,t,233410
+United Republic of Tanzania,2003,t,91280
+United Republic of Tanzania,2004,t,246250
+United Republic of Tanzania,2005,t,218760
+United Republic of Tanzania,2006,t,246665
+United Republic of Tanzania,2007,t,307906
+United Republic of Tanzania,2008,t,149520
+United Republic of Tanzania,2009,t,312420
+United Republic of Tanzania,2010,t,350870
+United Republic of Tanzania,2011,t,397069
+United Republic of Tanzania,2012,t,213746
+United Republic of Tanzania,2013,t,322731
+United Republic of Tanzania,2014,t,362750
+United Republic of Tanzania,2015,t,330060
+United Republic of Tanzania,2016,t,314968.96
+United Republic of Tanzania,2017,t,308897
+United Republic of Tanzania,2018,t,316194
+United Republic of Tanzania,2019,t,385962
+United Republic of Tanzania,2020,t,325000
+United Republic of Tanzania,2021,t,335000
+United Republic of Tanzania,2022,t,335000
+United Republic of Tanzania,2023,t,282000
+United States of America,1961,t,112000
+United States of America,1962,t,116000
+United States of America,1963,t,119000
+United States of America,1964,t,119000
+United States of America,1965,t,126000
+United States of America,1966,t,130000
+United States of America,1967,t,140000
+United States of America,1968,t,169969
+United States of America,1969,t,155000
+United States of America,1970,t,150000
+United States of America,1971,t,130000
+United States of America,1972,t,130000
+United States of America,1973,t,120000
+United States of America,1974,t,100000
+United States of America,1975,t,95000
+United States of America,1976,t,85000
+United States of America,1977,t,88000
+United States of America,1978,t,72564
+United States of America,1979,t,91000
+United States of America,1980,t,120000
+United States of America,1981,t,110000
+United States of America,1982,t,109455
+United States of America,1983,t,130000
+United States of America,1984,t,160000
+United States of America,1985,t,140000
+United States of America,1986,t,180000
+United States of America,1987,t,178151
+United States of America,1988,t,160000
+United States of America,1989,t,170000
+United States of America,1990,t,180000
+United States of America,1991,t,229460.6
+United States of America,1992,t,231467.36
+United States of America,1993,t,233302.37
+United States of America,1994,t,234873.57
+United States of America,1995,t,190000
+United States of America,1996,t,237333.06
+United States of America,1997,t,239151.49
+United States of America,1998,t,200000
+United States of America,1999,t,406190
+United States of America,2000,t,166010
+United States of America,2001,t,440100
+United States of America,2002,t,83190
+United States of America,2003,t,259680
+United States of America,2004,t,341670
+United States of America,2005,t,310030
+United States of America,2006,t,231220
+United States of America,2007,t,383290
+United States of America,2008,t,337470
+United States of America,2009,t,201280
+United States of America,2010,t,261610
+United States of America,2011,t,207500
+United States of America,2012,t,69740
+United States of America,2013,t,418120
+United States of America,2014,t,305790
+United States of America,2015,t,321120
+United States of America,2016,t,341770
+United States of America,2017,t,337680
+United States of America,2018,t,262970
+United States of America,2019,t,376660
+United States of America,2020,t,217110
+United States of America,2021,t,348860
+United States of America,2022,t,207700
+United States of America,2023,t,443890
+USSR,1961,t,2656000
+USSR,1962,t,2560000
+USSR,1963,t,1688000
+USSR,1964,t,3200000
+USSR,1965,t,2030000
+USSR,1966,t,2850000
+USSR,1967,t,2960000
+USSR,1968,t,2450000
+USSR,1969,t,3025000
+USSR,1970,t,1930000
+USSR,1971,t,1880000
+USSR,1972,t,1950000
+USSR,1973,t,4070000
+USSR,1974,t,2675000
+USSR,1975,t,1035000
+USSR,1976,t,2940000
+USSR,1977,t,1850000
+USSR,1978,t,2030000
+USSR,1979,t,1420000
+USSR,1980,t,1724000
+USSR,1981,t,1716000
+USSR,1982,t,2346000
+USSR,1983,t,2310000
+USSR,1984,t,1760000
+USSR,1985,t,2700000
+USSR,1986,t,2207000
+USSR,1987,t,3622000
+USSR,1988,t,2907000
+USSR,1989,t,3739000
+USSR,1990,t,3224000
+USSR,1991,t,1614000
+Uzbekistan,1992,t,470
+Uzbekistan,1993,t,300
+Uzbekistan,1994,t,1600
+Uzbekistan,1995,t,1300
+Uzbekistan,1996,t,1600
+Uzbekistan,1997,t,1600
+Uzbekistan,1998,t,2000
+Uzbekistan,1999,t,3500
+Uzbekistan,2000,t,2600
+Uzbekistan,2001,t,2000
+Uzbekistan,2002,t,1500
+Uzbekistan,2003,t,1800
+Uzbekistan,2004,t,2000
+Uzbekistan,2005,t,2990
+Uzbekistan,2006,t,5000
+Uzbekistan,2007,t,6200
+Uzbekistan,2008,t,7000
+Uzbekistan,2009,t,9000
+Uzbekistan,2010,t,8500
+Uzbekistan,2011,t,5000
+Uzbekistan,2012,t,5173
+Uzbekistan,2013,t,6000
+Uzbekistan,2014,t,6200
+Uzbekistan,2015,t,6400
+Uzbekistan,2016,t,18178.93
+Uzbekistan,2017,t,34475.1
+Uzbekistan,2018,t,54500
+Uzbekistan,2019,t,104300
+Uzbekistan,2020,t,99100
+Uzbekistan,2021,t,99800
+Uzbekistan,2022,t,77531
+Uzbekistan,2023,t,105208.52
+Viet Nam,1961,t,
+Viet Nam,1962,t,
+Viet Nam,1963,t,
+Viet Nam,1964,t,
+Viet Nam,1965,t,
+Viet Nam,1966,t,
+Viet Nam,1967,t,
+Viet Nam,1968,t,
+Viet Nam,1969,t,
+Viet Nam,1970,t,
+Viet Nam,1971,t,
+Viet Nam,1972,t,
+Viet Nam,1973,t,
+Viet Nam,1974,t,
+Viet Nam,1975,t,
+Viet Nam,1976,t,
+Viet Nam,1977,t,
+Viet Nam,1978,t,
+Viet Nam,1979,t,
+Viet Nam,1980,t,
+Viet Nam,1981,t,
+Viet Nam,1982,t,
+Viet Nam,1983,t,
+Viet Nam,1984,t,
+Viet Nam,1985,t,
+Viet Nam,1986,t,
+Viet Nam,1987,t,
+Viet Nam,1988,t,
+Viet Nam,1989,t,
+Viet Nam,1990,t,
+Viet Nam,1991,t,
+Viet Nam,1992,t,
+Viet Nam,1993,t,
+Viet Nam,1994,t,
+Viet Nam,1995,t,
+Viet Nam,1996,t,
+Viet Nam,1997,t,
+Viet Nam,1998,t,
+Viet Nam,1999,t,1800
+Viet Nam,2000,t,1705.64
+Viet Nam,2001,t,1711.29
+Viet Nam,2002,t,1863.05
+Viet Nam,2003,t,1800
+Viet Nam,2004,t,1200
+Viet Nam,2005,t,1600
+Viet Nam,2006,t,1591.33
+Viet Nam,2007,t,1613.93
+Viet Nam,2008,t,1898.82
+Viet Nam,2009,t,1622.66
+Viet Nam,2010,t,1431.2
+Viet Nam,2011,t,1536.73
+Viet Nam,2012,t,1577.95
+Viet Nam,2013,t,1394
+Viet Nam,2014,t,1661
+Viet Nam,2015,t,1586.7
+Viet Nam,2016,t,3719.66
+Viet Nam,2017,t,3770.3
+Viet Nam,2018,t,3369.6
+Viet Nam,2019,t,3895.46
+Viet Nam,2020,t,2050.16
+Viet Nam,2021,t,2050.73
+Viet Nam,2022,t,1456.61
+Viet Nam,2023,t,809.25
+Yemen,1961,t,51200
+Yemen,1962,t,50400
+Yemen,1963,t,40600
+Yemen,1964,t,53000
+Yemen,1965,t,44800
+Yemen,1966,t,54900
+Yemen,1967,t,55000
+Yemen,1968,t,60000
+Yemen,1969,t,80600
+Yemen,1970,t,57915
+Yemen,1971,t,70000
+Yemen,1972,t,70514
+Yemen,1973,t,71428
+Yemen,1974,t,73156
+Yemen,1975,t,74476
+Yemen,1976,t,60963
+Yemen,1977,t,76000
+Yemen,1978,t,76000
+Yemen,1979,t,81000
+Yemen,1980,t,70000
+Yemen,1981,t,124551
+Yemen,1982,t,110726
+Yemen,1983,t,98803
+Yemen,1984,t,98795
+Yemen,1985,t,34000
+Yemen,1986,t,54507
+Yemen,1987,t,38381
+Yemen,1988,t,39441
+Yemen,1989,t,58568
+Yemen,1990,t,50063
+Yemen,1991,t,25409
+Yemen,1992,t,66128
+Yemen,1993,t,60264
+Yemen,1994,t,54333
+Yemen,1995,t,53138
+Yemen,1996,t,45541
+Yemen,1997,t,59170
+Yemen,1998,t,74063
+Yemen,1999,t,65032
+Yemen,2000,t,65291
+Yemen,2001,t,68554
+Yemen,2002,t,57809
+Yemen,2003,t,40587
+Yemen,2004,t,66383
+Yemen,2005,t,66640
+Yemen,2006,t,82276
+Yemen,2007,t,88035
+Yemen,2008,t,74048
+Yemen,2009,t,61527
+Yemen,2010,t,111135
+Yemen,2011,t,74815
+Yemen,2012,t,86541
+Yemen,2013,t,83086
+Yemen,2014,t,73661
+Yemen,2015,t,49353
+Yemen,2016,t,44587
+Yemen,2017,t,44275
+Yemen,2018,t,43390
+Yemen,2019,t,50393
+Yemen,2020,t,64786
+Yemen,2021,t,82525.55
+Yemen,2022,t,45000
+Yemen,2023,t,45000
+Yugoslav SFR,1961,t,11160
+Yugoslav SFR,1962,t,7870
+Yugoslav SFR,1963,t,10140
+Yugoslav SFR,1964,t,7900
+Yugoslav SFR,1965,t,6390
+Yugoslav SFR,1966,t,8300
+Yugoslav SFR,1967,t,7240
+Yugoslav SFR,1968,t,7641
+Yugoslav SFR,1969,t,6591
+Yugoslav SFR,1970,t,6500
+Yugoslav SFR,1971,t,5200
+Yugoslav SFR,1972,t,3700
+Yugoslav SFR,1973,t,3700
+Yugoslav SFR,1974,t,3100
+Yugoslav SFR,1975,t,2600
+Yugoslav SFR,1976,t,2000
+Yugoslav SFR,1977,t,1830
+Yugoslav SFR,1978,t,2731
+Yugoslav SFR,1979,t,1680
+Yugoslav SFR,1980,t,1000
+Yugoslav SFR,1981,t,2000
+Yugoslav SFR,1982,t,2000
+Yugoslav SFR,1983,t,1000
+Yugoslav SFR,1984,t,1782
+Yugoslav SFR,1985,t,2325
+Yugoslav SFR,1986,t,4591
+Yugoslav SFR,1987,t,1212
+Yugoslav SFR,1988,t,1021
+Yugoslav SFR,1989,t,2317
+Yugoslav SFR,1990,t,1837
+Yugoslav SFR,1991,t,2361
+Zambia,1961,t,66000
+Zambia,1962,t,67000
+Zambia,1963,t,65000
+Zambia,1964,t,70000
+Zambia,1965,t,72000
+Zambia,1966,t,75000
+Zambia,1967,t,75000
+Zambia,1968,t,75000
+Zambia,1969,t,80000
+Zambia,1970,t,72000
+Zambia,1971,t,84712
+Zambia,1972,t,189263
+Zambia,1973,t,112788
+Zambia,1974,t,64701
+Zambia,1975,t,67005
+Zambia,1976,t,63669
+Zambia,1977,t,87283
+Zambia,1978,t,46170
+Zambia,1979,t,30000
+Zambia,1980,t,20000
+Zambia,1981,t,15000
+Zambia,1982,t,12690
+Zambia,1983,t,12699
+Zambia,1984,t,13504
+Zambia,1985,t,19442
+Zambia,1986,t,11661
+Zambia,1987,t,30262
+Zambia,1988,t,27000
+Zambia,1989,t,27260
+Zambia,1990,t,31531
+Zambia,1991,t,25573
+Zambia,1992,t,48029
+Zambia,1993,t,37394
+Zambia,1994,t,62643
+Zambia,1995,t,54501
+Zambia,1996,t,54858
+Zambia,1997,t,61129
+Zambia,1998,t,62236
+Zambia,1999,t,69617
+Zambia,2000,t,46875
+Zambia,2001,t,37615
+Zambia,2002,t,41192
+Zambia,2003,t,35000
+Zambia,2004,t,39800
+Zambia,2005,t,29583
+Zambia,2006,t,48159
+Zambia,2007,t,21707
+Zambia,2008,t,33934
+Zambia,2009,t,48967
+Zambia,2010,t,47997
+Zambia,2011,t,41602
+Zambia,2012,t,28445
+Zambia,2013,t,23942
+Zambia,2014,t,30504
+Zambia,2015,t,31967
+Zambia,2016,t,29972
+Zambia,2017,t,32566.46
+Zambia,2018,t,32278.31
+Zambia,2019,t,24842.99
+Zambia,2020,t,45004.63
+Zambia,2021,t,34701.89
+Zambia,2022,t,24223.78
+Zambia,2023,t,46753.21
+Zimbabwe,1961,t,185246
+Zimbabwe,1962,t,262356
+Zimbabwe,1963,t,250000
+Zimbabwe,1964,t,250000
+Zimbabwe,1965,t,253000
+Zimbabwe,1966,t,200000
+Zimbabwe,1967,t,170000
+Zimbabwe,1968,t,200000
+Zimbabwe,1969,t,170000
+Zimbabwe,1970,t,220000
+Zimbabwe,1971,t,180000
+Zimbabwe,1972,t,160000
+Zimbabwe,1973,t,200000
+Zimbabwe,1974,t,160000
+Zimbabwe,1975,t,180000
+Zimbabwe,1976,t,190000
+Zimbabwe,1977,t,200000
+Zimbabwe,1978,t,200000
+Zimbabwe,1979,t,140000
+Zimbabwe,1980,t,180000
+Zimbabwe,1981,t,137710
+Zimbabwe,1982,t,97999
+Zimbabwe,1983,t,100000
+Zimbabwe,1984,t,120000
+Zimbabwe,1985,t,224000
+Zimbabwe,1986,t,141000
+Zimbabwe,1987,t,81000
+Zimbabwe,1988,t,278000
+Zimbabwe,1989,t,141712
+Zimbabwe,1990,t,142710
+Zimbabwe,1991,t,122240
+Zimbabwe,1992,t,27000
+Zimbabwe,1993,t,95170
+Zimbabwe,1994,t,77800
+Zimbabwe,1995,t,21155
+Zimbabwe,1996,t,69813
+Zimbabwe,1997,t,47616
+Zimbabwe,1998,t,21029
+Zimbabwe,1999,t,41896
+Zimbabwe,2000,t,30993
+Zimbabwe,2001,t,43194
+Zimbabwe,2002,t,14163
+Zimbabwe,2003,t,41562
+Zimbabwe,2004,t,71740
+Zimbabwe,2005,t,30714.22
+Zimbabwe,2006,t,72312
+Zimbabwe,2007,t,49936
+Zimbabwe,2008,t,37000
+Zimbabwe,2009,t,40000
+Zimbabwe,2010,t,51122.58
+Zimbabwe,2011,t,35542.5
+Zimbabwe,2012,t,36478.14
+Zimbabwe,2013,t,37081.69
+Zimbabwe,2014,t,54514.57
+Zimbabwe,2015,t,17672.02
+Zimbabwe,2016,t,27461
+Zimbabwe,2017,t,62157.42
+Zimbabwe,2018,t,38964
+Zimbabwe,2019,t,29185
+Zimbabwe,2020,t,43411
+Zimbabwe,2021,t,45193
+Zimbabwe,2022,t,51818.2
+Zimbabwe,2023,t,89831
