@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
+from visuals.forecast_timeline import plot_forecast_timeline
 
 
 # Page setup
@@ -175,8 +176,9 @@ csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
-    
 
+fig_timeline = plot_forecast_timeline(historical_df, forecast_df, wg_df, unit)
+st.plotly_chart(fig_timeline, use_container_width=True)
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
