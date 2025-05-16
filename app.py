@@ -176,9 +176,8 @@ if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
 
-# ---------- FORECAST TIMELINE ANIMATION (Unified with Historical) ----------
+# ---------- FORECAST TIMELINE ANIMATION (Unified with Historical & WG Report) ----------
 if historical_df is not None and forecast_df is not None:
-    # Hardcoded unit mapping
     unit_lookup = {
         "Yield": {
             "Oilseeds": "Kg./hectare", "Pulses": "Kg./hectare", "Rice": "Kg./hectare", "Wheat": "Kg./hectare",
@@ -199,39 +198,51 @@ if historical_df is not None and forecast_df is not None:
 
     unit = unit_lookup.get(selected_type, {}).get(category, "")
 
-    # Melt forecast data for each FrameYear cumulatively
-    years = sorted(forecast_df["Year"].unique())
-    forecast_frames = []
-    for year in years:
-        df_till = forecast_df[forecast_df["Year"] <= year].copy()
-        melted = df_till.melt(id_vars="Year", var_name="Model", value_name="Value")
-        melted["FrameYear"] = year
-        forecast_frames.append(melted)
-
-    cumulative_forecast = pd.concat(forecast_frames)
-
-    # Historical data replicated across all FrameYears
+    # ---------------- Prepare historical data
     historical_melted = historical_df.rename(columns={"Total": "Value"})
     historical_melted["Model"] = "Historical"
 
+    # Timeline range setup
+    first_year = int(historical_melted["Year"].min())
+    last_year = 2047
+    timeline_years = list(range(first_year, last_year + 1))
+
     historical_frames = []
-    for year in years:
-        hist_copy = historical_melted.copy()
-        hist_copy["FrameYear"] = year
-        historical_frames.append(hist_copy)
+    for frame_year in timeline_years:
+        df_hist = historical_melted[historical_melted["Year"] <= frame_year].copy()
+        df_hist["FrameYear"] = frame_year
+        historical_frames.append(df_hist)
+    df_hist_all = pd.concat(historical_frames)
 
-    cumulative_historical = pd.concat(historical_frames)
+    # ---------------- Prepare forecast data
+    forecast_frames = []
+    for frame_year in timeline_years:
+        df_fore = forecast_df[forecast_df["Year"] <= frame_year].copy()
+        df_melted = df_fore.melt(id_vars="Year", var_name="Model", value_name="Value")
+        df_melted["FrameYear"] = frame_year
+        forecast_frames.append(df_melted)
+    df_fore_all = pd.concat(forecast_frames)
 
-    # Combine both
-    timeline_df = pd.concat([cumulative_historical, cumulative_forecast])
+    # ---------------- Prepare WG report
+    wg_all = pd.DataFrame()
+    if wg_df is not None:
+        wg_df["Model"] = "WG Report"
+        wg_df = wg_df.rename(columns={"Value": "Value"})
+        wg_all = []
+        for frame_year in timeline_years:
+            df_wg = wg_df.copy()
+            df_wg["FrameYear"] = frame_year
+            wg_all.append(df_wg)
+        wg_all = pd.concat(wg_all)
 
-    # Global axis range
+    # ---------------- Combine all
+    timeline_df = pd.concat([df_hist_all, df_fore_all, wg_all]) if wg_df is not None else pd.concat([df_hist_all, df_fore_all])
+
+    # ---------------- Axes bounds
     y_min = timeline_df["Value"].min() * 0.95
     y_max = timeline_df["Value"].max() * 1.05
-    x_min = min(historical_df["Year"].min(), forecast_df["Year"].min())
-    x_max = max(historical_df["Year"].max(), forecast_df["Year"].max())
 
-    # Animated Timeline Chart
+    # ---------------- Plotly animation
     fig_timeline = px.line(
         timeline_df,
         x="Year",
@@ -241,7 +252,7 @@ if historical_df is not None and forecast_df is not None:
         title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
         markers=True,
         range_y=[y_min, y_max],
-        range_x=[x_min, x_max]
+        range_x=[first_year, last_year]
     )
 
     fig_timeline.update_layout(
