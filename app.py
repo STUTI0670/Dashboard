@@ -270,7 +270,7 @@ with st.sidebar:
     st.markdown("### 🌍 World View Map")
     world_type = st.selectbox("Select Type", ["Production", "Yield", "Area"])
 
-    base_world_path = f"Data/world data/{world_type}"
+    base_world_path = f"Data/world_data/{world_type}"
     file_list = glob.glob(f"{base_world_path}/*.csv")
 
     available_categories = {
