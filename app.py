@@ -228,8 +228,8 @@ if historical_df is not None and forecast_df is not None:
     # Global axis range
     y_min = timeline_df["Value"].min() * 0.95
     y_max = timeline_df["Value"].max() * 1.05
-    x_min = timeline_df["Year"].min()
-    x_max = timeline_df["Year"].max()
+    x_min = min(historical_df["Year"].min(), forecast_df["Year"].min())
+    x_max = max(historical_df["Year"].max(), forecast_df["Year"].max())
 
     # Animated Timeline Chart
     fig_timeline = px.line(
