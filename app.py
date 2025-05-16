@@ -271,7 +271,7 @@ with st.sidebar:
 
     base_world_path = os.path.join("world data", selected_type)
     file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
-    
+
     available_categories = {
         os.path.basename(f)
         .replace("prod_", "")
@@ -283,10 +283,17 @@ with st.sidebar:
         for f in file_list
     }
 
+    selected_file = None
+    selected_world_category = None
     if available_categories:
         selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
         selected_file = available_categories[selected_world_category]
-        df_world = pd.read_csv(selected_file)
-        show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
-    else:
-        st.warning("No data files found for selected type.")
+
+# 👇 Now move the rendering to the main body
+if selected_file:
+    df_world = pd.read_csv(selected_file)
+    st.subheader(f"🌐 {selected_world_category} {selected_type} Over Time")
+    show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
+elif selected_type:  # Only warn if type was selected but no files
+    st.warning("No data files found for selected type.")
+
