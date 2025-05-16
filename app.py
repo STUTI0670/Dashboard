@@ -176,76 +176,7 @@ if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
     
-# ---------- FORECAST TIMELINE ANIMATION (with Historical + Forecast + WG Report) ----------
-if historical_df is not None and forecast_df is not None:
-    # Get unit
-    unit = unit_lookup.get(selected_type, {}).get(category, "")
 
-    # Define frame range
-    first_year = int(historical_df["Year"].min())
-    last_year = 2047
-    all_years = list(range(first_year, last_year + 1))
-
-    # Melt historical
-    hist_df = historical_df.rename(columns={"Total": "Value"})
-    hist_df["Model"] = "Historical"
-    hist_frames = []
-    for y in all_years:
-        df = hist_df[hist_df["Year"] <= y].copy()
-        df["FrameYear"] = y
-        hist_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
-    df_hist_all = pd.concat(hist_frames)
-
-    # Melt forecast
-    forecast_frames = []
-    for y in all_years:
-        df = forecast_df[forecast_df["Year"] <= y].copy()
-        melted = df.melt(id_vars="Year", var_name="Model", value_name="Value")
-        melted["FrameYear"] = y
-        forecast_frames.append(melted)
-    df_fore_all = pd.concat(forecast_frames)
-
-    # WG Report
-    if wg_df is not None:
-        wg_df["Model"] = "WG Report"
-        wg_frames = []
-        for y in all_years:
-            df = wg_df[wg_df["Year"] <= y].copy()
-            df["FrameYear"] = y
-            wg_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
-        df_wg_all = pd.concat(wg_frames)
-    else:
-        df_wg_all = pd.DataFrame(columns=["Year", "Value", "Model", "FrameYear"])
-
-    # Combine all
-    timeline_df = pd.concat([df_hist_all, df_fore_all, df_wg_all])
-
-    # Axis ranges
-    y_min = timeline_df["Value"].min() * 0.95
-    y_max = timeline_df["Value"].max() * 1.05
-    x_min = first_year
-    x_max = last_year
-
-    # Plotly animation
-    fig_timeline = px.line(
-        timeline_df,
-        x="Year",
-        y="Value",
-        color="Model",
-        animation_frame="FrameYear",
-        title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
-        markers=True,
-        range_y=[y_min, y_max],
-        range_x=[x_min, x_max]
-    )
-
-    fig_timeline.update_layout(
-        yaxis_title=f"Forecast Value ({unit})",
-        xaxis_title="Year",
-        legend_title="Model"
-    )
-
-    st.plotly_chart(fig_timeline, use_container_width=True)
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
