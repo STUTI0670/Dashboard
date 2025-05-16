@@ -282,6 +282,30 @@ if historical_df is not None and forecast_df is not None:
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+# ---------- FORECAST TIMELINE ANIMATION ----------
+if forecast_df is not None:
+    # Prepare long format for animation
+    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
+
+    # Animated Forecast Plot
+    fig_timeline = px.line(
+        forecast_long_df,
+        x="Year",
+        y="Value",
+        color="Model",
+        title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
+        markers=True,
+        animation_frame="Year",
+        range_y=[forecast_long_df["Value"].min() * 0.95, forecast_long_df["Value"].max() * 1.05]
+    )
+    fig_timeline.update_layout(
+        yaxis_title=f"Forecast Value ({unit})",
+        xaxis_title="Year",
+        legend_title="Model"
+    )
+    st.plotly_chart(fig_timeline, use_container_width=True)
+
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
