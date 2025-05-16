@@ -270,7 +270,7 @@ if historical_df is not None and forecast_df is not None:
         x="Year",
         y="Value",
         color="Model",
-        animation_frame="Timeline",
+        animation_frame="FrameYear",
         title=f"📊 Forecast Timeline ({unit})",
         markers=True,
         range_y=[y_min, y_max],
