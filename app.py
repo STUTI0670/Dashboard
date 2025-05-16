@@ -177,51 +177,73 @@ if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
 
-# ---------- FORECAST GRAPH ----------
-unit_lookup = {
-    "Yield": {
-        "Oilseeds": "Kg./hectare",
-        "Pulses": "Kg./hectare",
-        "Rice": "Kg./hectare",
-        "Wheat": "Kg./hectare",
-        "Coarse Cereals": "Kg./hectare",
-        "Maize": "Kg./hectare",
-        "Fruits": "MT/hectare",
-        "Vegetables": "MT/hectare"
-    },
-    "Production": {
-        "Milk": "Million Tonne",
-        "Meat": "Million Tonne",
-        "Eggs": "Million Numbers",
-        "Sugar and Products": "Lakh Tonne",
-        "Fruits": "'000 MT",
-        "Vegetables": "'000 MT",
-        "Foodgrains": "'000 Tonne",
-        "Cereals": "'000 Tonne",
-        "Pulses": "'000 Tonne",
-        "Rice": "'000 Tonne",
-        "Wheat": "'000 Tonne",
-        "Coarse Cereals": "'000 Tonne",
-        "Maize": "'000 Tonne"
-    },
-    "Area": {
-        "Foodgrains": "Lakh hectare",
-        "Cereals": "'000 hectare",
-        "Fruits": "'000 hectare",
-        "Oilseeds": "'000 hectare",
-        "Pulses": "'000 hectare",
-        "Rice": "'000 hectare",
-        "Vegetables": "'000 hectare",
-        "Wheat": "'000 hectare",
-        "Coarse Cereals": "'000 hectare",
-        "Maize": "'000 hectare"
-    }
-}
+# ---------- FORECAST TIMELINE ANIMATION (Corrected and Final Version) ----------
+if historical_df is not None and forecast_df is not None:
+    # Combine historical and forecast data
+    historical_df = historical_df.rename(columns={"Total": "Value"})
+    historical_df["Model"] = "Historical"
 
-unit = unit_lookup.get(selected_type, {}).get(category, "")
+    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
 
-fig_timeline = plot_forecast_timeline(historical_df, forecast_df, wg_df, unit)
-st.plotly_chart(fig_timeline, use_container_width=True)
+    # Build timeline frames from 2023 onward
+    forecast_years = sorted(forecast_df["Year"].unique())
+    start_year = historical_df["Year"].min()
+    end_year = max(forecast_years + [2047])  # just to be sure
+
+    # Replicate historical data for all years in timeline
+    timeline_frames = []
+    for year in forecast_years:
+        hist_temp = historical_df.copy()
+        hist_temp["FrameYear"] = year
+
+        forecast_temp = forecast_df[forecast_df["Year"] <= year].copy()
+        forecast_temp = forecast_temp.melt(id_vars="Year", var_name="Model", value_name="Value")
+        forecast_temp["FrameYear"] = year
+
+        # Include WG points only if their year <= FrameYear
+        wg_temp = pd.DataFrame()
+        if wg_df is not None:
+            wg_temp = wg_df[wg_df["Year"] <= year].copy()
+            if not wg_temp.empty:
+                wg_temp["Model"] = "WG Report"
+                wg_temp["FrameYear"] = year
+                wg_temp = wg_temp.rename(columns={"Value": "Value", "Year": "Year"})
+
+        combined = pd.concat([hist_temp[["Year", "Model", "Value", "FrameYear"]],
+                              forecast_temp[["Year", "Model", "Value", "FrameYear"]],
+                              wg_temp[["Year", "Model", "Value", "FrameYear"]] if not wg_temp.empty else pd.DataFrame()
+                             ])
+        timeline_frames.append(combined)
+
+    timeline_df = pd.concat(timeline_frames)
+
+    # Axis limits
+    y_min = timeline_df["Value"].min() * 0.95
+    y_max = timeline_df["Value"].max() * 1.05
+    x_min = timeline_df["Year"].min()
+    x_max = 2047
+
+    # Final Timeline Plot
+    fig_timeline = px.line(
+        timeline_df,
+        x="Year",
+        y="Value",
+        color="Model",
+        animation_frame="FrameYear",
+        title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
+        markers=True,
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max]
+    )
+
+    fig_timeline.update_layout(
+        yaxis_title=f"Forecast Value ({unit})",
+        xaxis_title="Year",
+        legend_title="Model"
+    )
+
+    st.plotly_chart(fig_timeline, use_container_width=True)
+
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
