@@ -178,62 +178,46 @@ if os.path.exists(csv_path):
     
 # ---------- FORECAST TIMELINE ANIMATION (with Historical + Forecast + WG Report) ----------
 if historical_df is not None and forecast_df is not None:
-    unit_lookup = {
-        "Yield": {
-            "Oilseeds": "Kg./hectare", "Pulses": "Kg./hectare", "Rice": "Kg./hectare", "Wheat": "Kg./hectare",
-            "Coarse Cereals": "Kg./hectare", "Maize": "Kg./hectare", "Fruits": "MT/hectare", "Vegetables": "MT/hectare"
-        },
-        "Production": {
-            "Milk": "Million Tonne", "Meat": "Million Tonne", "Eggs": "Million Numbers",
-            "Sugar and Products": "Lakh Tonne", "Fruits": "'000 MT", "Vegetables": "'000 MT",
-            "Foodgrains": "'000 Tonne", "Cereals": "'000 Tonne", "Pulses": "'000 Tonne", "Rice": "'000 Tonne",
-            "Wheat": "'000 Tonne", "Coarse Cereals": "'000 Tonne", "Maize": "'000 Tonne"
-        },
-        "Area": {
-            "Foodgrains": "Lakh hectare", "Cereals": "'000 hectare", "Fruits": "'000 hectare",
-            "Oilseeds": "'000 hectare", "Pulses": "'000 hectare", "Rice": "'000 hectare", "Vegetables": "'000 hectare",
-            "Wheat": "'000 hectare", "Coarse Cereals": "'000 hectare", "Maize": "'000 hectare"
-        }
-    }
-
+    # Get unit
     unit = unit_lookup.get(selected_type, {}).get(category, "")
 
-    # Timeline bounds
+    # Define frame range
     first_year = int(historical_df["Year"].min())
     last_year = 2047
-    timeline_years = list(range(first_year, last_year + 1))
+    all_years = list(range(first_year, last_year + 1))
 
-    # Historical Frame Prep
-    historical_df["Model"] = "Historical"
+    # Melt historical
+    hist_df = historical_df.rename(columns={"Total": "Value"})
+    hist_df["Model"] = "Historical"
     hist_frames = []
-    for frame_year in timeline_years:
-        df = historical_df[historical_df["Year"] <= frame_year].copy()
-        df["Value"] = df["Total"]
-        df["FrameYear"] = frame_year
+    for y in all_years:
+        df = hist_df[hist_df["Year"] <= y].copy()
+        df["FrameYear"] = y
         hist_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
     df_hist_all = pd.concat(hist_frames)
 
-    # Forecast Frame Prep
+    # Melt forecast
     forecast_frames = []
-    for frame_year in timeline_years:
-        df = forecast_df[forecast_df["Year"] <= frame_year].copy()
+    for y in all_years:
+        df = forecast_df[forecast_df["Year"] <= y].copy()
         melted = df.melt(id_vars="Year", var_name="Model", value_name="Value")
-        melted["FrameYear"] = frame_year
+        melted["FrameYear"] = y
         forecast_frames.append(melted)
     df_fore_all = pd.concat(forecast_frames)
 
-    # WG Report (points only if FrameYear >= Year)
-    wg_frames = []
+    # WG Report
     if wg_df is not None:
         wg_df["Model"] = "WG Report"
-        for frame_year in timeline_years:
-            df = wg_df[wg_df["Year"] <= frame_year].copy()
-            df["Value"] = df["Value"]
-            df["FrameYear"] = frame_year
+        wg_frames = []
+        for y in all_years:
+            df = wg_df[wg_df["Year"] <= y].copy()
+            df["FrameYear"] = y
             wg_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
-    df_wg_all = pd.concat(wg_frames) if wg_frames else pd.DataFrame()
+        df_wg_all = pd.concat(wg_frames)
+    else:
+        df_wg_all = pd.DataFrame(columns=["Year", "Value", "Model", "FrameYear"])
 
-    # Merge All
+    # Combine all
     timeline_df = pd.concat([df_hist_all, df_fore_all, df_wg_all])
 
     # Axis ranges
@@ -242,7 +226,7 @@ if historical_df is not None and forecast_df is not None:
     x_min = first_year
     x_max = last_year
 
-    # Plot
+    # Plotly animation
     fig_timeline = px.line(
         timeline_df,
         x="Year",
@@ -254,13 +238,6 @@ if historical_df is not None and forecast_df is not None:
         range_y=[y_min, y_max],
         range_x=[x_min, x_max]
     )
-
-    # Show WG Report as points not line
-    if "WG Report" in timeline_df["Model"].unique():
-        fig_timeline.for_each_trace(
-            lambda t: t.update(mode='markers+text', textposition='top right')
-            if t.name == "WG Report" else None
-        )
 
     fig_timeline.update_layout(
         yaxis_title=f"Forecast Value ({unit})",
