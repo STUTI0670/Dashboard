@@ -175,8 +175,8 @@ csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
-
-# ---------- FORECAST TIMELINE ANIMATION (Unified with Historical & WG Report as Points) ----------
+    
+# ---------- FORECAST TIMELINE ANIMATION (with Historical + Forecast + WG Report) ----------
 if historical_df is not None and forecast_df is not None:
     unit_lookup = {
         "Yield": {
@@ -203,17 +203,17 @@ if historical_df is not None and forecast_df is not None:
     last_year = 2047
     timeline_years = list(range(first_year, last_year + 1))
 
-    # Historical
-    historical_melted = historical_df.rename(columns={"Total": "Value"})
-    historical_melted["Model"] = "Historical"
+    # Historical Frame Prep
+    historical_df["Model"] = "Historical"
     hist_frames = []
     for frame_year in timeline_years:
-        df = historical_melted[historical_melted["Year"] <= frame_year].copy()
+        df = historical_df[historical_df["Year"] <= frame_year].copy()
+        df["Value"] = df["Total"]
         df["FrameYear"] = frame_year
-        hist_frames.append(df)
+        hist_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
     df_hist_all = pd.concat(hist_frames)
 
-    # Forecast
+    # Forecast Frame Prep
     forecast_frames = []
     for frame_year in timeline_years:
         df = forecast_df[forecast_df["Year"] <= frame_year].copy()
@@ -222,24 +222,25 @@ if historical_df is not None and forecast_df is not None:
         forecast_frames.append(melted)
     df_fore_all = pd.concat(forecast_frames)
 
-    # WG Report Points — only show if that point's year <= FrameYear
-    wg_all = pd.DataFrame()
+    # WG Report (points only if FrameYear >= Year)
+    wg_frames = []
     if wg_df is not None:
-        wg_df = wg_df.rename(columns={"Value": "Value"})
         wg_df["Model"] = "WG Report"
-        wg_frames = []
         for frame_year in timeline_years:
             df = wg_df[wg_df["Year"] <= frame_year].copy()
+            df["Value"] = df["Value"]
             df["FrameYear"] = frame_year
-            wg_frames.append(df)
-        wg_all = pd.concat(wg_frames)
+            wg_frames.append(df[["Year", "Value", "Model", "FrameYear"]])
+    df_wg_all = pd.concat(wg_frames) if wg_frames else pd.DataFrame()
 
-    # Merge all
-    timeline_df = pd.concat([df_hist_all, df_fore_all, wg_all]) if wg_df is not None else pd.concat([df_hist_all, df_fore_all])
+    # Merge All
+    timeline_df = pd.concat([df_hist_all, df_fore_all, df_wg_all])
 
-    # Axis bounds
+    # Axis ranges
     y_min = timeline_df["Value"].min() * 0.95
     y_max = timeline_df["Value"].max() * 1.05
+    x_min = first_year
+    x_max = last_year
 
     # Plot
     fig_timeline = px.line(
@@ -251,13 +252,13 @@ if historical_df is not None and forecast_df is not None:
         title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
         markers=True,
         range_y=[y_min, y_max],
-        range_x=[first_year, last_year]
+        range_x=[x_min, x_max]
     )
 
-    # Force WG Report to show as dots, not lines
-    if wg_df is not None:
+    # Show WG Report as points not line
+    if "WG Report" in timeline_df["Model"].unique():
         fig_timeline.for_each_trace(
-            lambda t: t.update(mode='markers+text', textposition='top right') 
+            lambda t: t.update(mode='markers+text', textposition='top right')
             if t.name == "WG Report" else None
         )
 
