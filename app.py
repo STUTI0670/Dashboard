@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
-from forecast_timeline import plot_forecast_timeline
 
 
 # Page setup
