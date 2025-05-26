@@ -176,80 +176,88 @@ if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category)
     st.pyplot(fig)
 
-# ---------- FORECAST TIMELINE ANIMATION (Updated + WG Points + Top 3 Models) ----------
-
+# ---------- FORECAST TIMELINE ANIMATION (Fully Fixed) ----------
 unit_lookup = {
     "Yield": {
-        "Oilseeds": "Kg./hectare", "Pulses": "Kg./hectare", "Rice": "Kg./hectare",
-        "Wheat": "Kg./hectare", "Coarse Cereals": "Kg./hectare", "Maize": "Kg./hectare",
-        "Fruits": "MT/hectare", "Vegetables": "MT/hectare"
+        "Oilseeds": "Kg./hectare", "Pulses": "Kg./hectare", "Rice": "Kg./hectare", "Wheat": "Kg./hectare",
+        "Coarse Cereals": "Kg./hectare", "Maize": "Kg./hectare", "Fruits": "MT/hectare", "Vegetables": "MT/hectare"
     },
     "Production": {
-        "Milk": "Million Tonne", "Meat": "Million Tonne", "Eggs": "Million Numbers",
-        "Sugar and Products": "Lakh Tonne", "Fruits": "'000 MT", "Vegetables": "'000 MT",
-        "Foodgrains": "'000 Tonne", "Cereals": "'000 Tonne", "Pulses": "'000 Tonne",
-        "Rice": "'000 Tonne", "Wheat": "'000 Tonne", "Coarse Cereals": "'000 Tonne", "Maize": "'000 Tonne"
+        "Milk": "Million Tonne", "Meat": "Million Tonne", "Eggs": "Million Numbers", "Sugar and Products": "Lakh Tonne",
+        "Fruits": "'000 MT", "Vegetables": "'000 MT", "Foodgrains": "'000 Tonne", "Cereals": "'000 Tonne",
+        "Pulses": "'000 Tonne", "Rice": "'000 Tonne", "Wheat": "'000 Tonne", "Coarse Cereals": "'000 Tonne", "Maize": "'000 Tonne"
     },
     "Area": {
-        "Foodgrains": "Lakh hectare", "Cereals": "'000 hectare", "Fruits": "'000 hectare",
-        "Oilseeds": "'000 hectare", "Pulses": "'000 hectare", "Rice": "'000 hectare",
-        "Vegetables": "'000 hectare", "Wheat": "'000 hectare", "Coarse Cereals": "'000 hectare", "Maize": "'000 hectare"
+        "Foodgrains": "Lakh hectare", "Cereals": "'000 hectare", "Fruits": "'000 hectare", "Oilseeds": "'000 hectare",
+        "Pulses": "'000 hectare", "Rice": "'000 hectare", "Vegetables": "'000 hectare", "Wheat": "'000 hectare",
+        "Coarse Cereals": "'000 hectare", "Maize": "'000 hectare"
     }
 }
-
 unit = unit_lookup.get(selected_type, {}).get(category, "")
 
 if historical_df is not None and forecast_df is not None:
-    # Prepare data
     historical_df = historical_df.rename(columns={"Total": "Value"})
     historical_df["Model"] = "Historical"
 
     forecast_long = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
+    forecast_long = forecast_long[forecast_long["Year"] >= 2023]  # Ensure we skip historical overlaps
 
-    # Combine forecast + historical + WG frames
-    frames = []
     forecast_years = sorted(forecast_df["Year"].unique())
-    all_years = list(range(historical_df["Year"].min(), 2048))  # timeline range
+    full_years = list(range(historical_df["Year"].min(), 2048))
 
-    for frame_year in all_years:
-        frame = []
+    timeline_frames = []
+    for frame_year in full_years:
+        frame_data = []
 
-        # Historical data shown in all frames
-        hist_temp = historical_df.copy()
-        hist_temp["FrameYear"] = frame_year
-        frame.append(hist_temp[["Year", "Model", "Value", "FrameYear"]])
+        # Historical (always present)
+        hist = historical_df.copy()
+        hist["FrameYear"] = frame_year
+        frame_data.append(hist)
 
-        # Forecast data if year >= 2023
+        # Forecast (starts from 2023 onward)
         if frame_year >= 2023:
-            forecast_temp = forecast_long[forecast_long["Year"] <= frame_year].copy()
-            forecast_temp["FrameYear"] = frame_year
-            frame.append(forecast_temp)
+            fc = forecast_long[forecast_long["Year"] <= frame_year].copy()
+            fc["FrameYear"] = frame_year
+            frame_data.append(fc)
 
-        # WG points as red scatter dots when year reached
+        # WG report (scatter markers at only 2030 and 2047)
         if wg_df is not None and not wg_df.empty:
-            wg_active = wg_df[wg_df["Year"] <= frame_year].copy()
-            if not wg_active.empty:
-                wg_active["Model"] = "WG Report"
-                wg_active["FrameYear"] = frame_year
-                wg_active = wg_active.rename(columns={"Value": "Value", "Year": "Year"})
-                frame.append(wg_active[["Year", "Model", "Value", "FrameYear"]])
+            wg_frame = wg_df[wg_df["Year"] <= frame_year].copy()
+            if not wg_frame.empty:
+                wg_frame["Model"] = "WG Report"
+                wg_frame["FrameYear"] = frame_year
+                wg_frame = wg_frame.rename(columns={"Value": "Value", "Year": "Year"})
+                frame_data.append(wg_frame[["Year", "Model", "Value", "FrameYear"]])
 
-        frames.append(pd.concat(frame))
+        combined = pd.concat(frame_data)
+        timeline_frames.append(combined)
 
-    timeline_df = pd.concat(frames)
+    timeline_df = pd.concat(timeline_frames)
 
-    # Plot
     fig_timeline = px.line(
         timeline_df,
         x="Year",
         y="Value",
         color="Model",
         animation_frame="FrameYear",
-        title=f"📽️ Forecast Timeline ({unit})",
+        title=f"📊 Forecast Timeline ({unit})",
+        markers=True,
         range_y=[timeline_df["Value"].min() * 0.95, timeline_df["Value"].max() * 1.05],
-        range_x=[timeline_df["Year"].min(), 2047],
-        markers=True
+        range_x=[timeline_df["Year"].min(), 2047]
     )
+
+    # Ensure WG points are plotted as scatter markers
+    if wg_df is not None and not wg_df.empty:
+        wg_static = wg_df.copy()
+        fig_timeline.add_trace(go.Scatter(
+            x=wg_static["Year"],
+            y=wg_static["Value"],
+            mode="markers+text",
+            name="WG Report",
+            marker=dict(color="red", size=10, symbol="diamond"),
+            text=wg_static["Scenario"],
+            textposition="top right"
+        ))
 
     fig_timeline.update_layout(
         yaxis_title=f"Forecast Value ({unit})",
