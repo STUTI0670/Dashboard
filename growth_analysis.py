@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
-def plot_logest_growth_from_csv(csv_path, category_name):
+def plot_logest_growth_from_csv(csv_path, category_name, scale_factor=1.0):
     # Load historical data
     df = pd.read_csv(csv_path)
+
+    df["Total"] *= scale_factor
 
     # Ensure expected format
     df = df[df['Year'].astype(str).str.match(r"^\d{4}$")]
