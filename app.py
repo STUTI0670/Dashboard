@@ -196,68 +196,62 @@ unit_lookup = {
 unit = unit_lookup.get(selected_type, {}).get(category, "")
 
 if historical_df is not None and forecast_df is not None:
+    # Combine historical and forecast data
     historical_df = historical_df.rename(columns={"Total": "Value"})
     historical_df["Model"] = "Historical"
 
-    forecast_long = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
-    forecast_long = forecast_long[forecast_long["Year"] >= 2023]  # Ensure we skip historical overlaps
+    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
 
+    # Build timeline frames from 2023 onward
     forecast_years = sorted(forecast_df["Year"].unique())
-    full_years = list(range(historical_df["Year"].min(), 2048))
+    start_year = historical_df["Year"].min()
+    end_year = max(forecast_years + [2047])  # just to be sure
 
+    # Replicate historical data for all years in timeline
     timeline_frames = []
-    for frame_year in full_years:
-        frame_data = []
+    for year in forecast_years:
+        hist_temp = historical_df.copy()
+        hist_temp["FrameYear"] = year
 
-        # Historical (always present)
-        hist = historical_df.copy()
-        hist["FrameYear"] = frame_year
-        frame_data.append(hist)
+        forecast_temp = forecast_df[forecast_df["Year"] <= year].copy()
+        forecast_temp = forecast_temp.melt(id_vars="Year", var_name="Model", value_name="Value")
+        forecast_temp["FrameYear"] = year
 
-        # Forecast (starts from 2023 onward)
-        if frame_year >= 2023:
-            fc = forecast_long[forecast_long["Year"] <= frame_year].copy()
-            fc["FrameYear"] = frame_year
-            frame_data.append(fc)
+        # Include WG points only if their year <= FrameYear
+        wg_temp = pd.DataFrame()
+        if wg_df is not None:
+            wg_temp = wg_df[wg_df["Year"] <= year].copy()
+            if not wg_temp.empty:
+                wg_temp["Model"] = "WG Report"
+                wg_temp["FrameYear"] = year
+                wg_temp = wg_temp.rename(columns={"Value": "Value", "Year": "Year"})
 
-        # WG report (scatter markers at only 2030 and 2047)
-        if wg_df is not None and not wg_df.empty:
-            wg_frame = wg_df[wg_df["Year"] <= frame_year].copy()
-            if not wg_frame.empty:
-                wg_frame["Model"] = "WG Report"
-                wg_frame["FrameYear"] = frame_year
-                wg_frame = wg_frame.rename(columns={"Value": "Value", "Year": "Year"})
-                frame_data.append(wg_frame[["Year", "Model", "Value", "FrameYear"]])
-
-        combined = pd.concat(frame_data)
+        combined = pd.concat([hist_temp[["Year", "Model", "Value", "FrameYear"]],
+                              forecast_temp[["Year", "Model", "Value", "FrameYear"]],
+                              wg_temp[["Year", "Model", "Value", "FrameYear"]] if not wg_temp.empty else pd.DataFrame()
+                             ])
         timeline_frames.append(combined)
 
     timeline_df = pd.concat(timeline_frames)
 
+    # Axis limits
+    y_min = timeline_df["Value"].min() * 0.95
+    y_max = timeline_df["Value"].max() * 1.05
+    x_min = timeline_df["Year"].min()
+    x_max = 2047
+
+    # Final Timeline Plot
     fig_timeline = px.line(
         timeline_df,
         x="Year",
         y="Value",
         color="Model",
         animation_frame="FrameYear",
-        title=f"📊 Forecast Timeline ({unit})",
+        title=f"📽️ Forecast Scale: Animated Timeline ({unit})",
         markers=True,
-        range_y=[timeline_df["Value"].min() * 0.95, timeline_df["Value"].max() * 1.05],
-        range_x=[timeline_df["Year"].min(), 2047]
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max]
     )
-
-    # Ensure WG points are plotted as scatter markers
-    if wg_df is not None and not wg_df.empty:
-        wg_static = wg_df.copy()
-        fig_timeline.add_trace(go.Scatter(
-            x=wg_static["Year"],
-            y=wg_static["Value"],
-            mode="markers+text",
-            name="WG Report",
-            marker=dict(color="red", size=10, symbol="diamond"),
-            text=wg_static["Scenario"],
-            textposition="top right"
-        ))
 
     fig_timeline.update_layout(
         yaxis_title=f"Forecast Value ({unit})",
@@ -266,6 +260,7 @@ if historical_df is not None and forecast_df is not None:
     )
 
     st.plotly_chart(fig_timeline, use_container_width=True)
+
     
 # ---------- WORLD MAP ----------
 with st.sidebar:
