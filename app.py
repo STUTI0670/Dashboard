@@ -253,6 +253,16 @@ if historical_df is not None and forecast_df is not None:
         range_x=[x_min, x_max]
     )
 
+    # Customize WG Report to only show as red circle markers
+    for trace in fig_timeline.data:
+        if trace.name == "WG Report":
+            trace.mode = "markers+text"
+            trace.marker.size = 10
+            trace.marker.color = "red"
+            trace.textposition = "top center"
+            trace.text = ["2030" if y == 2030 else "2047" for y in trace.x]  # Optional labels
+
+
     fig_timeline.update_layout(
         yaxis_title=f"Forecast Value ({unit})",
         xaxis_title="Year",
