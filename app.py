@@ -209,6 +209,9 @@ if os.path.exists(csv_path):
 
 
 # ---------- FORECAST TIMELINE ANIMATION (Corrected and Final Version) ----------
+
+folder_path = os.path.join(base_path, folder_name)
+
 unit_lookup = {
     "Yield": {
         "Oilseeds": "Kg./hectare",
