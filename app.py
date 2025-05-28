@@ -7,7 +7,6 @@ from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
 
-
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
@@ -19,14 +18,12 @@ st.markdown("""
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
 }
-
 .toggle-container {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin: 2.5rem 0 1rem;
 }
-
 .toggle-button {
     font-size: 2rem;
     padding: 1.2rem 3rem;
@@ -39,18 +36,15 @@ html, body, [class*="css"] {
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
-
 .toggle-button:hover {
     transform: scale(1.1);
     background-color: #f0f0f0;
 }
-
 .toggle-button.selected {
     background-color: black;
     color: white;
     transform: scale(1.2);
 }
-
 .sidebar-title {
     background-color: white;
     padding: 1rem;
@@ -86,6 +80,56 @@ selected_type = st.session_state.selected_type
 if not selected_type:
     st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b>, <b>Yield</b>, or <b>Area</b> to continue.</h4>", unsafe_allow_html=True)
     st.stop()
+
+# ---------- UNIT LOOKUP - MOVE THIS UP! ----------
+unit_lookup = {
+    "Yield": {
+        "Oilseeds": "Kg./hectare",
+        "Pulses": "Kg./hectare",
+        "Rice": "Kg./hectare",
+        "Wheat": "Kg./hectare",
+        "Coarse Cereals": "Kg./hectare",
+        "Maize": "Kg./hectare",
+        "Fruits": "MT/hectare",
+        "Vegetables": "MT/hectare"
+    },
+    "Production": {
+        "Milk": "Million Tonne",
+        "Meat": "Million Tonne",
+        "Eggs": "Million Numbers",
+        "Sugar and Products": "Lakh Tonne",
+        "Fruits": "'000 MT",
+        "Vegetables": "'000 MT",
+        "Foodgrains": "'000 Tonne",
+        "Cereals": "'000 Tonne",
+        "Pulses": "'000 Tonne",
+        "Rice": "'000 Tonne",
+        "Wheat": "'000 Tonne",
+        "Coarse Cereals": "'000 Tonne",
+        "Maize": "'000 Tonne"
+    },
+    "Area": {
+        "Foodgrains": "Lakh hectare",
+        "Cereals": "'000 hectare",
+        "Fruits": "'000 hectare",
+        "Oilseeds": "'000 hectare",
+        "Pulses": "'000 hectare",
+        "Rice": "'000 hectare",
+        "Vegetables": "'000 hectare",
+        "Wheat": "'000 hectare",
+        "Coarse Cereals": "'000 hectare",
+        "Maize": "'000 hectare"
+    }
+}
+
+unit_conversion_map = {
+    "'000 Tonne": {"Million Tonne": 0.001},
+    "'000 MT": {"Million Tonne": 0.001},
+    "'000 hectare": {"Million hectare": 0.001},
+    "Lakh hectare": {"Million hectare": 0.1},
+    "Million Numbers": {"Billion Numbers": 0.001},
+    "Kg./hectare": {"Tonne/hectare": 0.001}
+}
 
 # ---------- HEADER ----------
 st.markdown(f"<h1 style='text-align:center;'>🌾 India FoodCrop Data Dashboard</h1>", unsafe_allow_html=True)
@@ -128,15 +172,6 @@ category_hierarchy = {
     }
 }
 
-unit_conversion_map = {
-    "'000 Tonne": {"Million Tonne": 0.001},
-    "'000 MT": {"Million Tonne": 0.001},
-    "'000 hectare": {"Million hectare": 0.001},
-    "Lakh hectare": {"Million hectare": 0.1},
-    "Million Numbers": {"Billion Numbers": 0.001},
-    "Kg./hectare": {"Tonne/hectare": 0.001}
-}
-
 # ---------- SIDEBAR ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
@@ -157,8 +192,6 @@ with st.sidebar:
             if norm_subcat in norm_available:
                 subcat_display_to_folder[subcat] = norm_available[norm_subcat]
 
-
-
     if not subcat_display_to_folder:
         st.error("No data available for selected sub-sector.")
         st.stop()
@@ -168,8 +201,8 @@ with st.sidebar:
     folder_name = f"{prefix}{folder_key}"
     folder_path = os.path.join(base_path, folder_name)
 
+# ---------- UNIT SELECTION ----------
 unit = unit_lookup.get(selected_type, {}).get(category, "")
-
 conversion_options = unit_conversion_map.get(unit, {})
 conversion_unit = None
 conversion_multiplier = 1.0
@@ -178,7 +211,10 @@ if conversion_options:
     conversion_unit = st.sidebar.selectbox("Convert Unit", ["Original"] + list(conversion_options.keys()))
     if conversion_unit != "Original":
         conversion_multiplier = conversion_options[conversion_unit]
-        unit = conversion_unit  # Display converted unit
+        unit = conversion_unit
+
+# (rest of your code continues here — loading data, applying conversion, plotting graphs etc...)
+
 
 # ---------- SAFE READ ----------
 def safe_read(filename):
