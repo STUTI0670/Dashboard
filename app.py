@@ -128,6 +128,15 @@ category_hierarchy = {
     }
 }
 
+unit_conversion_map = {
+    "'000 Tonne": {"Million Tonne": 0.001},
+    "'000 MT": {"Million Tonne": 0.001},
+    "'000 hectare": {"Million hectare": 0.001},
+    "Lakh hectare": {"Million hectare": 0.1},
+    "Million Numbers": {"Billion Numbers": 0.001},
+    "Kg./hectare": {"Tonne/hectare": 0.001}
+}
+
 # ---------- SIDEBAR ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
@@ -159,6 +168,18 @@ with st.sidebar:
     folder_name = f"{prefix}{folder_key}"
     folder_path = os.path.join(base_path, folder_name)
 
+unit = unit_lookup.get(selected_type, {}).get(category, "")
+
+conversion_options = unit_conversion_map.get(unit, {})
+conversion_unit = None
+conversion_multiplier = 1.0
+
+if conversion_options:
+    conversion_unit = st.sidebar.selectbox("Convert Unit", ["Original"] + list(conversion_options.keys()))
+    if conversion_unit != "Original":
+        conversion_multiplier = conversion_options[conversion_unit]
+        unit = conversion_unit  # Display converted unit
+
 # ---------- SAFE READ ----------
 def safe_read(filename):
     full_path = os.path.join(folder_path, filename)
@@ -169,12 +190,23 @@ historical_df = safe_read("historical_data.csv")
 forecast_df = safe_read("forecast_data.csv")
 wg_df = safe_read("wg_report.csv")
 
+# ---------- APPLY UNIT CONVERSION BEFORE ANY USAGE ----------
+if historical_df is not None:
+    historical_df["Total"] *= conversion_multiplier
+
+if forecast_df is not None:
+    forecast_df.iloc[:, 1:] *= conversion_multiplier
+
+if wg_df is not None and not wg_df.empty:
+    wg_df["Value"] *= conversion_multiplier
+
 # ---------- LOGEST GRAPH ----------
 st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, category)
+    fig = plot_logest_growth_from_csv(csv_path, category, conversion_multiplier)
     st.pyplot(fig)
+
 
 # ---------- FORECAST TIMELINE ANIMATION (Corrected and Final Version) ----------
 unit_lookup = {
@@ -244,6 +276,17 @@ if historical_df is not None and forecast_df is not None:
         timeline_frames.append(combined)
 
     timeline_df = pd.concat(timeline_frames)
+
+    # Apply unit conversion to all datasets
+    if historical_df is not None:
+        historical_df["Total"] *= conversion_multiplier
+
+    if forecast_df is not None:
+        forecast_df.iloc[:, 1:] *= conversion_multiplier
+
+    if wg_df is not None and not wg_df.empty:
+        wg_df["Value"] *= conversion_multiplier
+
 
     # Axis limits
     y_min = timeline_df["Value"].min() * 0.95
