@@ -248,8 +248,8 @@ if historical_df is not None and forecast_df is not None:
     # Axis limits
     y_min = timeline_df["Value"].min() * 0.95
     y_max = timeline_df["Value"].max() * 1.05
-    x_min = timeline_df["Year"].min()
-    x_max = 2047
+    x_min = timeline_df["Year"].min() - 5
+    x_max = 2050
 
     # Timeline chart
     fig_timeline = px.line(
