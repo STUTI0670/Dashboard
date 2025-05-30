@@ -291,3 +291,39 @@ elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
 
 
+# ---------- INDIA PULSES HEATMAP ----------
+
+st.markdown("### 🇮🇳 India Pulses Insights (Season-wise Heatmap)")
+
+# Load pulses Excel data
+pulses_path = "Pulses_Data.xlsx"
+if os.path.exists(pulses_path):
+    xl = pd.ExcelFile(pulses_path)
+    season_options = xl.sheet_names  # ["Total", "Rabi", "Kharif"]
+    selected_season = st.selectbox("Select Season", season_options)
+
+    df_pulses = xl.parse(selected_season)
+
+    # Assuming first column is "Year", others are pulse types
+    available_pulses = df_pulses.columns[1:]
+    selected_pulse = st.selectbox("Select Pulse Type", available_pulses)
+
+    df_selected = df_pulses[["Year", selected_pulse]].copy()
+    df_selected["Year"] = df_selected["Year"].astype(str)
+
+    # Create a 2D heatmap using imshow (Year as x, Pulse Type as y=1 fixed)
+    heatmap_data = df_selected.set_index("Year").T
+    fig_heatmap = px.imshow(
+        heatmap_data,
+        labels=dict(x="Year", color="Value"),
+        aspect="auto",
+        color_continuous_scale="YlOrBr",
+        title=f"📊 Heatmap for {selected_pulse} ({selected_season} Season)"
+    )
+    fig_heatmap.update_layout(height=400)
+    st.plotly_chart(fig_heatmap, use_container_width=True)
+else:
+    st.warning("📂 Pulses_Data.xlsx not found in directory.")
+
+
+
