@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
+import json
 
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
@@ -291,51 +292,51 @@ elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
 
 
-# ---------- INDIA PULSES HEATMAP ----------
+# ---------- INDIA PULSES CHOROPLETH MAP ----------
 st.markdown("---")
-st.subheader("🇮🇳 India Pulses Time-Series Heatmap")
+st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
 
 with st.sidebar:
-    st.markdown("### 🌱 India Pulses Heatmap Settings")
-    pulse_season_sheet = st.selectbox("Select Season Sheet", ["Total pulses", "Total Kharif pulses", "Total Rabi pulses",
-                                                              "Arhar", "Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas"])
-    pulse_metric = st.selectbox("Select Metric", ["Area (In '000 Hectare)", "Production (In '000 Tonne)", "Yield (In Kg./Hectare)"])
+    st.markdown("### 🌱 Pulses Map Settings")
+    season = st.selectbox("Select Season", ["Total pulses", "Kharif pulses", "Rabi pulses"])
+    pulse_type = st.selectbox("Select Pulse Type", ["Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Urad", "Gram", "Arhar"])
+    metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
+# Load the data
 try:
-    df_raw = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_season_sheet, header=1)
-    df_raw.columns = [col.replace("\n", " ").strip() for col in df_raw.columns]
+    df = pd.read_excel("Pulses_Data.xlsx", sheet_name=season)
+    df = df[df["Pulse"] == pulse_type]
 
-    pulse_options = df_raw["Crop"].dropna().unique().tolist()
-    pulse_selected = st.sidebar.selectbox("Select Pulse Type", pulse_options)
+    # Ensure correct data types
+    df["Year"] = df["Year"].astype(str)
+    df[metric] = pd.to_numeric(df[metric], errors="coerce")
+    df = df.dropna(subset=[metric])
 
-    df_filtered = df_raw[df_raw["Crop"] == pulse_selected].copy()
-    df_filtered = df_filtered[["States/UTs", "Year", pulse_metric]]
-    df_filtered.columns = ["State", "Year", "Value"]
-    df_filtered["Year"] = df_filtered["Year"].astype(str).str[:4].astype(int)
-    df_filtered["Value"] = pd.to_numeric(df_filtered["Value"], errors="coerce")
-    df_filtered = df_filtered.dropna(subset=["Value"])
+    # Load GeoJSON
+    with open("india_states.geojson") as f:
+        india_states = json.load(f)
 
-    heatmap_data = df_filtered.pivot(index="State", columns="Year", values="Value")
-
-    fig_pulses = go.Figure(data=go.Heatmap(
-        z=heatmap_data.values,
-        x=heatmap_data.columns,
-        y=heatmap_data.index,
-        colorscale="YlGnBu",
-        colorbar=dict(title=pulse_metric)
-    ))
-
-    fig_pulses.update_layout(
-        title=f"{pulse_selected} – {pulse_metric} Over Time (India States)",
-        xaxis_title="Year",
-        yaxis_title="State",
-        height=700
+    # Create the choropleth map
+    fig = px.choropleth(
+        df,
+        geojson=india_states,
+        featureidkey="properties.ST_NM",
+        locations="State",
+        color=metric,
+        animation_frame="Year",
+        color_continuous_scale="YlOrRd",
+        range_color=(df[metric].min(), df[metric].max()),
+        labels={metric: metric},
+        title=f"{pulse_type} - {metric} Over Time"
     )
 
-    st.plotly_chart(fig_pulses, use_container_width=True)
+    fig.update_geos(fitbounds="locations", visible=False)
+    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
+
+    st.plotly_chart(fig, use_container_width=True)
 
 except Exception as e:
-    st.error(f"Failed to load India Pulses Heatmap: {e}")
+    st.error(f"An error occurred: {e}")
 
 
 
