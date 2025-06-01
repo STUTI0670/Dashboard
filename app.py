@@ -302,7 +302,7 @@ with st.sidebar:
     pulse_metric = st.selectbox("Select Metric", ["Area (In '000 Hectare)", "Production (In '000 Tonne)", "Yield (In Kg./Hectare)"])
 
 try:
-    df_raw = pd.read_excel("Pulses_Data.xlsx", sheet_name=pulse_season_sheet, header=1)
+    df_raw = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_season_sheet, header=1)
     df_raw.columns = [col.replace("\n", " ").strip() for col in df_raw.columns]
 
     pulse_options = df_raw["Crop"].dropna().unique().tolist()
