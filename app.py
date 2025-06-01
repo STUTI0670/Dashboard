@@ -292,38 +292,51 @@ elif selected_type:  # Only warn if type was selected but no files
 
 
 # ---------- INDIA PULSES HEATMAP ----------
+st.markdown("---")
+st.subheader("🇮🇳 India Pulses Time-Series Heatmap")
 
-st.markdown("### 🇮🇳 India Pulses Insights (Season-wise Heatmap)")
+with st.sidebar:
+    st.markdown("### 🌱 India Pulses Heatmap Settings")
+    pulse_season_sheet = st.selectbox("Select Season Sheet", ["Total pulses", "Total Kharif pulses", "Total Rabi pulses",
+                                                              "Arhar", "Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas"])
+    pulse_metric = st.selectbox("Select Metric", ["Area (In '000 Hectare)", "Production (In '000 Tonne)", "Yield (In Kg./Hectare)"])
 
-# Load pulses Excel data
-pulses_path = "Pulses_Data.xlsx"
-if os.path.exists(pulses_path):
-    xl = pd.ExcelFile(pulses_path)
-    season_options = xl.sheet_names  # ["Total", "Rabi", "Kharif"]
-    selected_season = st.selectbox("Select Season", season_options)
+try:
+    df_raw = pd.read_excel("Pulses_Data.xlsx", sheet_name=pulse_season_sheet, header=1)
+    df_raw.columns = [col.replace("\n", " ").strip() for col in df_raw.columns]
 
-    df_pulses = xl.parse(selected_season)
+    pulse_options = df_raw["Crop"].dropna().unique().tolist()
+    pulse_selected = st.sidebar.selectbox("Select Pulse Type", pulse_options)
 
-    # Assuming first column is "Year", others are pulse types
-    available_pulses = df_pulses.columns[1:]
-    selected_pulse = st.selectbox("Select Pulse Type", available_pulses)
+    df_filtered = df_raw[df_raw["Crop"] == pulse_selected].copy()
+    df_filtered = df_filtered[["States/UTs", "Year", pulse_metric]]
+    df_filtered.columns = ["State", "Year", "Value"]
+    df_filtered["Year"] = df_filtered["Year"].astype(str).str[:4].astype(int)
+    df_filtered["Value"] = pd.to_numeric(df_filtered["Value"], errors="coerce")
+    df_filtered = df_filtered.dropna(subset=["Value"])
 
-    df_selected = df_pulses[["Year", selected_pulse]].copy()
-    df_selected["Year"] = df_selected["Year"].astype(str)
+    heatmap_data = df_filtered.pivot(index="State", columns="Year", values="Value")
 
-    # Create a 2D heatmap using imshow (Year as x, Pulse Type as y=1 fixed)
-    heatmap_data = df_selected.set_index("Year").T
-    fig_heatmap = px.imshow(
-        heatmap_data,
-        labels=dict(x="Year", color="Value"),
-        aspect="auto",
-        color_continuous_scale="YlOrBr",
-        title=f"📊 Heatmap for {selected_pulse} ({selected_season} Season)"
+    fig_pulses = go.Figure(data=go.Heatmap(
+        z=heatmap_data.values,
+        x=heatmap_data.columns,
+        y=heatmap_data.index,
+        colorscale="YlGnBu",
+        colorbar=dict(title=pulse_metric)
+    ))
+
+    fig_pulses.update_layout(
+        title=f"{pulse_selected} – {pulse_metric} Over Time (India States)",
+        xaxis_title="Year",
+        yaxis_title="State",
+        height=700
     )
-    fig_heatmap.update_layout(height=400)
-    st.plotly_chart(fig_heatmap, use_container_width=True)
-else:
-    st.warning("📂 Pulses_Data.xlsx not found in directory.")
+
+    st.plotly_chart(fig_pulses, use_container_width=True)
+
+except Exception as e:
+    st.error(f"Failed to load India Pulses Heatmap: {e}")
+
 
 
 
