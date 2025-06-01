@@ -304,7 +304,7 @@ with st.sidebar:
 
 # Load the data
 try:
-    df = pd.read_excel("Pulses_Data.xlsx", sheet_name=season)
+    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=season)
     df = df[df["Pulse"] == pulse_type]
 
     # Ensure correct data types
