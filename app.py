@@ -63,24 +63,23 @@ html, body, [class*="css"] {
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
-# ---------- TOGGLE BUTTONS ----------
-st.markdown('<div class="toggle-container">', unsafe_allow_html=True)
-col1, col2, col3 = st.columns([1, 1, 1])
-with col1:
-    if st.button("Production", key="prod"):
-        st.session_state.selected_type = "Production"
-with col2:
-    if st.button("Yield", key="yield"):
-        st.session_state.selected_type = "Yield"
-with col3:
-    if st.button("Area", key="area"):
-        st.session_state.selected_type = "Area"
-st.markdown('</div>', unsafe_allow_html=True)
+# ---------- SIDEBAR DROPDOWN ----------
+selected_type_sidebar = st.sidebar.selectbox(
+    "Select Type:",
+    ["Production", "Yield", "Area"],
+    index=0 if st.session_state.selected_type is None else ["Production", "Yield", "Area"].index(st.session_state.selected_type)
+)
 
+# Update session state if changed
+if selected_type_sidebar != st.session_state.selected_type:
+    st.session_state.selected_type = selected_type_sidebar
+
+# ---------- INFO / STOP IF NONE SELECTED ----------
 selected_type = st.session_state.selected_type
 if not selected_type:
     st.markdown("<h4 style='text-align:center;'>Please select <b>Production</b>, <b>Yield</b>, or <b>Area</b> to continue.</h4>", unsafe_allow_html=True)
     st.stop()
+
 # ---------- UNIT LOOKUP ----------
 unit_lookup = {
     "Yield": {
