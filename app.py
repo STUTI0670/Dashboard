@@ -7,6 +7,7 @@ from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
 import json
+import numpy as np # <-- Import numpy for np.nan
 
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
@@ -219,26 +220,47 @@ elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
 
 # ---------- FORECAST TIMELINE ----------
-# ---------- FORECAST TIMELINE ----------
 if historical_df is not None and forecast_df is not None:
     # Prepare historical data
     historical_df = historical_df.rename(columns={"Total": "Value"})
     historical_df["Model"] = "Historical"
 
-    # Prepare forecast data by melting it into a long format
+    # Prepare forecast data
     forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
 
-    # Combine historical and all forecast data into a single DataFrame
+    # Combine all data
     combined_df = pd.concat([historical_df, forecast_long_df], ignore_index=True)
     combined_df = combined_df.sort_values(by=["Model", "Year"])
 
-    # Create the animated timeline data
-    all_years = sorted(combined_df["Year"].unique())
-    timeline_frames = []
+    # --- (KEY CHANGE) Define all models and animation years upfront ---
+    all_model_names = ["Historical"] + forecast_df.columns[1:].tolist()
+    all_animation_years = sorted(combined_df["Year"].unique())
 
-    for year in all_years:
+    # --- Build the frames with placeholder data to ensure continuity ---
+    timeline_frames = []
+    for year in all_animation_years:
+        # Get all data up to the current animation year
         frame_data = combined_df[combined_df["Year"] <= year].copy()
         frame_data["FrameYear"] = year
+
+        # --- (KEY CHANGE) The robust fix:
+        # Ensure a row exists for every model in this frame. If a model has no data yet,
+        # add a placeholder with a null value so Plotly knows it exists.
+        present_models = frame_data["Model"].unique()
+        missing_models = set(all_model_names) - set(present_models)
+
+        if missing_models:
+            placeholders = []
+            for model in missing_models:
+                # Use the first historical year as a non-plotting anchor
+                placeholders.append({
+                    "Year": historical_df["Year"].min(),
+                    "Model": model,
+                    "Value": np.nan, # Use np.nan for a gap in the line
+                    "FrameYear": year
+                })
+            frame_data = pd.concat([frame_data, pd.DataFrame(placeholders)], ignore_index=True)
+
         timeline_frames.append(frame_data)
 
     timeline_df = pd.concat(timeline_frames, ignore_index=True)
@@ -253,11 +275,8 @@ if historical_df is not None and forecast_df is not None:
     x_min = historical_df["Year"].min()
     x_max = max(forecast_df["Year"].max(), 2047) if not forecast_df.empty else 2047
 
-    # --- (KEY CHANGE 1) Get all model names to pre-inform Plotly ---
-    # This list will include "Historical" and the names of your forecast models (e.g., 'ARIMA', 'Prophet', 'LSTM')
-    all_model_names = ["Historical"] + forecast_df.columns[1:].tolist()
-
     # --- PLOT THE ANIMATED LINE CHART ---
+    # The category_orders is still good practice to control the legend order.
     fig_timeline = px.line(
         timeline_df,
         x="Year",
@@ -269,8 +288,6 @@ if historical_df is not None and forecast_df is not None:
         markers=True,
         range_y=[y_min, y_max],
         range_x=[x_min, x_max],
-        # --- (KEY CHANGE 2) Explicitly define the order of models ---
-        # This forces Plotly to recognize all models from the start.
         category_orders={"Model": all_model_names}
     )
 
