@@ -375,16 +375,20 @@ try:
         # Add more if needed
     })
 
+    selected_year = st.sidebar.selectbox("Select Year", sorted(df["Year"].unique()))
+
+    df_selected_year = df[df["Year"] == selected_year]
+    
     # Choropleth map
     fig = px.choropleth(
-        df,
+        df_selected_year,
         geojson=india_states,
         featureidkey="properties.NAME_1",
         locations="State",
         color=metric,
         #animation_frame="Year",
         color_continuous_scale="YlOrRd",
-        range_color=(df[metric].min(), df[metric].max()),
+        range_color=(df_selected_year[metric].min(), df_selected_year[metric].max()),
         labels={metric: metric},
         title=f"{pulse_type} - {season} - {metric} Over Time"
     )
