@@ -390,9 +390,10 @@ try:
         color_continuous_scale="YlOrRd",
         range_color=(df_selected_year[metric].min(), df_selected_year[metric].max()),
         labels={metric: metric},
-        title=f"{pulse_type} - {season} - {metric} Over Time"
+        title=f"{pulse_type} - {season} - {metric} in {selected_year}"
     )
 
+    fig.update_traces(marker_line_color="black", marker_line_width=0.8)
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 
