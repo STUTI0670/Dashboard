@@ -303,35 +303,37 @@ st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
 
 with st.sidebar:
     st.markdown("### 🌱 Pulses Map Settings")
-    season = st.selectbox("Select Season", ["Total pulses", "Kharif pulses", "Rabi pulses"])
-    
-    # Sheet names are pulse types:
+    season = st.selectbox("Select Season", ["Kharif", "Rabi", "Total"])
+
     pulse_sheets = ["Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Arhar"]
     pulse_type = st.selectbox("Select Pulse Type", pulse_sheets)
-    
+
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
-# Load the data
 try:
-    # Read from the correct sheet → pulse_type is the sheet name
-    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_type, header=1)
-    
-    # Filter on Season (Crop column actually stores this)
-    df = df[df["Crop"].str.lower().str.contains(season.lower())]
+    # Read correct sheet, skip first row, load full columns
+    df = pd.read_excel(
+        "Data/Pulses_Data.xlsx",
+        sheet_name=pulse_type,
+        header=1  # Header is in second row (row 2 in Excel)
+    )
 
-    # Ensure correct columns match the GeoJSON naming
+    # Rename "States/UTs" → "State" only
     df = df.rename(columns={"States/UTs": "State"})
 
-    # Ensure correct data types
+    # Filter season-wise
+    df = df[df["Season"].str.lower() == season.lower()]
+
+    # Coerce numeric
     df["Year"] = df["Year"].astype(str)
     df[metric] = pd.to_numeric(df[metric], errors="coerce")
     df = df.dropna(subset=[metric])
 
-    # Load GeoJSON
-    with open("india_states.geojson") as f:
+    # Load India states JSON
+    with open("india_states.json") as f:
         india_states = json.load(f)
 
-    # Create the choropleth map
+    # Choropleth map
     fig = px.choropleth(
         df,
         geojson=india_states,
@@ -345,13 +347,8 @@ try:
         title=f"{pulse_type} - {season} - {metric} Over Time"
     )
 
-    fig.update_geos(fitbounds="locations", visible=False)
-    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
+    fig.update_geos(fitbounds="locations", visible_
 
-    st.plotly_chart(fig, use_container_width=True)
-
-except Exception as e:
-    st.error(f"An error occurred: {e}")
 
 
 
