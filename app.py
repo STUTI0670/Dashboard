@@ -350,6 +350,8 @@ try:
     with open("india_state.geojson") as f:
         india_states = json.load(f)
 
+    st.write("GeoJSON properties keys:", india_states["features"][0]["properties"].keys())
+
     # Choropleth map
     fig = px.choropleth(
         df,
