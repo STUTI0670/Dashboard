@@ -339,6 +339,8 @@ try:
     with open("india_states.json") as f:
         india_states = json.load(f)
 
+    st.write("States in data after filtering:", df["State"].unique())
+
     # Choropleth map
     fig = px.choropleth(
         df,
