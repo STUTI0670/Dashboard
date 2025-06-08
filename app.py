@@ -336,9 +336,6 @@ try:
     # Remove any extra spaces in column names (important!!)
     df.columns = df.columns.str.strip()
 
-    # Print columns for debug
-    st.write("Columns loaded:", df.columns.tolist())
-
     # Rename "States/UTs" → "State"
     df = df.rename(columns={"States/UTs": "State"})
 
