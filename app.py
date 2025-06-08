@@ -347,10 +347,10 @@ try:
         title=f"{pulse_type} - {season} - {metric} Over Time"
     )
 
-    fig.update_geos(fitbounds="locations", visible_
+    fig.update_geos(fitbounds="locations", visible=False)
+    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 
+    st.plotly_chart(fig, use_container_width=True)
 
-
-
-
-
+except Exception as e:
+    st.error(f"An error occurred: {e}")
