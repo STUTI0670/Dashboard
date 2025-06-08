@@ -219,6 +219,7 @@ elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
 
 # ---------- FORECAST TIMELINE ----------
+# ---------- FORECAST TIMELINE ----------
 if historical_df is not None and forecast_df is not None:
     # Prepare historical data
     historical_df = historical_df.rename(columns={"Total": "Value"})
@@ -231,47 +232,49 @@ if historical_df is not None and forecast_df is not None:
     combined_df = pd.concat([historical_df, forecast_long_df], ignore_index=True)
     combined_df = combined_df.sort_values(by=["Model", "Year"])
 
-    # --- Create the animated timeline data ---
+    # Create the animated timeline data
     all_years = sorted(combined_df["Year"].unique())
     timeline_frames = []
 
     for year in all_years:
-        # For each frame (year), filter the data up to that year
         frame_data = combined_df[combined_df["Year"] <= year].copy()
         frame_data["FrameYear"] = year
         timeline_frames.append(frame_data)
 
     timeline_df = pd.concat(timeline_frames, ignore_index=True)
 
-    # --- Axis bounds ---
-    # Ensure the y-axis range accommodates all data (historical, forecast, and WG report)
+    # --- AXIS BOUNDS ---
     full_data_range = pd.concat([
         combined_df["Value"],
         wg_df["Value"] if wg_df is not None and not wg_df.empty else pd.Series(dtype='float64')
     ])
     y_min = full_data_range.min() * 0.95
     y_max = full_data_range.max() * 1.05
-
-    # Set a fixed x-axis range for continuity
     x_min = historical_df["Year"].min()
-    x_max = max(forecast_df["Year"].max(), 2047) # Ensure the axis extends to at least 2047
+    x_max = max(forecast_df["Year"].max(), 2047) if not forecast_df.empty else 2047
 
-    # --- Plot the animated line chart ---
+    # --- (KEY CHANGE 1) Get all model names to pre-inform Plotly ---
+    # This list will include "Historical" and the names of your forecast models (e.g., 'ARIMA', 'Prophet', 'LSTM')
+    all_model_names = ["Historical"] + forecast_df.columns[1:].tolist()
+
+    # --- PLOT THE ANIMATED LINE CHART ---
     fig_timeline = px.line(
         timeline_df,
         x="Year",
         y="Value",
         color="Model",
         animation_frame="FrameYear",
-        animation_group="Model", # Ensures lines connect correctly across frames
+        animation_group="Model",
         title=f"📊 Historical Data and Future Projections ({unit})",
         markers=True,
         range_y=[y_min, y_max],
-        range_x=[x_min, x_max]
+        range_x=[x_min, x_max],
+        # --- (KEY CHANGE 2) Explicitly define the order of models ---
+        # This forces Plotly to recognize all models from the start.
+        category_orders={"Model": all_model_names}
     )
 
-    # --- Add the static WG Report points ---
-    # This trace is added outside the animation, so it will be static
+    # --- ADD THE STATIC WG REPORT POINTS ---
     if wg_df is not None and not wg_df.empty:
         fig_timeline.add_trace(go.Scatter(
             x=wg_df["Year"],
@@ -284,7 +287,7 @@ if historical_df is not None and forecast_df is not None:
             showlegend=True
         ))
 
-    # --- Customize layout and aesthetics ---
+    # --- CUSTOMIZE LAYOUT AND AESTHETICS ---
     fig_timeline.update_layout(
         yaxis_title=f"Value ({unit})",
         xaxis_title="Year",
@@ -294,12 +297,8 @@ if historical_df is not None and forecast_df is not None:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
-    # Improve slider appearance
     fig_timeline.update_layout({
-        'sliders': [{
-            'currentvalue': {'prefix': 'Year: '},
-            'pad': {'t': 20}
-        }]
+        'sliders': [{'currentvalue': {'prefix': 'Year: '},'pad': {'t': 20}}]
     })
 
     st.plotly_chart(fig_timeline, use_container_width=True)
