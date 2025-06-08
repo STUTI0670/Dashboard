@@ -220,43 +220,88 @@ elif selected_type:  # Only warn if type was selected but no files
 
 # ---------- FORECAST TIMELINE ----------
 if historical_df is not None and forecast_df is not None:
+    # Prepare historical data
     historical_df = historical_df.rename(columns={"Total": "Value"})
     historical_df["Model"] = "Historical"
 
-    model_columns = [col for col in forecast_df.columns if col != "Year"]
-    forecast_years = sorted(forecast_df["Year"].unique())
+    # Prepare forecast data by melting it into a long format
+    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
 
+    # Combine historical and all forecast data into a single DataFrame
+    combined_df = pd.concat([historical_df, forecast_long_df], ignore_index=True)
+    combined_df = combined_df.sort_values(by=["Model", "Year"])
+
+    # --- Create the animated timeline data ---
+    all_years = sorted(combined_df["Year"].unique())
     timeline_frames = []
-    for year in forecast_years:
-        hist_temp = historical_df[historical_df["Year"] <= year].copy()
-        hist_temp["Model"] = "Historical"
-        hist_temp["FrameYear"] = year
 
-        forecast_temp = forecast_df[forecast_df["Year"] <= year].copy()
-        forecast_temp = forecast_temp.melt(id_vars="Year", var_name="Model", value_name="Value")
-        forecast_temp["FrameYear"] = year
+    for year in all_years:
+        # For each frame (year), filter the data up to that year
+        frame_data = combined_df[combined_df["Year"] <= year].copy()
+        frame_data["FrameYear"] = year
+        timeline_frames.append(frame_data)
 
-        combined = pd.concat([hist_temp, forecast_temp])
-        timeline_frames.append(combined)
+    timeline_df = pd.concat(timeline_frames, ignore_index=True)
 
-    timeline_df = pd.concat(timeline_frames)
+    # --- Axis bounds ---
+    # Ensure the y-axis range accommodates all data (historical, forecast, and WG report)
+    full_data_range = pd.concat([
+        combined_df["Value"],
+        wg_df["Value"] if wg_df is not None and not wg_df.empty else pd.Series(dtype='float64')
+    ])
+    y_min = full_data_range.min() * 0.95
+    y_max = full_data_range.max() * 1.05
 
+    # Set a fixed x-axis range for continuity
+    x_min = historical_df["Year"].min()
+    x_max = max(forecast_df["Year"].max(), 2047) # Ensure the axis extends to at least 2047
+
+    # --- Plot the animated line chart ---
     fig_timeline = px.line(
         timeline_df,
-        x="Year", y="Value", color="Model", animation_frame="FrameYear",
-        title=f"📊 Forecast Timeline ({unit})", markers=True,
-        range_y=[timeline_df["Value"].min() * 0.95, timeline_df["Value"].max() * 1.05],
-        range_x=[timeline_df["Year"].min() - 5, 2050]
+        x="Year",
+        y="Value",
+        color="Model",
+        animation_frame="FrameYear",
+        animation_group="Model", # Ensures lines connect correctly across frames
+        title=f"📊 Historical Data and Future Projections ({unit})",
+        markers=True,
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max]
     )
 
+    # --- Add the static WG Report points ---
+    # This trace is added outside the animation, so it will be static
     if wg_df is not None and not wg_df.empty:
         fig_timeline.add_trace(go.Scatter(
-            x=wg_df["Year"], y=wg_df["Value"], mode="markers+text",
-            name="WG Report", marker=dict(color="red", size=10, symbol="circle"),
-            text=wg_df["Scenario"], textposition="top center", showlegend=True
+            x=wg_df["Year"],
+            y=wg_df["Value"],
+            mode="markers+text",
+            name="WG Report",
+            marker=dict(color="red", size=12, symbol="diamond"),
+            text=wg_df["Scenario"],
+            textposition="top right",
+            showlegend=True
         ))
 
-    fig_timeline.update_layout(yaxis_title=f"Forecast Value ({unit})", xaxis_title="Year", legend_title="Model")
+    # --- Customize layout and aesthetics ---
+    fig_timeline.update_layout(
+        yaxis_title=f"Value ({unit})",
+        xaxis_title="Year",
+        legend_title="Model/Scenario",
+        font=dict(family="Poppins, sans-serif", size=12),
+        title_font_size=22,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+
+    # Improve slider appearance
+    fig_timeline.update_layout({
+        'sliders': [{
+            'currentvalue': {'prefix': 'Year: '},
+            'pad': {'t': 20}
+        }]
+    })
+
     st.plotly_chart(fig_timeline, use_container_width=True)
 
 # ---------- LOGEST GROWTH ----------
