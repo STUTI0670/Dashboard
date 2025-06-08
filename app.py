@@ -318,7 +318,13 @@ try:
         header=1  # Header is in second row (row 2 in Excel)
     )
 
-    # Rename "States/UTs" → "State" only
+    # Remove any extra spaces in column names (important!!)
+    df.columns = df.columns.str.strip()
+
+    # Print columns for debug
+    st.write("Columns loaded:", df.columns.tolist())
+
+    # Rename "States/UTs" → "State"
     df = df.rename(columns={"States/UTs": "State"})
 
     # Filter season-wise
@@ -354,3 +360,4 @@ try:
 
 except Exception as e:
     st.error(f"An error occurred: {e}")
+
