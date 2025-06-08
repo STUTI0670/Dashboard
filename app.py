@@ -367,13 +367,19 @@ try:
     with open("india_state.geojson") as f:
         india_states = json.load(f)
 
-    st.write("GeoJSON properties keys:", india_states["features"][0]["properties"].keys())
+    df["State"] = df["State"].str.strip()
+    df["State"] = df["State"].replace({
+        "Orissa": "Odisha",
+        "Jammu & Kashmir": "Jammu and Kashmir",
+        "Delhi": "NCT of Delhi",
+        # Add more if needed
+    })
 
     # Choropleth map
     fig = px.choropleth(
         df,
         geojson=india_states,
-        featureidkey="properties.ST_NM",
+        featureidkey="properties.NAME_1",
         locations="State",
         color=metric,
         animation_frame="Year",
