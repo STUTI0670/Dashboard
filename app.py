@@ -187,12 +187,36 @@ if forecast_df is not None:
 if wg_df is not None and not wg_df.empty:
     wg_df["Value"] *= conversion_multiplier
 
-# ---------- LOGEST GROWTH ----------
-st.subheader("📈 Decade-wise Trend Growth Rate")
-csv_path = os.path.join(folder_path, "historical_data.csv")
-if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, category, conversion_multiplier)
-    st.pyplot(fig)
+# ---------- WORLD MAP ----------
+with st.sidebar:
+    st.markdown("### 🌍 World View Map")
+    base_world_path = os.path.join("world data", selected_type)
+    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
+
+    available_categories = {
+        os.path.basename(f)
+        .replace("prod_", "")
+        .replace("yield_", "")
+        .replace("area_", "")
+        .replace("_country.csv", "")
+        .replace("_", " ")
+        .title(): f
+        for f in file_list
+    }
+
+    selected_file = None
+    selected_world_category = None
+    if available_categories:
+        selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
+        selected_file = available_categories[selected_world_category]
+
+# ---------- MAIN WORLD RENDER ----------
+if selected_file:
+    df_world = pd.read_csv(selected_file)
+    st.subheader(f"🌐 {selected_world_category} {selected_type} Over Time")
+    show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
+elif selected_type:  # Only warn if type was selected but no files
+    st.warning("No data files found for selected type.")
 
 # ---------- FORECAST TIMELINE ----------
 if historical_df is not None and forecast_df is not None:
@@ -259,36 +283,14 @@ if historical_df is not None and forecast_df is not None:
     )
 
     st.plotly_chart(fig_timeline, use_container_width=True)
-# ---------- WORLD MAP ----------
-with st.sidebar:
-    st.markdown("### 🌍 World View Map")
-    base_world_path = os.path.join("world data", selected_type)
-    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
+    
 
-    available_categories = {
-        os.path.basename(f)
-        .replace("prod_", "")
-        .replace("yield_", "")
-        .replace("area_", "")
-        .replace("_country.csv", "")
-        .replace("_", " ")
-        .title(): f
-        for f in file_list
-    }
-
-    selected_file = None
-    selected_world_category = None
-    if available_categories:
-        selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
-        selected_file = available_categories[selected_world_category]
-
-# ---------- MAIN WORLD RENDER ----------
-if selected_file:
-    df_world = pd.read_csv(selected_file)
-    st.subheader(f"🌐 {selected_world_category} {selected_type} Over Time")
-    show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
-elif selected_type:  # Only warn if type was selected but no files
-    st.warning("No data files found for selected type.")
+# ---------- LOGEST GROWTH ----------
+st.subheader("📈 Decade-wise Trend Growth Rate")
+csv_path = os.path.join(folder_path, "historical_data.csv")
+if os.path.exists(csv_path):
+    fig = plot_logest_growth_from_csv(csv_path, category, conversion_multiplier)
+    st.pyplot(fig)
 
 
 # ---------- INDIA PULSES CHOROPLETH MAP ----------
