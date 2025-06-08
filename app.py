@@ -221,49 +221,50 @@ elif selected_type:  # Only warn if type was selected but no files
 # ---------- FORECAST TIMELINE ----------
 if historical_df is not None and forecast_df is not None:
     historical_df = historical_df.rename(columns={"Total": "Value"})
+
+    # Step 1: Add "Model" column to historical_df
     historical_df["Model"] = "Historical"
 
+    # Step 2: Melt forecast_df into long format: (Year, Model, Value)
     forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
-    forecast_years = sorted(forecast_df["Year"].unique())
-    start_year = historical_df["Year"].min()
-    end_year = max(forecast_years + [2047])
 
+    # Step 3: Combine historical and forecast into one master dataframe
+    full_data = pd.concat([
+        historical_df[["Year", "Model", "Value"]],
+        forecast_long_df[["Year", "Model", "Value"]]
+    ])
+
+    # Step 4: Create animated frames by progressive reveal up to each year
+    all_years = sorted(full_data["Year"].unique())
     timeline_frames = []
-    for year in forecast_years:
-        hist_temp = historical_df.copy()
-        hist_temp["FrameYear"] = year
 
-        forecast_temp = forecast_df[forecast_df["Year"] <= year].copy()
-        forecast_temp = forecast_temp.melt(id_vars="Year", var_name="Model", value_name="Value")
-        forecast_temp["FrameYear"] = year
-
-        combined = pd.concat([hist_temp[["Year", "Model", "Value", "FrameYear"]],
-                              forecast_temp[["Year", "Model", "Value", "FrameYear"]]])
-
-        timeline_frames.append(combined)
+    for year in all_years:
+        frame_data = full_data[full_data["Year"] <= year].copy()
+        frame_data["FrameYear"] = year
+        timeline_frames.append(frame_data)
 
     timeline_df = pd.concat(timeline_frames)
 
     # Axis bounds
     y_min = timeline_df["Value"].min() * 0.95
     y_max = timeline_df["Value"].max() * 1.05
-    x_min = timeline_df["Year"].min() - 5
-    x_max = 2050
+    x_min = timeline_df["Year"].min() - 2
+    x_max = timeline_df["Year"].max() + 2
 
-    # Plot
+    # Step 5: Create animated line plot
     fig_timeline = px.line(
         timeline_df,
         x="Year",
         y="Value",
         color="Model",
         animation_frame="FrameYear",
-        title=f"📊 Forecast Timeline ({unit})",
+        title=f"📈 Forecast Animation with Historical ({unit})",
         markers=True,
         range_y=[y_min, y_max],
         range_x=[x_min, x_max]
     )
 
-    # WG Scatter points
+    # Step 6: Add WG Scatter points if available
     if wg_df is not None and not wg_df.empty:
         fig_timeline.add_trace(go.Scatter(
             x=wg_df["Year"],
@@ -276,14 +277,17 @@ if historical_df is not None and forecast_df is not None:
             showlegend=True
         ))
 
+    # Step 7: Final styling
     fig_timeline.update_layout(
-        yaxis_title=f"Forecast Value ({unit})",
+        yaxis_title=f"Value ({unit})",
         xaxis_title="Year",
-        legend_title="Model"
+        legend_title="Data Source",
+        transition={"duration": 300},
+        margin=dict(l=40, r=40, t=60, b=40)
     )
 
     st.plotly_chart(fig_timeline, use_container_width=True)
-    
+
 
 # ---------- LOGEST GROWTH ----------
 st.subheader("📈 Decade-wise Trend Growth Rate")
