@@ -300,13 +300,23 @@ st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
 with st.sidebar:
     st.markdown("### 🌱 Pulses Map Settings")
     season = st.selectbox("Select Season", ["Total pulses", "Kharif pulses", "Rabi pulses"])
-    pulse_type = st.selectbox("Select Pulse Type", ["Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Urad", "Gram", "Arhar"])
+    
+    # Sheet names are pulse types:
+    pulse_sheets = ["Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Arhar"]
+    pulse_type = st.selectbox("Select Pulse Type", pulse_sheets)
+    
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
 # Load the data
 try:
-    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=season)
-    df = df[df["Pulse"] == pulse_type]
+    # Read from the correct sheet → pulse_type is the sheet name
+    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_type)
+    
+    # Filter on Season (Crop column actually stores this)
+    df = df[df["Crop"].str.lower().str.contains(season.lower())]
+
+    # Ensure correct columns match the GeoJSON naming
+    df = df.rename(columns={"States/UTs": "State"})
 
     # Ensure correct data types
     df["Year"] = df["Year"].astype(str)
@@ -328,7 +338,7 @@ try:
         color_continuous_scale="YlOrRd",
         range_color=(df[metric].min(), df[metric].max()),
         labels={metric: metric},
-        title=f"{pulse_type} - {metric} Over Time"
+        title=f"{pulse_type} - {season} - {metric} Over Time"
     )
 
     fig.update_geos(fitbounds="locations", visible=False)
@@ -338,6 +348,7 @@ try:
 
 except Exception as e:
     st.error(f"An error occurred: {e}")
+
 
 
 
