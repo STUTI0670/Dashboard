@@ -310,7 +310,7 @@ with st.sidebar:
 # Load the data
 try:
     # Read from the correct sheet → pulse_type is the sheet name
-    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_type)
+    df = pd.read_excel("Data/Pulses_Data.xlsx", sheet_name=pulse_type, header=1)
     
     # Filter on Season (Crop column actually stores this)
     df = df[df["Crop"].str.lower().str.contains(season.lower())]
