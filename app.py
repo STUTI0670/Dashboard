@@ -382,7 +382,7 @@ try:
         featureidkey="properties.NAME_1",
         locations="State",
         color=metric,
-        animation_frame="Year",
+        #animation_frame="Year",
         color_continuous_scale="YlOrRd",
         range_color=(df[metric].min(), df[metric].max()),
         labels={metric: metric},
