@@ -348,7 +348,7 @@ try:
     df = df.dropna(subset=[metric])
 
     # Load India states JSON
-    with open("india_states.geojson") as f:
+    with open("india_state.geojson") as f:
         india_states = json.load(f)
 
     # Choropleth map
