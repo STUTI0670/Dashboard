@@ -383,19 +383,19 @@ try:
     geojson_states = [feature["properties"]["NAME_1"] for feature in india_states["features"]]
 
     # Build full DataFrame
-    full_df = pd.DataFrame({"State": geojson_states})
-    full_df = full_df.merge(df_selected_year[["State", metric]], on="State", how="left")
-    full_df["Year"] = selected_year
+    #full_df = pd.DataFrame({"State": geojson_states})
+    #full_df = full_df.merge(df_selected_year[["State", metric]], on="State", how="left")
+    #full_df["Year"] = selected_year
 
     # Choropleth map with full_df
     fig = px.choropleth(
-        full_df,
+        df_selected_year,
         geojson=india_states,
         featureidkey="properties.NAME_1",
         locations="State",
         color=metric,
         color_continuous_scale="YlOrRd",
-        range_color=(full_df[metric].min(), full_df[metric].max()),
+        range_color=(df_selected_year[metric].min(), df_selected_year[metric].max()),
         labels={metric: metric},
         title=f"{pulse_type} - {season} - {metric} in {selected_year}"
     )
