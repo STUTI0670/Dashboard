@@ -344,16 +344,20 @@ with st.sidebar:
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
 try:
-    # Load pulses data
+    
     df = pd.read_excel(
         "Data/Pulses_Data.xlsx",
         sheet_name=pulse_type,
         header=1  # Header is in second row (row 2 in Excel)
     )
 
-    # Clean columns
+    # Remove any extra spaces in column names (important!!)
     df.columns = df.columns.str.strip()
+
+    # Rename "States/UTs" → "State"
     df = df.rename(columns={"States/UTs": "State"})
+
+    # Filter season-wise
     df = df[df["Season"].str.lower() == season.lower()]
 
     # Coerce numeric
@@ -369,50 +373,42 @@ try:
         # Add more if needed
     })
 
+    selected_year = st.sidebar.selectbox("Select Year", sorted(df["Year"].unique()))
+
+    df_selected_year = df[df["Year"] == selected_year]
+
     # Load shapefile
     gdf = gpd.read_file("India_Shapefile/india_st.shp")
-    gdf = gdf.set_crs(epsg=4326, inplace=False)  # Set CRS manually
-    gdf = gdf.explode(index_parts=False)
 
-    # Clean columns
-    df["State"] = df["State"].str.strip().str.upper()
+    # Clean columns → very important!
+    df_selected_year["State"] = df_selected_year["State"].str.strip().str.upper()
     gdf["State_Name"] = gdf["State_Name"].str.strip().str.upper()
 
-    # Map common mismatches
-    df["State"] = df["State"].replace({
+    # Optional → map common name mismatches
+    df_selected_year["State"] = df_selected_year["State"].replace({
         "ORISSA": "ODISHA",
         "JAMMU & KASHMIR": "JAMMU AND KASHMIR",
         "DELHI": "NCT OF DELHI",
         # Add more if needed
     })
 
-    # Merge pulses data with shapefile → for ALL years
-    merged = gdf.merge(df, left_on="State_Name", right_on="State", how="left")
+    # Merge Shapefile with selected year df
+    merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
-    # Convert merged GeoDataFrame to GeoJSON for Plotly
-    merged_json = merged.__geo_interface__
-
-    # Plotly animated choropleth
-    fig = px.choropleth(
-        merged,
-        geojson=merged_json,
-        locations="State_Name",
-        featureidkey="properties.State_Name",
-        color=metric,
-        animation_frame="Year",  # 🎯 Adds the time slider exactly like your screenshot
-        color_continuous_scale="YlOrRd",
-        projection="mercator",
-        hover_name="State_Name",
-        hover_data={metric: True},
-        title=f"{pulse_type} - {season} - {metric} Over Time"
+    # Plot India map
+    fig, ax = plt.subplots(1, 1, figsize=(10, 12))
+    merged.plot(
+        column=metric,
+        ax=ax,
+        legend=True,
+        cmap='YlOrRd',
+        edgecolor='black',
+        missing_kwds={"color": "white", "edgecolor": "black"}
     )
 
-    fig.update_geos(fitbounds="locations", visible=False)
-    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
-
-    st.plotly_chart(fig, use_container_width=True)
+    plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}")
+    st.pyplot(fig)
 
 except Exception as e:
     st.error(f"An error occurred: {e}")
-
 
