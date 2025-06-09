@@ -380,7 +380,7 @@ try:
     df_selected_year = df[df["Year"] == selected_year]
 
     # Extract all states from GeoJSON
-    geojson_states = [feature["properties"]["NAME_1"] for feature in india_states["features"]]
+    #geojson_states = [feature["properties"]["NAME_1"] for feature in india_states["features"]]
 
     # Build full DataFrame
     #full_df = pd.DataFrame({"State": geojson_states})
