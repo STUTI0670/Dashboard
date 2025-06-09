@@ -364,7 +364,7 @@ try:
     df = df.dropna(subset=[metric])
 
     # Load India states JSON
-    with open("india_state.geojson") as f:
+    with open("states_india.geojson") as f:
         india_states = json.load(f)
 
     df["State"] = df["State"].str.strip()
