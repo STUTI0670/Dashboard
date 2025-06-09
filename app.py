@@ -371,8 +371,8 @@ try:
 
     # Load shapefile
     gdf = gpd.read_file("India_Shapefile/india_st.shp")
-    gdf = gdf.explode(index_parts=False)  # Ensure multi-polygons handled
-    gdf = gdf.to_crs(epsg=4326)
+    gdf = gdf.set_crs(epsg=4326, inplace=False)  # Set CRS manually
+    gdf = gdf.explode(index_parts=False)
 
     # Clean columns
     df["State"] = df["State"].str.strip().str.upper()
