@@ -384,7 +384,7 @@ try:
 
     # Clean 'State' column for merge safety
     df_selected_year["Area"] = df_selected_year["Area"].str.strip()
-    gdf["Area"] = gdf["Area"].str.strip()
+    #gdf["Area"] = gdf["Area"].str.strip()
 
     # Optional → Map any mismatches if needed
     df_selected_year["State"] = df_selected_year["State"].replace({
