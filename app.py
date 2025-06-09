@@ -380,26 +380,20 @@ try:
     # Load shapefile
     gdf = gpd.read_file("India_Shapefile/india_st.shp")
 
-    st.write("Shapefile columns:", gdf.columns.tolist())
+    # Clean columns → very important!
+    df_selected_year["State"] = df_selected_year["State"].str.strip().str.upper()
+    gdf["State_Name"] = gdf["State_Name"].str.strip().str.upper()
 
-    # Clean 'State' column for merge safety
-    #df_selected_year["Area"] = df_selected_year["Area"].str.strip()
-    #gdf["Area"] = gdf["Area"].str.strip()
-
-    # Optional → Map any mismatches if needed
+    # Optional → map common name mismatches
     df_selected_year["State"] = df_selected_year["State"].replace({
-        "Orissa": "Odisha",
-        "Jammu & Kashmir": "Jammu and Kashmir",
-        "Delhi": "NCT of Delhi",
+        "ORISSA": "ODISHA",
+        "JAMMU & KASHMIR": "JAMMU AND KASHMIR",
+        "DELHI": "NCT OF DELHI",
         # Add more if needed
     })
 
-    # Merge Shapefile with your selected year df
-    merged = gdf.merge(df_selected_year, left_on="Area", right_on="State", how="left")
-
-    st.write("States in Shapefile:", gdf["Area"].unique())
-    st.write("States in Pulses Data:", df_selected_year["State"].unique())
-
+    # Merge Shapefile with selected year df
+    merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
     # Plot India map
     fig, ax = plt.subplots(1, 1, figsize=(10, 12))
