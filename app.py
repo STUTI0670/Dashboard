@@ -380,6 +380,8 @@ try:
     # Load shapefile
     gdf = gpd.read_file("India_Shapefile/india_st.shp")
 
+    st.write("Shapefile columns:", gdf.columns.tolist())
+
     # Clean 'State' column for merge safety
     df_selected_year["State"] = df_selected_year["State"].str.strip()
     gdf["STATE"] = gdf["STATE"].str.strip()
