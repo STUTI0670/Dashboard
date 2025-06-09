@@ -7,7 +7,9 @@ from growth_analysis import plot_logest_growth_from_csv
 from world_map import show_world_timelapse_map
 import glob
 import json
-import numpy as np # <-- Import numpy for np.nan
+import numpy as np 
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
@@ -364,8 +366,8 @@ try:
     df = df.dropna(subset=[metric])
 
     # Load India states JSON
-    with open("states_india.geojson") as f:
-        india_states = json.load(f)
+    '''with open("states_india.geojson") as f:
+        india_states = json.load(f)'''
 
     df["State"] = df["State"].str.strip()
     df["State"] = df["State"].replace({
@@ -388,7 +390,7 @@ try:
     #full_df["Year"] = selected_year
 
     # Choropleth map with full_df
-    fig = px.choropleth(
+    '''fig = px.choropleth(
         df_selected_year,
         geojson=india_states,
         featureidkey="properties.NAME_1",
@@ -398,13 +400,19 @@ try:
         range_color=(df_selected_year[metric].min(), df_selected_year[metric].max()),
         labels={metric: metric},
         title=f"{pulse_type} - {season} - {metric} in {selected_year}"
-    )
+    )'''
 
-    #fig.update_traces(marker_line_color="black", marker_line_width=0.8)
+    # Load shapefile
+    gdf = gpd.read_file("Data/India_Shapefile/india_st.shp")
+
+    # Show columns to find state name column
+    st.write("Shapefile columns:", gdf.columns.tolist())
+
+    '''fig.update_traces(marker_line_color="black", marker_line_width=0.8)
     fig.update_geos(fitbounds="locations", visible=False)
-    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
+    fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})'''
 
-    st.plotly_chart(fig, use_container_width=True)
+    #st.plotly_chart(fig, use_container_width=True)
 
 except Exception as e:
     st.error(f"An error occurred: {e}")
