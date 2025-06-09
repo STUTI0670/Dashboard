@@ -383,8 +383,8 @@ try:
     st.write("Shapefile columns:", gdf.columns.tolist())
 
     # Clean 'State' column for merge safety
-    df_selected_year["State"] = df_selected_year["State"].str.strip()
-    gdf["STATE"] = gdf["STATE"].str.strip()
+    df_selected_year["STATE"] = df_selected_year["STATE"].str.strip()
+    gdf["Area"] = gdf["Area"].str.strip()
 
     # Optional → Map any mismatches if needed
     df_selected_year["State"] = df_selected_year["State"].replace({
@@ -395,9 +395,9 @@ try:
     })
 
     # Merge Shapefile with your selected year df
-    merged = gdf.merge(df_selected_year, left_on="STATE", right_on="State", how="left")
+    merged = gdf.merge(df_selected_year, left_on="Area", right_on="State", how="left")
 
-    st.write("States in Shapefile:", gdf["STATE"].unique())
+    st.write("States in Shapefile:", gdf["Area"].unique())
     st.write("States in Pulses Data:", df_selected_year["State"].unique())
 
 
