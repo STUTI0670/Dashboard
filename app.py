@@ -369,11 +369,10 @@ try:
     df["State"] = df["State"].replace({
         "Orissa": "Odisha",
         "Jammu & Kashmir": "Jammu and Kashmir",
-        "Delhi": "NCT of Delhi",
         "Chhattisgarh": "Chhattishgarh",
         "Telangana": "Telengana",
         "Tamil Nadu": "Tamilnadu",
-        "Kerela": "Kerala",
+        "Kerela": "Kerala"
     
     })
 
