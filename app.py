@@ -395,6 +395,10 @@ try:
     # Merge Shapefile with your selected year df
     merged = gdf.merge(df_selected_year, left_on="STATE", right_on="State", how="left")
 
+    st.write("States in Shapefile:", gdf["STATE"].unique())
+    st.write("States in Pulses Data:", df_selected_year["State"].unique())
+
+
     # Plot India map
     fig, ax = plt.subplots(1, 1, figsize=(10, 12))
     merged.plot(
