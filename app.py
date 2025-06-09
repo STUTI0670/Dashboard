@@ -344,7 +344,7 @@ with st.sidebar:
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
 try:
-    # Read correct sheet, skip first row, load full columns
+    
     df = pd.read_excel(
         "Data/Pulses_Data.xlsx",
         sheet_name=pulse_type,
@@ -377,19 +377,37 @@ try:
 
     df_selected_year = df[df["Year"] == selected_year]
 
-    # Extract all states from GeoJSON
-    #geojson_states = [feature["properties"]["NAME_1"] for feature in india_states["features"]]
-
-    # Build full DataFrame
-    #full_df = pd.DataFrame({"State": geojson_states})
-    #full_df = full_df.merge(df_selected_year[["State", metric]], on="State", how="left")
-    #full_df["Year"] = selected_year
-
     # Load shapefile
     gdf = gpd.read_file("India_Shapefile/india_st.shp")
 
-    # Show columns to find state name column
-    st.write("Shapefile columns:", gdf.columns.tolist())
+    # Clean 'State' column for merge safety
+    df_selected_year["State"] = df_selected_year["State"].str.strip()
+    gdf["STATE"] = gdf["STATE"].str.strip()
+
+    # Optional → Map any mismatches if needed
+    df_selected_year["State"] = df_selected_year["State"].replace({
+        "Orissa": "Odisha",
+        "Jammu & Kashmir": "Jammu and Kashmir",
+        "Delhi": "NCT of Delhi",
+        # Add more if needed
+    })
+
+    # Merge Shapefile with your selected year df
+    merged = gdf.merge(df_selected_year, left_on="STATE", right_on="State", how="left")
+
+    # Plot India map
+    fig, ax = plt.subplots(1, 1, figsize=(10, 12))
+    merged.plot(
+        column=metric,
+        ax=ax,
+        legend=True,
+        cmap='YlOrRd',
+        edgecolor='black',
+        missing_kwds={"color": "white", "edgecolor": "black"}
+    )
+
+    plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}")
+    st.pyplot(fig)
 
 except Exception as e:
     st.error(f"An error occurred: {e}")
