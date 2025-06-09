@@ -365,10 +365,6 @@ try:
     df[metric] = pd.to_numeric(df[metric], errors="coerce")
     df = df.dropna(subset=[metric])
 
-    # Load India states JSON
-    '''with open("states_india.geojson") as f:
-        india_states = json.load(f)'''
-
     df["State"] = df["State"].str.strip()
     df["State"] = df["State"].replace({
         "Orissa": "Odisha",
@@ -389,21 +385,8 @@ try:
     #full_df = full_df.merge(df_selected_year[["State", metric]], on="State", how="left")
     #full_df["Year"] = selected_year
 
-    # Choropleth map with full_df
-    '''fig = px.choropleth(
-        df_selected_year,
-        geojson=india_states,
-        featureidkey="properties.NAME_1",
-        locations="State",
-        color=metric,
-        color_continuous_scale="YlOrRd",
-        range_color=(df_selected_year[metric].min(), df_selected_year[metric].max()),
-        labels={metric: metric},
-        title=f"{pulse_type} - {season} - {metric} in {selected_year}"
-    )'''
-
     # Load shapefile
-    gdf = gpd.read_file("Data/India_Shapefile/india_st.shp")
+    gdf = gpd.read_file("India_Shapefile/india_st.shp")
 
     # Show columns to find state name column
     st.write("Shapefile columns:", gdf.columns.tolist())
