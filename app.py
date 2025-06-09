@@ -370,7 +370,11 @@ try:
         "Orissa": "Odisha",
         "Jammu & Kashmir": "Jammu and Kashmir",
         "Delhi": "NCT of Delhi",
-        # Add more if needed
+        "Chhattisgarh": "Chhattishgarh",
+        "Telangana": "Telengana",
+        "Tamil Nadu": "Tamilnadu",
+        "Kerela": "Kerala",
+    
     })
 
     selected_year = st.sidebar.selectbox("Select Year", sorted(df["Year"].unique()))
