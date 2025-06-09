@@ -401,7 +401,7 @@ try:
     )
 
     #fig.update_traces(marker_line_color="black", marker_line_width=0.8)
-    #fig.update_geos(fitbounds="locations", visible=False)
+    fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 
     st.plotly_chart(fig, use_container_width=True)
