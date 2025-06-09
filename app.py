@@ -372,7 +372,8 @@ try:
         "Chhattisgarh": "Chhattishgarh",
         "Telangana": "Telengana",
         "Tamil Nadu": "Tamilnadu",
-        "Kerela": "Kerala"
+        "Kerela": "Kerala",
+        "Andaman & Nicobar Islands": "Andaman & Nicobar"
     
     })
 
@@ -389,10 +390,14 @@ try:
 
     # Optional → map common name mismatches
     df_selected_year["State"] = df_selected_year["State"].replace({
-        "ORISSA": "ODISHA",
-        "JAMMU & KASHMIR": "JAMMU AND KASHMIR",
-        "DELHI": "NCT OF DELHI",
-        # Add more if needed
+        "Orissa": "Odisha",
+        "Jammu & Kashmir": "Jammu and Kashmir",
+        "Chhattisgarh": "Chhattishgarh",
+        "Telangana": "Telengana",
+        "Tamil Nadu": "Tamilnadu",
+        "Kerela": "Kerala",
+        "Andaman & Nicobar Islands": "Andaman & Nicobar"
+        
     })
 
     # Merge Shapefile with selected year df
