@@ -430,7 +430,19 @@ def load_india_districts_shapefile():
     gdf = gdf.set_crs(epsg=4326, inplace=False)
     return gdf
 
+STATE_NAME_CORRECTIONS = {
+    "Orissa": "Odisha",
+    "Jammu & Kashmir": "Jammu and Kashmir",
+    "Chhattisgarh": "Chhattisgarh",
+    "Telangana": "Telangana",
+    "Tamil Nadu": "Tamilnadu",
+    "Kerela": "Kerala",
+    "Andaman & Nicobar Islands": "Andaman & Nicobar"
+}
+
 gdf_districts = load_india_districts_shapefile()
+gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(STATE_NAME_CORRECTIONS)
+gdf_districts["ST_NM"] = gdf_districts["ST_NM"].str.strip().str.upper()
 
 # Sidebar: State Map View
 st.sidebar.markdown("---")
