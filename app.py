@@ -623,56 +623,43 @@ if selected_state_map != "None":
 
 
 
-# ------------------ DISTRICT-LEVEL TIME SERIES WITH SLIDER ------------------
+# ---------- DISTRICT HISTORICAL TREND ----------
 
-if selected_state_map != "None":
-    # List available districts
-    unique_districts = state_gdf["District"].dropna().unique().tolist()
-    selected_district = st.sidebar.selectbox("Select District for Historical Trend", sorted(unique_districts))
+# Only show if a state is selected and has district data
+if selected_state_map != "None" and not state_gdf.empty:
 
-    if selected_district:
-        # Simulate historical dummy values for 2000–2023
-        np.random.seed(hash(selected_district) % 999999)  # consistent dummy values per district
-        years = list(range(2000, 2024))
-        n_years = len(years)
-        dummy_values = np.random.rand(n_years)
-        dummy_values = dummy_values / dummy_values.sum() * state_gdf[state_gdf["District"] == selected_district]["Dummy_Value"].iloc[0]
+    # Let user select district
+    district_list = sorted(state_gdf["District"].unique())
+    selected_district = st.sidebar.selectbox("Select District for Line Plot", district_list)
 
-        district_timeseries = pd.DataFrame({
-            "Year": years,
-            "Value": dummy_values,
-            "District": [selected_district] * n_years
-        })
+    # Create dummy timeseries for selected district
+    years = list(range(2000, int(selected_year) + 1))
+    n_years = len(years)
+    np.random.seed(42)
 
-        # Time slider
-        selected_year_ts = st.slider("Select Year for Highlight", min_value=min(years), max_value=max(years), value=max(years), step=1)
+    proportions = np.random.dirichlet(np.ones(n_years))
+    district_total = state_gdf[state_gdf["District"] == selected_district]["Dummy_Value"].values[0]
+    dummy_yearly_values = proportions * district_total
 
-        st.markdown(f"### 📈 Historical Trend for {selected_district} - {metric}")
+    df_district_trend = pd.DataFrame({
+        "Year": years,
+        "Value": dummy_yearly_values,
+        "District": selected_district
+    })
 
-        # Plot all data with highlight
-        fig_ts = px.line(
-            district_timeseries,
-            x='Year',
-            y='Value',
-            title=f"{selected_district} - {metric} (Fabricated Historical Trend)",
-            labels={'Value': metric},
-            markers=True
-        )
+    st.markdown(f"### 📊 Historical Trend for {selected_district} ({metric})")
 
-        # Highlight the selected year
-        highlight_point = district_timeseries[district_timeseries["Year"] == selected_year_ts]
-        fig_ts.add_scatter(
-            x=highlight_point["Year"],
-            y=highlight_point["Value"],
-            mode='markers+text',
-            marker=dict(size=12, color='red'),
-            text=[f"{selected_year_ts}"],
-            textposition="top center",
-            showlegend=False
-        )
-
-        fig_ts.update_layout(xaxis=dict(tickmode='linear'), showlegend=False)
-        st.plotly_chart(fig_ts, use_container_width=True)
+    fig3 = px.line(
+        df_district_trend,
+        x="Year",
+        y="Value",
+        animation_frame="Year",
+        line_group="District",
+        title=f"{selected_district} - {metric} Trend ({season}, {pulse_type})",
+        markers=True
+    )
+    fig3.update_layout(xaxis=dict(tickmode='linear'), showlegend=False)
+    st.plotly_chart(fig3, use_container_width=True)
 
 
 
