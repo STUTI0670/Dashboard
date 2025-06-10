@@ -453,6 +453,8 @@ state_options = ["None"] + sorted(available_states)
 
 selected_state_map = st.sidebar.selectbox("Select State for State Map", state_options)
 
+st.write(gdf_districts.columns.tolist())
+
 # Proceed only if valid state selected
 if selected_state_map != "None":
 
