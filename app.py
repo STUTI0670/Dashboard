@@ -752,6 +752,45 @@ else:
 
     st.pyplot(fig_full)
 
+# ---------- DISTRICT-WISE LINE PLOT (Random Historical Data) ----------
+st.markdown("---")
+st.subheader("📈 District-wise Trend (Random Values)")
+
+# Create a sorted unique list of all district names from the shapefile
+all_districts = sorted(gdf_districts_full[district_col].dropna().unique().tolist())
+
+# Sidebar dropdown to select a district
+selected_district = st.sidebar.selectbox("Select a District for Trend View", all_districts)
+
+# Simulate historical data for this district (e.g., from 2000 to 2023)
+years = np.arange(2000, 2024)
+random_values = np.random.uniform(low=50, high=300, size=len(years))  # Adjust range as needed
+
+# Create a DataFrame
+district_trend_df = pd.DataFrame({
+    "Year": years,
+    "Value": random_values,
+    "District": selected_district
+})
+
+# Create the animated line plot (not necessarily animated, but interactive)
+fig_district_trend = px.line(
+    district_trend_df,
+    x="Year",
+    y="Value",
+    title=f"Simulated Trend for {selected_district} (2000-2023)",
+    markers=True,
+    labels={"Year": "Year", "Value": "Simulated Metric"},
+)
+
+fig_district_trend.update_layout(
+    xaxis_title="Year",
+    yaxis_title="Simulated Metric Value",
+    font=dict(family="Poppins, sans-serif", size=12),
+    title_font_size=18
+)
+
+st.plotly_chart(fig_district_trend, use_container_width=True)
 
 
 
