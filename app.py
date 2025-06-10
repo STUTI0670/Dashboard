@@ -433,15 +433,13 @@ def load_india_districts_shapefile():
 STATE_NAME_CORRECTIONS = {
     "Orissa": "Odisha",
     "Jammu & Kashmir": "Jammu and Kashmir",
-    "Chhattisgarh": "Chhattisgarh",
-    "Telangana": "Telangana",
+    "Chhattisgarh": "Chhattishgarh",
+    "Telangana": "Telengana",
     "Tamil Nadu": "Tamilnadu",
     "Kerela": "Kerala",
     "Andaman & Nicobar Islands": "Andaman & Nicobar",
     "Arunachal Pradesh": "Arunanchal Pradesh",
-    "Chhattishgarh": "Chhattisgarh",
     "Dadra & Nagar Haveli": "Dadara & Nagar Havelli",
-    "Telengana": "Telangana",
     "India": None,  # Special handling → we don't want user to select "India" in district map!
     "Delhi": "NCT of Delhi"
 }
