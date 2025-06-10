@@ -216,12 +216,15 @@ with st.sidebar:
 # ---------- MAIN WORLD RENDER ----------
 if selected_file:
     df_world = pd.read_csv(selected_file)
+    st.markdown("---")
     st.subheader(f"🌐 {selected_world_category} {selected_type} Over Time")
     show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
 elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
 
 # ---------- FORECAST TIMELINE ----------
+st.markdown("---")
+st.subheader("📊 Future Projections for top 3 Models")
 if historical_df is not None and forecast_df is not None:
     # Prepare historical data
     historical_df = historical_df.rename(columns={"Total": "Value"})
@@ -323,6 +326,7 @@ if historical_df is not None and forecast_df is not None:
     st.plotly_chart(fig_timeline, use_container_width=True)
 
 # ---------- LOGEST GROWTH ----------
+st.markdown("---")
 st.subheader("📈 Decade-wise Trend Growth Rate")
 csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
@@ -549,7 +553,7 @@ if selected_state_map != "None":
 
             # ---------- STATE-WISE ANIMATED HISTORICAL PLOT ----------
             if not state_row.empty:
-                st.markdown("---")
+                #st.markdown("---")
                 st.markdown(f"### Animated Historical Trend for {selected_state_map}")
 
                 #
