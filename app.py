@@ -191,7 +191,8 @@ if wg_df is not None and not wg_df.empty:
     wg_df["Value"] *= conversion_multiplier
 
 # ---------- WORLD MAP ----------
-st.markdown("### 🌍 World View Map")
+with st.sidebar:    
+    st.markdown("### 🌍 World View Map")
     base_world_path = os.path.join("world data", selected_type)
     file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
     available_categories = {
