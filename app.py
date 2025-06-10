@@ -633,20 +633,31 @@ if selected_state_map != "None" and not state_gdf.empty:
     selected_district = st.sidebar.selectbox("Select District for Line Plot", district_list)
 
     # Create dummy timeseries for selected district
-    years = list(range(2000, int(selected_year) + 1))
+
+    # selected_year is like "2017-2018" → extract first year as integer
+    start_year = int(selected_year.split("-")[0])
+
+    years = list(range(2000, start_year + 1))
     n_years = len(years)
+
     np.random.seed(42)
 
+    # Generate random proportions summing to 1
     proportions = np.random.dirichlet(np.ones(n_years))
+
+    # Get total district value from state_gdf Dummy_Value column
     district_total = state_gdf[state_gdf["District"] == selected_district]["Dummy_Value"].values[0]
+
     dummy_yearly_values = proportions * district_total
 
+    # Prepare DataFrame for Plotly
     df_district_trend = pd.DataFrame({
         "Year": years,
         "Value": dummy_yearly_values,
         "District": selected_district
     })
 
+    # Plot animated line chart using Plotly
     st.markdown(f"### 📊 Historical Trend for {selected_district} ({metric})")
 
     fig3 = px.line(
@@ -658,8 +669,14 @@ if selected_state_map != "None" and not state_gdf.empty:
         title=f"{selected_district} - {metric} Trend ({season}, {pulse_type})",
         markers=True
     )
-    fig3.update_layout(xaxis=dict(tickmode='linear'), showlegend=False)
+
+    fig3.update_layout(
+        xaxis=dict(tickmode='linear'),
+        showlegend=False
+    )
+
     st.plotly_chart(fig3, use_container_width=True)
+
 
 
 
