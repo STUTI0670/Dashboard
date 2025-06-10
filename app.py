@@ -139,16 +139,6 @@ category_hierarchy = {
 
 # ---------- SIDEBAR CATEGORY PICKER ----------
 with st.sidebar:
-    st.markdown("### 🌍 World View Map")
-    base_world_path = os.path.join("world data", selected_type)
-    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
-    selected_file = None
-    selected_world_category = None
-    if available_categories:
-        selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
-        selected_file = available_categories[selected_world_category]
-    st.markdown("---")
-    
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
     sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
@@ -201,7 +191,9 @@ if wg_df is not None and not wg_df.empty:
     wg_df["Value"] *= conversion_multiplier
 
 # ---------- WORLD MAP ----------
-
+st.markdown("### 🌍 World View Map")
+    base_world_path = os.path.join("world data", selected_type)
+    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
     available_categories = {
         os.path.basename(f)
         .replace("prod_", "")
@@ -220,6 +212,7 @@ if wg_df is not None and not wg_df.empty:
         selected_file = available_categories[selected_world_category]
 
 # ---------- MAIN WORLD RENDER ----------
+
 if selected_file:
     df_world = pd.read_csv(selected_file)
     st.markdown("---")
