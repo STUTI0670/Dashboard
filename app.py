@@ -650,59 +650,80 @@ if selected_state_map != "None":
 
 
 
-# ---------- DISTRICT HISTORICAL TREND ----------
+# ---------- FULL INDIA DISTRICT MAP ----------
 
-# Only show if a state is selected and has district data
-if selected_state_map != "None" and not state_gdf.empty:
+st.markdown("---")
+st.subheader("🇮🇳 Full India District Map View (Fabricated Values)")
 
-    # Let user select district
-    district_list = sorted(state_gdf["District"].unique())
-    selected_district = st.sidebar.selectbox("Select District for Line Plot", district_list)
+# Auto detect STATE and DISTRICT columns
+state_col = None
+district_col = None
+for col in gdf_districts.columns:
+    if "STATE" in col.upper() or "ST_NM" in col.upper():
+        state_col = col
+    if "DISTRICT" in col.upper() or "DIST_NAME" in col.upper() or "DIST_NM" in col.upper():
+        district_col = col
 
-    # Create dummy timeseries for selected district
+# Check
+if state_col is None or district_col is None:
+    st.error("Could not detect STATE or DISTRICT column in shapefile!")
+else:
+    # Prepare a copy of gdf_districts to avoid inplace modification
+    gdf_districts_full = gdf_districts.copy()
 
-    # selected_year is like "2017-2018" → extract first year as integer
-    start_year = int(selected_year.split("-")[0])
+    # Prepare Dummy_Value column
+    gdf_districts_full["Dummy_Value"] = 0.0
 
-    years = list(range(2000, start_year + 1))
-    n_years = len(years)
+    # Process each state in df_selected_year
+    for state_name in df_selected_year["State"].unique():
+        state_name_upper = state_name.strip().upper()
 
-    np.random.seed(42)
+        # Match in shapefile with normalization
+        def normalize_state_name(s):
+            return s.upper().replace(" ", "")
 
-    # Generate random proportions summing to 1
-    proportions = np.random.dirichlet(np.ones(n_years))
+        mask = gdf_districts_full[state_col].apply(normalize_state_name) == normalize_state_name(state_name_upper)
+        state_gdf = gdf_districts_full[mask]
 
-    # Get total district value from state_gdf Dummy_Value column
-    district_total = state_gdf[state_gdf["District"] == selected_district]["Dummy_Value"].values[0]
+        # If no matching districts → skip
+        if state_gdf.empty:
+            continue
 
-    dummy_yearly_values = proportions * district_total
+        # Get state total value from df_selected_year
+        state_row = df_selected_year[df_selected_year["State"].str.upper() == state_name_upper]
+        if state_row.empty:
+            continue
 
-    # Prepare DataFrame for Plotly
-    df_district_trend = pd.DataFrame({
-        "Year": years,
-        "Value": dummy_yearly_values,
-        "District": selected_district
-    })
+        state_total_value = state_row[metric].values[0]
 
-    # Plot animated line chart using Plotly
-    st.markdown(f"### 📊 Historical Trend for {selected_district} ({metric})")
+        # Fabricate values across districts
+        districts = state_gdf[district_col].unique().tolist()
+        n_districts = len(districts)
 
-    fig3 = px.line(
-        df_district_trend,
-        x="Year",
-        y="Value",
-        animation_frame="Year",
-        line_group="District",
-        title=f"{selected_district} - {metric} Trend ({season}, {pulse_type})",
-        markers=True
+        proportions = np.random.dirichlet(np.ones(n_districts))
+        dummy_values = proportions * state_total_value
+
+        # Assign fabricated values to Dummy_Value column
+        for i, district_name in enumerate(districts):
+            gdf_districts_full.loc[
+                (mask) & (gdf_districts_full[district_col] == district_name),
+                "Dummy_Value"
+            ] = dummy_values[i]
+
+    # Plot the full India district map
+    fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
+    gdf_districts_full.plot(
+        column="Dummy_Value",
+        ax=ax_full,
+        legend=True,
+        cmap='YlOrRd',
+        edgecolor='black',
+        missing_kwds={"color": "white", "edgecolor": "black"}
     )
+    ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
 
-    fig3.update_layout(
-        xaxis=dict(tickmode='linear'),
-        showlegend=False
-    )
+    st.pyplot(fig_full)
 
-    st.plotly_chart(fig3, use_container_width=True)
 
 
 
