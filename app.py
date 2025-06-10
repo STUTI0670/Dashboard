@@ -437,8 +437,15 @@ STATE_NAME_CORRECTIONS = {
     "Telangana": "Telangana",
     "Tamil Nadu": "Tamilnadu",
     "Kerela": "Kerala",
-    "Andaman & Nicobar Islands": "Andaman & Nicobar"
+    "Andaman & Nicobar Islands": "Andaman & Nicobar",
+    "Arunachal Pradesh": "Arunanchal Pradesh",
+    "Chhattishgarh": "Chhattisgarh",
+    "Dadra & Nagar Haveli": "Dadara & Nagar Havelli",
+    "Telengana": "Telangana",
+    "India": None,  # Special handling → we don't want user to select "India" in district map!
+    "Delhi": "NCT of Delhi"
 }
+
 
 gdf_districts = load_india_districts_shapefile()
 gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(STATE_NAME_CORRECTIONS)
