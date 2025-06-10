@@ -757,6 +757,8 @@ else:
 st.markdown("---")
 st.subheader("📽️ Animated District-wise Trend (Simulated Data)")
 
+all_districts = sorted(gdf_districts_full[district_col].dropna().unique().tolist())
+
 # Sidebar dropdown to select a district
 selected_district = st.sidebar.selectbox("🎯 Select a District for Trend Animation", all_districts)
 
