@@ -317,9 +317,9 @@ if historical_df is not None and forecast_df is not None:
                 "label": "Play",
                 "method": "animate",
                 "args": [None, {
-                    "frame": {"duration": 300, "redraw": True},  # Lower = faster (ms)
+                    "frame": {"duration": 100, "redraw": True},  # Lower = faster (ms)
                     "fromcurrent": True,
-                    "transition": {"duration": 100, "easing": "linear"}
+                    "transition": {"duration": 10, "easing": "linear"}
                 }]
             }, {
                 "label": "Pause",
