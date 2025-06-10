@@ -623,7 +623,7 @@ if selected_state_map != "None":
 
 
 
-# ------------------ DISTRICT-LEVEL TIME SERIES ANIMATION ------------------
+# ------------------ DISTRICT-LEVEL TIME SERIES WITH SLIDER ------------------
 
 if selected_state_map != "None":
     # List available districts
@@ -644,23 +644,34 @@ if selected_state_map != "None":
             "District": [selected_district] * n_years
         })
 
+        # Time slider
+        selected_year_ts = st.slider("Select Year for Highlight", min_value=min(years), max_value=max(years), value=max(years), step=1)
+
         st.markdown(f"### 📈 Historical Trend for {selected_district} - {metric}")
 
+        # Plot all data with highlight
         fig_ts = px.line(
             district_timeseries,
             x='Year',
             y='Value',
-            animation_frame='Year',
             title=f"{selected_district} - {metric} (Fabricated Historical Trend)",
             labels={'Value': metric},
             markers=True
         )
-        fig_ts.update_layout(
-            xaxis=dict(tickmode='linear'),
-            transition={'duration': 300},
+
+        # Highlight the selected year
+        highlight_point = district_timeseries[district_timeseries["Year"] == selected_year_ts]
+        fig_ts.add_scatter(
+            x=highlight_point["Year"],
+            y=highlight_point["Value"],
+            mode='markers+text',
+            marker=dict(size=12, color='red'),
+            text=[f"{selected_year_ts}"],
+            textposition="top center",
             showlegend=False
         )
 
+        fig_ts.update_layout(xaxis=dict(tickmode='linear'), showlegend=False)
         st.plotly_chart(fig_ts, use_container_width=True)
 
 
