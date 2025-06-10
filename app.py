@@ -609,6 +609,33 @@ if selected_state_map != "None":
                         font=dict(family="Poppins, sans-serif", size=12),
                         title_font_size=18,
                         legend_title="Metric"
+                        sliders=[{
+                            'currentvalue': {'prefix': 'Year: '},
+                            'pad': {'t': 20}
+                        }],
+                        updatemenus=[{
+                            'type': 'buttons',
+                            'showactive': False,
+                            'x': 0.05,
+                            'y': -0.15,
+                            'buttons': [{
+                                'label': 'Play',
+                                'method': 'animate',
+                                'args': [None, {
+                                    'frame': {'duration': 300, 'redraw': True},  # << faster animation (300 ms per frame)
+                                    'fromcurrent': True,
+                                    'transition': {'duration': 0}
+                                }]
+                            }, {
+                            'label': 'Pause',
+                            'method': 'animate',
+                            'args': [[None], {
+                                'frame': {'duration': 0, 'redraw': False},
+                                'mode': 'immediate',
+                                'transition': {'duration': 0}
+                            }]
+                            }]
+                        }]
                     )
                     
                     # Customize the appearance of the animation slider
