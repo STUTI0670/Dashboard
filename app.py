@@ -753,41 +753,87 @@ else:
     st.pyplot(fig_full)
 
 # ---------- DISTRICT-WISE LINE PLOT (Random Historical Data) ----------
+# ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
 st.markdown("---")
-st.subheader("📈 District-wise Trend (Random Values)")
-
-# Create a sorted unique list of all district names from the shapefile
-all_districts = sorted(gdf_districts_full[district_col].dropna().unique().tolist())
+st.subheader("📽️ Animated District-wise Trend (Simulated Data)")
 
 # Sidebar dropdown to select a district
-selected_district = st.sidebar.selectbox("Select a District for Trend View", all_districts)
+selected_district = st.sidebar.selectbox("🎯 Select a District for Trend Animation", all_districts)
 
-# Simulate historical data for this district (e.g., from 2000 to 2023)
+# Simulate historical data (e.g., 2000–2023)
 years = np.arange(2000, 2024)
-random_values = np.random.uniform(low=50, high=300, size=len(years))  # Adjust range as needed
+random_values = np.random.uniform(low=50, high=300, size=len(years))
 
-# Create a DataFrame
+# Create base dataframe
 district_trend_df = pd.DataFrame({
     "Year": years,
     "Value": random_values,
     "District": selected_district
 })
 
-# Create the animated line plot (not necessarily animated, but interactive)
+# Prepare cumulative animation frames
+animation_frames = []
+for year in years:
+    frame_df = district_trend_df[district_trend_df["Year"] <= year].copy()
+    frame_df["FrameYear"] = year
+    animation_frames.append(frame_df)
+
+animated_district_df = pd.concat(animation_frames, ignore_index=True)
+
+# Axis limits for stable animation
+y_min = random_values.min() * 0.95
+y_max = random_values.max() * 1.05
+
+# Create animated plot
 fig_district_trend = px.line(
-    district_trend_df,
+    animated_district_df,
     x="Year",
     y="Value",
-    title=f"Simulated Trend for {selected_district} (2000-2023)",
+    animation_frame="FrameYear",
+    animation_group="District",
+    title=f"Animated Trend for {selected_district} (Simulated, 2000–2023)",
     markers=True,
-    labels={"Year": "Year", "Value": "Simulated Metric"},
+    labels={"Year": "Year", "Value": "Simulated Value", "FrameYear": "Year"},
+    range_y=[y_min, y_max],
+    range_x=[years.min(), years.max()]
 )
 
+# Add play/pause buttons
 fig_district_trend.update_layout(
     xaxis_title="Year",
-    yaxis_title="Simulated Metric Value",
+    yaxis_title="Simulated Metric",
     font=dict(family="Poppins, sans-serif", size=12),
-    title_font_size=18
+    title_font_size=18,
+    sliders=[{
+        'currentvalue': {'prefix': 'Year: '},
+        'pad': {'t': 20}
+    }],
+    updatemenus=[{
+        'type': 'buttons',
+        'showactive': False,
+        'x': 0.05,
+        'y': -0.15,
+        'buttons': [
+            {
+                'label': 'Play',
+                'method': 'animate',
+                'args': [None, {
+                    'frame': {'duration': 200, 'redraw': True},
+                    'fromcurrent': True,
+                    'transition': {'duration': 100}
+                }]
+            },
+            {
+                'label': 'Pause',
+                'method': 'animate',
+                'args': [[None], {
+                    'frame': {'duration': 0, 'redraw': False},
+                    'mode': 'immediate',
+                    'transition': {'duration': 0}
+                }]
+            }
+        ]
+    }]
 )
 
 st.plotly_chart(fig_district_trend, use_container_width=True)
