@@ -478,11 +478,11 @@ for col in gdf_districts.columns:
         break
 
 # Debug: show all unique state names from district shapefile
-st.write("States in shapefile (after replacement and uppercasing):")
-st.write(sorted(gdf_districts[state_col].unique().tolist()))
+#st.write("States in shapefile (after replacement and uppercasing):")
+#st.write(sorted(gdf_districts[state_col].unique().tolist()))
 
-st.write("States in Pulses DataFrame (df_selected_year):")
-st.write(sorted(df_selected_year["State"].str.upper().unique().tolist()))
+#st.write("States in Pulses DataFrame (df_selected_year):")
+#st.write(sorted(df_selected_year["State"].str.upper().unique().tolist()))
 
 
 # Proceed only if valid state selected
