@@ -16,6 +16,28 @@ def show_world_timelapse_map(df, metric_title="Production", default_unit="Tonnes
         color_continuous_scale="YlGnBu",
         title=title
     )
+    fig.update_layout(
+        updatemenus=[{
+            "type": "buttons",
+            "buttons": [{
+                "label": "Play",
+                "method": "animate",
+                "args": [None, {
+                    "frame": {"duration": 10, "redraw": True},  # Lower = faster (ms)
+                    "fromcurrent": True,
+                    "transition": {"duration": 1, "easing": "linear"}
+                }]
+            }, {
+                "label": "Pause",
+                "method": "animate",
+                "args": [[None], {
+                    "mode": "immediate",
+                    "frame": {"duration": 0},
+                    "transition": {"duration": 0}
+                }]
+            }]
+        }]
+    )    
 
     fig.update_layout(
         geo=dict(showframe=False, showcoastlines=False),
