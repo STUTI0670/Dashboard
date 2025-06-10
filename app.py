@@ -623,5 +623,49 @@ if selected_state_map != "None":
 
 
 
+# ------------------ DISTRICT-LEVEL TIME SERIES ANIMATION ------------------
+
+if selected_state_map != "None":
+    # List available districts
+    unique_districts = state_gdf["District"].dropna().unique().tolist()
+    selected_district = st.sidebar.selectbox("Select District for Historical Trend", sorted(unique_districts))
+
+    if selected_district:
+        # Simulate historical dummy values for 2000–2023
+        np.random.seed(hash(selected_district) % 999999)  # consistent dummy values per district
+        years = list(range(2000, 2024))
+        n_years = len(years)
+        dummy_values = np.random.rand(n_years)
+        dummy_values = dummy_values / dummy_values.sum() * state_gdf[state_gdf["District"] == selected_district]["Dummy_Value"].iloc[0]
+
+        district_timeseries = pd.DataFrame({
+            "Year": years,
+            "Value": dummy_values,
+            "District": [selected_district] * n_years
+        })
+
+        st.markdown(f"### 📈 Historical Trend for {selected_district} - {metric}")
+
+        fig_ts = px.line(
+            district_timeseries,
+            x='Year',
+            y='Value',
+            animation_frame='Year',
+            title=f"{selected_district} - {metric} (Fabricated Historical Trend)",
+            labels={'Value': metric},
+            markers=True
+        )
+        fig_ts.update_layout(
+            xaxis=dict(tickmode='linear'),
+            transition={'duration': 300},
+            showlegend=False
+        )
+
+        st.plotly_chart(fig_ts, use_container_width=True)
+
+
+
+
+
 
 
