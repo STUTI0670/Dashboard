@@ -432,10 +432,7 @@ def load_india_districts_shapefile():
 
 gdf_districts = load_india_districts_shapefile()
 
-# Show available states from shapefile (optional debug)
-# st.write("Available states:", gdf_districts["STATE_NAME"].unique())
-
-# Sidebar: State Map View dropdown
+# Sidebar: State Map View
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 🗺️ State Map View")
 
@@ -444,70 +441,83 @@ st.sidebar.markdown("### 🗺️ State Map View")
 # Extract available states in current df_selected_year
 available_states = df_selected_year["State"].str.upper().unique().tolist()
 
-# Sidebar: State Map View dropdown
-st.sidebar.markdown("---")
-st.sidebar.markdown("### 🗺️ State Map View")
-
 # Dropdown options → dynamic + "None" on top
 state_options = ["None"] + sorted(available_states)
 
 selected_state_map = st.sidebar.selectbox("Select State for State Map", state_options)
 
-st.write(gdf_districts.columns.tolist())
+# Auto detect STATE column
+state_col = None
+for col in gdf_districts.columns:
+    if "STATE" in col.upper() or "ST_NM" in col.upper():
+        state_col = col
+        break
+
+# Auto detect DISTRICT column
+district_col = None
+for col in gdf_districts.columns:
+    if "DISTRICT" in col.upper() or "DIST_NAME" in col.upper() or "DIST_NM" in col.upper():
+        district_col = col
+        break
+
+# Debug print (optional)
+# st.write("Detected columns:", state_col, district_col)
 
 # Proceed only if valid state selected
 if selected_state_map != "None":
 
-    # Filter for selected state
-    state_gdf = gdf_districts[gdf_districts["STATE_NAME"].str.upper() == selected_state_map.upper()]
-
-    # Optional: explode in case MultiPolygon present
-    state_gdf = state_gdf.explode(index_parts=False)
-
-    # Column for district name
-    district_col = "DIST_NAME" if "DIST_NAME" in state_gdf.columns else "DISTRICT"  # safe fallback
-
-    # Prepare df_selected_year → Jharkhand row
-    state_row = df_selected_year[df_selected_year["State"].str.upper() == selected_state_map.upper()]
-
-    if state_row.empty:
-        st.warning(f"No data available for {selected_state_map} for {season} - {pulse_type} - {metric} in selected year.")
+    # Safety check
+    if state_col is None or district_col is None:
+        st.error("Could not detect STATE or DISTRICT column in shapefile!")
     else:
-        # Extract actual state value
-        state_total_value = state_row[metric].values[0]
+        # Filter for selected state
+        state_gdf = gdf_districts[gdf_districts[state_col].str.upper() == selected_state_map.upper()]
 
-        # Prepare dummy values per district
-        districts = state_gdf[district_col].tolist()
-        n_districts = len(districts)
+        # Optional: explode in case MultiPolygon present
+        state_gdf = state_gdf.explode(index_parts=False)
 
-        # Random proportions summing to 1
-        proportions = np.random.dirichlet(np.ones(n_districts))
-        dummy_values = proportions * state_total_value
+        # Prepare df_selected_year → selected state row
+        state_row = df_selected_year[df_selected_year["State"].str.upper() == selected_state_map.upper()]
 
-        # Assign dummy values to GeoDataFrame
-        state_gdf["Dummy_Value"] = dummy_values
-        state_gdf["District"] = state_gdf[district_col]
+        if state_row.empty:
+            st.warning(f"No data available for {selected_state_map} for {season} - {pulse_type} - {metric} in selected year.")
+        else:
+            # Extract actual state value
+            state_total_value = state_row[metric].values[0]
 
-        # Plot State district map
-        st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
+            # Prepare dummy values per district
+            districts = state_gdf[district_col].tolist()
+            n_districts = len(districts)
 
-        fig2, ax2 = plt.subplots(1, 1, figsize=(8, 10))
-        state_gdf.plot(
-            column="Dummy_Value",
-            ax=ax2,
-            legend=True,
-            cmap='YlOrRd',
-            edgecolor='black',
-            missing_kwds={"color": "white", "edgecolor": "black"}
-        )
-        plt.title(f"{selected_state_map} District Map - {metric} ({season}, {pulse_type})", fontsize=14)
+            # Random proportions summing to 1
+            proportions = np.random.dirichlet(np.ones(n_districts))
+            dummy_values = proportions * state_total_value
 
-        # Add district names as text annotations
-        for idx, row in state_gdf.iterrows():
-            centroid = row["geometry"].centroid
-            ax2.text(centroid.x, centroid.y, row["District"], fontsize=8, ha='center')
+            # Assign dummy values to GeoDataFrame
+            state_gdf["Dummy_Value"] = dummy_values
+            state_gdf["District"] = state_gdf[district_col]
 
-        st.pyplot(fig2)
+            # Plot State district map
+            st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
+
+            fig2, ax2 = plt.subplots(1, 1, figsize=(8, 10))
+            state_gdf.plot(
+                column="Dummy_Value",
+                ax=ax2,
+                legend=True,
+                cmap='YlOrRd',
+                edgecolor='black',
+                missing_kwds={"color": "white", "edgecolor": "black"}
+            )
+            plt.title(f"{selected_state_map} District Map - {metric} ({season}, {pulse_type})", fontsize=14)
+
+            # Add district names as text annotations
+            for idx, row in state_gdf.iterrows():
+                centroid = row["geometry"].centroid
+                ax2.text(centroid.x, centroid.y, row["District"], fontsize=8, ha='center')
+
+            st.pyplot(fig2)
+
 
 
 
