@@ -439,8 +439,18 @@ gdf_districts = load_india_districts_shapefile()
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 🗺️ State Map View")
 
-# Initially → only enable Jharkhand
-state_options = ["None", "JHARKHAND"]  # You can add more later
+# Dynamic State Map View dropdown
+
+# Extract available states in current df_selected_year
+available_states = df_selected_year["State"].str.upper().unique().tolist()
+
+# Sidebar: State Map View dropdown
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🗺️ State Map View")
+
+# Dropdown options → dynamic + "None" on top
+state_options = ["None"] + sorted(available_states)
+
 selected_state_map = st.sidebar.selectbox("Select State for State Map", state_options)
 
 # Proceed only if valid state selected
