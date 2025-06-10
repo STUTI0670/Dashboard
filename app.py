@@ -536,6 +536,50 @@ if selected_state_map != "None":
                 ax2.text(centroid.x, centroid.y, row["District"], fontsize=8, ha='center')
 
             st.pyplot(fig2)
+            if not state_row.empty:
+                st.markdown("---")
+                st.markdown(f"### Animated Historical Trend for {selected_state_map}")
+
+                # Filter the main dataframe for the selected state across ALL available years
+                state_historical_df = df[df["State"].str.upper() == selected_state_map.upper()].copy()
+                state_historical_df = state_historical_df.sort_values("Year")
+
+                # Define units for the pulse metrics for clearer axis labels
+                pulse_units = {
+                    "Area": "'000 Hectare",
+                    "Production": "'000 Tonne",
+                    "Yield": "Kg/Hectare"
+                }
+                y_axis_title = f"{metric} ({pulse_units.get(metric, '')})"
+
+                # Create the animated line plot if there's data
+                if not state_historical_df.empty:
+                    fig_state_trend = px.line(
+                        state_historical_df,
+                        x="Year",
+                        y=metric,
+                        title=f"Historical {metric} for {pulse_type} ({season}) in {selected_state_map}",
+                        markers=True,
+                        labels={"Year": "Year", metric: y_axis_title}
+                    )    
+
+                    # Update layout for a cleaner look and feel
+                    fig_state_trend.update_layout(
+                        yaxis_title=y_axis_title,
+                        xaxis_title="Year",
+                        font=dict(family="Poppins, sans-serif", size=12),
+                        title_font_size=18,
+                        legend_title="Metric"
+                    )
+        
+                    # Add a time slider for interactivity
+                    fig_state_trend.update_xaxes(rangeslider_visible=True)
+
+                    st.plotly_chart(fig_state_trend, use_container_width=True)
+                else:
+                    st.warning(f"No historical data available to plot a trend for {selected_state_map}.")
+
+
 
 
 
