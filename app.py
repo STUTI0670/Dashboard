@@ -548,12 +548,15 @@ if selected_state_map != "None":
                 ax2.text(centroid.x, centroid.y, row["District"], fontsize=8, ha='center')
 
             st.pyplot(fig2)
+
+            # ---------- STATE-WISE ANIMATED HISTORICAL PLOT ----------
             if not state_row.empty:
                 st.markdown("---")
                 st.markdown(f"### Animated Historical Trend for {selected_state_map}")
 
                 # Filter the main dataframe for the selected state across ALL available years
                 state_historical_df = df[df["State"].str.upper() == selected_state_map.upper()].copy()
+                state_historical_df['Year'] = pd.to_numeric(state_historical_df['Year'])
                 state_historical_df = state_historical_df.sort_values("Year")
 
                 # Define units for the pulse metrics for clearer axis labels
@@ -564,18 +567,42 @@ if selected_state_map != "None":
                 }
                 y_axis_title = f"{metric} ({pulse_units.get(metric, '')})"
 
-                # Create the animated line plot if there's data
-                if not state_historical_df.empty:
+                # Proceed only if there's data to animate
+                if not state_historical_df.empty and state_historical_df[metric].notna().any():
+                    
+                    # --- Prepare data for animation ---
+                    # This creates a cumulative dataset for each year, which is necessary for the animation.
+                    all_years = sorted(state_historical_df["Year"].unique())
+                    animation_frames = []
+
+                    for year in all_years:
+                        frame_data = state_historical_df[state_historical_df["Year"] <= year].copy()
+                        frame_data["FrameYear"] = year  # This column drives the animation
+                        animation_frames.append(frame_data)
+                    
+                    animated_state_df = pd.concat(animation_frames, ignore_index=True)
+
+                    # --- Define axis bounds for a stable animation view ---
+                    y_min_state = state_historical_df[metric].min() * 0.95
+                    y_max_state = state_historical_df[metric].max() * 1.05
+                    x_min_state = state_historical_df["Year"].min()
+                    x_max_state = state_historical_df["Year"].max()
+
+                    # --- Create the animated line plot ---
                     fig_state_trend = px.line(
-                        state_historical_df,
+                        animated_state_df,
                         x="Year",
                         y=metric,
-                        title=f"Historical {metric} for {pulse_type} ({season}) in {selected_state_map}",
+                        animation_frame="FrameYear",   # Use the frame column to animate
+                        animation_group="State",       # Ensures the line is continuous
+                        title=f"Animated Trend of {metric} for {pulse_type} ({season}) in {selected_state_map}",
                         markers=True,
-                        labels={"Year": "Year", metric: y_axis_title}
-                    )    
+                        labels={"Year": "Year", metric: y_axis_title, "FrameYear": "Year"},
+                        range_y=[y_min_state, y_max_state],
+                        range_x=[x_min_state, x_max_state]
+                    )
 
-                    # Update layout for a cleaner look and feel
+                    # --- Customize Layout and Animation Controls ---
                     fig_state_trend.update_layout(
                         yaxis_title=y_axis_title,
                         xaxis_title="Year",
@@ -583,13 +610,15 @@ if selected_state_map != "None":
                         title_font_size=18,
                         legend_title="Metric"
                     )
-        
-                    # Add a time slider for interactivity
-                    fig_state_trend.update_xaxes(rangeslider_visible=True)
+                    
+                    # Customize the appearance of the animation slider
+                    fig_state_trend.update_layout({
+                        'sliders': [{'currentvalue': {'prefix': 'Year: '}, 'pad': {'t': 20}}]
+                    })
 
                     st.plotly_chart(fig_state_trend, use_container_width=True)
                 else:
-                    st.warning(f"No historical data available to plot a trend for {selected_state_map}.")
+                    st.warning(f"No historical data with values for '{metric}' is available to plot a trend for {selected_state_map}.")
 
 
 
