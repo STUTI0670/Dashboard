@@ -311,6 +311,29 @@ if historical_df is not None and forecast_df is not None:
 
     # --- CUSTOMIZE LAYOUT AND AESTHETICS ---
     fig_timeline.update_layout(
+        updatemenus=[{
+            "type": "buttons",
+            "buttons": [{
+                "label": "Play",
+                "method": "animate",
+                "args": [None, {
+                    "frame": {"duration": 300, "redraw": True},  # Lower = faster (ms)
+                    "fromcurrent": True,
+                    "transition": {"duration": 100, "easing": "linear"}
+                }]
+            }, {
+                "label": "Pause",
+                "method": "animate",
+                "args": [[None], {
+                    "mode": "immediate",
+                    "frame": {"duration": 0},
+                    "transition": {"duration": 0}
+                }]
+            }]
+        }]
+    )    
+
+    fig_timeline.update_layout(
         yaxis_title=f"Value ({unit})",
         xaxis_title="Year",
         legend_title="Model/Scenario",
