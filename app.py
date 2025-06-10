@@ -417,6 +417,11 @@ try:
     plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}")
     st.pyplot(fig)
 
+
+    state_gdf = gpd.read_file("India_Shapefile/States/Jharkhand/Jharkhand.shp")
+    st.write(state_gdf.columns.tolist())
+
+
 except Exception as e:
     st.error(f"An error occurred: {e}")
 
