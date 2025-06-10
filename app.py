@@ -552,10 +552,12 @@ if selected_state_map != "None":
                 st.markdown("---")
                 st.markdown(f"### Animated Historical Trend for {selected_state_map}")
 
+                #
                 # Filter the main dataframe for the selected state across ALL available years
                 state_historical_df = df[df["State"].str.upper() == selected_state_map.upper()].copy()
-                state_historical_df['Year'] = pd.to_numeric(state_historical_df['Year'])
+                state_historical_df['Year'] = pd.to_numeric(state_historical_df['Year'].astype(str).str.split('-').str[0]) # <--- USE THIS NEW LINE
                 state_historical_df = state_historical_df.sort_values("Year")
+                #
 
                 # Define units for the pulse metrics for clearer axis labels
                 pulse_units = {
