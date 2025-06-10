@@ -516,8 +516,10 @@ if selected_state_map != "None":
             )
             plt.title(f"{selected_state_map} District Map - {metric} ({season}, {pulse_type})", fontsize=14)
 
-            # Add district names as text annotations
-            for idx, row in state_gdf.iterrows():
+            # Plot district names only once per district
+            unique_districts = state_gdf.drop_duplicates(subset="District")
+
+            for idx, row in unique_districts.iterrows():
                 centroid = row["geometry"].centroid
                 ax2.text(centroid.x, centroid.y, row["District"], fontsize=8, ha='center')
 
