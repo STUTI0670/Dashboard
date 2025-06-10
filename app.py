@@ -142,6 +142,11 @@ with st.sidebar:
     st.markdown("### 🌍 World View Map")
     base_world_path = os.path.join("world data", selected_type)
     file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
+    selected_file = None
+    selected_world_category = None
+    if available_categories:
+        selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
+        selected_file = available_categories[selected_world_category]
     st.markdown("---")
     
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
