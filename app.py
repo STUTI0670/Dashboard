@@ -139,6 +139,11 @@ category_hierarchy = {
 
 # ---------- SIDEBAR CATEGORY PICKER ----------
 with st.sidebar:
+    st.markdown("### 🌍 World View Map")
+    base_world_path = os.path.join("world data", selected_type)
+    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
+    st.markdown("---")
+    
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
     sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
@@ -191,10 +196,6 @@ if wg_df is not None and not wg_df.empty:
     wg_df["Value"] *= conversion_multiplier
 
 # ---------- WORLD MAP ----------
-with st.sidebar:
-    st.markdown("### 🌍 World View Map")
-    base_world_path = os.path.join("world data", selected_type)
-    file_list = glob.glob(os.path.join(base_world_path, "*.csv"))
 
     available_categories = {
         os.path.basename(f)
@@ -362,6 +363,7 @@ st.markdown("---")
 st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
 
 with st.sidebar:
+    st.markdown("---")
     st.markdown("### 🌱 Pulses Map Settings")
     season = st.selectbox("Select Season", ["Kharif", "Rabi", "Total"])
 
