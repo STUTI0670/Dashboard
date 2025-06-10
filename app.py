@@ -608,7 +608,7 @@ if selected_state_map != "None":
                         xaxis_title="Year",
                         font=dict(family="Poppins, sans-serif", size=12),
                         title_font_size=18,
-                        legend_title="Metric"
+                        legend_title="Metric",
                         sliders=[{
                             'currentvalue': {'prefix': 'Year: '},
                             'pad': {'t': 20}
