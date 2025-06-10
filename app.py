@@ -470,8 +470,13 @@ if selected_state_map != "None":
     if state_col is None or district_col is None:
         st.error("Could not detect STATE or DISTRICT column in shapefile!")
     else:
-        # Filter for selected state
-        state_gdf = gdf_districts[gdf_districts[state_col].str.upper() == selected_state_map.upper()]
+        # Normalize function: remove spaces, convert to upper
+        def normalize_state_name(s):
+            return s.upper().replace(" ", "")
+
+        # Filter for selected state safely
+        state_gdf = gdf_districts[gdf_districts[state_col].apply(normalize_state_name) == normalize_state_name(selected_state_map)]
+
 
         # Optional: explode in case MultiPolygon present
         state_gdf = state_gdf.explode(index_parts=False)
