@@ -171,6 +171,7 @@ if conversion_options:
     if chosen_unit != "Original":
         conversion_multiplier = conversion_options[chosen_unit]
         unit = chosen_unit
+
 # ---------- SAFE READ ----------
 def safe_read(filename):
     full_path = os.path.join(folder_path, filename)
