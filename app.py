@@ -11,6 +11,7 @@ import numpy as np
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
+
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
