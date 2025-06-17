@@ -66,7 +66,7 @@ html, body, [class*="css"] {
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
-# ---------- SIDEBAR DROPDOWN ----------
+'''# ---------- SIDEBAR DROPDOWN ----------
 selected_type_sidebar = st.sidebar.selectbox(
     "Select Type:",
     ["Production", "Yield", "Area"],
@@ -137,7 +137,7 @@ category_hierarchy = {
     }
 }
 
-'''# ---------- SIDEBAR CATEGORY PICKER ----------
+# ---------- SIDEBAR CATEGORY PICKER ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
