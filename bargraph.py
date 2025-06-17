@@ -196,10 +196,3 @@ csv_path = os.path.join(folder_path, "historical_data.csv")
 if os.path.exists(csv_path):
     fig = plot_logest_growth_from_csv(csv_path, category, conversion_multiplier)
     st.plotly_chart(fig, use_container_width=True)
-'''st.markdown("---")
-st.subheader("📈 Decade-wise Trend Growth Rate")
-csv_path = os.path.join(folder_path, "historical_data.csv")
-if os.path.exists(csv_path):
-    fig = plot_logest_growth_from_csv(csv_path, category, conversion_multiplier)
-    st.pyplot(fig)
-'''
