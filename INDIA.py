@@ -137,7 +137,7 @@ category_hierarchy = {
     }
 }
 
-# ---------- SIDEBAR CATEGORY PICKER ----------
+'''# ---------- SIDEBAR CATEGORY PICKER ----------
 with st.sidebar:
     st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
     sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
@@ -160,7 +160,7 @@ with st.sidebar:
     category = st.selectbox("Category", list(subcat_display_to_folder.keys()))
     folder_key = subcat_display_to_folder[category]
     folder_name = f"{prefix}{folder_key}"
-    folder_path = os.path.join(base_path, folder_name)
+    folder_path = os.path.join(base_path, folder_name)'''
 
 # ---------- UNIT CONVERSION PICKER ----------
 unit = unit_lookup.get(selected_type, {}).get(category, "")
