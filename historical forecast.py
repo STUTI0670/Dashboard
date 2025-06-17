@@ -190,6 +190,133 @@ if forecast_df is not None:
 if wg_df is not None and not wg_df.empty:
     wg_df["Value"] *= conversion_multiplier
 
+# ---------- FORECAST TIMELINE ----------
+st.markdown("---")
+st.subheader("📊 Future Projections for top 3 Models")
+if historical_df is not None and forecast_df is not None:
+    # Prepare historical data
+    historical_df = historical_df.rename(columns={"Total": "Value"})
+    historical_df["Model"] = "Historical"
+
+    # Prepare forecast data
+    forecast_long_df = forecast_df.melt(id_vars="Year", var_name="Model", value_name="Value")
+
+    # Combine all data
+    combined_df = pd.concat([historical_df, forecast_long_df], ignore_index=True)
+    combined_df = combined_df.sort_values(by=["Model", "Year"])
+
+    # --- (KEY CHANGE) Define all models and animation years upfront ---
+    all_model_names = ["Historical"] + forecast_df.columns[1:].tolist()
+    all_animation_years = sorted(combined_df["Year"].unique())
+
+    # --- Build the frames with placeholder data to ensure continuity ---
+    timeline_frames = []
+    for year in all_animation_years:
+        # Get all data up to the current animation year
+        frame_data = combined_df[combined_df["Year"] <= year].copy()
+        frame_data["FrameYear"] = year
+
+        # --- (KEY CHANGE) The robust fix:
+        # Ensure a row exists for every model in this frame. If a model has no data yet,
+        # add a placeholder with a null value so Plotly knows it exists.
+        present_models = frame_data["Model"].unique()
+        missing_models = set(all_model_names) - set(present_models)
+
+        if missing_models:
+            placeholders = []
+            for model in missing_models:
+                # Use the first historical year as a non-plotting anchor
+                placeholders.append({
+                    "Year": historical_df["Year"].min(),
+                    "Model": model,
+                    "Value": np.nan, # Use np.nan for a gap in the line
+                    "FrameYear": year
+                })
+            frame_data = pd.concat([frame_data, pd.DataFrame(placeholders)], ignore_index=True)
+
+        timeline_frames.append(frame_data)
+
+    timeline_df = pd.concat(timeline_frames, ignore_index=True)
+
+    # --- AXIS BOUNDS ---
+    full_data_range = pd.concat([
+        combined_df["Value"],
+        wg_df["Value"] if wg_df is not None and not wg_df.empty else pd.Series(dtype='float64')
+    ])
+    y_min = full_data_range.min() * 0.95
+    y_max = full_data_range.max() * 1.05
+    x_min = historical_df["Year"].min()
+    x_max = max(forecast_df["Year"].max(), 2047) if not forecast_df.empty else 2047
+
+    # --- PLOT THE ANIMATED LINE CHART ---
+    # The category_orders is still good practice to control the legend order.
+    fig_timeline = px.line(
+        timeline_df,
+        x="Year",
+        y="Value",
+        color="Model",
+        animation_frame="FrameYear",
+        animation_group="Model",
+        title=f"📊 Historical Data and Future Projections ({unit})",
+        markers=True,
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max],
+        category_orders={"Model": all_model_names}
+    )
+
+    # --- ADD THE STATIC WG REPORT POINTS ---
+    if wg_df is not None and not wg_df.empty:
+        fig_timeline.add_trace(go.Scatter(
+            x=wg_df["Year"],
+            y=wg_df["Value"],
+            mode="markers+text",
+            name="WG Report",
+            marker=dict(color="red", size=12, symbol="diamond"),
+            text=wg_df["Scenario"],
+            textposition="top right",
+            showlegend=True
+        ))
+
+    # --- CUSTOMIZE LAYOUT AND AESTHETICS ---
+    fig_timeline.update_layout(
+        updatemenus=[{
+            "type": "buttons",
+            "buttons": [{
+                "label": "Play",
+                "method": "animate",
+                "args": [None, {
+                    "frame": {"duration": 50, "redraw": True},  # Lower = faster (ms)
+                    "fromcurrent": True,
+                    "transition": {"duration": 0, "easing": "linear"}
+                }]
+            }, {
+                "label": "Pause",
+                "method": "animate",
+                "args": [[None], {
+                    "mode": "immediate",
+                    "frame": {"duration": 0},
+                    "transition": {"duration": 0}
+                }]
+            }]
+        }]
+    )    
+
+    fig_timeline.update_layout(
+        yaxis_title=f"Value ({unit})",
+        xaxis_title="Year",
+        legend_title="Model/Scenario",
+        font=dict(family="Poppins, sans-serif", size=12),
+        title_font_size=22,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+
+    fig_timeline.update_layout({
+        'sliders': [{'currentvalue': {'prefix': 'Year: '},'pad': {'t': 20}}]
+    })
+
+    st.plotly_chart(fig_timeline, use_container_width=True)
+
+'''
 st.markdown("---")
 st.subheader("📊 Future Projections for top 3 Models")
 if historical_df is not None and forecast_df is not None:
@@ -317,4 +444,4 @@ if historical_df is not None and forecast_df is not None:
 # ---------- LOGEST GROWTH ----------
 # ---------- LOGEST GROWTH ----------
 # ---------- LOGEST GROWTH ----------
-
+'''
