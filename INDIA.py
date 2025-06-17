@@ -160,7 +160,7 @@ with st.sidebar:
     category = st.selectbox("Category", list(subcat_display_to_folder.keys()))
     folder_key = subcat_display_to_folder[category]
     folder_name = f"{prefix}{folder_key}"
-    folder_path = os.path.join(base_path, folder_name)'''
+    folder_path = os.path.join(base_path, folder_name)
 
 # ---------- UNIT CONVERSION PICKER ----------
 unit = unit_lookup.get(selected_type, {}).get(category, "")
@@ -188,9 +188,8 @@ if forecast_df is not None:
     forecast_df.iloc[:, 1:] *= conversion_multiplier
 
 if wg_df is not None and not wg_df.empty:
-    wg_df["Value"] *= conversion_multiplier
+    wg_df["Value"] *= conversion_multiplier'''
 
-# ---------- MAP ----------
 
 # ---------- INDIA PULSES CHOROPLETH MAP ----------
 st.markdown("---")
