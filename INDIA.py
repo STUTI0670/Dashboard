@@ -464,10 +464,21 @@ else:
 st.markdown("---")
 st.subheader("📽️ Animated District-wise Trend (Simulated Data)")
 
-all_districts = sorted(gdf_districts_full[district_col].dropna().unique().tolist())
+# Filter districts for the selected state
+if selected_state_map != "None":
+    filtered_districts = gdf_districts_full[
+        gdf_districts_full[state_col].str.upper() == selected_state_map.upper()
+    ][district_col].dropna().unique().tolist()
+    filtered_districts = sorted(filtered_districts)
+else:
+    filtered_districts = []
 
-# Sidebar dropdown to select a district
-selected_district = st.sidebar.selectbox("🎯 Select a District for Trend Animation", all_districts)
+# Dropdown to select district (only from that state)
+if filtered_districts:
+    selected_district = st.sidebar.selectbox("🎯 Select a District for Trend Animation", filtered_districts)
+else:
+    selected_district = None
+    st.sidebar.warning("No districts available for selected state.")
 
 # Simulate historical data (e.g., 2000–2023)
 years = np.arange(2000, 2024)
