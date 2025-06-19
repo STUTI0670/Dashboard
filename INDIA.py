@@ -384,9 +384,6 @@ if selected_state_map != "None":
                     st.warning(f"No historical data with values for '{metric}' is available to plot a trend for {selected_state_map}.")
 
 
-
-
-
 # ---------- FULL INDIA DISTRICT MAP ----------
 st.markdown("---")
 st.subheader("🇮🇳 Full India District Map View (Fabricated Values)")
@@ -446,34 +443,34 @@ else:
                 "Dummy_Value"
             ] = dummy_values[i]
 
-   # Load and prepare state-level shapefile for boundary overlay
-    gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
-    gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
+       # Load and prepare state-level shapefile for boundary overlay
+        gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
+        gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
 
-    # Plot full district map with light borders
-    fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
-    gdf_districts_full.plot(
-        column="Dummy_Value",
-        ax=ax_full,
-        legend=True,
-        cmap='YlOrRd',
-        edgecolor='lightgray',   # Light boundary for districts
-        linewidth=0.3,
-        missing_kwds={"color": "white", "edgecolor": "black"}
-    )
+        # Plot full district map with light borders
+        fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
+        gdf_districts_full.plot(
+            column="Dummy_Value",
+            ax=ax_full,
+            legend=True,
+            cmap='YlOrRd',
+            edgecolor='lightgray',   # Light boundary for districts
+            linewidth=0.3,
+            missing_kwds={"color": "white", "edgecolor": "black"}
+        )
 
-    # Overlay state boundaries with bold black lines
-    gdf_states_outline.boundary.plot(
-        ax=ax_full,
-        edgecolor='black',
-        linewidth=1.5  # Bold line for state borders
-    )
+        # Overlay state boundaries with bold black lines
+        gdf_states_outline.boundary.plot(
+            ax=ax_full,
+            edgecolor='black',
+            linewidth=1.5  # Bold line for state borders
+        )
 
-    # Title
-    ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
+        # Title
+        ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
 
-    # Display
-    st.pyplot(fig_full)
+        # Display
+        st.pyplot(fig_full)
 
 # ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
 st.markdown("---")
