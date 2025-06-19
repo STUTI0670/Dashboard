@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
-'''# ---------- CSS ----------
+# ---------- CSS ----------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
@@ -138,15 +138,6 @@ category_hierarchy = {
 }
 
 
-# ---------- SAFE READ ----------
-def safe_read(filename):
-    full_path = os.path.join(folder_path, filename)
-    return pd.read_csv(full_path) if os.path.exists(full_path) else None
-
-historical_df = safe_read("historical_data.csv")
-forecast_df = safe_read("forecast_data.csv")
-wg_df = safe_read("wg_report.csv")
-
 # ---------- Apply conversion ----------
 if historical_df is not None:
     historical_df["Total"] *= conversion_multiplier
@@ -175,7 +166,7 @@ with st.sidebar:
     selected_world_category = None
     if available_categories:
         selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
-        selected_file = available_categories[selected_world_category] '''
+        selected_file = available_categories[selected_world_category]
 
 # ---------- MAIN WORLD RENDER ----------
 
