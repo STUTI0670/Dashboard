@@ -137,16 +137,6 @@ category_hierarchy = {
     }
 }
 
-
-# ---------- Apply conversion ----------
-if historical_df is not None:
-    historical_df["Total"] *= conversion_multiplier
-
-if forecast_df is not None:
-    forecast_df.iloc[:, 1:] *= conversion_multiplier
-
-if wg_df is not None and not wg_df.empty:
-    wg_df["Value"] *= conversion_multiplier
 with st.sidebar:    
     st.markdown("### 🌍 World View Map")
     base_world_path = os.path.join("world data", selected_type)
@@ -169,7 +159,6 @@ with st.sidebar:
         selected_file = available_categories[selected_world_category]
 
 # ---------- MAIN WORLD RENDER ----------
-
 if selected_file:
     df_world = pd.read_csv(selected_file)
     st.markdown("---")
