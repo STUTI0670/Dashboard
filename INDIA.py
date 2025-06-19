@@ -388,10 +388,6 @@ if selected_state_map != "None":
 st.markdown("---")
 st.subheader("🇮🇳 Full India District Map View (Fabricated Values)")
 
-# Load and prepare state boundaries for overlay
-gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
-gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
-
 # Auto detect STATE and DISTRICT columns
 state_col = None
 district_col = None
@@ -401,103 +397,66 @@ for col in gdf_districts.columns:
     if "DISTRICT" in col.upper() or "DIST_NAME" in col.upper() or "DIST_NM" in col.upper():
         district_col = col
 
-# Debugging
-st.write("Detected state column:", state_col)
-st.write("Detected district column:", district_col)
-
+# Check
 if state_col is None or district_col is None:
     st.error("Could not detect STATE or DISTRICT column in shapefile!")
 else:
-    # Clean up district names
-    gdf_districts[district_col] = gdf_districts[district_col].str.strip().str.upper()
-
-    # Show mismatch info
-    st.write("States in Pulses Data:")
-    st.write(sorted(df_selected_year["State"].unique()))
-
-    st.write("States in Shapefile:")
-    st.write(sorted(gdf_districts[state_col].unique()))
-
-    # Prepare a fresh copy
+    # Prepare a copy of gdf_districts to avoid inplace modification
     gdf_districts_full = gdf_districts.copy()
+
+    # Prepare Dummy_Value column
     gdf_districts_full["Dummy_Value"] = 0.0
 
-    # Normalize function
-    def normalize_State_Name(s):
-        return s.upper().replace(" ", "")
-
-    # Filter out invalid states like 'INDIA'
-    valid_states = df_selected_year["State"].unique()
-    valid_states = [s for s in valid_states if s.strip().upper() != "INDIA"]
-
-    for State_Name in valid_states:
+    # Process each state in df_selected_year
+    for State_Name in df_selected_year["State"].unique():
         State_Name_upper = State_Name.strip().upper()
 
-        # Match to shapefile
+        # Match in shapefile with normalization
+        def normalize_State_Name(s):
+            return s.upper().replace(" ", "")
+
         mask = gdf_districts_full[state_col].apply(normalize_State_Name) == normalize_State_Name(State_Name_upper)
         state_gdf = gdf_districts_full[mask]
 
+        # If no matching districts → skip
         if state_gdf.empty:
-            st.warning(f"⚠️ No districts matched for state: {State_Name_upper}")
             continue
 
+        # Get state total value from df_selected_year
         state_row = df_selected_year[df_selected_year["State"].str.upper() == State_Name_upper]
-        if state_row.empty or pd.isna(state_row[metric].values[0]) or state_row[metric].values[0] == 0:
-            st.warning(f"⚠️ No data for state: {State_Name_upper} in selected year.")
+        if state_row.empty:
             continue
 
         state_total_value = state_row[metric].values[0]
+
+        # Fabricate values across districts
         districts = state_gdf[district_col].unique().tolist()
         n_districts = len(districts)
 
-        # Fabricate values
         proportions = np.random.dirichlet(np.ones(n_districts))
         dummy_values = proportions * state_total_value
 
+        # Assign fabricated values to Dummy_Value column
         for i, district_name in enumerate(districts):
             gdf_districts_full.loc[
                 (mask) & (gdf_districts_full[district_col] == district_name),
                 "Dummy_Value"
             ] = dummy_values[i]
 
-    # Fallback if all Dummy_Values are 0
-    if gdf_districts_full["Dummy_Value"].sum() == 0:
-        st.warning("🚨 All Dummy Values are 0 — falling back to random values.")
-        gdf_districts_full["Dummy_Value"] = np.random.uniform(100, 1000, size=len(gdf_districts_full))
-
-    # Log stats for Dummy_Value
-    st.write("Dummy Value Summary:")
-    st.write(gdf_districts_full["Dummy_Value"].describe())
-
-    # Determine color scale
-    vmin = gdf_districts_full["Dummy_Value"].min()
-    vmax = gdf_districts_full["Dummy_Value"].max()
-    if vmin == vmax:
-        vmax += 1
-
-    # Plot choropleth with district + state outlines
+    # Plot the full India district map
     fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
     gdf_districts_full.plot(
         column="Dummy_Value",
         ax=ax_full,
         legend=True,
         cmap='YlOrRd',
-        edgecolor='lightgray',  # Light district edges
-        linewidth=0.3,
-        vmin=vmin,
-        vmax=vmax,
+        edgecolor='black',
         missing_kwds={"color": "white", "edgecolor": "black"}
     )
-
-    # Overlay bold state boundaries
-    gdf_states_outline.boundary.plot(
-        ax=ax_full,
-        edgecolor='black',
-        linewidth=1.5
-    )
-
     ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
+
     st.pyplot(fig_full)
+
 
 # ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
 st.markdown("---")
