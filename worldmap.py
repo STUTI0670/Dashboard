@@ -137,40 +137,6 @@ category_hierarchy = {
     }
 }
 
-# ---------- SIDEBAR CATEGORY PICKER ----------
-with st.sidebar:
-    st.markdown(f"<div class='sidebar-title'>{selected_type} Categories</div>", unsafe_allow_html=True)
-    sector = st.selectbox("Main Sector", list(category_hierarchy.keys()))
-    sub_sector = st.selectbox("Sub-Sector", list(category_hierarchy[sector].keys()))
-
-    def normalize(name): return name.lower().replace(" ", "").replace("_", "")
-    subcat_display_to_folder = {}
-    norm_available = {normalize(f): f for f in available_folders}
-
-    for subcat_list in category_hierarchy[sector][sub_sector].values():
-        for subcat in subcat_list:
-            norm_subcat = normalize(subcat)
-            if norm_subcat in norm_available:
-                subcat_display_to_folder[subcat] = norm_available[norm_subcat]
-
-    if not subcat_display_to_folder:
-        st.error("No data available for selected sub-sector.")
-        st.stop()
-
-    category = st.selectbox("Category", list(subcat_display_to_folder.keys()))
-    folder_key = subcat_display_to_folder[category]
-    folder_name = f"{prefix}{folder_key}"
-    folder_path = os.path.join(base_path, folder_name)
-
-# ---------- UNIT CONVERSION PICKER ----------
-unit = unit_lookup.get(selected_type, {}).get(category, "")
-conversion_options = unit_conversion_map.get(unit, {})
-conversion_multiplier = 1.0
-if conversion_options:
-    chosen_unit = st.sidebar.selectbox("Convert Unit", ["Original"] + list(conversion_options.keys()))
-    if chosen_unit != "Original":
-        conversion_multiplier = conversion_options[chosen_unit]
-        unit = chosen_unit
 
 # ---------- SAFE READ ----------
 def safe_read(filename):
