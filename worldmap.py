@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
 
-# ---------- CSS ----------
+'''# ---------- CSS ----------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
@@ -175,7 +175,7 @@ with st.sidebar:
     selected_world_category = None
     if available_categories:
         selected_world_category = st.selectbox("World Map Category", list(available_categories.keys()))
-        selected_file = available_categories[selected_world_category]
+        selected_file = available_categories[selected_world_category] '''
 
 # ---------- MAIN WORLD RENDER ----------
 
@@ -186,5 +186,3 @@ if selected_file:
     show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
 elif selected_type:  # Only warn if type was selected but no files
     st.warning("No data files found for selected type.")
-
-# ---------- FORECAST TIMELINE ----------
