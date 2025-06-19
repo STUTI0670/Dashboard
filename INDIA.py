@@ -610,14 +610,9 @@ def show_india_timelapse_map(df, geojson_path, metric_title="Production", defaul
 
     st.plotly_chart(fig, use_container_width=True)
 
-with open("states_india.geojson", "r", encoding="utf-8") as f:
-    india_geojson = json.load(f)
-
-# Get the actual state names in GeoJSON (cleaned for matching)
-geojson_states = {
-    feature["properties"]["STATE_NM"].strip().upper()
-    for feature in india_geojson["features"]
-}
+gdf = gpd.read_file("states_india.geojson")
+st.write("📋 GeoJSON Columns:", gdf.columns.tolist())
+st.dataframe(gdf.head())
 
 
 
