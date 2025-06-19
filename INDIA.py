@@ -615,7 +615,7 @@ with open("states_india.geojson", "r", encoding="utf-8") as f:
 
 # Get the actual state names in GeoJSON (cleaned for matching)
 geojson_states = {
-    feature["properties"]["State_Name"].strip().upper()
+    feature["properties"]["STATE_NM"].strip().upper()
     for feature in india_geojson["features"]
 }
 
