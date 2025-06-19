@@ -388,6 +388,10 @@ if selected_state_map != "None":
 st.markdown("---")
 st.subheader("🇮🇳 Full India District Map View (Fabricated Values)")
 
+# Load and prepare state boundaries for overlay
+gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
+gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
+
 # Auto detect STATE and DISTRICT columns
 state_col = None
 district_col = None
@@ -397,80 +401,78 @@ for col in gdf_districts.columns:
     if "DISTRICT" in col.upper() or "DIST_NAME" in col.upper() or "DIST_NM" in col.upper():
         district_col = col
 
-# Check
 if state_col is None or district_col is None:
     st.error("Could not detect STATE or DISTRICT column in shapefile!")
 else:
-    # Prepare a copy of gdf_districts to avoid inplace modification
+    # Prepare a fresh copy to avoid inplace errors
     gdf_districts_full = gdf_districts.copy()
-
-    # Prepare Dummy_Value column
     gdf_districts_full["Dummy_Value"] = 0.0
 
-    # Process each state in df_selected_year
+    # Normalize function
+    def normalize_State_Name(s):
+        return s.upper().replace(" ", "")
+
     for State_Name in df_selected_year["State"].unique():
         State_Name_upper = State_Name.strip().upper()
 
-        # Match in shapefile with normalization
-        def normalize_State_Name(s):
-            return s.upper().replace(" ", "")
-
+        # Match to shapefile
         mask = gdf_districts_full[state_col].apply(normalize_State_Name) == normalize_State_Name(State_Name_upper)
         state_gdf = gdf_districts_full[mask]
 
-        # If no matching districts → skip
         if state_gdf.empty:
             continue
 
-        # Get state total value from df_selected_year
         state_row = df_selected_year[df_selected_year["State"].str.upper() == State_Name_upper]
-        if state_row.empty:
+        if state_row.empty or pd.isna(state_row[metric].values[0]) or state_row[metric].values[0] == 0:
             continue
 
         state_total_value = state_row[metric].values[0]
-
-        # Fabricate values across districts
         districts = state_gdf[district_col].unique().tolist()
         n_districts = len(districts)
 
+        # Fabricate values
         proportions = np.random.dirichlet(np.ones(n_districts))
         dummy_values = proportions * state_total_value
 
-        # Assign fabricated values to Dummy_Value column
         for i, district_name in enumerate(districts):
             gdf_districts_full.loc[
                 (mask) & (gdf_districts_full[district_col] == district_name),
                 "Dummy_Value"
             ] = dummy_values[i]
 
-       # Load and prepare state-level shapefile for boundary overlay
-        gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
-        gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
+    # Fallback if all Dummy_Values are 0
+    if gdf_districts_full["Dummy_Value"].sum() == 0:
+        gdf_districts_full["Dummy_Value"] = np.random.uniform(10, 100, size=len(gdf_districts_full))
 
-        # Plot full district map with light borders
-        fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
-        gdf_districts_full.plot(
-            column="Dummy_Value",
-            ax=ax_full,
-            legend=True,
-            cmap='YlOrRd',
-            edgecolor='lightgray',   # Light boundary for districts
-            linewidth=0.3,
-            missing_kwds={"color": "white", "edgecolor": "black"}
-        )
+    # Determine color scale
+    vmin = gdf_districts_full["Dummy_Value"].min()
+    vmax = gdf_districts_full["Dummy_Value"].max()
+    if vmin == vmax:
+        vmax += 1
 
-        # Overlay state boundaries with bold black lines
-        gdf_states_outline.boundary.plot(
-            ax=ax_full,
-            edgecolor='black',
-            linewidth=1.5  # Bold line for state borders
-        )
+    # Plot choropleth with district + state outlines
+    fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
+    gdf_districts_full.plot(
+        column="Dummy_Value",
+        ax=ax_full,
+        legend=True,
+        cmap='YlOrRd',
+        edgecolor='lightgray',  # Light district edges
+        linewidth=0.3,
+        vmin=vmin,
+        vmax=vmax,
+        missing_kwds={"color": "white", "edgecolor": "black"}
+    )
 
-        # Title
-        ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
+    # Overlay bold state boundaries
+    gdf_states_outline.boundary.plot(
+        ax=ax_full,
+        edgecolor='black',
+        linewidth=1.5
+    )
 
-        # Display
-        st.pyplot(fig_full)
+    ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
+    st.pyplot(fig_full)
 
 # ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
 st.markdown("---")
