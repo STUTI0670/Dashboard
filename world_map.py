@@ -4,7 +4,7 @@ import pandas as pd
 
 def show_world_timelapse_map(df, metric_title="Production", default_unit="Tonnes"):
     unit = df["Unit"].iloc[0] if "Unit" in df.columns and not df["Unit"].isna().all() else default_unit
-    
+    title = " "
 
     fig = px.choropleth(
         df,
