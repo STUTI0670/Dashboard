@@ -23,7 +23,7 @@ def show_world_timelapse_map(df, metric_title="Production", default_unit="Tonnes
                 "label": "Play",
                 "method": "animate",
                 "args": [None, {
-                    "frame": {"duration": 500, "redraw": True},  # Lower = faster (ms)
+                    "frame": {"duration": 300, "redraw": True},  # Lower = faster (ms)
                     "fromcurrent": True,
                     "transition": {"duration": 1, "easing": "linear"}
                 }]
