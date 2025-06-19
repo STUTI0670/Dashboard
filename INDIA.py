@@ -401,21 +401,24 @@ for col in gdf_districts.columns:
     if "DISTRICT" in col.upper() or "DIST_NAME" in col.upper() or "DIST_NM" in col.upper():
         district_col = col
 
-# Debugging: print detected state/district columns
+# Debugging
 st.write("Detected state column:", state_col)
 st.write("Detected district column:", district_col)
 
 if state_col is None or district_col is None:
     st.error("Could not detect STATE or DISTRICT column in shapefile!")
 else:
-    # Debugging: Check states in both sources
+    # Clean up district names
+    gdf_districts[district_col] = gdf_districts[district_col].str.strip().str.upper()
+
+    # Show mismatch info
     st.write("States in Pulses Data:")
     st.write(sorted(df_selected_year["State"].unique()))
 
     st.write("States in Shapefile:")
     st.write(sorted(gdf_districts[state_col].unique()))
 
-    # Prepare a fresh copy to avoid inplace errors
+    # Prepare a fresh copy
     gdf_districts_full = gdf_districts.copy()
     gdf_districts_full["Dummy_Value"] = 0.0
 
@@ -423,7 +426,11 @@ else:
     def normalize_State_Name(s):
         return s.upper().replace(" ", "")
 
-    for State_Name in df_selected_year["State"].unique():
+    # Filter out invalid states like 'INDIA'
+    valid_states = df_selected_year["State"].unique()
+    valid_states = [s for s in valid_states if s.strip().upper() != "INDIA"]
+
+    for State_Name in valid_states:
         State_Name_upper = State_Name.strip().upper()
 
         # Match to shapefile
@@ -491,7 +498,6 @@ else:
 
     ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
     st.pyplot(fig_full)
-
 
 # ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
 st.markdown("---")
