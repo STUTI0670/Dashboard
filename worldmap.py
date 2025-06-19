@@ -161,7 +161,6 @@ with st.sidebar:
 # ---------- MAIN WORLD RENDER ----------
 if selected_file:
     df_world = pd.read_csv(selected_file)
-    st.markdown("---")
     st.subheader(f"🌐 {selected_world_category} {selected_type} Over Time")
     show_world_timelapse_map(df_world, metric_title=f"{selected_world_category} {selected_type}")
 elif selected_type:  # Only warn if type was selected but no files
