@@ -446,18 +446,33 @@ else:
                 "Dummy_Value"
             ] = dummy_values[i]
 
-    # Plot the full India district map
+   # Load and prepare state-level shapefile for boundary overlay
+    gdf_states_outline = gpd.read_file("India_Shapefile/india_st.shp")
+    gdf_states_outline["State_Name"] = gdf_states_outline["State_Name"].str.strip().str.upper()
+
+    # Plot full district map with light borders
     fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
     gdf_districts_full.plot(
         column="Dummy_Value",
         ax=ax_full,
         legend=True,
         cmap='YlOrRd',
-        edgecolor='black',
+        edgecolor='lightgray',   # Light boundary for districts
+        linewidth=0.3,
         missing_kwds={"color": "white", "edgecolor": "black"}
     )
+
+    # Overlay state boundaries with bold black lines
+    gdf_states_outline.boundary.plot(
+        ax=ax_full,
+        edgecolor='black',
+        linewidth=1.5  # Bold line for state borders
+    )
+
+    # Title
     ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
 
+    # Display
     st.pyplot(fig_full)
 
 # ---------- DISTRICT-WISE ANIMATED HISTORICAL PLOT (RANDOM VALUES) ----------
