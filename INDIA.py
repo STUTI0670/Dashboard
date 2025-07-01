@@ -81,10 +81,6 @@ from highcharts_maps.options.series.wordcloud import WordcloudSeries
 from highcharts_maps.options.series.bar import XRangeSeries
 
 # Highcharts Stock Plot Series
-from highcharts_maps.options.series.abands import (AbandsSeries,
-                                                    PCSeries,
-                                                    KeltnerChannelsSeries,
-                                                    BBSeries)
 from highcharts_maps.options.series.ad import ADSeries
 from highcharts_maps.options.series.aroon import AroonSeries
 from highcharts_maps.options.series.atr import ATRSeries, NATRSeries
