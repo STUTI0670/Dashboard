@@ -6,7 +6,7 @@ import numpy as np
 
 # --- FINAL CORRECTED HIGHCHARTS IMPORTS ---
 #from highcharts_core import Chart, ColorAxis, Legend, Tooltip, ChartOptions
-from highcharts_maps.chart import MapChart
+
 from highcharts_maps.options.series import MapSeries
 from highcharts_maps.options.data import MapData
 from highcharts_maps.options import MapOptions
