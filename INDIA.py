@@ -613,10 +613,10 @@ def show_india_timelapse_map(df, geojson_path, metric_title="Production", defaul
 
 with open("states_india.geojson", "r", encoding="utf-8") as f:
     india_geojson = json.load(f)
-
+'''
 # Print the first feature
 first_feature = india_geojson["features"][0]
 st.write(first_feature)
-
+'''
 
 
