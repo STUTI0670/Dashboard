@@ -4,18 +4,12 @@ import geopandas as gpd
 import json
 import numpy as np
 
-# --- FULLY CORRECTED HIGHCHARTS IMPORTS ---
-from highcharts_core.chart import Chart
-from highcharts_core.options.axes import ColorAxis  # Corrected path
-from highcharts_core.options.legend import Legend
-from highcharts_core.options.tooltips import Tooltip  # Corrected path
-from highcharts_core.options.chart import ChartOptions
+# --- FINAL CORRECTED HIGHCHARTS IMPORTS ---
+from highcharts_core import Chart, ColorAxis, Legend, Tooltip, ChartOptions
 
 # Map-specific classes are in the 'highcharts_maps' library
-from highcharts_maps.options.series.map import MapSeries
-from highcharts_maps.options.series.data.map import MapData
-from highcharts_maps.options.maps import MapOptions
-from highcharts_maps.options.plot_options.map import MapOptions as MapPlotOptions
+from highcharts_maps import MapSeries, MapData, MapOptions
+from highcharts_maps.options.plot_options import MapPlotOptions
 
 # Page setup
 st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
