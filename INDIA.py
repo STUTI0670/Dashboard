@@ -81,7 +81,6 @@ from highcharts_maps.options.series.wordcloud import WordcloudSeries
 from highcharts_maps.options.series.bar import XRangeSeries
 
 from highcharts_maps.utility_classes import *
-from highcharts_maps import MapSeries, MapData, MapOptions
 from highcharts_maps.options.plot_options import MapPlotOptions
 
 # Page setup
