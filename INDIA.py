@@ -80,57 +80,6 @@ from highcharts_maps.options.series.bar import WindBarbSeries
 from highcharts_maps.options.series.wordcloud import WordcloudSeries
 from highcharts_maps.options.series.bar import XRangeSeries
 
-# Highcharts Stock Plot Series
-from highcharts_maps.options.series.ad import ADSeries
-from highcharts_maps.options.series.aroon import AroonSeries
-from highcharts_maps.options.series.atr import ATRSeries, NATRSeries
-from highcharts_maps.options.series.averages import (DEMASeries,
-                                                      EMASeries,
-                                                      SMASeries,
-                                                      TEMASeries,
-                                                      VWAPSeries,
-                                                      WMASeries)
-from highcharts_maps.options.series.candlestick import (CandlestickSeries,
-                                                         HollowCandlestickSeries,
-                                                         HeikinAshiSeries)
-from highcharts_maps.options.series.disparity_index import DisparityIndexSeries
-from highcharts_maps.options.series.dmi import DMISeries
-from highcharts_maps.options.series.flags import FlagsSeries
-from highcharts_maps.options.series.hlc import (HLCSeries,
-                                                 OHLCSeries)
-from highcharts_maps.options.series.linear_regressions import (LinearRegressionSeries,
-                                                                LinearRegressionAngleSeries,
-                                                                LinearRegressionInterceptSeries,
-                                                                LinearRegressionSlopeSeries,
-                                                                TrendlineSeries)
-from highcharts_maps.options.series.pivot_points import PivotPointsSeries
-from highcharts_maps.options.series.price_envelopes import PriceEnvelopesSeries
-from highcharts_maps.options.series.psar import PSARSeries
-from highcharts_maps.options.series.vbp import VBPSeries
-from highcharts_maps.options.series.zigzag import ZigZagSeries
-from highcharts_maps.options.series.momentum import (MomentumSeries,
-                                                      OBVSeries,
-                                                      ROCSeries,
-                                                      RSISeries)
-from highcharts_maps.options.series.momentum.ikh import IKHSeries
-from highcharts_maps.options.series.momentum.macd import MACDSeries
-from highcharts_maps.options.series.momentum.supertrend import SupertrendSeries
-from highcharts_maps.options.series.oscillators import (AroonOscillatorSeries,
-                                                         APOSeries,
-                                                         CCISeries,
-                                                         ChaikinSeries,
-                                                         CMOSeries,
-                                                         DPOSeries,
-                                                         TRIXSeries,
-                                                         WilliamsRSeries)
-from highcharts_maps.options.series.oscillators.ao import AOSeries
-from highcharts_maps.options.series.oscillators.klinger import KlingerSeries
-from highcharts_maps.options.series.oscillators.money_flow import (MFISeries,
-                                                                    CMFSeries)
-from highcharts_maps.options.series.oscillators.ppo import PPOSeries
-from highcharts_maps.options.series.oscillators.stochastic import (StochasticSeries,
-                                                                    SlowStochasticSeries)
-
 from highcharts_maps.utility_classes import *
 from highcharts_maps import MapSeries, MapData, MapOptions
 from highcharts_maps.options.plot_options import MapPlotOptions
