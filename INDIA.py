@@ -1,5 +1,189 @@
 import streamlit as st
 import pandas as pd
+import geopandas as gpd
+import json
+import numpy as np
+from highcharts_core.chart import Chart
+from highcharts_core.options.series.map import MapSeries
+from highcharts_core.options.series.data.map import MapData
+from highcharts_core.options.color_axis import ColorAxis
+from highcharts_core.options.legend import Legend
+from highcharts_core.options.tooltips import TooltipOptions
+from highcharts_core.options.maps import MapOptions
+from highcharts_core.global_options.shared_options import SharedOptions
+
+# Page setup
+st.set_page_config(layout="wide", page_title="India FoodCrop Dashboard", page_icon="🌾")
+
+# ---------- CSS ----------
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+.sidebar-title {
+    background-color: white;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #111;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Data Loading and Caching ----------
+@st.cache_data
+def load_pulse_data(pulse_type):
+    """Loads and preprocesses the pulse data from the Excel file."""
+    df = pd.read_excel(
+        "Data/Pulses_Data.xlsx",
+        sheet_name=pulse_type,
+        header=1
+    )
+    df.columns = df.columns.str.strip()
+    df = df.rename(columns={"States/UTs": "State"})
+    df["State"] = df["State"].str.strip().replace({
+        "Orissa": "Odisha",
+        "Jammu & Kashmir": "Jammu and Kashmir",
+        "Chhattisgarh": "Chhattishgarh",
+        "Telangana": "Telengana",
+        "Tamil Nadu": "Tamilnadu",
+        "Kerela": "Kerala",
+        "Andaman & Nicobar Islands": "Andaman & Nicobar"
+    })
+    df["Year"] = df["Year"].astype(str)
+    return df
+
+@st.cache_data
+def load_india_states_geojson():
+    """Loads the GeoJSON for Indian states."""
+    with open("states_india.geojson", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+@st.cache_data
+def load_india_districts_shapefile():
+    """Loads and reprojects the India districts shapefile."""
+    gdf = gpd.read_file("India_Shapefile/State/2011_Dist.shp")
+    return gdf.to_crs(epsg=4326)
+
+india_states_geojson = load_india_states_geojson()
+gdf_districts = load_india_districts_shapefile()
+
+# ---------- Sidebar for User Input ----------
+with st.sidebar:
+    st.markdown("<div class='sidebar-title'>Dashboard Settings</div>", unsafe_allow_html=True)
+    st.markdown("### 🌱 Pulses Map Settings")
+    season = st.selectbox("Select Season", ["Kharif", "Rabi", "Total"])
+    pulse_sheets = ["Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Arhar"]
+    pulse_type = st.selectbox("Select Pulse Type", pulse_sheets)
+    metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
+
+# ---------- Data Processing for Maps ----------
+try:
+    df = load_pulse_data(pulse_type)
+    df_season = df[df["Season"].str.lower() == season.lower()].copy()
+    df_season[metric] = pd.to_numeric(df_season[metric], errors="coerce")
+    df_season = df_season.dropna(subset=[metric])
+    
+    # Get all years and sort them
+    all_years = sorted(df_season["Year"].unique())
+
+    # ---------- Animated State-wise Choropleth Map ----------
+    st.subheader(f"🇮🇳 Animated State-wise {metric} of {pulse_type} ({season})")
+
+    # Prepare data for Highcharts
+    map_data_series = []
+    for year in all_years:
+        df_year = df_season[df_season["Year"] == year]
+        year_data = []
+        for _, row in df_year.iterrows():
+            year_data.append(MapData(name=row["State"], value=row[metric]))
+        map_data_series.append(MapSeries(data=year_data, name=year))
+
+    # Highcharts Map Configuration
+    map_options = MapOptions(
+        chart=SharedOptions(
+            map=india_states_geojson
+        ),
+        title={'text': f'India {pulse_type} {metric} ({season}) from {all_years[0]} to {all_years[-1]}'},
+        map_navigation={'enabled': True, 'button_options': {'vertical_align': 'bottom'}},
+        color_axis=ColorAxis(min=0),
+        tooltip=TooltipOptions(
+            point_format='{point.name}: {point.value}'
+        ),
+        legend=Legend(enabled=False)
+    )
+
+    chart = Chart.from_options(map_options)
+    chart.add_series(map_data_series[0]) # Add the first year's data initially
+
+    # Render Highcharts map with slider
+    st.components.v1.html(chart.to_html_repr(), height=600)
+
+    # ---------- Animated District-wise Choropleth Map ----------
+    st.markdown("---")
+    st.subheader(f"🇮🇳 Animated District-wise {metric} of {pulse_type} ({season}) - Fabricated Data")
+
+    # Convert district shapefile to GeoJSON
+    gdf_districts_json = json.loads(gdf_districts.to_json())
+
+    # Fabricate data for all years
+    all_districts_data = {}
+    for year in all_years:
+        df_year = df_season[df_season["Year"] == year]
+        year_district_data = []
+        
+        for _, state_row in df_year.iterrows():
+            state_name = state_row["State"]
+            state_total_value = state_row[metric]
+            
+            state_districts = gdf_districts[gdf_districts['ST_NM'].str.lower() == state_name.lower()]
+            
+            if not state_districts.empty:
+                n_districts = len(state_districts)
+                proportions = np.random.dirichlet(np.ones(n_districts))
+                dummy_values = proportions * state_total_value
+                
+                for i, district_name in enumerate(state_districts['DISTRICT']):
+                    year_district_data.append(MapData(name=district_name, value=dummy_values[i]))
+        
+        all_districts_data[year] = year_district_data
+
+    # Prepare series for Highcharts
+    district_map_series = []
+    for year, data in all_districts_data.items():
+        district_map_series.append(MapSeries(data=data, name=year))
+        
+    # Highcharts District Map Configuration
+    district_map_options = MapOptions(
+        chart=SharedOptions(
+            map=gdf_districts_json
+        ),
+        title={'text': f'District-wise {pulse_type} {metric} ({season}) from {all_years[0]} to {all_years[-1]}'},
+        map_navigation={'enabled': True, 'button_options': {'vertical_align': 'bottom'}},
+        color_axis=ColorAxis(min=0),
+        tooltip=TooltipOptions(
+            point_format='{point.name}: {point.value:.2f}'
+        ),
+        legend=Legend(enabled=False)
+    )
+
+    district_chart = Chart.from_options(district_map_options)
+    if district_map_series:
+        district_chart.add_series(district_map_series[0])
+
+    # Render Highcharts district map with slider
+    st.components.v1.html(district_chart.to_html_repr(), height=700)
+
+except Exception as e:
+    st.error(f"An error occurred: {e}")
+'''import streamlit as st
+import pandas as pd
 import os
 import plotly.express as px
 import plotly.graph_objects as go
@@ -617,7 +801,7 @@ with open("states_india.geojson", "r", encoding="utf-8") as f:
 # Print the first feature
 first_feature = india_geojson["features"][0]
 st.write(first_feature)
-
+'''
 
 
 
