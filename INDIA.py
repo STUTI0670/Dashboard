@@ -77,9 +77,9 @@ dynamic_links = {
     ('pulses', 'Kharif', 'Arhar', 'Area'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_area.html',
     ('pulses', 'Kharif', 'Arhar', 'Production'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_production.html',
     ('pulses', 'Kharif', 'Arhar', 'Yield'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_yield.html',
-    ('pulses', 'Kharif', 'Khesari', 'Area'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_area.html',
-    ('pulses', 'Kharif', 'Khesari', 'Production'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_production.html',
-    ('pulses', 'Kharif', 'Khesari', 'Yield'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_yield.html',
+    ('pulses', 'Rabi', 'Khesari', 'Area'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_area.html',
+    ('pulses', 'Rabi', 'Khesari', 'Production'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_production.html',
+    ('pulses', 'Rabi', 'Khesari', 'Yield'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_yield.html',
     # State-wise district maps
     #('state', 'Rabi', 'Khesari', 'Yield'): 'https://example.com/rabi/moong/yield',
     #('full',   'Total',  'Masoor','Production'): 'https://example.com/total/masoor/production',
