@@ -66,6 +66,40 @@ html, body, [class*="css"] {
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
+# ---------- CATEGORY HIERARCHY DEFINITION ----------
+category_hierarchy = {
+    "Agriculture": {
+        "Foodgrains": {
+            "Cereals": ["Rice", "Wheat", "Cereals"],
+            "Foodgrains": ["Foodgrains"],
+            "Coarse Cereals": ["Maize", "Coarse Cereals"],
+            "Pulses": ["Pulses"]
+        },
+        "Horticulture": {"Fruits": ["Fruits"], "Vegetables": ["Vegetables"]},
+        "Oilseeds": {"Oilseeds": ["Oilseeds"]},
+        "Commercial Crops": {"Sugar and Products": ["Sugar and Products"]}
+    },
+    "Allied Sectors": {
+        "Animal Products": {
+            "Eggs": ["Eggs"], "Milk": ["Milk"], "Meat": ["Meat"], "Marine and Inland Fish": ["Marine and Inland Fish"]
+        }
+    }
+}
+
+# ---------- SIDEBAR CONTROLS: CATEGORY HIERARCHY ----------
+with st.sidebar:
+    st.markdown("### 📂 Select Category")
+    level1 = st.selectbox("Category", list(category_hierarchy.keys()))
+    level2 = st.selectbox("Subcategory", list(category_hierarchy[level1].keys()))
+    level3 = st.selectbox("Group", list(category_hierarchy[level1][level2].keys()))
+    level4 = st.selectbox("Item", category_hierarchy[level1][level2][level3])
+
+    # Only Pulses has data; others show error and stop
+    if level4 != "Pulses":
+        st.error("Data not available for the selected item.")
+        st.stop()
+
+
 # ---------- DYNAMIC LINKS SETUP ----------
 # Define your hardcoded URLs for each scenario:
 dynamic_links = {
