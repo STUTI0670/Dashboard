@@ -90,12 +90,6 @@ def get_dynamic_link(key_tuple):
 # ---------- INDIA PULSES CHOROPLETH MAP ----------
 st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
 
-# Insert Dynamic view link for pulses map
-dyn_key = ('pulses', season, pulse_type, metric)
-dyn_url = get_dynamic_link(dyn_key)
-if dyn_url:
-    st.markdown(f"[🔗 Dynamic view]({dyn_url})", unsafe_allow_html=True)
-
 
 with st.sidebar:
     st.markdown("### 🌱 Pulses Map Settings")
@@ -105,6 +99,13 @@ with st.sidebar:
     pulse_type = st.selectbox("Select Pulse Type", pulse_sheets)
 
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
+
+# Insert Dynamic view link for pulses map
+dyn_key = ('pulses', season, pulse_type, metric)
+dyn_url = get_dynamic_link(dyn_key)
+if dyn_url:
+    st.markdown(f"[🔗 Dynamic view]({dyn_url})", unsafe_allow_html=True)
+
 
 try:
     
