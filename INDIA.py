@@ -196,6 +196,23 @@ def load_india_districts_shapefile():
     gdf = gdf.set_crs(epsg=4326, inplace=False)
     return gdf
 
+
+
+State_Name_CORRECTIONS = {
+    "Orissa": "Odisha",
+    "Jammu & Kashmir": "Jammu and Kashmir",
+    "Chhattisgarh": "Chhattishgarh",
+    "Telangana": "Telengana",
+    "Tamil Nadu": "Tamilnadu",
+    "Kerela": "Kerala",
+    "Andaman & Nicobar Islands": "Andaman & Nicobar",
+    "Arunachal Pradesh": "Arunanchal Pradesh",
+    "Dadra & Nagar Haveli": "Dadara & Nagar Havelli",
+    "India": None,  # Special handling → we don't want user to select "India" in district map!
+    "Delhi": "NCT of Delhi"
+}
+
+
 gdf_districts = load_india_districts_shapefile()
 gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(State_Name_CORRECTIONS)
 gdf_districts["ST_NM"] = gdf_districts["ST_NM"].str.strip().str.upper()
@@ -283,21 +300,6 @@ else:
 
 # ---------- STATE MAP VIEW ----------
 
-
-
-State_Name_CORRECTIONS = {
-    "Orissa": "Odisha",
-    "Jammu & Kashmir": "Jammu and Kashmir",
-    "Chhattisgarh": "Chhattishgarh",
-    "Telangana": "Telengana",
-    "Tamil Nadu": "Tamilnadu",
-    "Kerela": "Kerala",
-    "Andaman & Nicobar Islands": "Andaman & Nicobar",
-    "Arunachal Pradesh": "Arunanchal Pradesh",
-    "Dadra & Nagar Haveli": "Dadara & Nagar Havelli",
-    "India": None,  # Special handling → we don't want user to select "India" in district map!
-    "Delhi": "NCT of Delhi"
-}
 
 # Sidebar: State Map View
 st.sidebar.markdown("---")
