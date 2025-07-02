@@ -189,6 +189,13 @@ except Exception as e:
 
 # gdf-districts code
 
+# Load full India District shapefile (load once → top of file / cache)
+@st.cache_data
+def load_india_districts_shapefile():
+    gdf = gpd.read_file("India_Shapefile/State/2011_Dist.shp")
+    gdf = gdf.set_crs(epsg=4326, inplace=False)
+    return gdf
+
 gdf_districts = load_india_districts_shapefile()
 gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(State_Name_CORRECTIONS)
 gdf_districts["ST_NM"] = gdf_districts["ST_NM"].str.strip().str.upper()
@@ -277,13 +284,6 @@ else:
 # ---------- STATE MAP VIEW ----------
 
 
-
-# Load full India District shapefile (load once → top of file / cache)
-@st.cache_data
-def load_india_districts_shapefile():
-    gdf = gpd.read_file("India_Shapefile/State/2011_Dist.shp")
-    gdf = gdf.set_crs(epsg=4326, inplace=False)
-    return gdf
 
 State_Name_CORRECTIONS = {
     "Orissa": "Odisha",
