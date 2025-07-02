@@ -187,6 +187,11 @@ try:
 except Exception as e:
     st.error(f"An error occurred: {e}")
 
+# gdf-districts code
+
+gdf_districts = load_india_districts_shapefile()
+gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(State_Name_CORRECTIONS)
+gdf_districts["ST_NM"] = gdf_districts["ST_NM"].str.strip().str.upper()
 
 # ---------- FULL INDIA DISTRICT MAP ----------
 st.markdown("---")
@@ -293,11 +298,6 @@ State_Name_CORRECTIONS = {
     "India": None,  # Special handling → we don't want user to select "India" in district map!
     "Delhi": "NCT of Delhi"
 }
-
-
-gdf_districts = load_india_districts_shapefile()
-gdf_districts["ST_NM"] = gdf_districts["ST_NM"].replace(State_Name_CORRECTIONS)
-gdf_districts["ST_NM"] = gdf_districts["ST_NM"].str.strip().str.upper()
 
 # Sidebar: State Map View
 st.sidebar.markdown("---")
