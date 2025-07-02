@@ -66,9 +66,36 @@ html, body, [class*="css"] {
 if "selected_type" not in st.session_state:
     st.session_state.selected_type = None
 
+# ---------- DYNAMIC LINKS SETUP ----------
+# Define your hardcoded URLs for each scenario:
+dynamic_links = {
+    # Pulses map (state-level full India)
+    ('pulses', 'Rabi', 'Gram', 'Area'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_area.html',
+    # Add one entry per combination: (section, season, pulse_type, metric)
+    ('pulses', 'Rabi', 'Gram', 'Production'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_production.html',
+    ('pulses', 'Rabi', 'Gram', 'Yield'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_yield.html',
+    ('pulses', 'Kharif', 'Arhar', 'Area'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_area.html',
+    ('pulses', 'Kharif', 'Arhar', 'Production'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_production.html',
+    ('pulses', 'Kharif', 'Arhar', 'Yield'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_yield.html',
+    # State-wise district maps
+    #('state', 'Rabi', 'Khesari', 'Yield'): 'https://example.com/rabi/moong/yield',
+    #('full',   'Total',  'Masoor','Production'): 'https://example.com/total/masoor/production',
+    # ... and so on for each scenario
+}
+
+# Utility to fetch link or fallback
+def get_dynamic_link(key_tuple):
+    return dynamic_links.get(key_tuple, None)
 
 # ---------- INDIA PULSES CHOROPLETH MAP ----------
 st.subheader("🇮🇳 India Pulses Choropleth Map Over Time")
+
+# Insert Dynamic view link for pulses map
+dyn_key = ('pulses', season, pulse_type, metric)
+dyn_url = get_dynamic_link(dyn_key)
+if dyn_url:
+    st.markdown(f"[🔗 Dynamic view]({dyn_url})", unsafe_allow_html=True)
+
 
 with st.sidebar:
     st.markdown("### 🌱 Pulses Map Settings")
@@ -158,6 +185,16 @@ except Exception as e:
 
 
 # ---------- STATE MAP VIEW ----------
+
+#   After subheader for state map
+if selected_state_map != "None":
+    st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
+    # Insert Dynamic view link for state-level map
+    dyn_key_state = ('state', season, pulse_type, metric)
+    dyn_url_state = get_dynamic_link(dyn_key_state)
+    if dyn_url_state:
+        st.markdown(f"[🔗 Dynamic view]({dyn_url_state})")
+
 
 # Load full India District shapefile (load once → top of file / cache)
 @st.cache_data
@@ -387,6 +424,12 @@ if selected_state_map != "None":
 # ---------- FULL INDIA DISTRICT MAP ----------
 st.markdown("---")
 st.subheader("🇮🇳 Full India District Map View (Fabricated Values)")
+
+# Insert Dynamic view link for full district map
+dyn_key_full = ('full', season, pulse_type, metric)
+dyn_url_full = get_dynamic_link(dyn_key_full)
+if dyn_url_full:
+    st.markdown(f"[🔗 Dynamic view]({dyn_url_full})")
 
 # Auto detect STATE and DISTRICT columns
 state_col = None
