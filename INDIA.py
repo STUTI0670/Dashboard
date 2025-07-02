@@ -231,7 +231,7 @@ selected_state_map = st.sidebar.selectbox("Select State for State Map", state_op
 
 #   After subheader for state map
 if selected_state_map != "None":
-    st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
+    #st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
     # Insert Dynamic view link for state-level map
     dyn_key_state = ('state', season, pulse_type, metric)
     dyn_url_state = get_dynamic_link(dyn_key_state)
