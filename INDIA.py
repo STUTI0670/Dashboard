@@ -100,11 +100,11 @@ with st.sidebar:
 
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
-# Insert Dynamic view link for pulses map
-dyn_key = ('pulses', season, pulse_type, metric)
-dyn_url = get_dynamic_link(dyn_key)
-if dyn_url:
-    st.markdown(f"[🔗 Dynamic view]({dyn_url})", unsafe_allow_html=True)
+    # Insert Dynamic view link for pulses map
+    dyn_key = ('pulses', season, pulse_type, metric)
+    dyn_url = get_dynamic_link(dyn_key)
+    if dyn_url:
+        st.markdown(f"[🔗 Dynamic view]({dyn_url})", unsafe_allow_html=True)
 
 
 try:
