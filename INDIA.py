@@ -187,14 +187,6 @@ except Exception as e:
 
 # ---------- STATE MAP VIEW ----------
 
-#   After subheader for state map
-if selected_state_map != "None":
-    st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
-    # Insert Dynamic view link for state-level map
-    dyn_key_state = ('state', season, pulse_type, metric)
-    dyn_url_state = get_dynamic_link(dyn_key_state)
-    if dyn_url_state:
-        st.markdown(f"[🔗 Dynamic view]({dyn_url_state})")
 
 
 # Load full India District shapefile (load once → top of file / cache)
@@ -236,6 +228,16 @@ available_states = df_selected_year["State"].str.upper().unique().tolist()
 state_options = ["None"] + sorted(available_states)
 
 selected_state_map = st.sidebar.selectbox("Select State for State Map", state_options)
+
+#   After subheader for state map
+if selected_state_map != "None":
+    st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
+    # Insert Dynamic view link for state-level map
+    dyn_key_state = ('state', season, pulse_type, metric)
+    dyn_url_state = get_dynamic_link(dyn_key_state)
+    if dyn_url_state:
+        st.markdown(f"[🔗 Dynamic view]({dyn_url_state})")
+
 
 # Auto detect STATE column
 state_col = None
