@@ -103,22 +103,70 @@ with st.sidebar:
 # ---------- DYNAMIC LINKS SETUP ----------
 # Define your hardcoded URLs for each scenario:
 dynamic_links = {
-    # Pulses map (state-level full India)
-    ('pulses', 'Rabi', 'Gram', 'Area'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_area.html',
-    # Add one entry per combination: (section, season, pulse_type, metric)
-    ('pulses', 'Rabi', 'Gram', 'Production'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_production.html',
-    ('pulses', 'Rabi', 'Gram', 'Yield'): 'https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_yield.html',
-    ('pulses', 'Kharif', 'Arhar', 'Area'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_area.html',
-    ('pulses', 'Kharif', 'Arhar', 'Production'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_production.html',
-    ('pulses', 'Kharif', 'Arhar', 'Yield'): 'https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_yield.html',
-    ('pulses', 'Rabi', 'Khesari', 'Area'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_area.html',
-    ('pulses', 'Rabi', 'Khesari', 'Production'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_production.html',
-    ('pulses', 'Rabi', 'Khesari', 'Yield'): 'https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_yield.html',
-    # State-wise district maps
-    #('state', 'Rabi', 'Khesari', 'Yield'): 'https://example.com/rabi/moong/yield',
-    #('full',   'Total',  'Masoor','Production'): 'https://example.com/total/masoor/production',
-    # ... and so on for each scenario
+    # Arhar (Kharif)
+    ('pulses', 'Kharif', 'Arhar', 'Area'): "https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_area.html",
+    ('pulses', 'Kharif', 'Arhar', 'Production'): "https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_production.html",
+    ('pulses', 'Kharif', 'Arhar', 'Yield'): "https://sprightly-bunny-22a0be.netlify.app/arhar_kharif_yield.html",
+
+    # Gram (Rabi)
+    ('pulses', 'Rabi', 'Gram', 'Area'): "https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_area.html",
+    ('pulses', 'Rabi', 'Gram', 'Production'): "https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_production.html",
+    ('pulses', 'Rabi', 'Gram', 'Yield'): "https://fascinating-fenglisu-5e6117.netlify.app/gram_rabi_yield.html",
+
+    # Khesari (Rabi)
+    ('pulses', 'Rabi', 'Khesari', 'Area'): "https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_area.html",
+    ('pulses', 'Rabi', 'Khesari', 'Production'): "https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_production.html",
+    ('pulses', 'Rabi', 'Khesari', 'Yield'): "https://friendly-gecko-bfeb51.netlify.app/khesari_rabi_yield.html",
+
+    # Kulthi (Kharif, Rabi, Total)
+    ('pulses', 'Kharif', 'Kulthi', 'Area'): "https://cozy-ganache-3d493a.netlify.app/kulthi_kharif_area.html",
+    ('pulses', 'Kharif', 'Kulthi', 'Production'): "https://cozy-ganache-3d493a.netlify.app/kulthi_kharif_production.html",
+    ('pulses', 'Kharif', 'Kulthi', 'Yield'): "https://cozy-ganache-3d493a.netlify.app/kulthi_kharif_yield.html",
+    ('pulses', 'Rabi', 'Kulthi', 'Area'): "https://cozy-ganache-3d493a.netlify.app/kulthi_rabi_area.html",
+    ('pulses', 'Rabi', 'Kulthi', 'Production'): "https://cozy-ganache-3d493a.netlify.app/kulthi_rabi_production.html",
+    ('pulses', 'Rabi', 'Kulthi', 'Yield'): "https://cozy-ganache-3d493a.netlify.app/kulthi_rabi_yield.html",
+    ('pulses', 'Total', 'Kulthi', 'Area'): "https://cozy-ganache-3d493a.netlify.app/kulthi_total_area.html",
+    ('pulses', 'Total', 'Kulthi', 'Production'): "https://cozy-ganache-3d493a.netlify.app/kulthi_total_production.html",
+    ('pulses', 'Total', 'Kulthi', 'Yield'): "https://cozy-ganache-3d493a.netlify.app/kulthi_total_yield.html",
+
+    # Moong (Kharif, Rabi, Total)
+    ('pulses', 'Kharif', 'Moong', 'Area'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_kharif_area.html",
+    ('pulses', 'Kharif', 'Moong', 'Production'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_kharif_production.html",
+    ('pulses', 'Kharif', 'Moong', 'Yield'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_kharif_yield.html",
+    ('pulses', 'Rabi', 'Moong', 'Area'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_rabi_area.html",
+    ('pulses', 'Rabi', 'Moong', 'Production'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_rabi_production.html",
+    ('pulses', 'Rabi', 'Moong', 'Yield'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_rabi_yield.html",
+    ('pulses', 'Total', 'Moong', 'Area'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_total_area.html",
+    ('pulses', 'Total', 'Moong', 'Production'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_total_production.html",
+    ('pulses', 'Total', 'Moong', 'Yield'): "https://dynamic-brioche-b7ca0b.netlify.app/moong_total_yield.html",
+
+    # Moth (Kharif)
+    ('pulses', 'Kharif', 'Moth', 'Area'): "https://celebrated-hotteok-b26714.netlify.app/moth_kharif_area.html",
+    ('pulses', 'Kharif', 'Moth', 'Production'): "https://celebrated-hotteok-b26714.netlify.app/moth_kharif_production.html",
+    ('pulses', 'Kharif', 'Moth', 'Yield'): "https://celebrated-hotteok-b26714.netlify.app/moth_kharif_yield.html",
+
+    # Urad (Kharif, Rabi, Total)
+    ('pulses', 'Kharif', 'Urad', 'Area'): "https://resilient-licorice-ca28b9.netlify.app/urad_kharif_area.html",
+    ('pulses', 'Kharif', 'Urad', 'Production'): "https://resilient-licorice-ca28b9.netlify.app/urad_kharif_production.html",
+    ('pulses', 'Kharif', 'Urad', 'Yield'): "https://resilient-licorice-ca28b9.netlify.app/urad_kharif_yield.html",
+    ('pulses', 'Rabi', 'Urad', 'Area'): "https://resilient-licorice-ca28b9.netlify.app/urad_rabi_area.html",
+    ('pulses', 'Rabi', 'Urad', 'Production'): "https://resilient-licorice-ca28b9.netlify.app/urad_rabi_production.html",
+    ('pulses', 'Rabi', 'Urad', 'Yield'): "https://resilient-licorice-ca28b9.netlify.app/urad_rabi_yield.html",
+    ('pulses', 'Total', 'Urad', 'Area'): "https://resilient-licorice-ca28b9.netlify.app/urad_total_area.html",
+    ('pulses', 'Total', 'Urad', 'Production'): "https://resilient-licorice-ca28b9.netlify.app/urad_total_production.html",
+    ('pulses', 'Total', 'Urad', 'Yield'): "https://resilient-licorice-ca28b9.netlify.app/urad_total_yield.html",
+
+    # Masoor (Rabi)
+    ('pulses', 'Rabi', 'Masoor', 'Area'): "https://zingy-custard-fe316d.netlify.app/masoor_rabi_area.html",
+    ('pulses', 'Rabi', 'Masoor', 'Production'): "https://zingy-custard-fe316d.netlify.app/masoor_rabi_production.html",
+    ('pulses', 'Rabi', 'Masoor', 'Yield'): "https://zingy-custard-fe316d.netlify.app/masoor_rabi_yield.html",
+
+    # Peas (Rabi)
+    ('pulses', 'Rabi', 'Peas', 'Area'): "https://tangerine-gingersnap-27e07c.netlify.app/peas_rabi_area.html",
+    ('pulses', 'Rabi', 'Peas', 'Production'): "https://tangerine-gingersnap-27e07c.netlify.app/peas_rabi_production.html",
+    ('pulses', 'Rabi', 'Peas', 'Yield'): "https://tangerine-gingersnap-27e07c.netlify.app/peas_rabi_yield.html",
 }
+
 
 # Utility to fetch link or fallback
 def get_dynamic_link(key_tuple):
