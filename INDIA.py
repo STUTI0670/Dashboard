@@ -217,7 +217,36 @@ try:
     df = df.rename(columns={"States/UTs": "State"})
 
     # Filter season-wise
-    df = df[df["Season"].str.lower() == season.lower()]
+    #df = df[df["Season"].str.lower() == season.lower()]
+    # Normalize column formatting
+    df["Season"] = df["Season"].str.strip().str.lower()
+    df["Year"] = df["Year"].astype(str)
+    df["State"] = df["State"].str.strip()
+    df[metric] = pd.to_numeric(df[metric], errors="coerce")
+
+    # Handle 'Total' season logic
+    if season.lower() == "total":
+        # Check if 'total' data exists
+        total_df = df[df["Season"] == "total"]
+    
+        if total_df.empty:
+            # If no direct total data, compute from Kharif + Rabi
+            kharif_df = df[df["Season"] == "kharif"]
+            rabi_df = df[df["Season"] == "rabi"]
+
+            # Combine both
+            combined_df = pd.concat([kharif_df, rabi_df])
+
+            # Group by State and Year and aggregate
+            df = combined_df.groupby(["State", "Year"], as_index=False)[metric].sum()
+            df["Season"] = "total"
+        else:
+            df = total_df
+    else:
+        # Filter season-wise normally
+        df = df[df["Season"] == season.lower()]
+
+
 
     # Coerce numeric
     df["Year"] = df["Year"].astype(str)
