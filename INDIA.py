@@ -233,7 +233,7 @@ try:
         "Tamil Nadu": "Tamilnadu",
         "Kerela": "Kerala",
         "Andaman & Nicobar Islands": "Andaman & Nicobar"
-    
+        "INDIA": None
     })
 
     selected_year = st.sidebar.selectbox("Select Year", sorted(df["Year"].unique()))
