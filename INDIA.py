@@ -402,6 +402,9 @@ st.sidebar.markdown("### 🗺️ State Map View")
 # Extract available states in current df_selected_year
 available_states = df_selected_year["State"].str.upper().unique().tolist()
 
+# Remove "INDIA" from the list
+available_states = [s for s in available_states if s != "INDIA"]
+
 # Dropdown options → dynamic + "None" on top
 state_options = ["None"] + sorted(available_states)
 
