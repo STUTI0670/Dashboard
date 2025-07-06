@@ -180,8 +180,18 @@ with st.sidebar:
     st.markdown("### 🌱 Pulses Map Settings")
     season = st.selectbox("Select Season", ["Kharif", "Rabi", "Total"])
 
-    pulse_sheets = ["Gram", "Urad", "Moong", "Masoor", "Moth", "Kulthi", "Khesari", "Peas", "Arhar"]
-    pulse_type = st.selectbox("Select Pulse Type", pulse_sheets)
+    # Determine pulses with data for the selected season
+    available_pulses = sorted({
+        key[2]  # extract pulse_type
+        for key in dynamic_links.keys()
+        if key[1] == season  # filter by current season
+    })
+
+    if not available_pulses:
+        st.error(f"No pulses data available for season '{season}'.")
+        st.stop()
+
+    pulse_type = st.selectbox("Select Pulse Type", available_pulses)
 
     metric = st.selectbox("Select Metric", ["Area", "Production", "Yield"])
 
