@@ -181,12 +181,27 @@ with st.sidebar:
     season = st.selectbox("Select Season", ["Kharif", "Rabi", "Total"])
 
     # Determine pulses with data for the selected season
-    available_pulses = sorted({
+    '''available_pulses = sorted({
         key[2]  # extract pulse_type
         for key in dynamic_links.keys()
         if key[1] == season  # filter by current season
-    })
+    })'''
+    if season != "Total":
+        available_pulses = sorted({
+            key[2]
+            for key in dynamic_links.keys()
+            if key[1] == season
+        })
+    else:
+        # Include pulses that have Kharif or Rabi data even if Total is missing
+        available_pulses = sorted({
+            key[2]
+            for key in dynamic_links.keys()
+            if key[1] in ["Kharif", "Rabi"]
+        })
 
+
+    
     if not available_pulses:
         st.error(f"No pulses data available for season '{season}'.")
         st.stop()
