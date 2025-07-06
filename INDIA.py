@@ -232,7 +232,7 @@ try:
         "Telangana": "Telengana",
         "Tamil Nadu": "Tamilnadu",
         "Kerela": "Kerala",
-        "Andaman & Nicobar Islands": "Andaman & Nicobar"
+        "Andaman & Nicobar Islands": "Andaman & Nicobar",
         "INDIA": None
     })
 
