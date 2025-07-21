@@ -421,8 +421,8 @@ else:
         ax=ax_full,
         legend=True,
         cmap='YlOrRd',
-        edgecolor='black',
-        missing_kwds={"color": "white", "edgecolor": "black"}
+        edgecolor='gray',
+        missing_kwds={"color": "white", "edgecolor": "gray"}
     )
     ax_full.set_title(f"Full India District Map - {metric} ({season}, {pulse_type}, {selected_year})", fontsize=16)
 
