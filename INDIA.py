@@ -303,7 +303,7 @@ try:
     merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
     # Plot India map
-    fig, ax = plt.subplots(1, 1, figsize=(6, 4))
+    fig, ax = plt.subplots(1, 1, figsize=(3, 2))
     merged.plot(
         column=metric,
         ax=ax,
