@@ -530,8 +530,8 @@ if selected_state_map != "None":
                 ax=ax2,
                 legend=True,
                 cmap='YlOrRd',
-                edgecolor='black',
-                missing_kwds={"color": "white", "edgecolor": "black"}
+                edgecolor='gray',
+                missing_kwds={"color": "white", "edgecolor": "gray"}
             )
             plt.title(f"{selected_state_map} District Map - {metric} ({season}, {pulse_type})", fontsize=14)
 
