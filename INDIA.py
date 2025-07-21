@@ -434,7 +434,7 @@ else:
 
 
 # ---------- OVERALL INDIA TREND ANIMATION (DEFAULT DISPLAY) ----------
-st.markdown("### 🇮🇳 Animated Trend for Overall India (Default View)")
+st.markdown("### 🇮🇳 Animated Trend for Overall India")
 
 # Prepare the India-level data
 india_df = df[df["State"].str.strip().str.upper() == "INDIA"].copy()
