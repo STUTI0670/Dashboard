@@ -303,13 +303,13 @@ try:
     merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
     # Plot India map
-    fig, ax = plt.subplots(1, 1, figsize=(3, 2))
+    fig, ax = plt.subplots(1, 1, figsize=(6, 4))
     merged.plot(
         column=metric,
         ax=ax,
         legend=True,
         cmap='YlOrRd',
-        edgecolor='black',
+        
         missing_kwds={"color": "white", "edgecolor": "black"}
     )
     ax.set_title(f"{pulse_type} - {season} - {metric} in {selected_year}", fontsize=12)
