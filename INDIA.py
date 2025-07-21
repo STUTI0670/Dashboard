@@ -312,7 +312,7 @@ try:
         edgecolor='black',
         missing_kwds={"color": "white", "edgecolor": "black"}
     )
-    plt.set_title(f"{pulse_type} - {season} - {metric} in {selected_year}", fontsize=12)
+    plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}", fontsize=12)
     st.pyplot(fig)
 
 
