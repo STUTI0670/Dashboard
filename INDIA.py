@@ -303,7 +303,7 @@ try:
     merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
     # Plot India map
-    fig, ax = plt.subplots(1, 1, figsize=(10, 12))
+    fig, ax = plt.subplots(1, 1, figsize=(4, 6))
     merged.plot(
         column=metric,
         ax=ax,
@@ -415,7 +415,7 @@ else:
             ] = dummy_values[i]
 
     # Plot the full India district map
-    fig_full, ax_full = plt.subplots(1, 1, figsize=(12, 14))
+    fig_full, ax_full = plt.subplots(1, 1, figsize=(6, 4))
     gdf_districts_full.plot(
         column="Dummy_Value",
         ax=ax_full,
@@ -524,7 +524,7 @@ if selected_state_map != "None":
             # Plot State district map
             st.markdown(f"### 📍 {selected_state_map} District Map - {metric} ({season}, {pulse_type})")
 
-            fig2, ax2 = plt.subplots(1, 1, figsize=(8, 10))
+            fig2, ax2 = plt.subplots(1, 1, figsize=(6, 4))
             state_gdf.plot(
                 column="Dummy_Value",
                 ax=ax2,
