@@ -430,6 +430,88 @@ else:
 
 
 
+
+
+
+# ---------- OVERALL INDIA TREND ANIMATION (DEFAULT DISPLAY) ----------
+st.markdown("### 🇮🇳 Animated Trend for Overall India (Default View)")
+
+# Prepare the India-level data
+india_df = df[df["State"].str.strip().str.upper() == "INDIA"].copy()
+india_df['Year'] = pd.to_numeric(india_df['Year'].astype(str).str.split('-').str[0])
+india_df = india_df.sort_values("Year")
+
+# Define the metric units for y-axis labels
+pulse_units = {
+    "Area": "'000 Hectare",
+    "Production": "'000 Tonne",
+    "Yield": "Kg/Hectare"
+}
+y_axis_title = f"{metric} ({pulse_units.get(metric, '')})"
+
+if not india_df.empty and india_df[metric].notna().any():
+    # Prepare animated frames
+    all_years = sorted(india_df["Year"].unique())
+    frames = []
+
+    for year in all_years:
+        frame = india_df[india_df["Year"] <= year].copy()
+        frame["FrameYear"] = year
+        frames.append(frame)
+
+    india_animated_df = pd.concat(frames, ignore_index=True)
+
+    # Axis bounds
+    y_min = india_df[metric].min() * 0.95
+    y_max = india_df[metric].max() * 1.05
+    x_min = india_df["Year"].min()
+    x_max = india_df["Year"].max()
+
+    # Plot
+    fig_india_trend = px.line(
+        india_animated_df,
+        x="Year",
+        y=metric,
+        animation_frame="FrameYear",
+        animation_group="State",
+        title=f"India-Level Animated Trend of {metric} for {pulse_type} ({season})",
+        markers=True,
+        labels={"Year": "Year", metric: y_axis_title},
+        range_y=[y_min, y_max],
+        range_x=[x_min, x_max]
+    )
+
+    fig_india_trend.update_layout(
+        yaxis_title=y_axis_title,
+        xaxis_title="Year",
+        font=dict(family="Poppins, sans-serif", size=12),
+        title_font_size=18,
+        legend_title="Metric",
+        sliders=[{'currentvalue': {'prefix': 'Year: '}, 'pad': {'t': 20}}],
+        updatemenus=[{
+            'type': 'buttons',
+            'showactive': False,
+            'x': 0.05,
+            'y': -0.15,
+            'buttons': [
+                {'label': 'Play', 'method': 'animate', 'args': [None, {'frame': {'duration': 150, 'redraw': True}, 'fromcurrent': True, 'transition': {'duration': 0}}]},
+                {'label': 'Pause', 'method': 'animate', 'args': [[None], {'frame': {'duration': 50, 'redraw': False}, 'mode': 'immediate', 'transition': {'duration': 0}}]}
+            ]
+        }]
+    )
+
+    st.plotly_chart(fig_india_trend, use_container_width=True)
+
+else:
+    st.warning(f"No overall India-level data available for '{metric}' in your dataset.")
+
+
+
+
+
+
+
+
 # ---------- STATE MAP VIEW ----------
 
 
