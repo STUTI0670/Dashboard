@@ -303,7 +303,7 @@ try:
     merged = gdf.merge(df_selected_year, left_on="State_Name", right_on="State", how="left")
 
     # Plot India map
-    fig, ax = plt.subplots(1, 1, figsize=(4, 6))
+    fig, ax = plt.subplots(1, 1, figsize=(6, 4))
     merged.plot(
         column=metric,
         ax=ax,
@@ -314,7 +314,6 @@ try:
     )
 
     plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}")
-    plt.tight_layout()  # ⬅️ Important for reducing empty margins
     st.pyplot(fig)
 
 except Exception as e:
