@@ -314,6 +314,7 @@ try:
     )
 
     plt.title(f"{pulse_type} - {season} - {metric} in {selected_year}")
+    plt.tight_layout()  # ⬅️ Important for reducing empty margins
     st.pyplot(fig)
 
 except Exception as e:
